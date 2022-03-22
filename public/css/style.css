@@ -1,0 +1,53 @@
+/* Set up type and colour */
+:root {
+    --text-big: 26px;
+    --text-small: 20px;
+    --font-family-body: 'PT Serif', serif;
+    --font-family-heading: 'Poppins', sans-serif;
+    --color-background-white: #ffffff;
+    --color-background-light: #eff6f9;
+    --color-background-lightmedium: #9fc0d6;
+    --color-background-medium: #466fa6;
+    --color-background-dark: #193773;
+    --color-background-lightaccent: #f2c1ae;
+    --color-background-accent: #f28379;
+    --color-text-black: #000000;
+    --color-text-white: #ffffff;
+}
+
+html {
+    width: 375px;
+    height: 812;
+}
+
+header {
+    background-color: var(--color-background-white);
+}
+
+body {
+    font-family: var(--font-family-body);
+    font-size: var(--text-small);  
+    color: var(--color-text-black);  
+    background-color: var(--color-background-white);
+}
+
+h2 {
+    font-size: var(--text-big);
+    font-family: var(--font-family-heading);
+}
+
+div {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: var(--color-background-lightmedium);
+    width: 80%;
+    border-radius: 5%;
+    padding: 5%;
+}
+
+#video {
+    text-align: center;
+    background-color: var(--color-background-white);
+}
