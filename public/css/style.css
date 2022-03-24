@@ -1,9 +1,18 @@
 /* Set up type and colour */
 :root {
-    --text-big: 26px;
-    --text-small: 20px;
+    /* Font Sizes */
+    --text-title-desktop: 60px;
+    --text-subheading-desktop: 36px;
+    --text-title: 33px;
+    --text-subheading: 26px;
+    --text-big: 20px;
+    --text-medium: 18px;
+    --text-small: 15px;
+    --text-smaller: 10px; 
+    /* Fonts */
     --font-family-body: 'PT Serif', serif;
     --font-family-heading: 'Poppins', sans-serif;
+    /* Background Colours */
     --color-background-white: #ffffff;
     --color-background-light: #eff6f9;
     --color-background-lightmedium: #9fc0d6;
@@ -11,6 +20,7 @@
     --color-background-dark: #193773;
     --color-background-lightaccent: #f2c1ae;
     --color-background-accent: #f28379;
+    /* Font Colours */
     --color-text-black: #000000;
     --color-text-white: #ffffff;
 }
@@ -34,11 +44,17 @@ header {
     width: 100%;
 }
 
+header img {
+    margin-left: 5%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
 body {
     display: flexbox;
     flex-direction: column;
     font-family: var(--font-family-body);
-    font-size: var(--text-small);  
+    font-size: var(--text-medium);  
     color: var(--color-text-black);  
     background-image: linear-gradient(var(--color-background-light), var(--color-background-lightmedium), var(--color-background-medium), var(--color-background-dark));
     background-attachment: fixed;
@@ -48,9 +64,20 @@ main {
     padding: 5%;
 }
 
-h2 {
-    font-size: var(--text-big);
+h1 {
+    font-size: var(--text-title);
     font-family: var(--font-family-heading);
+    font-weight: 700;
+}
+
+h2 {
+    font-size: var(--text-subheading);
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+}
+
+.center {
+    text-align: center;
 }
 
 .text {
@@ -58,7 +85,7 @@ h2 {
     text-align: center;
     background-color: var(--color-background-light);
     width: 80%;
-    border-radius: 5%;
+    border-radius: 10%;
     padding: 5%;
 }
 
@@ -69,6 +96,42 @@ h2 {
     align-items: center;
 }
 
-#info, a:link {
+#info, a:link, a:visited {
     color: var(--color-text-white);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+hr {
+    width: 96%;               
+    background-color:var(--color-background-white);
+    height: 2px;
+    margin-bottom: 2px;
+  }
+
+#login-button {
+    display: inline-flex;
+    background-color: var(--color-background-light);
+    color: var(--color-text-black);
+    text-align: center;
+    font-size: var(--text-big);
+    font-weight: bold;
+    font-family: var(--font-family-heading);
+    padding: 10px 25px;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+#login-button:hover {
+    background-color: var(--color-background-lightmedium);
+}
+
+#login-button:active {
+    background-color: var(--color-background-lightmedium);
+    box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.6);
+    transform: translateY(4px);
 }
