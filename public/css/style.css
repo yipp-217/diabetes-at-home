@@ -56,6 +56,9 @@ body {
     font-family: var(--font-family-body);
     font-size: var(--text-medium);  
     color: var(--color-text-black);  
+}
+
+#about {
     background-image: linear-gradient(var(--color-background-light), var(--color-background-lightmedium), var(--color-background-medium), var(--color-background-dark));
     background-attachment: fixed;
 }
@@ -112,7 +115,7 @@ hr {
     margin-bottom: 2px;
   }
 
-#login-button {
+button {
     display: inline-flex;
     background-color: var(--color-background-light);
     color: var(--color-text-black);
@@ -126,11 +129,11 @@ hr {
     box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
-#login-button:hover {
+button:hover {
     background-color: var(--color-background-lightmedium);
 }
 
-#login-button:active {
+button:active {
     background-color: var(--color-background-lightmedium);
     box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.6);
     transform: translateY(4px);
