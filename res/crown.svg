@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="63.021" height="50.417" viewBox="0 0 63.021 50.417">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#eac3b1"/>
+      <stop offset="0.892" stop-color="#dc8988"/>
+      <stop offset="1" stop-color="#e3897d"/>
+    </linearGradient>
+  </defs>
+  <path id="Icon_awesome-crown" data-name="Icon awesome-crown" d="M51.992,44.115H11.029A1.58,1.58,0,0,0,9.453,45.69v3.151a1.58,1.58,0,0,0,1.576,1.576H51.992a1.58,1.58,0,0,0,1.576-1.576V45.69A1.58,1.58,0,0,0,51.992,44.115Zm6.3-31.51a4.728,4.728,0,0,0-4.727,4.727A4.631,4.631,0,0,0,54,19.28l-7.129,4.274a3.147,3.147,0,0,1-4.352-1.142L34.494,8.37a4.727,4.727,0,1,0-5.967,0L20.5,22.412a3.149,3.149,0,0,1-4.352,1.142L9.03,19.28a4.725,4.725,0,1,0-4.3,2.777,4.827,4.827,0,0,0,.758-.079L12.6,40.963H50.417l7.119-18.985a4.827,4.827,0,0,0,.758.079,4.727,4.727,0,1,0,0-9.453Z" fill="url(#linear-gradient)"/>
+</svg>
