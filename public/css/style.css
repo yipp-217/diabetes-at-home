@@ -182,7 +182,7 @@ button:active {
 
 
 .leaderboard_bg {
-  background-image: url(../../res/leaderboard-bg.png);
+  background-image: url(../res/leaderboard-bg.png);
   background-position: center top;
   background-repeat: no-repeat;
 }
@@ -204,22 +204,23 @@ button:active {
   overflow-x: auto;
 }
 
-.top_left_img {
-  float: left;
+.top_nav_icon {
+  height: 40px;
   margin: 5% 10%;
   white-space: nowrap;
 }
 
+.top_left_img {
+  float: left;
+}
+
 .top_right_img {
   float: right;
-  margin: 5% 10%;
-  white-space: nowrap;
 }
 
 .right_img {
   float: right;
   margin: 5% 3%;
-  white-space: nowrap;
 }
 
 
@@ -231,14 +232,13 @@ button:active {
   width: 100%;
   display: flex;
   overflow-x: auto;
-
+  justify-content: center;
+  align-items: center;
 }
 
 .bottom_nav_icon {
   margin: 5%;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-grow: 1;
   height: 40px;
   white-space: nowrap;
