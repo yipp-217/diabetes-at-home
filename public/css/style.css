@@ -250,3 +250,15 @@ main {
   
 }
 /******************************************/
+
+/****************** adding font style ************************/
+.poppins26 {
+  font-size: var(--text-subheading);
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+}
+
+
+
+
+/********************* adding color style ************************************/
