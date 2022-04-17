@@ -1,7 +1,4 @@
-<header>
-    <br />
-    <img src="../res/hambuger-menu.png" />
-</header>
+{{> sidenav context}}
 <br />
 <br />
 <br />
@@ -17,17 +14,20 @@
     <div class="center"><h2>Login</h2></div>
     <br />
 
-    <form>
+    <form action="patient_main" method="post">
         <label for="email">Email</label><br>
-        <input type="text" id="email" name="email" placeholder="Email" class="text"><br>
+        <input type="text" id="email" name="email" placeholder="Enter Email" class="text" required><br>
         <br />
         <label for="password">Password</label><br>
-        <input type="text" id="password" name="password" placeholder="Password" class="text"><br>
+        <input type="password" id="password" name="password" placeholder="Enter Password" class="text" required><br>
         <br />
-        <span class="leftBox">Remember me</span>
-        <span class="rightBox">Forgot Password?</span>
+        <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+        <span class="rightBox"><a href="#">Forgot Password?</a></span>
         <br />
         <br />
-        <button><input type="submit" value="Log in"></button>
+        <button type="submit">Login</button>
     </form>
+
 </main>
