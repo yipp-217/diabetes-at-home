@@ -1,0 +1,304 @@
+/* Set up type and colour */
+:root {
+    /* Font Sizes */
+    --text-title-desktop: 60px;
+    --text-subheading-desktop: 36px;
+    --text-title: 33px;
+    --text-subheading: 26px;
+    --text-big: 20px;
+    --text-medium: 18px;
+    --text-small: 15px;
+    --text-smaller: 10px;
+    /* Fonts */
+    --font-family-body: "PT Serif", serif;
+    --font-family-heading: "Poppins", sans-serif;
+    /* Background Colours */
+    --color-background-white: #ffffff;
+    --color-background-light: #eff6f9;
+    --color-background-lightmedium: #9fc0d6;
+    --color-background-medium: #466fa6;
+    --color-background-dark: #193773;
+    --color-background-lightaccent: #f2c1ae;
+    --color-background-accent: #f28379;
+    /* Font Colours */
+    --color-text-black: #000000;
+    --color-text-white: #ffffff;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+  }
+
+/****************** font css style ************************/
+.poppins60{
+    font-size: var(--text-title-desktop);
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    text-align: center;
+  }
+
+.poppins36{
+    font-size: var(--text-subheading-desktop);
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    text-align: center;
+  }
+
+.poppins33{
+    font-size: var(--text-title);
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    text-align: center;
+  }
+  
+.poppins26 {
+    font-size: var(--text-subheading);
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+  }
+  
+.PT20{
+    font-family: var(--font-family-body);
+    font-size: var(--text-medium);
+    color: var(--color-text-black);
+    text-align: center;
+    padding: 1%;
+  }
+  
+/******************* desktop font style *****************/
+h1 {font-size: var(--text-title-desktop);
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    text-align: center;}
+
+h2 {font-size: var(--text-subheading-desktop);
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    text-align: center;}
+
+.bigger_p {font-family: var(--font-family-body);
+    font-size: var(--text-big);
+    color: var(--color-text-black);
+    text-align: center;
+    font-weight: 700;
+    padding: 1%;}  
+
+p {font-family: var(--font-family-body);
+    font-size: var(--text-medium);
+    color: var(--color-text-black);
+    text-align: center;
+    padding: 1%;}
+
+/****************** header style ************************/
+  header {
+    background-color: var(--color-background-white);
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    height: 7.5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+  }
+  
+  .top_nav_icon {
+    width: 5vh;
+    margin: 20px;
+  }
+  
+  .top_left_icon {
+    float: left;
+  }
+  
+  .top_right_icon {
+    float: right;
+  }
+  
+  .right_icon {
+    float: right;
+    margin: 5% 3%;
+  }
+  
+  /****************** body css style ************************/
+  
+  .content{
+    padding-top: 12vh;
+    margin: 0 8%;
+    text-align: center;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+    height:100%;
+    background-image: linear-gradient(#FFFFFF,#4F6EA2);
+    background-attachment: fixed;
+  }
+  
+  .about{
+    margin: 2% 5% 5% 5%;
+  }
+  
+  .video{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    margin-top: 5%;
+  }
+  
+  .container{
+    background-color: var(--color-background-light);
+    filter:drop-shadow(5px 5px 5px rgb(0,0,0,0.16));
+    border-radius: 35px;
+    padding: 5%;
+    align-items: center;
+    justify-content: center;
+    display: block;
+    ;
+  }
+  
+  .more_info{
+    text-align: left;
+    margin: 5% 5% 5% 5%;
+    color: var(--color-background-white);
+  }
+
+  /*lines*/
+  hr {
+    width: 96%;
+    background-color: var(--color-background-white);
+    height: 2px;
+    margin-bottom: 2px;
+  }
+  
+  button{
+    display: inline-flex;
+    background-color: var(--color-background-light);
+    color: var(--color-text-black);
+    text-align: center;
+    font-size: var(--text-big);
+    font-weight: bold;
+    font-family: var(--font-family-heading);
+    padding: 10px 25px;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+/******************* adding color style ****************/
+
+
+/****************** footer style ***********************/
+footer {
+    height: 7.5vh;
+}
+/************* desktop size responsive ****************/
+#heading {
+    grid-area: heading;
+    text-align: center;
+    margin: 2%;
+}
+.subheading {
+    margin: 2%;
+}
+#desc {grid-area: desc;}
+#video {
+    grid-area: video;
+    position: relative;
+    height: 0;
+    padding-bottom: 56.25%;
+    padding-top: 35px;
+}
+#sec1 {grid-area: sec1;}
+#sec2 {grid-area: sec2;}
+#sec3 {grid-area: sec3;}
+.more_info {grid-area: more_info;}
+
+/** about diabetes page **/
+.about_diabetes_grid {
+    display: grid;
+    grid-template-columns: 50fr 50fr;
+    grid-gap: 4rem;
+    grid-template-areas:
+    "heading heading"
+    "video  desc"
+    "sec1  sec1"
+    "sec2  sec2"
+    "more_info more_info";
+}
+
+/** about website page **/
+.about_website_grid {
+    display: grid;
+    grid-template-columns: 50fr 50fr;
+    grid-gap: 4rem;
+    grid-template-areas:
+    "heading heading"
+    "desc desc"
+    "sec1 sec1"
+    "sec2 sec2"
+    "sec3 sec3";
+}
+
+/**************** phone size responsive ********************/
+@media screen and (max-width: 376px) {
+    /**** phone font style ****/
+    h1 {font-size: var(--text-title);}
+    h2 {font-size: var(--text-subheading);}
+    p {font-size: var(--text-small);}
+    .bigger_p {font-size: var(--text-medium);}
+    #video {align-self: center;}
+
+    /** about diabetes page **/
+    .about_diabetes_grid {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 2rem;
+    }
+    /** about website page **/
+    .about_website_grid {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 2rem;
+    }
+}
+
+
+/**************** tablet size responsive ********************/
+@media screen and (min-width: 376px) and (max-width: 1024px) { 
+
+    h1 {font-size: var(--text-title);}
+    h2 {font-size: var(--text-subheading);}
+    p {font-size: var(--text-medium);}
+
+    /** about diabetes page **/
+    .about_diabetes_grid {
+        display: grid;
+        grid-gap: 2rem; 
+        grid-template-areas:
+            "heading heading"
+            "video video"
+            "desc desc"
+            "sec1  sec2"
+            "more_info more_info";
+    }
+    /** about website page **/
+    .about_website_grid {
+        display: grid;
+        grid-template-columns: 50fr 50fr;
+        grid-gap: 2rem;
+        grid-template-areas:
+        "heading heading"
+        "desc desc"
+        "sec1 sec2"
+        "sec3 sec3";
+    }
+}
