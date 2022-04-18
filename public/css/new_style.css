@@ -162,6 +162,7 @@ p {font-family: var(--font-family-body);
     align-items: center;
     justify-content: center;
     display: block;
+    ;
   }
   
   .more_info{
@@ -192,14 +193,14 @@ p {font-family: var(--font-family-body);
     box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.2);
   }
   
-  /********************* adding color style ************************************/
+/******************* adding color style ****************/
 
 
- /****************** footer style ************************/
+/****************** footer style ***********************/
 footer {
     height: 7.5vh;
 }
-  /************* desktop size responsive ***************/
+/************* desktop size responsive ****************/
 #heading {
     grid-area: heading;
     text-align: center;
@@ -221,6 +222,7 @@ footer {
 #sec3 {grid-area: sec3;}
 .more_info {grid-area: more_info;}
 
+/** about diabetes page **/
 .about_diabetes_grid {
     display: grid;
     grid-template-columns: 50fr 50fr;
@@ -233,10 +235,11 @@ footer {
     "more_info more_info";
 }
 
+/** about website page **/
 .about_website_grid {
     display: grid;
     grid-template-columns: 50fr 50fr;
-    grid-gap: 2rem;
+    grid-gap: 4rem;
     grid-template-areas:
     "heading heading"
     "desc desc"
@@ -247,24 +250,36 @@ footer {
 
 /**************** phone size responsive ********************/
 @media screen and (max-width: 376px) {
+    /**** phone font style ****/
+    h1 {font-size: var(--text-title);}
+    h2 {font-size: var(--text-subheading);}
+    p {font-size: var(--text-small);}
+    .bigger_p {font-size: var(--text-medium);}
+    #video {align-self: center;}
+
+    /** about diabetes page **/
     .about_diabetes_grid {
         display: flex;
         flex-direction: column;
+        grid-gap: 2rem;
     }
-
-    /**** phone font style ****/
-    h1 {font-size: var(--text-title);}
-
-    h2 {font-size: var(--text-subheading);}
-
-    p {font-size: var(--text-small);}
-
-    #video {align-self: center;}
+    /** about website page **/
+    .about_website_grid {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 2rem;
+    }
 }
 
 
 /**************** tablet size responsive ********************/
 @media screen and (min-width: 376px) and (max-width: 1024px) { 
+
+    h1 {font-size: var(--text-title);}
+    h2 {font-size: var(--text-subheading);}
+    p {font-size: var(--text-medium);}
+
+    /** about diabetes page **/
     .about_diabetes_grid {
         display: grid;
         grid-gap: 2rem; 
@@ -275,14 +290,15 @@ footer {
             "sec1  sec2"
             "more_info more_info";
     }
-
-    h1 {font-size: var(--text-title);}
-
-    h2 {font-size: var(--text-subheading);}
-    
-    p {font-size: var(--text-medium);}
-
-    #video {
-        align-self: center;
+    /** about website page **/
+    .about_website_grid {
+        display: grid;
+        grid-template-columns: 50fr 50fr;
+        grid-gap: 2rem;
+        grid-template-areas:
+        "heading heading"
+        "desc desc"
+        "sec1 sec2"
+        "sec3 sec3";
     }
 }
