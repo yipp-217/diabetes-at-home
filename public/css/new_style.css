@@ -129,8 +129,17 @@
   }
   
   .more_info{
+    text-align: left;
     margin: 0% 5% 5% 5%;
     color: var(--color-background-white);
+  }
+
+  /*lines*/
+  hr {
+    width: 96%;
+    background-color: var(--color-background-white);
+    height: 2px;
+    margin-bottom: 2px;
   }
   
   button{
@@ -147,7 +156,41 @@
     box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.2);
   }
   
-  
-  
-  
   /********************* adding color style ************************************/
+
+
+ /****************** footer style ************************/
+
+
+  /************* grid ***************/
+#heading {
+    grid-area: heading;
+    text-align: center;
+    margin: 2%;
+}
+#desc {grid-area: desc;}
+#video {
+    grid-area: video;
+    position: relative;
+    height: 0;
+    padding-bottom: 56.25%;
+    padding-top: 35px;
+}
+#type1 {grid-area: type1;}
+#type2 {grid-area: type2;}
+.more_info {grid-area: more_info;}
+
+
+.about_diabetes_grid {
+    display: grid;
+    grid-template: auto auto auto auto/ 50fr 50fr;
+    grid-gap: 2rem;
+    align-items: center;
+    grid-template-areas:
+    "heading heading"
+    "video  desc"
+    "type1  type2"
+    "more_info more_info";
+}
+
+/************************************/
