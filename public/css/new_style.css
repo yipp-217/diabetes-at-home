@@ -1,0 +1,153 @@
+/* Set up type and colour */
+:root {
+    /* Font Sizes */
+    --text-title-desktop: 60px;
+    --text-subheading-desktop: 36px;
+    --text-title: 33px;
+    --text-subheading: 26px;
+    --text-big: 20px;
+    --text-medium: 18px;
+    --text-small: 15px;
+    --text-smaller: 10px;
+    /* Fonts */
+    --font-family-body: "PT Serif", serif;
+    --font-family-heading: "Poppins", sans-serif;
+    /* Background Colours */
+    --color-background-white: #ffffff;
+    --color-background-light: #eff6f9;
+    --color-background-lightmedium: #9fc0d6;
+    --color-background-medium: #466fa6;
+    --color-background-dark: #193773;
+    --color-background-lightaccent: #f2c1ae;
+    --color-background-accent: #f28379;
+    /* Font Colours */
+    --color-text-black: #000000;
+    --color-text-white: #ffffff;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+  }
+
+/****************** font css style ************************/
+
+.poppins33{
+    font-size: var(--text-title);
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    text-align: center;
+  }
+  
+  
+  .poppins26 {
+    font-size: var(--text-subheading);
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+  }
+  
+  .PT20{
+    font-family: var(--font-family-body);
+    font-size: var(--text-medium);
+    color: var(--color-text-black);
+    text-align: center;
+    padding: 1%;
+  }
+  
+  /****************** header style ************************/
+  header {
+    background-color: var(--color-background-white);
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 10vh;
+    overflow-x: auto;
+    z-index: 100;
+  }
+  
+  .top_nav_icon {
+    height: 40px;
+    margin: 20px;
+    white-space: nowrap;
+  }
+  
+  .top_left_img {
+    float: left;
+  }
+  
+  .top_right_img {
+    float: right;
+  }
+  
+  .right_img {
+    float: right;
+    margin: 5% 3%;
+  }
+  
+  /****************** body css style ************************/
+  
+  .content{
+    padding-top: 12vh;
+    margin: 0 8%;
+    text-align: center;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+    height:100%;
+    background-image: linear-gradient(#FFFFFF,#4F6EA2);
+    background-attachment: fixed;
+  }
+  
+  .about{
+    margin: 2% 5% 5% 5%;
+  }
+  
+  .video{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    margin-top: 5%;
+  }
+  
+  .container{
+    background-color: var(--color-background-light);
+    filter:drop-shadow(5px 5px 5px rgb(0,0,0,0.16));
+    border-radius: 35px;
+    padding: 5%;
+    margin:5% 0% 10% 0%;
+    align-items: center;
+    justify-content: center;
+    display: block;
+  }
+  
+  .more_info{
+    margin: 0% 5% 5% 5%;
+    color: var(--color-background-white);
+  }
+  
+  button{
+    display: inline-flex;
+    background-color: var(--color-background-light);
+    color: var(--color-text-black);
+    text-align: center;
+    font-size: var(--text-big);
+    font-weight: bold;
+    font-family: var(--font-family-heading);
+    padding: 10px 25px;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  
+  
+  /********************* adding color style ************************************/
