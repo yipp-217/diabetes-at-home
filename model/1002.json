@@ -4,9 +4,11 @@
     "type": "patient",
     "email": "cooper@gmail.com",
     "password": "coop666",
-    "fullName": "Yes Cooper",
+    "firstName": "Yes",
+    "lastName": "Cooper",
     "screenName": "Coopy",
-    "dateOfBirth": "13/09/2002"
+    "dateOfBirth": "13/09/2002",
+    "bio": "Yes! Yes! Yes!"
   },
 
   "clinician": "0003",

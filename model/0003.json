@@ -4,9 +4,11 @@
     "type": "clinician",
     "email": "alice@diabetes.com",
     "password": "alice123",
-    "fullName": "Alice Wonder",
+    "firstName": "Alice",
+    "lastName": "Wonder",
     "screenName": "alice#0001",
-    "dateOfBirth": "23/12/1977"
+    "dateOfBirth": "23/12/1977",
+    "bio": "I am professional, trust me!"
   },
 
   "patients": ["1001, 1002"]

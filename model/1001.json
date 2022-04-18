@@ -4,9 +4,11 @@
     "type": "patient",
     "email": "bob@gmail.com",
     "password": "bob666",
-    "fullName": "Bob Sponge",
+    "firstName": "Bob",
+    "lastName": "Sponge",
     "screenName": "BobTheSquarepants",
-    "dateOfBirth": "01/01/1999"
+    "dateOfBirth": "01/01/1999",
+    "bio": "I've a TV show."
   },
 
   "clinician": "0003",
