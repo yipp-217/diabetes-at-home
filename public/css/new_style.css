@@ -33,6 +33,19 @@
   }
 
 /****************** font css style ************************/
+.poppins60{
+    font-size: var(--text-title-desktop);
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    text-align: center;
+  }
+
+.poppins36{
+    font-size: var(--text-subheading-desktop);
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    text-align: center;
+  }
 
 .poppins33{
     font-size: var(--text-title);
@@ -41,14 +54,13 @@
     text-align: center;
   }
   
-  
-  .poppins26 {
+.poppins26 {
     font-size: var(--text-subheading);
     font-family: var(--font-family-heading);
     font-weight: 700;
   }
   
-  .PT20{
+.PT20{
     font-family: var(--font-family-body);
     font-size: var(--text-medium);
     color: var(--color-text-black);
@@ -56,33 +68,51 @@
     padding: 1%;
   }
   
-  /****************** header style ************************/
+/******************* desktop font style *****************/
+h1 {font-size: var(--text-title-desktop);
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    text-align: center;}
+
+h2 {font-size: var(--text-subheading-desktop);
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    text-align: center;}
+
+p {font-family: var(--font-family-body);
+    font-size: var(--text-medium);
+    color: var(--color-text-black);
+    text-align: center;
+    padding: 1%;}
+
+/****************** header style ************************/
   header {
     background-color: var(--color-background-white);
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
-    top: 0;
-    position: fixed;
+     position: fixed;
     width: 100%;
-    height: 10vh;
-    overflow-x: auto;
+    height: 7.5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     z-index: 100;
   }
   
   .top_nav_icon {
-    height: 40px;
+    width: 5vh;
     margin: 20px;
-    white-space: nowrap;
   }
   
-  .top_left_img {
+  .top_left_icon {
     float: left;
   }
   
-  .top_right_img {
+  .top_right_icon {
     float: right;
   }
   
-  .right_img {
+  .right_icon {
     float: right;
     margin: 5% 3%;
   }
@@ -122,7 +152,7 @@
     filter:drop-shadow(5px 5px 5px rgb(0,0,0,0.16));
     border-radius: 35px;
     padding: 5%;
-    margin:5% 0% 10% 0%;
+    margin-top: 5%;
     align-items: center;
     justify-content: center;
     display: block;
@@ -130,7 +160,7 @@
   
   .more_info{
     text-align: left;
-    margin: 0% 5% 5% 5%;
+    margin: 5% 5% 5% 5%;
     color: var(--color-background-white);
   }
 
@@ -162,7 +192,7 @@
  /****************** footer style ************************/
 
 
-  /************* grid ***************/
+  /************* desktop size responsive ***************/
 #heading {
     grid-area: heading;
     text-align: center;
@@ -183,14 +213,54 @@
 
 .about_diabetes_grid {
     display: grid;
-    grid-template: auto auto auto auto/ 50fr 50fr;
+    grid-template-columns: 50fr 50fr;
     grid-gap: 2rem;
-    align-items: center;
     grid-template-areas:
     "heading heading"
     "video  desc"
-    "type1  type2"
+    "type1  type1"
+    "type2  type2"
     "more_info more_info";
 }
 
-/************************************/
+/**************** phone size responsive ********************/
+@media screen and (max-width: 376px) {
+    .about_diabetes_grid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /**** phone font style ****/
+    h1 {font-size: var(--text-title);}
+
+    h2 {font-size: var(--text-subheading);}
+
+    p {font-size: var(--text-small);}
+
+    #video {align-self: center;}
+}
+
+
+/**************** tablet size responsive ********************/
+@media screen and (min-width: 376px) and (max-width: 1024px) { 
+    .about_diabetes_grid {
+        display: grid;
+        grid-gap: 2rem; 
+        grid-template-areas:
+            "heading heading"
+            "video video"
+            "desc desc"
+            "type1  type2"
+            "more_info more_info";
+    }
+
+    h1 {font-size: var(--text-title);}
+
+    h2 {font-size: var(--text-subheading);}
+    
+    p {font-size: var(--text-medium);}
+
+    #video {
+        align-self: center;
+    }
+}
