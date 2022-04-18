@@ -1,0 +1,15 @@
+{
+  "user_properties": {
+    "id": "0003",
+    "type": "clinician",
+    "email": "alice@diabetes.com",
+    "password": "alice123",
+    "fullName": "Alice Wonder",
+    "screenName": "alice#0001",
+    "dateOfBirth": "23/12/1977"
+  },
+  
+
+  "patients": ["1001, 1002"]
+}
+  

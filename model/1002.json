@@ -1,0 +1,87 @@
+{
+  "user_properties": {
+    "id": "1002",
+    "type": "patient",
+    "email": "cooper@gmail.com",
+    "password": "coop666",
+    "fullName": "Yes Cooper",
+    "screenName": "Coopy",
+    "dateOfBirth": "13/09/2002"
+  },
+
+  "clinician": "0003",
+
+  "data": {
+    
+    "blood_glucose_level": {
+      "required":        false,
+      "lower_threshold": null,
+      "upper_threshold": null
+    },
+
+    "weight": {
+      "required":        false,
+      "lower_threshold": null,
+      "upper_threshold": null
+    },
+
+    "doses_of_insulin_taken": {
+      "required":        true,
+      "lower_threshold": 1,
+      "upper_threshold": 5
+    },
+
+    "exercise": {
+      "required":        true,
+      "lower_threshold": 1000,
+      "upper_threshold": 25000
+    }
+  },
+ 
+  "data_history": {
+    "08/04/2022@20:10:12": {
+      "doses_of_insulin_taken": {
+        "value": 4,
+        "comment": "almost died"
+      },
+      "exercise": {
+        "value": 1500,
+        "comment": "please no more walking"
+      }
+    },
+    "01/04/2022@12:12:13": {
+      "blood_glucose_level": {
+        "value": 24,
+        "comment": null
+      },
+      "doses_of_insulin_taken": {
+        "value": 1,
+        "comment": "after a Patty burger"
+      }
+    },
+    "22/03/2022@07:32:11": {
+      "blood_glucose_level": {
+        "value": 24,
+        "comment": null
+      },
+      "doses_of_insulin_taken": {
+        "value": 1,
+        "comment": null
+      },
+      "exercise": {
+        "value": 9876,
+        "comment": "cool man"
+      }
+    }
+  },
+
+  "message_history": {
+    "30/03/2021@08:12:29": "good job!",
+    "01/04/2022@12:00:43": "thats lot of steps!"
+  },
+
+  "clinician_notes": {
+    "06/04/2022@09:15:10": "bad job",
+    "02/03/2022@10:24:32": "needs to leave the house more"
+  }
+}

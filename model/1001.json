@@ -1,0 +1,88 @@
+{
+  "user_properties": {
+    "id": "1001",
+    "type": "patient",
+    "email": "bob@gmail.com",
+    "password": "bob666",
+    "fullName": "Bob Sponge",
+    "screenName": "BobTheSquarepants",
+    "dateOfBirth": "01/01/1999"
+  },
+
+  "clinician": "0003",
+
+  "data": {
+    
+    "blood_glucose_level": {
+      "required":        true,
+      "lower_threshold": 12,
+      "upper_threshold": 30
+    },
+
+    "weight": {
+      "required":        false,
+      "lower_threshold": null,
+      "upper_threshold": null
+    },
+
+    "doses_of_insulin_taken": {
+      "required":        true,
+      "lower_threshold": 0,
+      "upper_threshold": 3
+    },
+
+    "exercise": {
+      "required":        false,
+      "lower_threshold": null,
+      "upper_threshold": null
+    }
+  },
+ 
+  "data_history": {
+    "05/04/2022@20:11:23": {
+      "blood_glucose_level": {
+        "value": 24,
+        "comment": "taken after an hour rest"
+      },
+      "doses_of_insulin_taken": {
+        "value": 2,
+        "comment": "after two Krabby Patty burgers"
+      }
+    },
+    "01/04/2022@14:32:07": {
+      "blood_glucose_level": {
+        "value": 24,
+        "comment": null
+      },
+      "doses_of_insulin_taken": {
+        "value": 1,
+        "comment": "after a Krabby Patty burger"
+      }
+    },
+    "25/03/2022@07:32:": {
+      "blood_glucose_level": {
+        "value": 24,
+        "comment": null
+      },
+      "doses_of_insulin_taken": {
+        "value": 1,
+        "comment": null
+      },
+      "exercise": {
+        "value": 9999,
+        "comment": "i'm lovin' it"
+      }
+    }
+  },
+
+  "message_history": {
+    "03/04/2022@15:32:22": "doing good!",
+    "01/04/2022@12:00:43": "keep it up!",
+    "26/03/2022@13:55:00": "well done buddy"
+  },
+
+  "clinician_notes": {
+    "04/04/2022@09:15:10": "too much burgers",
+    "05/03/2022@10:24:32": "he has a square butt"
+  }
+}
