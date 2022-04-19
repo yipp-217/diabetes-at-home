@@ -137,12 +137,11 @@ p {font-family: var(--font-family-body);
     flex-direction: column;
     width: 100%; 
     height:100%;
-    background-image: linear-gradient(#FFFFFF,#4F6EA2);
     background-attachment: fixed;
   }
   
   .about{
-    margin: 2% 5% 5% 5%;
+    background-image: linear-gradient(#FFFFFF,#4F6EA2);
   }
   
   .video{
@@ -162,7 +161,6 @@ p {font-family: var(--font-family-body);
     align-items: center;
     justify-content: center;
     display: block;
-    ;
   }
   
   .more_info{
