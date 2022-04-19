@@ -79,18 +79,30 @@ h2 {font-size: var(--text-subheading-desktop);
     font-weight: 700;
     text-align: center;}
 
-.bigger_p {font-family: var(--font-family-body);
-    font-size: var(--text-big);
-    color: var(--color-text-black);
-    text-align: center;
-    font-weight: 700;
-    padding: 1%;}  
+h3 {font-size: var(--text-subheading);
+   font-family: var(--font-family-heading);
+   font-weight: 700;
+   text-align: center;
+}
+
+h4 {font-size: var( --text-big);
+   font-family: var(--font-family-heading);
+   font-weight: 700;
+   text-align: center;
+}
+
+.bigger_p {
+  font-size: var(--text-big);
+  font-weight: 700;
+}  
 
 p {font-family: var(--font-family-body);
     font-size: var(--text-medium);
     color: var(--color-text-black);
     text-align: center;
     padding: 1%;}
+
+.smaller_p {font-size: var(--text-small);}
 
 /****************** header style ************************/
   header {
