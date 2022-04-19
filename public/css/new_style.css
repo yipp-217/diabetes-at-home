@@ -156,14 +156,13 @@ p {font-family: var(--font-family-body);
     background-image: linear-gradient(#FFFFFF,#4F6EA2);
   }
   
-  .video{
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    width: 100%; 
-    margin-top: 5%;
-  }
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
   
   .container{
     background-color: var(--color-background-light);
@@ -227,13 +226,12 @@ footer {
     padding-bottom: 56.25%;
     padding-top: 35px;
 }
-#sec1 {grid-area: sec1;}
-#sec2 {grid-area: sec2;}
-#sec3 {grid-area: sec3;}
-.more_info {grid-area: more_info;}
+.sec1 {grid-area: sec1;}
+.sec2 {grid-area: sec2;}
+.more_info {grid-area: sec3;}
 
 /** about diabetes page **/
-.about_diabetes_grid {
+.grid_format {
     display: grid;
     grid-template-columns: 50fr 50fr;
     grid-gap: 4rem;
@@ -242,7 +240,7 @@ footer {
     "video  desc"
     "sec1  sec1"
     "sec2  sec2"
-    "more_info more_info";
+    "sec3  sec3";
 }
 
 /** about website page **/
@@ -265,10 +263,9 @@ footer {
     h2 {font-size: var(--text-subheading);}
     p {font-size: var(--text-small);}
     .bigger_p {font-size: var(--text-medium);}
-    #video {align-self: center;}
 
     /** about diabetes page **/
-    .about_diabetes_grid {
+    .grid_format {
         display: flex;
         flex-direction: column;
         grid-gap: 2rem;
@@ -290,7 +287,7 @@ footer {
     p {font-size: var(--text-medium);}
 
     /** about diabetes page **/
-    .about_diabetes_grid {
+    .grid_format {
         display: grid;
         grid-gap: 2rem; 
         grid-template-areas:
@@ -298,7 +295,7 @@ footer {
             "video video"
             "desc desc"
             "sec1  sec2"
-            "more_info more_info";
+            "sec3 sec3";
     }
     /** about website page **/
     .about_website_grid {
