@@ -2,15 +2,17 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <div class="header">
-            <h1>John Doe</h1>
-            <button type="button">Back to Dashboard</button>
-        </div>
         <!--<link rel="stylesheet" href="public/css/style.css"/>-->
     </head>
     <body>
-        <div class="patient-panel">
+        <header>
+            <h1>John Doe</h1>
+            <button type="button">Back to Dashboard</button>
+        </header>
+          
+        <a href="url">Data History</a>
 
+        <contianer class="patient-panel">
             <div class="weight">
                 <h1>Weight</h1>
                 <p>68kg</p>
@@ -26,9 +28,9 @@
                     <label>Upper Threshold</label>
                     <input class="input" type="text">
                 </form>
-            </div>
+            </contianer>
 
-            <div class="blood-glucose">
+            <contianer class="blood-glucose">
                 <h1>Blood Glucose</h1>
                 <p>7 nmol/L</p>
                 <label class="required">Required
@@ -43,9 +45,9 @@
                     <label>Upper Threshold</label>
                     <input class="input" type="text">
                 </form>
-            </div>
+            </contianer>
 
-            <div class="exercise">
+            <contianer class="exercise">
                 <h1>Exercise</h1>
                 <p>3000 steps</p>
                 <label class="required">Required
@@ -60,9 +62,9 @@
                     <label>Upper Threshold</label>
                     <input class="input" type="text">
                 </form>
-            </div>
+            </contianer>
 
-            <div class="insulin">
+            <contianer class="insulin">
                 <h1>Doses of Insulin Taken</h1>
                 <p>--</p>
                 <label class="required">Required
@@ -77,26 +79,24 @@
                     <label>Upper Threshold</label>
                     <input class="input" type="text">
                 </form>
-            </div>
+            </contianer>
 
-            <button type="button">Save</button>
-        </div>
-
-        <a href="url">Data History</a>
-
-        <div class="support">
+        <contianer class="support">
             <h1>Support Messages</h1>
             <p>Current Message:</p>
             <p class="message">You are doing great :)</p>
             <label>New Message:</label>
             <input class="message-input" type="text">
             <button type="button">Save</button>
-        </div>
+        </contianer>
 
-        <div class="notes">
+        <contianer class="notes">
             <h1>Notes</h1>
             <input class="notes-input" type="text">
             <a href="url">See Past Notes</a>
-        </div>
+        </contianer>
+
+        <button type="button">Save</button>
+
     </body>
 </html>
