@@ -162,7 +162,27 @@ p {font-family: var(--font-family-body);
     left: 0;
     width: 100%;
     height: 100%;
-}
+  }
+  #desc {
+    padding-bottom: 5%;
+    grid-area: desc;
+  }
+  #video {
+      position: relative;
+      width: 80%;
+      height: 0;
+      padding-bottom: 56.25%;
+      padding-top: 35px;
+      align-self: center;
+  }
+
+  .video_section {
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+    height:100%;
+    grid-area: desc;
+  }
   
   .container{
     background-color: var(--color-background-light);
@@ -218,14 +238,7 @@ footer {
 .subheading {
     margin: 2%;
 }
-#desc {grid-area: desc;}
-#video {
-    grid-area: video;
-    position: relative;
-    height: 0;
-    padding-bottom: 56.25%;
-    padding-top: 35px;
-}
+
 .sec1 {grid-area: sec1;}
 .sec2 {grid-area: sec2;}
 .more_info {grid-area: sec3;}
@@ -237,23 +250,10 @@ footer {
     grid-gap: 4rem;
     grid-template-areas:
     "heading heading"
-    "video  desc"
+    "desc  desc"
     "sec1  sec1"
     "sec2  sec2"
     "sec3  sec3";
-}
-
-/** about website page **/
-.about_website_grid {
-    display: grid;
-    grid-template-columns: 50fr 50fr;
-    grid-gap: 4rem;
-    grid-template-areas:
-    "heading heading"
-    "desc desc"
-    "sec1 sec1"
-    "sec2 sec2"
-    "sec3 sec3";
 }
 
 /**************** phone size responsive ********************/
@@ -263,15 +263,8 @@ footer {
     h2 {font-size: var(--text-subheading);}
     p {font-size: var(--text-small);}
     .bigger_p {font-size: var(--text-medium);}
-
     /** about diabetes page **/
     .grid_format {
-        display: flex;
-        flex-direction: column;
-        grid-gap: 2rem;
-    }
-    /** about website page **/
-    .about_website_grid {
         display: flex;
         flex-direction: column;
         grid-gap: 2rem;
@@ -286,26 +279,13 @@ footer {
     h2 {font-size: var(--text-subheading);}
     p {font-size: var(--text-medium);}
 
-    /** about diabetes page **/
     .grid_format {
         display: grid;
         grid-gap: 2rem; 
         grid-template-areas:
             "heading heading"
-            "video video"
             "desc desc"
             "sec1  sec2"
             "sec3 sec3";
-    }
-    /** about website page **/
-    .about_website_grid {
-        display: grid;
-        grid-template-columns: 50fr 50fr;
-        grid-gap: 2rem;
-        grid-template-areas:
-        "heading heading"
-        "desc desc"
-        "sec1 sec2"
-        "sec3 sec3";
     }
 }
