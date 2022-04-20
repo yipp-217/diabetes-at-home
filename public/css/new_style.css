@@ -289,3 +289,24 @@ footer {
             "sec3 sec3";
     }
 }
+
+
+/******************* new patient classes **************************/
+
+/*edit data page & profile & change password*/
+.info_container {
+  /*round 5 5 2*/
+  /*light medium & light accent*/
+}
+
+/*main page - the square container*/
+.data_container {
+  /*medium & accent*/
+}
+
+/*style it*/
+input {}
+
+/******************* new clinician classes **************************/
+
+
