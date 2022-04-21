@@ -116,24 +116,12 @@ p {font-family: var(--font-family-body);
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    overflow-x: auto;
   }
   
   .top_nav_icon {
     width: 5vh;
     margin: 20px;
-  }
-  
-  .top_left_icon {
-    float: left;
-  }
-  
-  .top_right_icon {
-    float: right;
-  }
-  
-  .right_icon {
-    float: right;
-    margin: 5% 3%;
   }
   
   /****************** body css style ************************/
