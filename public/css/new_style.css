@@ -104,6 +104,7 @@ p {font-family: var(--font-family-body);
 
 .smaller_p {font-size: var(--text-small);}
 
+
 /****************** header style ************************/
   header {
     background-color: var(--color-background-white);
@@ -119,7 +120,7 @@ p {font-family: var(--font-family-body);
     overflow-x: auto;
   }
   
-  .top_nav_icon {
+  .icons {
     width: 5vh;
     margin: 20px;
   }
@@ -181,10 +182,24 @@ p {font-family: var(--font-family-body);
     justify-content: center;
     display: block;
   }
+
+  /*edit data page & profile & change password*/
+  .info_container {
+    background-color: var(--color-background-accent);
+    border-radius: 10px;
+    height: 15vh;
+    width: 15vh;
+  }  
+
+  #chart_container {
+    background-color: var(--color-background-light);
+    border-radius: 10px;
+    height: 30vh;
+  }
   
   .more_info{
     text-align: left;
-    margin: 5% 5% 5% 5%;
+    margin: 5% 5% 10% 5%;
     color: var(--color-background-white);
   }
 
@@ -195,7 +210,13 @@ p {font-family: var(--font-family-body);
     height: 2px;
     margin-bottom: 2px;
   }
-  
+
+  .item_center {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
   button{
     display: inline-flex;
     background-color: var(--color-background-light);
@@ -209,13 +230,27 @@ p {font-family: var(--font-family-body);
     cursor: pointer;
     box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.2);
   }
+
+  #white_button {
+    background-color: var(--color-background-white);
+  }
   
 /******************* adding color style ****************/
 
 
 /****************** footer style ***********************/
 footer {
-    height: 7.5vh;
+  background-color: var(--color-background-white);
+  box-shadow: 0 -4px 5px 0 rgba(0, 0, 0, 0.2);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 7.5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 100;
 }
 /************* desktop size responsive ****************/
 #heading {
@@ -280,12 +315,6 @@ footer {
 
 
 /******************* new patient classes **************************/
-
-/*edit data page & profile & change password*/
-.info_container {
-  /*round 5 5 2*/
-  /*light medium & light accent*/
-}
 
 /*main page - the square container*/
 .data_container {
