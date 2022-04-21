@@ -30,6 +30,7 @@ const HOSTNAME = ''
 /* Routers */
 const homeRouter = require('./routes/homeRouter')
 const patientRouter = require('./routes/patientRouter')
+const clinicianRouter = require('./routes/clinicianRouter')
 
 /* ========================================================================= */
 /* Root & Home */
@@ -38,6 +39,8 @@ app.use('/', homeRouter)
 /* Patient */
 app.use('/patient', patientRouter)
 
+/* Clinician */
+app.use('/clinician', clinicianRouter)
 
 /* ------------------------------------------------------------------------- */
 app.listen(PORT, HOSTNAME => {
