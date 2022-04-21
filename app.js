@@ -28,14 +28,11 @@ const PORT = 8080
 const HOSTNAME = ''
 
 /* Routers */
-
+const homeRouter = require('./routes/homeRouter')
 
 /* ========================================================================= */
-/* Root */
-app.get('/', (req, res) => {
-    res.render('index.hbs')
-})
-
+/* Root & Home */
+app.use('/', homeRouter)
 
 
 /* ------------------------------------------------------------------------- */
