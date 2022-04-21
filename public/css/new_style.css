@@ -184,6 +184,7 @@ p {font-family: var(--font-family-body);
     grid-area: heading;
   }
 
+  /*put several data boxes into a bigger box, resizing responsively*/
   .data_display {
     display: flex;
     width: 100%; 
@@ -194,6 +195,8 @@ p {font-family: var(--font-family-body);
   }
 
   input {
+    margin-left: 10%;
+    margin-right: 2%;
     border-radius: 10px;
     width:50%;
     height: 100%;
@@ -204,7 +207,6 @@ p {font-family: var(--font-family-body);
     height:20%;
   }
 
-  
   .container{
     background-color: var(--color-background-light);
     filter:drop-shadow(5px 5px 5px rgb(0,0,0,0.16));
@@ -232,6 +234,8 @@ p {font-family: var(--font-family-body);
   }  
 
    .info_rectangle_container {
+    flex-direction: column;
+    justify-content: space-around;
     background-color: var(--color-background-accent);
     border-radius: 10px;
     width: 80%;
@@ -295,6 +299,7 @@ p {font-family: var(--font-family-body);
     background-color: var(--color-background-accent);
   }
 
+  /*for about pages*/
   .bottom_button {
     margin: 8%;
   }
@@ -423,6 +428,7 @@ footer {
     box-shadow: 0 -4px 5px 0 rgba(0, 0, 0, 0.2);
     background-color: var(--color-background-white);
   }
+
 }
 
 
@@ -463,6 +469,5 @@ footer {
 /******************* new patient classes **************************/
 
 /******************* new clinician classes **************************/
-
 .clinician_top_nav_bar_button {}
 
