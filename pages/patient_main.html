@@ -2,7 +2,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../public/css/new_style.css">
+    <link rel="stylesheet" href="../public/css/new_style.css">
 </head>
 
 
@@ -16,13 +16,20 @@
                 <img src="../public/res/badge.svg">
             </a>
     </header>
+    <!--sidebar-->
+    <!--<div class="sidebar"></div>-->
 
-    <main class="content">
-        <h2 style="text-align:left">Hello, JohnDoe</h2>
-        <p style="text-align:left" class="bigger_p">You are doing great :)</p>
+    <main class="content mainpage_grid_format">
+        
 
+
+        <div id="clinician_message">
+            <h2 style="text-align:left">Hello, JohnDoe</h2>
+            <p style="text-align:left" class="bigger_p">You are doing great :)</p>  
+        </div>
+        
     <!-- charts -->
-        <div id="chart_container" class="container">
+        <div class="chart_container container sec1">
             <button id="white_button" class="item_center"> 
                 <p style="margin-right: 1vh">All</p>
                 <img src="../public/res/Icon-down.svg">
@@ -30,8 +37,10 @@
         </div>
 
     <!-- data entry -->
-    <h2 style="text-align:left">Today</h2>
-    
+    <h2 style="text-align:left" class="subheading">Today</h2>
+
+    <!--flexbox-->
+    <div class="data_display sec2">
     <contianer class="container info_container">
         <p class="bigger_p">Weight</p>
         <p>-</p>
@@ -41,7 +50,7 @@
         <p class="bigger_p">Blood Glucose Level</p>
         <p>-</p>
     </contianer>
-    
+
     <contianer class="container info_container">
         <p class="bigger_p">Exercise</p>
         <p>-</p>
@@ -50,15 +59,17 @@
     <contianer class="container info_container">
         <p class="bigger_p">Doses of Insulin Taken</p>
         <p>-</p>
-    </contianer>
+    </contianer>        
+    </div>
+
     </main>
 
-    <!--bottom navigation bar-->
-    <footer>
+    <!--navigation bar-->
+    <footer> 
         <a class="icons"><img src="../public/res/Icon_home.svg"></a>
         <a class="icons"><img src="../public/res/Icon_record.svg"></a>
-        <a class="icons"><img src="../public/res/Icon_rank.svg" ></a>
-        <a class="icons"><img src="../public/res/Icon_login.svg"></a>   
+        <a class="icons"><img src="../public/res/Icon_rank.svg" ></a> 
+        <a class="icons"><img src="../public/res/Icon_login.svg"></a> 
     </footer>
     </body>
   
