@@ -134,6 +134,7 @@ p {font-family: var(--font-family-body);
   }
   
   body {
+    background-color: var(--color-background-white);
     display: flex;
     flex-direction: column;
     width: 100%; 
@@ -234,7 +235,6 @@ p {font-family: var(--font-family-body);
   }
 
   button{
-    margin: 8%;
     display: inline-flex;
     background-color: var(--color-background-light);
     color: var(--color-text-black);
@@ -250,6 +250,10 @@ p {font-family: var(--font-family-body);
 
   #white_button {
     background-color: var(--color-background-white);
+  }
+
+  .bottom_button {
+    margin: 8%;
   }
   
 /******************* sidebar ****************/
