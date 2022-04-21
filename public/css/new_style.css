@@ -328,6 +328,7 @@ footer {
   grid-template-areas:
   "heading subheading"
   "sec1  sec2"
+  "sec3  sec3"
 }
 
 /**************** phone size responsive ********************/
