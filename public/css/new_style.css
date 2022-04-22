@@ -9,6 +9,7 @@
     --text-medium: 18px;
     --text-small: 15px;
     --text-smaller: 10px;
+    --text-smallest:10px;
     /* Fonts */
     --font-family-body: "PT Serif", serif;
     --font-family-heading: "Poppins", sans-serif;
@@ -109,7 +110,9 @@ p {font-family: var(--font-family-body);
     text-align: center;
     padding: 1%;}
 
-.smaller_p {font-size: var(--text-small);}
+.smaller_p {font-size: var(--text-smaller);}
+
+.smallest_p { font-size:var(--text-smallest);}
 
 
 /****************** header style ************************/
@@ -225,14 +228,10 @@ p {font-family: var(--font-family-body);
     grid-area: heading;
   }
   .dashboard_content {
-    width: 70%;
     margin: 5%;
+    margin-top: 8%;
   }
 
-  .comment {
-    width: 30%;
-    background-image: linear-gradient(#FFFFFF,#4F6EA2) ;
-  }
 
   /*put several data boxes into a bigger box, resizing responsively*/
   .data_display {
@@ -282,9 +281,6 @@ p {font-family: var(--font-family-body);
     margin: 3%;
     overflow: hidden;
   }  
-
-
-
 
    .info_rectangle_container {
     flex-direction: column;
@@ -387,17 +383,43 @@ p {font-family: var(--font-family-body);
 }
 
 /******************* dashboard table ****************/
-.dashboard_content{
+.dashboard_flex{
+  padding-top: 10%;
+  display: flex;
+  justify-content: center;
+}
+
+
+.flex_left {
   background-color: var(--color-background-lightmedium);
+  height:100%;
+  width: 70%;
+  margin-right: 5%;
+  margin-left: 5%;
+  float: left;
+}
+
+.flex_right {
+  background-image: linear-gradient(#FFFFFF,#4F6EA2) ;
+  height:100%;
+  float: right;
+  width: 20%;
+  flex: inline;
+  margin-right: 5%;
+}
+
+.comment_sec{
+  background-color: #EEF5F5;
 }
 
 table {
   border-collapse: collapse;
-  width: 100%;
   border: none;
   table-layout: fixed;
   border-spacing: 50px 0;
-  border-radius: 10px;
+  border-radius: 10px; 
+  float:left; 
+  flex: inline;
 }
 
 th {
@@ -420,24 +442,22 @@ td {
 .dash_container {
   background-color: #EEF5F5;
   margin: 3%;
-
 }
 
-.search-bar input[type=text] {
-  padding: 6px;
-  margin-top: 8px;
-  font-size: 17px;
+
+.title_box{
+  background-color: #FFFFFF;
+  border-radius: 40px;
+}
+
+.search-bar input{
+  width:50%;
+  font-size: 20px;
   border:none;
 }
-.search-bar button {
-  padding: 6px 10px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: var(--color-background-white);
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-}
+
+
+
 
 /****************** footer style ***********************/
 
