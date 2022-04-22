@@ -1,4 +1,7 @@
 {
+  "_id": {
+    "$oid": "62621e2a670c8cc7722ab7c2"
+  },
   "user_properties": {
     "id": "0003",
     "type": "clinician",
@@ -10,6 +13,5 @@
     "dateOfBirth": "23/12/1977",
     "bio": "I am professional, trust me!"
   },
-
   "patients": ["1001, 1002"]
 }
