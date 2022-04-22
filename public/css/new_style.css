@@ -16,7 +16,7 @@
     /* Background Colours */
     --color-background-white: #ffffff;
     --color-background-light: #eff6f9;
-    --color-background-lightmedium: #9fc0d6;
+    --color-background-lightmedium: #9FC0D6;
     --color-background-medium: #466fa6;
     --color-background-dark: #193773;
     --color-background-lightaccent: #f2c1ae;
@@ -146,6 +146,23 @@ p {font-family: var(--font-family-body);
   .icons {
     width: 5vh;
     margin: 20px;
+  }
+
+  .icons_small_left{
+    width: 3vh;
+    margin-left: 5px;
+    margin-right: 5px;
+    float:left;
+  }
+
+  .icons_small_right{
+    width: 3vh;
+    margin-left: 5px;
+    margin-right: 5px;
+    float:right;
+    right: 5px;
+
+    position:absolute;
   }
   
   /****************** body css style ************************/
@@ -383,12 +400,13 @@ p {font-family: var(--font-family-body);
 }
 
 /******************* dashboard table ****************/
+
+
 .dashboard_flex{
   padding-top: 10%;
   display: flex;
   justify-content: center;
 }
-
 
 .flex_left {
   background-color: var(--color-background-lightmedium);
@@ -397,6 +415,9 @@ p {font-family: var(--font-family-body);
   margin-right: 5%;
   margin-left: 5%;
   float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 20px;
 }
 
 .flex_right {
@@ -406,58 +427,81 @@ p {font-family: var(--font-family-body);
   width: 20%;
   flex: inline;
   margin-right: 5%;
+  border-radius: 20px;
 }
 
 .comment_sec{
   background-color: #EEF5F5;
+  border-radius: 20px;
+}
+
+.container_comment {
+  margin: 3%;
+  border-radius: 20px;
 }
 
 table {
   border-collapse: collapse;
-  border: none;
   table-layout: fixed;
-  border-spacing: 50px 0;
-  border-radius: 10px; 
   float:left; 
-  flex: inline;
+  margin-bottom: 1%;
 }
 
 th {
   padding: 8px;
-  width: 100%;
   border:none;
   text-align: left;
   font-size: var(--text-big);
-  border-bottom:none;
 }
 
 td {
   border:none;
   padding: 8px;
-  width: 100%;
+  width: 20%;
   text-align: left;
-  border-bottom: none;
+}
+
+.dashboard_table td {
+  border-top: 5px solid var(--color-background-lightmedium);
+  border-bottom: 5px solid var(--color-background-lightmedium);
+}
+td:first-child {
+ border-radius: 25px 0 0 25px;
+ position:relative;
+}
+td:last-child {
+ border-radius: 0 25px 25px 0;
 }
 
 .dash_container {
   background-color: #EEF5F5;
-  margin: 3%;
 }
-
 
 .title_box{
   background-color: #FFFFFF;
   border-radius: 40px;
+  margin: 2%;
 }
 
-.search-bar input{
-  width:50%;
-  font-size: 20px;
-  border:none;
+.search_bar input{ 
+  margin-left: 5%;
+  margin-right: 2%;
+  border-radius: 15px;
+  width: 35%;
+  height:20px;
 }
-
-
-
+/******************* dashboard table verticle line ****************/
+.dashboard_table td:after {
+  content: '';
+     display: block;
+     border-left: 1px solid #333;
+     padding: 0;
+     height: 30px;
+     float: right;
+ }
+ .dashboard_table td:last-child:after {
+  display: none;
+ }
 
 /****************** footer style ***********************/
 
