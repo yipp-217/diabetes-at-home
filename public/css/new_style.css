@@ -119,6 +119,14 @@ p {font-family: var(--font-family-body);
     z-index: 100;
     overflow-x: auto;
   }
+
+  .clinician_header {
+    padding: 0.5%;
+    text-align: left;
+    background: var(--color-background-dark);
+    color: var(--color-background-white);
+    font-size: var(--text-small);
+  }
   
   .icons {
     width: 5vh;
@@ -353,6 +361,50 @@ p {font-family: var(--font-family-body);
   box-shadow: 4px 0 5px 0 rgba(0, 0, 0, 0.2);
 }
 
+/******************* dashboard table ****************/
+table {
+  border-collapse: collapse;
+  background-color: var(--color-background-lightmedium);
+  width: 100%;
+  border:1px solid var(--color-text-black);
+  table-layout: fixed;
+  border-spacing: 50px 0;
+}
+
+th {
+  padding: 8px;
+  width: 100%;
+  border:1px solid var(--color-text-black);
+  text-align: left;
+  font-size: var(--text-big);
+  border-bottom: 1px solid var(--color-text-black);
+  
+}
+
+td {
+  border:1px solid var(--color-text-black);
+  padding: 8px;
+  width: 100%;
+  text-align: left;
+  border-bottom: 1px solid var(--color-text-black);
+}
+
+.search-bar input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border:1px solid var(--color-text-black);
+  
+}
+.search-bar button {
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: var(--color-background-white);
+  font-size: 17px;
+  border: var(--color-text-black);
+  cursor: pointer;
+}
 
 /****************** footer style ***********************/
 
