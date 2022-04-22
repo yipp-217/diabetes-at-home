@@ -20,6 +20,7 @@
   "homepage": "https://github.com/yipp-217/diabetes-at-home#readme",
   "dependencies": {
     "express": "^4.17.3",
-    "express-handlebars": "^6.0.5"
+    "express-handlebars": "^6.0.5",
+    "mongoose": "^6.3.1"
   }
 }
