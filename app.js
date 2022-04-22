@@ -43,6 +43,6 @@ app.use('/patient', patientRouter)
 app.use('/clinician', clinicianRouter)
 
 /* ------------------------------------------------------------------------- */
-app.listen(PORT, HOSTNAME => {
+app.listen(process.env.PORT || PORT, HOSTNAME => {
     console.log('Diabetes@Home is listening on port ' + PORT)
 })
