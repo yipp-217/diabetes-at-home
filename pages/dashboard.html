@@ -8,35 +8,43 @@
 
     <body>
         <header class="clinician_header">
-            <h1>Good afternoon, Dr Jones</h1>
+            <img src="../public/res/DocImag.svg" >
+            <h2>Good afternoon, Dr Jones</h2>
             <button type="button">Log Out</button>
-            <img src="../public/res/Icon_settings.svg">
+            <img class="icons" src="../public/res/Icon_settings.svg">
         </header>
 
-        <main class="da">
-        <table>
+
+        <container class="search_bar">
+            <input type="text" placeholder="Name.." name="search">
+            <button type="submit">Search</i></button> 
+        </container>
+
+        <main class="dashboard_content">
+
             <container class="search_bar">
                 <input type="text" placeholder="Name.." name="search">
                 <button type="submit">Search</i></button> 
             </container>
             
+            <table class="dashboard_table">
             <tr>
-                <th>Patient Name</th>
-                <th>Weight (kg)</th>
-                <th>Excercise (steps)</th>
-                <th>Blood glucose (nmol/L)</th>
-                <th>Doses of insulin taken</th>
+                <th><h5>Patient Name</h5></th>
+                <th><h5>Weight (kg)</h5></th>
+                <th><h5>Excercise (steps)</h5></th>
+                <th><h5>Blood glucose (nmol/L)</h5></th>
+                <th><h5>Doses of insulin taken</h5></th>
             </tr>
 
-            <tr>
-                <td>John Doe</td>
+            <tr class="dash_container">
+                <td><img src="../public/res/profile.svg" /><img><p1>John Doe</p1></td>
                 <td>68</td>
                 <td>1000000</td>
                 <td>7</td>
                 <td></td>
             </tr>
 
-            <tr>
+            <tr class="dash_container">
                 <td>Ed Peng</td>
                 <td>666</td>
                 <td></td>
@@ -44,7 +52,7 @@
                 <td>0</td>
             </tr>
 
-            <tr>
+            <tr class="dash_container">
                 <td>Brandon Widjaja</td>
                 <td>888</td>
                 <td>3000</td>
@@ -52,7 +60,7 @@
                 <td>0</td>
             </tr>
 
-            <tr>
+            <tr class="dash_container">
                 <td>Caitlyn Allan</td>
                 <td>68</td>
                 <td>3000</td>
@@ -60,7 +68,7 @@
                 <td></td>
             </tr>
 
-            <tr>
+            <tr class="dash_container">
                 <td>Meilun Yao</td>
                 <td>68</td>
                 <td>3000</td>
@@ -68,7 +76,7 @@
                 <td></td>
             </tr>
             
-            <tr>
+            <tr class="dash_container">
                 <td>Hanlin Zhu</td>
                 <td>68</td>
                 <td>3000</td>
@@ -76,6 +84,11 @@
                 <td></td>
             </tr>
         </table>
+
+        <container class="comment">
+
+        </container>
+
     </main>
     </body>
 </html>

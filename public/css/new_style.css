@@ -91,6 +91,13 @@ h4 {font-size: var( --text-big);
    text-align: center;
 }
 
+h5 {font-family: var(--font-family-heading);
+  font-size: var(--text-medium);
+  color: var(--color-text-black);
+  text-align: center;
+  padding: 1%;
+}
+
 .bigger_p {
   font-size: var(--text-big);
   font-weight: 700;
@@ -121,11 +128,16 @@ p {font-family: var(--font-family-body);
   }
 
   .clinician_header {
-    padding: 0.5%;
-    text-align: left;
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 10vh;
     background: var(--color-background-dark);
     color: var(--color-background-white);
     font-size: var(--text-small);
+    align-items: center;
+    z-index: 100;
+    overflow-x: auto;
   }
   
   .icons {
@@ -212,6 +224,15 @@ p {font-family: var(--font-family-body);
     height:100%;
     grid-area: heading;
   }
+  .dashboard_content {
+    width: 70%;
+    margin: 5%;
+  }
+
+  .comment {
+    width: 30%;
+    background-image: linear-gradient(#FFFFFF,#4F6EA2) ;
+  }
 
   /*put several data boxes into a bigger box, resizing responsively*/
   .data_display {
@@ -262,6 +283,9 @@ p {font-family: var(--font-family-body);
     overflow: hidden;
   }  
 
+
+
+
    .info_rectangle_container {
     flex-direction: column;
     justify-content: space-around;
@@ -291,6 +315,7 @@ p {font-family: var(--font-family-body);
     margin: 5% 5% 10% 5%;
     color: var(--color-background-white);
   }
+
 
   /*lines*/
   hr {
@@ -362,39 +387,47 @@ p {font-family: var(--font-family-body);
 }
 
 /******************* dashboard table ****************/
+.dashboard_content{
+  background-color: var(--color-background-lightmedium);
+}
+
 table {
   border-collapse: collapse;
-  background-color: var(--color-background-lightmedium);
   width: 100%;
-  border:1px solid var(--color-text-black);
+  border: none;
   table-layout: fixed;
   border-spacing: 50px 0;
+  border-radius: 10px;
 }
 
 th {
   padding: 8px;
   width: 100%;
-  border:1px solid var(--color-text-black);
+  border:none;
   text-align: left;
   font-size: var(--text-big);
-  border-bottom: 1px solid var(--color-text-black);
-  
+  border-bottom:none;
 }
 
 td {
-  border:1px solid var(--color-text-black);
+  border:none;
   padding: 8px;
   width: 100%;
   text-align: left;
-  border-bottom: 1px solid var(--color-text-black);
+  border-bottom: none;
+}
+
+.dash_container {
+  background-color: #EEF5F5;
+  margin: 3%;
+
 }
 
 .search-bar input[type=text] {
   padding: 6px;
   margin-top: 8px;
   font-size: 17px;
-  border:1px solid var(--color-text-black);
-  
+  border:none;
 }
 .search-bar button {
   padding: 6px 10px;
@@ -402,7 +435,7 @@ td {
   margin-right: 16px;
   background: var(--color-background-white);
   font-size: 17px;
-  border: var(--color-text-black);
+  border: none;
   cursor: pointer;
 }
 
