@@ -11,6 +11,20 @@ const getClinician = (req, res) => {
     }
 }
 
+const getAllClinician = async (req, res, next) => {
+    try {
+        const clinicians = await Clinician.find().lean()
+        console.log(clinicians)
+        res.send(clinicians)
+    }
+
+    catch (err) {
+        console.log(err)
+    }
+}
+
+
 module.exports = {
-    getClinician
+    getClinician,
+    getAllClinician
 }
