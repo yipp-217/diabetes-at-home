@@ -441,6 +441,10 @@ p {font-family: var(--font-family-body);
   }
 
 /******************* research bar ****************/
+.search_bar {
+  display: flex;
+  align-items: center;
+}
 .search_bar input{ 
     margin-left: 5%;
     border-radius: 0px;
