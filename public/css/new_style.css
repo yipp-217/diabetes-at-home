@@ -152,16 +152,16 @@ p {font-family: var(--font-family-body);
   }
 
   .icons_small_left{
-    width: 3vh;
-    margin-left: 5px;
-    margin-right: 5px;
+    width: 15%;
+    margin-left: 4%;
+    margin-right: 4%;
     float:left;
   }
 
   .icons_small_right{
-    width: 3vh;
-    margin-left: 5px;
-    margin-right: 5px;
+    width: 13%;
+    margin-left: 4%;
+    margin-right: 4%;
     float:right;
     right: 5px;
     position:absolute;
@@ -170,6 +170,10 @@ p {font-family: var(--font-family-body);
   .icons_profile {
     width: 5%;
     margin: 3%;
+  }
+
+  .icon_settings{
+    width: 4%;
   }
   
   /****************** body css style ************************/
@@ -438,10 +442,10 @@ p {font-family: var(--font-family-body);
   .clinician_top_nav_bar_button{
     border-radius: 5px;
     background-color:#EFF6F9;
-    padding: 3px;
-    width: 10%;
+    padding: 0px;
+    width: 12%;
     position: absolute;
-    right: 8%;
+    right: 10%;
   }
 
 /******************* research bar ****************/
@@ -485,11 +489,17 @@ p {font-family: var(--font-family-body);
 }
 
 /******************* dashboard table ****************/
+.flex-btn {
+  width: 100%;
+  position:none;
+}
+
 
 .cilnician_nav {
   position:absolute;
   left:10%;
 }
+
 
 .dashboard_flex{
   padding-top: 10%;
@@ -586,6 +596,17 @@ td:last-child {
   display: none;
  }
 
+/****************** clinician body ***********************/
+ .clinician_main{
+   padding-top: 10%;
+ }
+
+ .clinician_main h3{
+   margin-left: 5%;
+  float:left;
+ }
+
+
 /****************** footer style ***********************/
 
 footer {
@@ -673,6 +694,15 @@ footer {
     .body_icons {
       width: 9%;
     }
+
+    h5 {font-size: var(--text-smaller);}
+
+    th, td {font-size:var(--text-smallest);}
+
+    .cilnician_nav {font-size: var(--text-medium);}
+
+    .phone_clinician {font-size:5px;}
+
     /** about diabetes page **/
     .about_grid_format {
         display: flex;
@@ -759,6 +789,11 @@ footer {
             "sec1  sec2"
             "sec3 sec3";
     }
+
+    h5 {font-size: var(--text-smaller);}
+
+    th, td {font-size:var(--text-smaller);}
+
 
     .mainpage_grid_format {
       margin-left: 15vh;
