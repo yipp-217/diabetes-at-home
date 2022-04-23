@@ -307,6 +307,10 @@ p {font-family: var(--font-family-body);
     border: 2px solid;
   }
 
+  input[name="comment"]{
+    height: 200px;
+  }
+
   span.psw, span.rememberme {
     padding: 30px 0;
     font-family: var(--font-family-heading);
@@ -344,7 +348,12 @@ p {font-family: var(--font-family-body);
   .boxes_container {
     width:100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .comment {
+    display: none;
   }
 
   /*medium data container*/
@@ -357,21 +366,22 @@ p {font-family: var(--font-family-body);
   }  
 
    .info_rectangle_container {
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
+    gap: 4%;
     background-color: var(--color-background-accent);
     border-radius: 10px;
     width: 80%;
+    height: auto;
     margin: 3%;
     overflow: hidden;
   }  
   /*small data container*/
   .data_container {
-    margin: 10% 0;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
   }
 
   .chart_container {
@@ -399,6 +409,16 @@ p {font-family: var(--font-family-body);
     display: flex;
     align-items: center;
     justify-content: space-around;
+  }
+
+  /********************* a tag ****************************/
+  a, a:hover {
+    color: var(--color-text-white);
+    text-decoration: none;
+  }
+
+  .blacktext {
+    color: var(--color-text-black);
   }
 
   /******************** button ****************************/
@@ -663,7 +683,6 @@ footer {
   margin-left: 15vh;
   display: grid;
   grid-template-columns: 50fr 50fr;
-  grid-template-rows: 1fr 6fr 1fr;
   grid-row-gap: 2rem;
   grid-column-gap:1rem;
   grid-template-areas:
@@ -769,6 +788,18 @@ footer {
     margin-left: 5%;
 }
 
+.comment {
+  display:block;
+}
+
+.data_container {
+  justify-content: space-between;
+}
+
+input[name="comment"]{
+  display: none;
+}
+
 }
 
 
@@ -827,6 +858,19 @@ footer {
     .flex_right{
         margin-left: 5%;
     }
+
+    .comment {
+      display:block;
+    }
+
+    .data_container {
+      justify-content: space-between;
+    }
+
+    input[name="comment"]{
+      display: none;
+    }
+
 }
 
 
