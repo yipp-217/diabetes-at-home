@@ -21,6 +21,7 @@
     --color-background-dark: #193773;
     --color-background-lightaccent: #f2c1ae;
     --color-background-accent: #f28379;
+    --color-background-grey:#7070701c;
 
     /* Font Colours */
     --color-text-black: #000000;
@@ -271,6 +272,7 @@ p {font-family: var(--font-family-body);
 
   input[name="email"] {
     background-image: url(../res/profile_gray.svg);
+    z-index:1;
   }
 
   input[type=password] {
@@ -281,6 +283,8 @@ p {font-family: var(--font-family-body);
     background-position: 10px 10px;
     background-repeat: no-repeat;
     padding-left: 40px;
+    background-color: var(--color-background-grey);
+    
   }
 
   input[type=text], input[type=password] {
