@@ -21,9 +21,11 @@
     --color-background-dark: #193773;
     --color-background-lightaccent: #f2c1ae;
     --color-background-accent: #f28379;
+
     /* Font Colours */
     --color-text-black: #000000;
     --color-text-white: #ffffff;
+    --color-text-grey: #707070;
   }
   
   * {
@@ -187,13 +189,12 @@ p {font-family: var(--font-family-body);
     width: 80%;
   }
 
-
   .content{
     padding-top: 12vh;
     margin: 0 8%;
     text-align: center;
   }
-  
+
   body {
     background-color: var(--color-background-white);
     display: flex;
@@ -249,7 +250,6 @@ p {font-family: var(--font-family-body);
     margin-top: 8%;
   }
 
-
   /*put several data boxes into a bigger box, resizing responsively*/
   .data_display {
     display: flex;
@@ -259,20 +259,50 @@ p {font-family: var(--font-family-body);
     justify-content: space-around;
     bottom: 0;
   }
-
-  input {
-    margin-left: 10%;
-    margin-right: 2%;
-    border-radius: 10px;
-    width:50%;
-    height: 100%;
-  }
-
+/*********************** input *************************/
   .input_data {
     justify-content: center !important;
     height:20%;
   }
 
+  input[name="email"] {
+    background-image: url(../res/profile_gray.svg);
+  }
+
+  input[type=password] {
+    background-image: url(../res/lock.svg);
+  }
+
+  input[name="email"], input[type=password] {
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding-left: 40px;
+  }
+
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 40px;
+    margin: 8px 5px;
+    display: inline-block;
+    border: 1px solid;
+    border-color: var(--color-text-grey);
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-family: var(--font-family-heading);
+  }
+
+  input[type=text]:focus, input[type=password]:focus {
+    border: 2px solid;
+  }
+
+  span.psw, span.rememberme {
+    padding: 30px 0;
+    font-family: var(--font-family-heading);
+    font-size: var(--text-small);
+  }
+
+
+/******************** container *****************************/
   .container{
     background-color: var(--color-background-light);
     filter:drop-shadow(5px 5px 5px rgb(0,0,0,0.16));
@@ -281,6 +311,21 @@ p {font-family: var(--font-family-body);
     align-items: center;
     justify-content: center;
     display: block;
+  }
+
+  .column_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: stretch;
+    gap: 3vh;
+  }
+
+  .login_container {
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   /*large data container*/
@@ -344,6 +389,7 @@ p {font-family: var(--font-family-body);
     justify-content: space-around;
   }
 
+  /******************** button ****************************/
   button{
     display: inline-flex;
     background-color: var(--color-background-light);
@@ -373,6 +419,7 @@ p {font-family: var(--font-family-body);
 
   .medium_button {
     background-color: var(--color-background-medium);
+    color:var(--color-background-white);
   }
 
   .dark_button {
@@ -577,13 +624,7 @@ footer {
   grid-row-gap: 2rem;
   grid-column-gap:2rem;
   grid-template-areas:
-  "logo ."
-  "logo sec1"
-  "logo sec2"
-  "logo sec3"
-  "logo sec4"
-  "logo sec5"
-  "logo ."
+    "logo sec1"
 }
 
 /**************** phone size responsive ********************/
@@ -609,10 +650,10 @@ footer {
       grid-gap: 1rem;
   }
   .login_grid_format {
-    padding-top: 12vh;
+    padding-top: 15vh;
     display: flex;
     flex-direction: column;
-}
+  }
 
   .boxes_container {
     flex-direction: column;

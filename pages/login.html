@@ -3,36 +3,45 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Login</title>
-    <link rel="stylesheet" href="../public/css/style.css" />
+    <link rel="stylesheet" href="../public/css/new_style.css" />
   </head>
-  
+
   <body>
     <header>
-      <img src="../public/res/hambuger-menu.png" />
+      <nav>
+        <a class="icons"><img src="../public/res/hambuger-menu.png" /></a>
+      </nav>
     </header>
 
-    <main>
-      <div class="center"><p>Welcome Back!</p></div>
- 
-      <div class="container">
-        <img src="../public/res/logo.svg" style="width: 50%" />
-        <div class="logoText"><h1>Diabetes@Home</h1></div>
+    <main class="content login_grid_format">
+      <!--logo-->
+      <div class="logo">
+        <div class="logo_container">
+          <img class="logo_image" src="../public/res/logo.svg" />
+          <div class="logoText"><h1>Diabetes@Home</h1></div>
+        </div>
       </div>
 
-      <div class="center"><h2>Login</h2></div>
+      <!--form-->
+      <form action="login_page.php" class="sec1">
+        <div style="margin: 8%"><h4>Welcome Back!</h4></div>
+        <div>
+          <input type="text" placeholder="Email" name="email" required />
+          <input type="password" placeholder="Password" name="psw" required />
+          <div class="login_container">
+            <span class="rememberme"
+              ><input
+                type="checkbox"
+                checked="checked"
+                name="remember"
+              />Remember me</span
+            >
+            <span class="psw">Forgot <a href="#">password?</a></span>
+          </div>
 
-      <div class="text">Email</div>
-
-      <div class="text">Password</div>
-
-      <span class="leftBox">Remember me</span>
-      <span class="rightBox">Forgot Password?</span>
-
-      <div class="center">
-        <button>Log in</button>
-      </div>
+          <button class="medium_button" type="submit">Login</button>
+        </div>
+      </form>
     </main>
- 
-    <footer></footer>
   </body>
 </html>
