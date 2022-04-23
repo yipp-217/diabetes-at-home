@@ -259,6 +259,30 @@ p {font-family: var(--font-family-body);
     margin-top: 8%;
   }
 
+  .big_background{
+    background-color: var(--color-background-lightmedium);
+    margin:5%;
+    width: 90%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .setting_contanier{
+    margin:2%;
+    width: 45%;
+  }
+
+  .personal_info{
+    text-align: left;
+    margin: 5%;
+  }
+
+  .personal_info h5,p {
+    text-align: left;
+  }
+
   /*put several data boxes into a bigger box, resizing responsively*/
   .data_display {
     display: flex;
@@ -459,7 +483,7 @@ p {font-family: var(--font-family-body);
     color:var(--color-background-white);
   }
 
-  .clinician_top_nav_bar_button{
+  .clinician_nav_btn{
     border-radius: 5px;
     background-color:#EFF6F9;
     padding: 0px;
@@ -467,6 +491,18 @@ p {font-family: var(--font-family-body);
     position: absolute;
     right: 10%;
   }
+
+  .clinician_nav_btn2{
+    border-radius: 5px;
+    background-color:#EFF6F9;
+    padding: 0px;
+    width: 15%;
+    position: absolute;
+    right: 26%;
+  }
+
+
+
 
 /******************* research bar ****************/
 .search_bar {
