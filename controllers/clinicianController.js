@@ -1,4 +1,4 @@
-const cdb = require('../models/clinicians')
+const cdb = require('../test-data/clinicians')
 
 const getClinician = (req, res) => {
     const data = cdb.find(data => data.id === req.params.userId)

@@ -1,4 +1,4 @@
-const pdb = require('../models/patients')
+const pdb = require('../test-data/patients')
 
 
 const getPatient = (req, res) => {
