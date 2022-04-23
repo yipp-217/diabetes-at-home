@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
-    // definition
+    user_properties: [User],
+    patients: [String]
 })
 
 const Clinician = mongoose.model('Clinician', schema)
