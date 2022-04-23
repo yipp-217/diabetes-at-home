@@ -1,3 +1,5 @@
+const Clinician = require('../models/clinician')
+
 const cdb = require('../test-data/clinicians')
 
 const getClinician = (req, res) => {
