@@ -163,8 +163,12 @@ p {font-family: var(--font-family-body);
     margin-right: 5px;
     float:right;
     right: 5px;
-
     position:absolute;
+  }
+
+  .icons_profile {
+    width: 5%;
+    margin: 3%;
   }
   
   /****************** body css style ************************/
@@ -427,6 +431,34 @@ p {font-family: var(--font-family-body);
     color:var(--color-background-white);
   }
 
+  .clinician_top_nav_bar_button{
+    border-radius: 5px;
+    background-color:#EFF6F9;
+    padding: 3px;
+    width: 10%;
+    position: absolute;
+    right: 8%;
+  }
+
+/******************* research bar ****************/
+.search_bar {
+  display: flex;
+  align-items: center;
+}
+.search_bar input{ 
+    margin-left: 5%;
+    border-radius: 0px;
+    width: 35%;
+    height:20px;
+  }
+
+  .reaserch_btn {
+    background-color: #424245;
+    padding: 5px;
+    border-radius: 0px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+  }
+
   /*for about pages*/
   .bottom_button {
     margin: 8%;
@@ -448,6 +480,10 @@ p {font-family: var(--font-family-body);
 
 /******************* dashboard table ****************/
 
+.cilnician_nav {
+  position:absolute;
+  left:10%;
+}
 
 .dashboard_flex{
   padding-top: 10%;
@@ -459,7 +495,7 @@ p {font-family: var(--font-family-body);
   background-color: var(--color-background-lightmedium);
   height:100%;
   width: 70%;
-  margin-right: 5%;
+  margin-right: 2%;
   margin-left: 5%;
   float: left;
   padding-left: 5px;
@@ -530,13 +566,7 @@ td:last-child {
   margin: 2%;
 }
 
-.search_bar input{ 
-  margin-left: 5%;
-  margin-right: 2%;
-  border-radius: 15px;
-  width: 35%;
-  height:20px;
-}
+
 /******************* dashboard table verticle line ****************/
 .dashboard_table td:after {
   content: '';
@@ -721,5 +751,5 @@ footer {
 /******************* new patient classes **************************/
 
 /******************* new clinician classes **************************/
-.clinician_top_nav_bar_button {}
+
 
