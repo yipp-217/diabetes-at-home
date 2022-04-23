@@ -8,7 +8,7 @@
     --text-big: 20px;
     --text-medium: 18px;
     --text-small: 15px;
-    --text-smaller: 10px;
+    --text-smaller: 13px;
     --text-smallest:10px;
     /* Fonts */
     --font-family-body: "PT Serif", serif;
@@ -444,7 +444,9 @@ p {font-family: var(--font-family-body);
 .search_bar {
   display: flex;
   align-items: center;
+  width: 100%;
 }
+
 .search_bar input{ 
     margin-left: 5%;
     border-radius: 0px;
@@ -515,7 +517,7 @@ p {font-family: var(--font-family-body);
 
 .comment_sec{
   background-color: #EEF5F5;
-  border-radius: 20px;
+  border-radius: 20px 20px 0px 0px;
 }
 
 .container_comment {
@@ -711,7 +713,30 @@ footer {
     background-color: var(--color-background-white);
   }
 
+.dashboard_table{
+  width: 100%;
 }
+
+
+.dashboard_flex, .flex_left, .flex_right{
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.dashboard_flex{
+  padding-top: 20%;
+}
+
+.flex_left{
+  margin-right: 5%;
+}
+
+.flex_right{
+    margin-left: 5%;
+}
+
+}
+
 
 
 /**************** tablet size responsive ********************/
@@ -744,6 +769,24 @@ footer {
       "subheading ."
       "sec2       sec2"
       "sec3       sec3"
+    }
+
+    .dashboard_flex, .flex_left, .flex_right{
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .dashboard_flex{
+      align-items: center;
+      padding-top: 15%;
+    }
+
+    .flex_left{
+      margin-right: 5%;
+    }
+    
+    .flex_right{
+        margin-left: 5%;
     }
 }
 
