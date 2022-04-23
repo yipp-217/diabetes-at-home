@@ -1,33 +1,38 @@
-<header>
-    <br />
-    <img src="../res/hambuger-menu.png" />
-</header>
-<br />
-<br />
-<br />
-<br />
-<main>
-    <div class="center"><p>Welcome Back!</p></div>
-    <br />
-    <div class="container">
-        <img src="../res/logo.svg" style="width: 50%" />
-        <div class="logoText"><h1>Diabetes@Home</h1></div>
-    </div>
-    <br />
-    <div class="center"><h2>Login</h2></div>
-    <br />
+<body>
+    <header>
+      <nav>
+        <a class="icons"><img src="/res/hambuger-menu.png" /></a>
+      </nav>
+    </header>
 
-    <form>
-        <label for="email">Email</label><br>
-        <input type="text" id="email" name="email" placeholder="Email" class="text"><br>
-        <br />
-        <label for="password">Password</label><br>
-        <input type="text" id="password" name="password" placeholder="Password" class="text"><br>
-        <br />
-        <span class="leftBox">Remember me</span>
-        <span class="rightBox">Forgot Password?</span>
-        <br />
-        <br />
-        <button><input type="submit" value="Log in"></button>
-    </form>
-</main>
+    <main class="content login_grid_format">
+      <!--logo-->
+      <div class="logo">
+        <div class="logo_container">
+          <img class="logo_image" src="/res/logo.svg" />
+          <div class="logoText"><h1>Diabetes@Home</h1></div>
+        </div>
+      </div>
+
+      <!--form-->
+      <form action="login_page.php" class="sec1">
+        <div style="margin: 8%"><h4>Welcome Back!</h4></div>
+        <div>
+          <input type="text" placeholder="Email" name="email" required />
+          <input type="password" placeholder="Password" name="psw" required />
+          <div class="login_container">
+            <span class="rememberme"
+              ><input
+                type="checkbox"
+                checked="checked"
+                name="remember"
+              />Remember me</span
+            >
+            <span class="psw">Forgot <a href="#">password?</a></span>
+          </div>
+
+          <button class="medium_button" type="submit">Login</button>
+        </div>
+      </form>
+    </main>
+  </body>
