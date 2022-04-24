@@ -2,19 +2,22 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--<link rel="stylesheet" href="public/css/style.css"/>-->
+        <link rel="stylesheet" href="../public/css/new_style.css" /> 
     </head>
-    <body class="clinician_body">
-        <header class="clinician_header">
-            <h1>John Doe</h1>
-            <button type="button">Back to Dashboard</button>
-        </header>
-    
-        <a href="url">Data History</a>
 
-        <contianer class="info_contianer">
+    <body class="clinician_body">
+
+        <header class="clinician_header">
+            <h2 class="cilnician_nav">John Doe</h2>
+            <button class="clinician_nav_btn" type="button"><h5>Back to Dashboard</h5></button>
+        </header>
+
+        <a href="url"><p class="history_link"> Data History</p></a>
+
+    <main class="note_main">
+        <section class="info_contianer">
             <div class="weight">
-                <h1>Weight</h1>
+                <h3>Weight</h3>
                 <p>68kg</p>
                 <label class="required">Required
                     <input type="checkbox" checked="checked">
@@ -28,75 +31,80 @@
                     <label>Upper Threshold</label>
                     <input class="input" type="text">
                 </form>
-            </contianer>
+            </section>
 
-            <contianer class="info_contianer">
-                <h1>Blood Glucose</h1>
-                <p>7 nmol/L</p>
-                <label class="required">Required
-                    <input type="checkbox" checked="checked">
-                    <span class="checkmark"></span>
-                </label>
-                <form class="info_contianer">
-                    <label>Lower Threshold</label>
+            <section class="info_contianer">
+                <div class="weight">
+                    <h3>Blood Glucose</h3>
+                    <p>7 nmol/L</p>
+                    <label class="required">Required
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <form class="lower-threshold">
+                        <label>Lower Threshold</label>
+                        <input class="input" type="text">
+                    </form>
+                    <form class="upper-threshold">
+                        <label>Upper Threshold</label>
+                        <input class="input" type="text">
+                    </form>
+                </section>
+
+                <section class="info_contianer">
+                    <h3>Support Messages</h3>
+                    <p>Current Message:</p>
+                    <p class="message">You are doing great :)</p>
+                    <label>New Message:</label>
                     <input class="input" type="text">
-                </form>
-                <form class="info_contianer">
-                    <label>Upper Threshold</label>
-                    <input class="input" type="text">
-                </form>
-            </contianer>
+                    <button type="button">Update Message</button>
+                </section>
 
-            <contianer class="info_contianer">
-                <h1>Exercise</h1>
-                <p>3000 steps</p>
-                <label class="required">Required
-                    <input type="checkbox" checked="checked">
-                    <span class="checkmark"></span>
-                </label>
-                <form class="info_contianer">
-                    <label>Lower Threshold</label>
-                    <input class="input" type="text">
-                </form>
-                <form class="upper-threshold">
-                    <label>Upper Threshold</label>
-                    <input class="input" type="text">
-                </form>
-            </contianer>
+                <section class="info_contianer">
+                    <div class="weight">
+                        <h3>Exercise</h3>
+                        <p>3000 steps</p>
+                        <label class="required">Required
+                            <input type="checkbox" checked="checked">
+                            <span class="checkmark"></span>
+                        </label>
+                        <form class="lower-threshold">
+                            <label>Lower Threshold</label>
+                            <input class="input" type="text">
+                        </form>
+                        <form class="upper-threshold">
+                            <label>Upper Threshold</label>
+                            <input class="input" type="text">
+                        </form>
+                    </section>
 
-            <contianer class="info_contianer">
-                <h1>Doses of Insulin Taken</h1>
-                <p>--</p>
-                <label class="required">Required
-                    <input type="checkbox" checked="checked">
-                    <span class="checkmark"></span>
-                </label>
-                <form class="lower-threshold">
-                    <label>Lower Threshold</label>
-                    <input class="input" type="text">
-                </form>
-                <form class="upper-threshold">
-                    <label>Upper Threshold</label>
-                    <input class="input" type="text">
-                </form>
-            </contianer>
+                    <section class="info_contianer">
+                        <div class="weight">
+                            <h3>Doses of Insulin Taken</h3>
+                            <p>--</p>
+                            <label class="required">Required
+                                <input type="checkbox" checked="checked">
+                                <span class="checkmark"></span>
+                            </label>
+                            <form class="lower-threshold">
+                                <label>Lower Threshold</label>
+                                <input class="input" type="text">
+                            </form>
+                            <form class="upper-threshold">
+                                <label>Upper Threshold</label>
+                                <input class="input" type="text">
+                            </form>
+                        </section>
 
-        <contianer class="info_contianer">
-            <h1>Support Messages</h1>
-            <p>Current Message:</p>
-            <p class="message">You are doing great :)</p>
-            <label>New Message:</label>
-            <input class="message-input" type="text">
-            <button type="button">Save</button>
-        </contianer>
 
-        <contianer class="info_contianer">
-            <h1>Notes</h1>
-            <input class="notes-input" type="text">
-            <a href="url">See Past Notes</a>
-        </contianer>
 
-        <button type="button">Save</button>
+                    <section class="info_contianer">
+                            <h3>Notes</h3>
+                            <input class="input" type="text">
+                            <a href="url">See Past Notes</a>
+                    </section>
 
+        <button class="lightmedium_button" type="button">Save</button>
+    </main>
     </body>
 </html>
