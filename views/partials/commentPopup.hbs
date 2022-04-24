@@ -1,0 +1,23 @@
+<div id="{{dataField}}" class="popup">
+    <a href="javascript:void(0)" class="closebtn" onclick="closePopup('{{dataField}}')">&times;</a>
+    <h2>{{title}}</h2>
+    <form>
+        {{> comment commentId=commentId}}
+        <br>
+        <br>
+        <button type="submit">SAVE</button>
+    </form>
+</div>
+
+
+<script>
+    function openPopup(elemid) {
+        document.getElementById(elemid).style.display = "flex";
+        document.getElementById(elemid).style.boxShadow = "0 0 0 100vmax rgba(0,0,0,.3)";
+    }
+
+    function closePopup(elemid) {
+        document.getElementById(elemid).style.display = "none";
+        document.getElementById(elemid).style.boxShadow = "0 0 0 100vmax rgba(0,0,0,0)";
+    }
+</script>

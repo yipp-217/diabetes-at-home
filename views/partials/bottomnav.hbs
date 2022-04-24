@@ -1,26 +1,31 @@
 <footer>
-    <a href="/patient_main">
+    <a href="/patient_main" class="nav">
         {{#if (isEq page 'patient_main')}}
             <img src="res/nav_home_curr.svg" class="icons">
-            {{else}} <img src="res/nav_home.svg" class="icons">
+            {{else}} 
+            <img src="res/nav_home.svg" class="icons">
         {{/if}}
     </a>
-    <a href="/patient_edit_data">
+    
+    <a href="/patient_edit_data" class="nav">
         {{#if (isEq page 'patient_edit_data')}}
             <img src="res/nav_edit_curr.svg" class="icons">
-            {{else}} <img src="res/nav_edit.svg" class="icons">
+            {{else}} 
+            <img src="res/nav_edit.svg" class="icons">
         {{/if}}
     </a>
-    <a href="/patient_leaderboard">
+    <a href="/patient_leaderboard" class="nav">
         {{#if (isEq page 'patient_leaderboard')}}
             <img src="res/nav_leaderboard_curr.svg" class="icons">
-            {{else}} <img src="res/nav_leaderboard.svg" class="icons">
+            {{else}} 
+            <img src="res/nav_leaderboard.svg" class="icons">
         {{/if}}
     </a>
-    <a href="/patient_messages">
-        {{#if (isEq page 'patient_messages')}}
-            <img src="res/nav_message_curr.svg" class="icons">
-            {{else}} <img src="res/nav_message.svg" class="icons">
+    <a href="/settings" class="nav">
+        {{#if (isEq page 'settings')}}
+            <img src="res/profile_color.svg" class="icons">
+            {{else}} 
+            <img src="res/profile.svg" class="icons">
         {{/if}}
     </a>
 </footer>

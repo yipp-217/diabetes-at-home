@@ -1,40 +1,46 @@
 {{> sidenav context}}
 
-<h2>Hello, JohnDoe</h2>
-<p1>You are doing great :)</p1>
+<main class="content mainpage_grid_format">
+        
+    <div id="clinician_message">
+        <h2 style="text-align:left">Hello, JohnDoe</h2>
+        <p style="text-align:left" class="bigger_p">You are doing great :)</p>  
+    </div>
+        
+    <!-- charts -->
+    <div class="chart_container container sec1">
+        <button id="white_button" class="item_center"> 
+            <p style="margin-right: 1vh">All</p>
+            <img src="/res/Icon-down.svg">
+        </button>
+    </div>
 
-<!-- Drop_down_info -->
-<ul>
-    <li>All</li>
-    <li>Weight</li>
-    <li>Blood Gluc…</li>
-    <li>Exercise</li>
-    <li>Does Taken</li>
-</ul>
-<img src="res/Icon-down.svg" alt="" width="27" height="27">
+    <!-- data entry -->
+    <h2 style="text-align:left" class="subheading">Today</h2>
 
- 
-<!-- 4 main data -->
-<h3>Today</h3>
-  
-<div>
-    <p1>Weight</p1>
-    <p2>68 kg</p2>
-</div>
+    <!--flexbox-->
+    <div class="data_display">
+        <contianer class="container info_square_container">
+            <p class="bigger_p">Weight</p>
+            <p>-</p>
+        </contianer>
 
-<div>
-    <p1>Blood Glucose Level</p1>
-    <p2>7 nmol/L</p2>
-</div>
-    
-<div>
-    <p1>Exercise</p1>
-    <p2>3000 steps</p2>
-</div>
+        <contianer class="container info_square_container">
+            <p class="bigger_p">Blood Glucose Level</p>
+            <p>-</p>
+        </contianer>
 
-<div>
-    <p1>Doses of Insulin Taken</p1>
-    <p2>-</p2>
-</div>
+        <contianer class="container info_square_container">
+            <p class="bigger_p">Exercise</p>
+            <p>-</p>
+        </contianer>
+
+        <contianer class="container info_square_container">
+            <p class="bigger_p">Doses of Insulin Taken</p>
+            <p>-</p>
+        </contianer>        
+    </div>
+
+</main>
 
 {{> bottomnav context}}
