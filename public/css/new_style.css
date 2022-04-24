@@ -29,6 +29,7 @@
     --color-text-grey: #707070;
   }
   
+
   * {
     margin: 0;
     padding: 0;
@@ -205,12 +206,16 @@ p {font-family: var(--font-family-body);
   }
 
   body {
-    background-color: var(--color-background-white);
+    background-color: var(--color-background-light);
     display: flex;
     flex-direction: column;
     width: 100%; 
     height:100%;
     background-attachment: fixed;
+  }
+
+  .clinician_body{
+    background-color: #EFF6F9;
   }
 
   .body_icons {
@@ -268,7 +273,7 @@ p {font-family: var(--font-family-body);
     display: flex;
     align-items: center;
   }
-  
+
   .setting_contanier{
     margin:2%;
     width: 45%;
@@ -281,6 +286,26 @@ p {font-family: var(--font-family-body);
 
   .personal_info h5 {
     text-align: left;
+  }
+
+  .contianer_note{
+    display: flex;
+    background-color: #eff6f9;
+    width: 75%;
+    margin:1%;
+    border-radius: 5px;
+  }
+
+
+  .note{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .time{
+    position: absolute;
+    right:6%;
   }
 
   /*put several data boxes into a bigger box, resizing responsively*/
@@ -367,7 +392,7 @@ p {font-family: var(--font-family-body);
     flex-direction: row;
     justify-content: space-between;
   }
-
+  
   /*large data container*/
   .boxes_container {
     width:100%;
@@ -684,6 +709,10 @@ td:last-child {
 /****************** clinician body ***********************/
  .clinician_main{
    padding-top: 10%;
+ }
+
+ .note_main{
+  padding-top: 5%;
  }
 
  .clinician_main h3{
