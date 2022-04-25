@@ -1,5 +1,5 @@
 {
-  "name": "diabetes-at-home",
+  "name": "package.jason",
   "version": "1.0.0",
   "description": "INFO30005 Web App Project",
   "main": "app.js",
@@ -25,5 +25,8 @@
   },
   "devDependencies": {
     "dotenv": "^16.0.0"
-  }
+  },
+  "keywords": [
+    "YML010716"
+  ]
 }
