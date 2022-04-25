@@ -9,7 +9,10 @@ app.use(express.static(__dirname + '/public'))
 const exphbs = require('express-handlebars')
 app.engine('hbs', exphbs.engine({
     defaultLayout: 'main',
-    extname: 'hbs'
+    extname: 'hbs',
+    helpers: {
+        isEq: (x, y) => x == y
+    }
 }))
 app.set('view engine', 'hbs')
 
@@ -18,15 +21,24 @@ app.get('/', (req, res) => {
 })
 
 app.get('/about_diabetes', (req, res) => {
-    res.render('about_diabetes.hbs')
+    res.render('about_diabetes.hbs', {context: {
+        'login': false,
+        'page': 'about_diabetes'
+    }})
 })
 
 app.get('/about_website', (req, res) => {
-    res.render('about_website.hbs')
+    res.render('about_website.hbs', {context: {
+        'login': false,
+        'page': 'about_website'
+    }})
 })
 
 app.get('/login', (req, res) => {
-    res.render('login.hbs')
+    res.render('login.hbs', {context: {
+        'login': false,
+        'page': 'login'
+    }})
 })
 
 app.get('/change_password', (req, res) => {
@@ -41,28 +53,46 @@ app.get('/clinician_patient_notes', (req, res) => {
     res.render('clinician_patient_notes.hbs')
 })
 
-app.get('/leaderboard', (req, res) => {
-    res.render('leaderboard.hbs')
+app.get('/patient_leaderboard', (req, res) => {
+    res.render('patient_leaderboard.hbs', {context: {
+        'login': true,
+        'page': 'patient_leaderboard'
+    }})
 })
 
 app.get('/patient_edit_data', (req, res) => {
-    res.render('patient_edit_data.hbs')
+    res.render('patient_edit_data.hbs', {context: {
+        'login': true,
+        'page': 'patient_edit_data'
+    }})
 })
 
 app.get('/patient_main', (req, res) => {
-    res.render('patient_main.hbs')
+    res.render('patient_main.hbs', {context: {
+        'login': true,
+        'page': 'patient_main'
+    }})
+})
+
+app.post('/patient_main', (req, res) => {
+    res.render('patient_main.hbs', {context: {
+        'login': true,
+        'page': 'patient_main'
+    }})
 })
 
 app.get('/patient_messages', (req, res) => {
-    res.render('patient_messages.hbs')
+    res.render('patient_messages.hbs', {context: {
+        'login': true,
+        'page': 'patient_messages'
+    }})
 })
 
-app.get('/dashboard', (req, res) => {
-    res.render('dashboard.hbs')
-})
-
-app.get('/clinician_patient_settings', (req, res) => {
-    res.render('clinician_patient_settings.hbs')
+app.get('/settings', (req, res) => {
+    res.render('settings.hbs', {context: {
+        'login': true,
+        'page': 'settings'
+    }})
 })
 
 // Tells the app to listen on port 3000 and logs that information to the console.

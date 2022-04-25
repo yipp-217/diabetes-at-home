@@ -1,38 +1,31 @@
-<body>
-    <header>
-      <nav>
-        <a class="icons"><img src="/res/hambuger-menu.png" /></a>
-      </nav>
-    </header>
+{{> sidenav context}}
 
-    <main class="content login_grid_format">
-      <!--logo-->
-      <div class="logo">
+<main class="content login_grid_format">
+    <!--logo-->
+    <div class="logo">
         <div class="logo_container">
-          <img class="logo_image" src="/res/logo.svg" />
-          <div class="logoText"><h1>Diabetes@Home</h1></div>
+            <img class="logo_image" src="/res/logo.svg" />
+            <div class="logoText"><h1>Diabetes@Home</h1></div>
         </div>
-      </div>
+    </div>
 
-      <!--form-->
-      <form action="login_page.php" class="sec1">
+    <!--form-->
+    <form action="patient_main" method="post" class="sec1">
         <div style="margin: 8%"><h4>Welcome Back!</h4></div>
         <div>
-          <input type="text" placeholder="Email" name="email" required />
-          <input type="password" placeholder="Password" name="psw" required />
-          <div class="login_container">
-            <span class="rememberme"
-              ><input
-                type="checkbox"
-                checked="checked"
-                name="remember"
-              />Remember me</span
-            >
-            <span class="psw">Forgot <a href="#">password?</a></span>
-          </div>
-
-          <button class="medium_button" type="submit">Login</button>
+            <input type="text" id="email" placeholder="Email" name="email" required />
+            <input type="password" id="password" placeholder="Password" name="psw" required />
+            <div class="login_container">
+            <span class="rememberme">
+                <input
+                    type="checkbox"
+                    checked="checked"
+                    name="remember"
+                />Remember me
+            </span>
+            <span class="psw"><a href="#">Forgot Password?</a></span>
+            </div>
+        <button class="medium_button" type="submit">Login</button>
         </div>
-      </form>
-    </main>
-  </body>
+    </form>
+</main>
