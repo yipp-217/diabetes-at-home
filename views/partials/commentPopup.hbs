@@ -1,7 +1,7 @@
 <div id="{{dataField}}" class="popup">
     <a href="javascript:void(0)" class="closebtn" onclick="closePopup('{{dataField}}')">&times;</a>
     <h2>{{title}}</h2>
-    <form>
+    <form> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
         {{> comment commentId=commentId}}
         <br>
         <br>

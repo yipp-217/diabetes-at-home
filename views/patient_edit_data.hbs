@@ -1,5 +1,6 @@
 {{> sidenav context}}
 
+<!-- Popups for comments -->
 {{> commentPopup dataField='bloodGlucose' title ='Blood Glucose Level' commentId='bloodGlucoseComment'}}
 {{> commentPopup dataField='weight' title = 'Weight' commentId='weightComment'}}
 {{> commentPopup dataField='exercise' title = 'Exercise' commentId='exerciseComment'}}
@@ -17,18 +18,23 @@
                 <p class="bigger_p">Blood Glucose Level</p>
                 <img class="body_icons comment" src="res/Icon_comment.svg" onclick="openPopup('bloodGlucose')" style="cursor: pointer;">
             </div>
-            <div class="data_container input_data">
-                <input type="text">
-                <p>nmol/L</p> 
-            </div>
+            <form id="bloodGlucoseForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
+                <div class="data_container input_data">
+                    <input type="text" name="bloodGlucoseValue">
+                    <p>nmol/L</p> 
+                </div>
+            </form>
 
-             <!--desktop comment section-->       
-            <div class="desktop_comment">
-                {{> comment commentId="bloodGlucoseComment"}}
-            </div>
+            <!--desktop comment section--> 
+            <form id="bloodGlucoseCommentForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
+                <div class="desktop_comment">
+                    {{> comment commentId="bloodGlucoseComment"}}
+                </div>   
+                <br>      
+            </form>      
 
             <!--save button--> 
-            <button class="center white_button">SAVE</button>
+            <button class="center white_button" onclick="submitPatientData('bloodGlucoseForm', 'bloodGlucoseCommentForm')">SAVE</button>
             
         </contianer>
 
@@ -38,18 +44,23 @@
                 <p class="bigger_p">Weight</p>
                 <img class="body_icons comment" src="res/Icon_comment.svg" onclick="openPopup('weight')" style="cursor: pointer;">
             </div>
-            <div class="data_container input_data">
-                <input type="text">
-                <p>kgrams</p>   
-            </div>
+            <form id="weightForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
+                <div class="data_container input_data">
+                    <input type="text" name="weightValue">
+                    <p>kgrams</p>   
+                </div>
+            </form>
 
             <!--desktop comment section-->
-            <div class="desktop_comment">
-                {{> comment commentId="weightComment"}}
-            </div>
+            <form id="weightCommentForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
+                <div class="desktop_comment">
+                    {{> comment commentId="weightComment"}}
+                </div> 
+                <br>      
+            </form>  
 
-            <!--save button--> 
-            <button class="center white_button">SAVE</button>    
+            <!--save button-->
+            <button class="center white_button" onclick="submitPatientData('weightForm', 'weightCommentForm')">SAVE</button>
 
         </contianer>
         
@@ -66,18 +77,24 @@
                 <p class="bigger_p">Exercise</p>
                 <img class="body_icons comment" src="res/Icon_comment.svg" onclick="openPopup('exercise')" style="cursor: pointer;">
             </div>
-            <div class="data_container input_data">
-                <input type="text">
-                <p>steps</p> 
-            </div>
+            <form id="exerciseForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
+                <div class="data_container input_data">
+                    <input type="text" name="exerciseValue">
+                    <p>steps</p> 
+                </div>
+            </form>
+            
 
             <!--desktop comment section-->            
-            <div class="desktop_comment">
-                {{> comment commentId="exerciseComment"}}
-            </div>
+            <form id="exerciseCommentForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
+                <div class="desktop_comment">
+                    {{> comment commentId="exerciseComment"}}
+                </div> 
+                <br>      
+            </form>  
 
             <!--save button--> 
-            <button class="center white_button">SAVE</button>
+            <button class="center white_button" onclick="submitPatientData('exerciseForm', 'exerciseCommentForm')">SAVE</button>
 
 
         </contianer>
@@ -87,19 +104,24 @@
                 <img class="body_icons" src="/res/Icon_doses.svg" alt="doses icon image">
                 <p class="bigger_p">Doses of Insulin Taken</p> 
                 <img class="body_icons comment" src="res/Icon_comment.svg" onclick="openPopup('insulin')" style="cursor: pointer;">           
-            </div>
-            <div class="data_container input_data">
-                <input type="text"> 
-                <p>doses</p> 
             </div> 
+            <form id="insulinForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
+                <div class="data_container input_data">
+                    <input type="text" name="insulinValue"> 
+                    <p>doses</p> 
+                </div>
+            </form>
 
             <!--desktop comment section-->
-            <div class="desktop_comment">
-                {{> comment commentId="insulinComment"}}
-            </div>
+            <form id="insulinCommentForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
+                <div class="desktop_comment">
+                    {{> comment commentId="insulinComment"}}
+                </div>  
+                <br>      
+            </form>  
 
             <!--save button--> 
-            <button class="center white_button">SAVE</button>
+            <button class="center white_button" onclick="submitPatientData('insulinForm', 'insulinCommentForm')">SAVE</button>
 
         </contianer>
 
@@ -111,13 +133,8 @@
 
 
 <script>
-    function openPopup(elemid) {
-        document.getElementById(elemid).style.display = "flex";
-        document.getElementById(elemid).style.boxShadow = "0 0 0 100vmax rgba(0,0,0,.3)";
-    }
-
-    function closePopup(elemid) {
-        document.getElementById(elemid).style.display = "none";
-        document.getElementById(elemid).style.boxShadow = "0 0 0 100vmax rgba(0,0,0,0)";
+    function submitPatientData(data, comment) {
+        document.getElementById(data).submit();
+        document.getElementById(comment).submit();
     }
 </script>

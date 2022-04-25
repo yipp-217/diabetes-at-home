@@ -279,7 +279,7 @@ p {font-family: var(--font-family-body);
     margin: 5%;
   }
 
-  .personal_info h5,p {
+  .personal_info h5 {
     text-align: left;
   }
 
@@ -447,18 +447,18 @@ p {font-family: var(--font-family-body);
 
   /******************** button ****************************/
   button {
-    display: inline-flex;
+    display: inline-flex !important;
     background-color: var(--color-background-light);
     color: var(--color-text-black);
-    text-align: center;
-    justify-content: center;
+    text-align: center !important;;
+    justify-content: center !important;;
     font-size: var(--text-big);
     font-weight: bold;
     font-family: var(--font-family-heading);
-    padding: 10px 25px;
-    border-radius: 12px;
+    padding: 10px 25px !important;;
+    border-radius: 12px !important;;
     cursor: pointer;
-    box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.2) !important;;
   }
 
   button:active {
@@ -927,7 +927,7 @@ footer {
     justify-content: flex-start;
     align-content: center;
     gap: 10%;
-    height: 50%;
+    min-height: 50%;
     width: 75%;
     position: absolute;
     z-index: 1;
