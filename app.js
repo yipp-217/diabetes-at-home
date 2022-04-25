@@ -9,7 +9,10 @@ app.use(express.urlencoded({extended:true}))
 
 app.engine('hbs', exphbs.engine({
     defaultLayout: 'main',
-    extname: 'hbs'
+    extname: 'hbs',
+    helpers: {
+        isEq: (x, y) => x == y
+    }
 }))
 
 app.set('view engine', 'hbs')

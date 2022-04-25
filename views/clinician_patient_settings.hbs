@@ -1,92 +1,60 @@
-<header>
-    <h1>John Doe</h1>
-    <button type="button">Back to Dashboard</button>
-</header>
-<div class="patient-panel">
-    <div class="weight">
-        <h1>Weight</h1>
-        <p>68kg</p>
-        <label class="required">Required
-            <input type="checkbox" checked="checked">
-            <span class="checkmark"></span>
-        </label>
-        <form class="lower-threshold">
-            <label>Lower Threshold</label>
-            <input class="input" type="text">
-        </form>
-        <form class="upper-threshold">
-            <label>Upper Threshold</label>
-            <input class="input" type="text">
-        </form>
-    </div>
+<body class="clinician_body">
 
-    <div class="blood-glucose">
-        <h1>Blood Glucose</h1>
-        <p>7 nmol/L</p>
-        <label class="required">Required
-            <input type="checkbox" checked="checked">
-            <span class="checkmark"></span>
-        </label>
-        <form class="lower-threshold">
-            <label>Lower Threshold</label>
-            <input class="input" type="text">
-        </form>
-        <form class="upper-threshold">
-            <label>Upper Threshold</label>
-            <input class="input" type="text">
-        </form>
-    </div>
+    <header class="clinician_header">
+        <img class="icons_profile" src="../public/res/DocImag.svg" >
+        <h2 class="cilnician_nav">Setting</h2>
+        <button class="clinician_nav_btn2" type="button"><h5>Back to Dashboard</h5></button>
+        <button class="clinician_nav_btn" type="button"><h5>Log Out</h5></button>
+    </header>
 
-    <div class="exercise">
-        <h1>Exercise</h1>
-        <p>3000 steps</p>
-        <label class="required">Required
-            <input type="checkbox" checked="checked">
-            <span class="checkmark"></span>
-        </label>
-        <form class="lower-threshold">
-            <label>Lower Threshold</label>
-            <input class="input" type="text">
-        </form>
-        <form class="upper-threshold">
-            <label>Upper Threshold</label>
-            <input class="input" type="text">
-        </form>
-    </div>
+<main class="clinician_main">
+    <h3 >Dr Jones</h3>
+    <section class="big_background">
 
-    <div class="insulin">
-        <h1>Doses of Insulin Taken</h1>
-        <p>--</p>
-        <label class="required">Required
-            <input type="checkbox" checked="checked">
-            <span class="checkmark"></span>
-        </label>
-        <form class="lower-threshold">
-            <label>Lower Threshold</label>
-            <input class="input" type="text">
-        </form>
-        <form class="upper-threshold">
-            <label>Upper Threshold</label>
-            <input class="input" type="text">
-        </form>
-    </div>
+    <section class="setting_contanier">
+            <article class="personal_info">
+                <h5>Full name:</h5>
+                <p>Sally Megan Jones</p>
+            </article>
+ 
+            <article class="personal_info">
+                <h5>Date of Birth:</h5>
+                <p>01/01/1980</p>
+            </article>
 
-    <button type="button">Save</button>
-</div>
+            <article class="personal_info">
+                <label for="Email"></label><h5>Email:</h5> </label>
+                <input type="text" placeholder="sally.jones@doctor.com" name="Email">
+            </article>
 
-<a href="/clinician_data_history">Data History</a>
+            <article class="personal_info">
+                <label for="Clinic"></label><h5>Clinic:</h5> </label>
+                <input type="text" placeholder="Example Diabetes Clinic" name="Clinic">
+            </article>
+    </section>
 
-<div class="support">
-    <h1>Support Messages</h1>
-    <p>Current Message:</p>
-    <p class="message">You are doing great :)</p>
-    <label>New Message:</label>
-    <input class="message-input" type="text">
-    <button type="button">Save</button>
-</div>
+    <section class="setting_contanier">
 
-<div class="notes">
-    <h1>Notes</h1>
-    <input class="notes-input" type="text">
-    <a href="/clinician_patient_notes">See Past Notes</a>
-</div>
+        <article class="personal_info">
+            <label for="Password"></label><h5>New Password:</h5></label>
+            <input type="text" placeholder="" name="Password">
+         </article>
+
+        <article class="personal_info">
+            <label for="Confirm_Password"></label><h5>Confirm Password:</h5> </label>
+            <input type="text" placeholder="" name="Confirm_Password">
+        </article>
+        <article class="personal_info">
+            <label for="Bio"></label><h5>Bio:</h5> </label>
+            <input type="text" placeholder="I have been a doctor for 10 years! I love helping others." name="Bio">
+        </article>
+
+        <button type="submit">Update Details</button>
+
+
+
+    </section>
+
+    </section>
+</main>
+</body>
