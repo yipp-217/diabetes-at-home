@@ -1068,7 +1068,7 @@ td:last-child {
     }
 
     .comment {
-        display:block;
+        display:none;
     }
 
     .data_container {
@@ -1081,7 +1081,7 @@ td:last-child {
     }
 
     .data_container {
-      justify-content: space-between;
+      justify-content: flex-start;
     }
 
     input[name="comment"]{
