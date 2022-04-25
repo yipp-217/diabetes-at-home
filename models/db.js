@@ -1,13 +1,14 @@
+const mongoose = require('mongoose')
+
 if (process.env.NODE_ENV !== 'production') {
+    /* for db login */
     require('dotenv').config()
 }
-
-const mongoose = require('mongoose')
 
 mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    dbName: 'diabetes-at-home'
+    dbName: 'info30005'
 })
 
 const db = mongoose.connection.on('error', err => {
