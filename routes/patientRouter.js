@@ -3,9 +3,12 @@ const patientRouter = express.Router()
 
 const patientController = require('../controllers/patientController')
 
-patientRouter.get('/:userId/', patientController.getPatient)
+patientRouter.get('/', patientController.getPatients)
 
-patientRouter.get('/:userId/data', patientController.getPatientData)
+patientRouter.post('/', patientController.createNew)
+
+
+// patientRouter.post('/put-pat', patientController.putPat)
 
 
 module.exports = patientRouter
