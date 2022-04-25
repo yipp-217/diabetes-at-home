@@ -1,10 +1,9 @@
 const mongoose = require('mongoose')
 
 /* */
-const healthDataSchema = new mongoose.Schema({
-    // date: {type: Date, default: Date.now}
-
-
+const healthDataEntrySchema = new mongoose.Schema({
+    data: {type: mongoose.Schema.Types.ObjectId, ref: 'HealthData'},
+    date: {type: Date, default: Date.now}
 })
 
 const clinicianNoteSchema = new mongoose.Schema({
@@ -40,7 +39,7 @@ const patientSchema = new mongoose.Schema({
 
     requirements: requirementsSchema,
     thresholds : [thresholdSchema],
-    patientHealthRecord: [healthDataSchema],
+    patientHealthRecord: [healthDataEntrySchema],
     clinicianNotes: [clinicianNoteSchema]
 })
 
@@ -48,12 +47,13 @@ const patientSchema = new mongoose.Schema({
 const Patient = mongoose.model('Patient', patientSchema)
 const Requirements = mongoose.model('Requirements', requirementsSchema)
 const Threshold = mongoose.model('Threshold', thresholdSchema)
-// const PatientHealthRecord = mongoose.model('PatientHealthRecord')
+const HealthDataEntry = mongoose.model('HealthDataEntry', healthDataEntrySchema)
 const ClinicianNote = mongoose.model('ClinicianNote',clinicianNoteSchema)
 
 module.exports = {
     Patient,
     Requirements,
     Threshold,
+    HealthDataEntry,
     ClinicianNote
 }
