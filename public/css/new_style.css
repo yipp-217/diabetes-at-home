@@ -148,8 +148,10 @@ p {font-family: var(--font-family-body);
   }
   
   .icons {
-    width: 5vh;
-    margin: 20px;
+    width: 4vh;
+    padding-left: 2%;
+    padding-right: 2%;
+    cursor: pointer;
   }
 
   .icons_small_left{
@@ -1173,13 +1175,6 @@ header {
     z-index: 100;
 }
 
-.icons {
-    cursor: pointer;
-    height: 4vh;
-    padding-left: 2%;
-    padding-right: 2%;
-}
-
 #hamburger {
     margin-right: auto;
 }
@@ -1247,13 +1242,6 @@ footer {
     flex-wrap: nowrap;
     flex: 1;
     text-decoration: none;
-}
-.icons {
-    cursor: pointer;
-    max-height: 4vh;
-    max-width: 4vw;
-    padding-left: 2%;
-    padding-right: 2%;
 }
 
 @media screen and (max-width: 1024px) {
