@@ -1,15 +1,29 @@
 {
-  "name": "diabetes-at-home-test",
+  "name": "diabetes-at-home",
   "version": "1.0.0",
-  "description": "Web Information Technologies (INFO30005_2022_SM1)",
-  "main": "index.js",
+  "description": "INFO30005 Web App Project",
+  "main": "app.js",
   "scripts": {
+    "start": "node app.js",
+    "prettier": "prettier --single-quote --no-semi --tab-width 4 --write '**/*.js' '*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yipp-217/diabetes-at-home.git"
+  },
+  "author": "Ed Peng, Caitlyn Allan, Brandon Widjaja, Lina Zhu, Mei Yao",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yipp-217/diabetes-at-home/issues"
+  },
+  "homepage": "https://github.com/yipp-217/diabetes-at-home#readme",
   "dependencies": {
     "express": "^4.17.3",
-    "express-handlebars": "^6.0.4"
+    "express-handlebars": "^6.0.5",
+    "mongoose": "^6.3.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.0"
   }
 }

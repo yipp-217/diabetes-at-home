@@ -29,7 +29,7 @@
     --color-text-grey: #707070;
   }
   
-  * {
+* {
     margin: 0;
     padding: 0;
     border: 0;
@@ -119,6 +119,7 @@ p {font-family: var(--font-family-body);
 
 
 /****************** header style ************************/
+
   /*header {
     background-color: var(--color-background-white);
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
@@ -205,12 +206,16 @@ p {font-family: var(--font-family-body);
   }
 
   body {
-    background-color: var(--color-background-white);
+    background-color: var(--color-background-light);
     display: flex;
     flex-direction: column;
     width: 100%; 
     height:100%;
     background-attachment: fixed;
+  }
+
+  .clinician_body{
+    background-color: #EFF6F9;
   }
 
   .body_icons {
@@ -268,7 +273,7 @@ p {font-family: var(--font-family-body);
     display: flex;
     align-items: center;
   }
-  
+
   .setting_contanier{
     margin:2%;
     width: 45%;
@@ -282,6 +287,27 @@ p {font-family: var(--font-family-body);
   .personal_info h5 {
     text-align: left;
   }
+
+  .contianer_note{
+    display: flex;
+    background-color: #eff6f9;
+    width: 75%;
+    margin:1%;
+    border-radius: 5px;
+  }
+
+
+  .note{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .time{
+    position: absolute;
+    right:6%;
+  }
+
 
   /*put several data boxes into a bigger box, resizing responsively*/
   .data_display {
@@ -401,6 +427,74 @@ p {font-family: var(--font-family-body);
     margin: 3%;
     overflow: hidden;
   }  
+
+  .info_contianer{
+    background-color: var(--color-background-lightmedium);
+    width: 100%;
+    padding: 4%;
+    border-radius: 20px;
+  }
+
+  .history_link{
+    padding-top:8%;
+    padding-left: 70%;
+    text-decoration:underline;
+  }
+
+
+/* On mouse-over, add a grey background color */
+.required:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+  
+/* When the checkbox is checked, add a blue background */
+.required input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+  
+/* Create the checkmark/indicator (hidden when not checked) */
+.required:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+/* Show the checkmark when checked */
+.required input:checked ~ .checkmark:after {
+    display: block;
+}
+  
+/* Style the checkmark/indicator */
+.required .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+  
+  
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
   /*small data container*/
   .data_container {
     width: 100%;
@@ -506,7 +600,35 @@ p {font-family: var(--font-family-body);
     right: 26%;
   }
 
+/******************* graph ****************/
+.history_background{
+  padding-top: 5%;
+  margin-left:10%;
+  margin-right:10%;
+  margin-top:5%;
+  margin-bottom:5%;
+  width: 80%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows:400px 400px;
+  grid-gap: 5%;
+}
 
+.graph_data h3{
+  text-align: left;
+}
+
+
+
+  .graph {
+    position: absolute;
+    border-radius: 20px;
+    box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.25);
+    width: 35%;
+    height: 40%;
+    background-color: #9FC0D6;
+  }
 
 
 /******************* research bar ****************/
@@ -660,6 +782,18 @@ td:last-child {
 /****************** clinician body ***********************/
  .clinician_main{
    padding-top: 10%;
+ }
+
+ .note_main{
+  margin-left:10%;
+  margin-right:10%;
+  margin-bottom:5%;
+  width: 80%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows:300px 300px;
+  grid-gap: 5%;
  }
 
  .clinician_main h3{
@@ -841,6 +975,77 @@ footer {
         display: none;
     }
 
+      margin-left: 8%;
+      display: flex;
+      flex-direction: column;
+      grid-gap: 1rem;
+  }
+  .login_grid_format {
+    padding-top: 15vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .boxes_container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .data_display {
+    margin-bottom: 8vh;
+  }
+
+  footer {
+    left:auto;
+    top:auto;
+    padding-top: 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 7.5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+    box-shadow: 0 -4px 5px 0 rgba(0, 0, 0, 0.2);
+    background-color: var(--color-background-white);
+  }
+
+.dashboard_table{
+  width: 100%;
+}
+
+
+.dashboard_flex, .flex_left, .flex_right{
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.dashboard_flex{
+  padding-top: 20%;
+}
+
+.flex_left{
+  margin-right: 5%;
+}
+
+.flex_right{
+    margin-left: 5%;
+}
+
+.comment {
+  display:block;
+}
+
+.data_container {
+  justify-content: space-between;
+}
+
+input[name="comment"]{
+  display: none;
+}
+
 }
 
 
@@ -894,6 +1099,32 @@ footer {
 
     .flex_left{
         margin-right: 5%;
+      margin-left: 15vh;
+      display: grid;
+      grid-template-columns: 50fr 50fr;
+      grid-template-rows: auto 4fr auto 4fr auto;
+      grid-row-gap: 2rem;
+      grid-column-gap:1rem;
+      grid-template-areas:
+      "heading    heading"
+      "sec1       sec1"
+      "subheading ."
+      "sec2       sec2"
+      "sec3       sec3"
+    }
+
+    .dashboard_flex, .flex_left, .flex_right{
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .dashboard_flex{
+      align-items: center;
+      padding-top: 15%;
+    }
+
+    .flex_left{
+      margin-right: 5%;
     }
     
     .flex_right{
@@ -910,6 +1141,15 @@ footer {
 
     .desktop_comment {
         display: none;
+      display:block;
+    }
+
+    .data_container {
+      justify-content: space-between;
+    }
+
+    input[name="comment"]{
+      display: none;
     }
 
 }
