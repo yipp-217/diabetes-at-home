@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 
-/* */
+/* each entry stores health data object(s) */
 const healthDataEntrySchema = new mongoose.Schema({
-    data: {type: mongoose.Schema.Types.ObjectId, ref: 'HealthData'},
+    data: {type: [mongoose.Schema.Types.ObjectId], ref: 'HealthData'},
     date: {type: Date, default: Date.now}
 })
 
