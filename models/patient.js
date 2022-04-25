@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const healthDataSchema = new mongoose.Schema({
     // date: {type: Date, default: Date.now}
 
+
 })
 
 const clinicianNoteSchema = new mongoose.Schema({
@@ -16,6 +17,12 @@ const requirementsSchema = new mongoose.Schema({
     weight: Boolean,
     dosesOfInsulinTaken: Boolean,
     exercise: Boolean
+})
+
+const thresholdSchema = new mongoose.Schema({
+    category: {type: String, enum: ['bloodGlucoseLevel', 'weight', 'dosesOfInsulinTaken', 'exercise']},
+    upper: Number,
+    lower: Number
 })
 
 /* Patient User */
@@ -32,6 +39,7 @@ const patientSchema = new mongoose.Schema({
     supportMessage: {type: String},
 
     requirements: requirementsSchema,
+    thresholds : [thresholdSchema],
     patientHealthRecord: [healthDataSchema],
     clinicianNotes: [clinicianNoteSchema]
 })
@@ -39,11 +47,13 @@ const patientSchema = new mongoose.Schema({
 
 const Patient = mongoose.model('Patient', patientSchema)
 const Requirements = mongoose.model('Requirements', requirementsSchema)
+const Threshold = mongoose.model('Threshold', thresholdSchema)
 // const PatientHealthRecord = mongoose.model('PatientHealthRecord')
 const ClinicianNote = mongoose.model('ClinicianNote',clinicianNoteSchema)
 
 module.exports = {
     Patient,
     Requirements,
+    Threshold,
     ClinicianNote
 }
