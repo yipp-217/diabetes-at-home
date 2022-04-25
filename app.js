@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 
 
 /* ========================================================================= */
-const PORT = 8080
+const PORT = process.env.PORT || 8080
 const HOSTNAME = ''
 
 /* Routers */
@@ -33,7 +33,7 @@ const patientRouter = require('./routes/patientRouter')
 const clinicianRouter = require('./routes/clinicianRouter')
 
 /* Models */
-require('./models/index')
+require('./models/db')
 
 
 /* ========================================================================= */
@@ -47,6 +47,6 @@ app.use('/patient', patientRouter)
 app.use('/clinician', clinicianRouter)
 
 /* ------------------------------------------------------------------------- */
-app.listen(process.env.PORT || PORT, HOSTNAME => {
+app.listen(PORT, HOSTNAME => {
     console.log('Diabetes@Home is listening on port ' + PORT)
 })
