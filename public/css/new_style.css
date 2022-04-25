@@ -512,6 +512,7 @@ p {font-family: var(--font-family-body);
 
   /*small data container*/
   .data_container {
+    margin: 4% 0;
     width: 100%;
     display: flex;
     align-items: center;
@@ -581,6 +582,7 @@ p {font-family: var(--font-family-body);
 
   .white_button {
     background-color: var(--color-background-white);
+    margin-bottom: 5%;
   }
 
   .pink_button {
@@ -1024,7 +1026,7 @@ td:last-child {
 
 
     .mainpage_grid_format {
-        /*margin-left: 15vh;*/
+        margin-left: 8%;
         justify-content: center;
         display: grid;
         grid-template-columns: 50fr 50fr;
