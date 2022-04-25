@@ -535,6 +535,10 @@ p {font-family: var(--font-family-body);
     text-decoration: none;
   }
 
+  #forgetPassword {
+    color: var(--color-text-black);
+  }
+
   .blacktext {
     color: var(--color-text-black);
   }
