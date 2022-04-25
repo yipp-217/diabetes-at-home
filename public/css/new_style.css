@@ -1024,7 +1024,8 @@ td:last-child {
 
 
     .mainpage_grid_format {
-        margin-left: 15vh;
+        /*margin-left: 15vh;*/
+        justify-content: center;
         display: grid;
         grid-template-columns: 50fr 50fr;
         grid-template-rows: auto 4fr auto 4fr auto;
@@ -1050,18 +1051,18 @@ td:last-child {
 
     .flex_left{
         margin-right: 5%;
-      margin-left: 15vh;
-      display: grid;
-      grid-template-columns: 50fr 50fr;
-      grid-template-rows: auto 4fr auto 4fr auto;
-      grid-row-gap: 2rem;
-      grid-column-gap:1rem;
-      grid-template-areas:
-      "heading    heading"
-      "sec1       sec1"
-      "subheading ."
-      "sec2       sec2"
-      "sec3       sec3"
+        margin-left: 15vh;
+        display: grid;
+        grid-template-columns: 50fr 50fr;
+        grid-template-rows: auto 4fr auto 4fr auto;
+        grid-row-gap: 2rem;
+        grid-column-gap:1rem;
+        grid-template-areas:
+        "heading    heading"
+        "sec1       sec1"
+        "subheading ."
+        "sec2       sec2"
+        "sec3       sec3"
     }
 
     .dashboard_flex, .flex_left, .flex_right{
