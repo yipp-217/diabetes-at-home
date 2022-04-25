@@ -1,22 +1,17 @@
 const mongoose = require('mongoose')
 
-const DOB = new mongoose.Schema({
-    year: {type: Number, required: true},
-    month: Number,
-    day: Number
-})
-
-const user = new mongoose.Schema({
-    /* define user properties */
-    id: {type: String, required: true, unique: true},
-    email: {type: String, required: true, unique: true},
-    type: {type: String, required: true},
+/* User properties */
+const userSchema = new mongoose.Schema({
+    email: {type: String, required: true, unique:true},
     password: {type: String, required: true},
-    firstName: {type: String},
-    lastName: {type: String, required: true},
-    screenName: {type: String, required: true},
-    dataOfBirth: {type: DOB, required: true},
-    bio: String
+    nameFamily: {type: String, required: true},
+    nameGiven: {type: String},
+    nameScreen: {type: String, required: true},
+    yearBorn: {type: Number},
+    bio: String,
+    userType: {type: String, enum: ['patient', 'clinician']}
 })
 
-module.exports = user
+
+const User = mongoose.model('User', userSchema)
+module.exports = {User}
