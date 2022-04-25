@@ -1,17 +1,18 @@
-<h1>Displaying patients & Patient signup</h1>
+<h3>Displaying patients</h3>
 <ul>
     {{#each data}}
         <li>{{this.nameFamily}} {{this.nameGiven}} – {{this.email}}</li>
     {{/each}}
 </ul>
 
+<h3>Patient signup</h3>
 <form action="/patient" method="POST">
-    <input type="text" placeholder="pat@mail.com" name="email"/>
-    <input type="text" placeholder="pat123" name="password"/>
-    <input type="text" placeholder="Pat" name="nameFamily"/>
-    <input type="text" placeholder="Alice" name="nameGiven"/>
-    <input type="text" placeholder="Patty" name="nameScreen"/>
-    <input type="number" placeholder=2000 name="yearBorn"/>
-    <input type="text" placeholder="Hello!!!" name="bio"/>
+    <input type="text" placeholder="email" name="email"/>
+    <input type="text" placeholder="password" name="password"/>
+    <input type="text" placeholder="family name" name="nameFamily"/>
+    <input type="text" placeholder="given name" name="nameGiven"/>
+    <input type="text" placeholder="screen name" name="nameScreen"/>
+    <input type="number" placeholder="year born" name="yearBorn"/>
+    <input type="text" placeholder="bio" name="bio"/>
     <input type="submit"/>
 </form>

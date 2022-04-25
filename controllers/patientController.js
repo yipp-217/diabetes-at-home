@@ -44,5 +44,4 @@ const getPatients = async (req, res, next) => {
 module.exports = {
     createNew,
     getPatients,
-    getPatient
 }
