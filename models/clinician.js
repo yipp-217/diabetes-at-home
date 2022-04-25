@@ -1,12 +1,19 @@
 const mongoose = require('mongoose')
 
-const User = require('./user')
+/* Clinician User */
+const clinicianSchema = new mongoose.Schema({
+    email: {type: String, required: true, unique:true},
+    password: {type: String, required: true},
+    nameFamily: {type: String, required: true},
+    nameGiven: {type: String},
+    nameScreen: {type: String, required: true},
+    yearBorn: {type: Number},
+    bio: String,
 
-const schema = new mongoose.Schema({
-    /* define clinician */
-    user_properties: [User],
-    patients: [String]
+    patients: {type: [mongoose.Schema.Types.ObjectId], ref: 'Patient'}
 })
 
-const Clinician = mongoose.model('Clinician', schema)
+
+const Clinician = mongoose.model('Clinician', clinicianSchema)
+
 module.exports = Clinician
