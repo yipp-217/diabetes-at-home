@@ -206,7 +206,7 @@ p {font-family: var(--font-family-body);
   }
 
   body {
-    background-color: var(--color-background-light);
+    background-color: var(--color-background-white);
     display: flex;
     flex-direction: column;
     width: 100%; 
