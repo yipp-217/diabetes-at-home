@@ -40,41 +40,9 @@ const getPatients = async (req, res, next) => {
     }
 }
 
-// const putPat = (req, res) => {
-//     const patient = new Patient({
-//         email: "pat@mail.com",
-//         password: "pat123",
-//         nameFamily: "Pat",
-//         nameGiven: "Alice",
-//         nameScreen: "Patty",
-//         yearBorn: 2000,
-//         bio: "people called me patty.",
-//
-//         clinician: null,
-//         supportMessage: "doing great",
-//
-//         requirements: null,
-//         thresholds : null,
-//         patientHealthRecord: null,
-//         clinicianNotes: null
-//     })
-// }
-
-const getPatient = async (req, res) => {
-    const patient = await Patient.find(data => data.email === req.params.email)
-
-    if (patient) {
-        res.send(patient)
-    }
-    else {
-        res.send([])
-    }
-}
-
 
 module.exports = {
     createNew,
     getPatients,
-    // putPat,
     getPatient
 }

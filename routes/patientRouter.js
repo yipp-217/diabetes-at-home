@@ -8,7 +8,4 @@ patientRouter.get('/', patientController.getPatients)
 patientRouter.post('/', patientController.createNew)
 
 
-// patientRouter.post('/put-pat', patientController.putPat)
-
-
 module.exports = patientRouter
