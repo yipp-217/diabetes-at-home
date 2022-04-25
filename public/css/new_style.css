@@ -266,6 +266,19 @@ p {font-family: var(--font-family-body);
     margin-top: 8%;
   }
 
+  .dash_left{
+    background-color: var(--color-background-lightmedium);
+    width: 90%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    margin-left: 5%;
+    margin-right:5%;
+    display: flex;
+    flex-direction: column;
+  }
+
   .big_background{
     background-color: var(--color-background-lightmedium);
     margin:5%;
@@ -732,7 +745,7 @@ table {
   border-collapse: collapse;
   table-layout: fixed;
   float:left; 
-  margin-bottom: 1%;
+  margin: 1%;
 }
 
 th {
