@@ -1095,11 +1095,12 @@ td:last-child {
 
     .data_container {
         justify-content: space-between;
+        margin: 2% 0;
     }
 
     .desktop_comment {
         display: none;
-      display:block;
+        display:block;
     }
 
     .data_container {
@@ -1109,14 +1110,7 @@ td:last-child {
     input[name="comment"]{
       display: none;
     }
-
 }
-
-
-/******************* new patient classes **************************/
-
-/******************* new clinician classes **************************/
-
 
 /************** new handlebar classes used in partials ****************/
 .popup {
@@ -1176,6 +1170,11 @@ textarea {
     font-family: var(--font-family-heading);
     resize: none;
     height: 15vh;
+}
+
+textarea[name="comment"] {
+  height: 20vh;
+  width: 40vh;
 }
 
 textarea:focus {
