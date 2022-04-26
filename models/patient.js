@@ -26,15 +26,9 @@ const thresholdSchema = new mongoose.Schema({
 
 /* Patient User */
 const patientSchema = new mongoose.Schema({
-    email: {type: String, required: true, unique:true},
-    password: {type: String, required: true},
-    nameFamily: {type: String, required: true},
-    nameGiven: {type: String},
-    nameScreen: {type: String, required: true},
-    yearBorn: {type: Number},
-    bio: String,
+    user: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
 
-    clinician: {type: mongoose.Schema.Types.ObjectId, ref: 'Clinician'},
+    clinician: {type: mongoose.Schema.Types.ObjectId, ref:'Clinician'},
     supportMessage: {type: String},
 
     requirements: requirementsSchema,
