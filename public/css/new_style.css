@@ -565,7 +565,7 @@ p {font-family: var(--font-family-body);
 
   /******************** button ****************************/
   button {
-    display: inline-flex !important;
+    display: inline-flex;
     background-color: var(--color-background-light);
     color: var(--color-text-black);
     text-align: center !important;;
