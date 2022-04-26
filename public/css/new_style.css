@@ -904,7 +904,7 @@ td:last-child {
 }
 
 /**************** phone size responsive ********************/
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 450px) {
     /**** phone font style ****/
     h1 {font-size: var(--text-title);}
     h2 {font-size: var(--text-subheading);}
@@ -1008,7 +1008,7 @@ td:last-child {
 
 
 /**************** tablet size responsive ********************/
-@media screen and (min-width: 376px) and (max-width: 1024px) { 
+@media screen and (min-width: 450px) and (max-width: 1024px) { 
 
     h1 {font-size: var(--text-title);}
     h2 {font-size: var(--text-subheading);}
@@ -1232,7 +1232,7 @@ header {
     margin-left: 50px;
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 450px) {
     .sidenav a {font-size: 18px;}
 }
 
