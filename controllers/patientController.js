@@ -33,7 +33,7 @@ const createNew = async (req, res, next) => {
 const getPatients = async (req, res, next) => {
     try {
         const patients = await Patient.find().lean()
-        return res.render('pat-all', {data: patients})
+        return res.render('user', {data: patients})
     }
     catch (e) {
         return next(e)
