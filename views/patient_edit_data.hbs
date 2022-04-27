@@ -18,12 +18,19 @@
                 <p class="bigger_p">Blood Glucose Level</p>
                 <img class="body_icons comment" src="res/Icon_comment.svg" onclick="openPopup('bloodGlucose')" style="cursor: pointer;">
             </div>
-            <form id="bloodGlucoseForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
+            {{#if user.bloodGlucose}}
                 <div class="data_container input_data">
-                    <input type="text" name="bloodGlucoseValue">
-                    <p>nmol/L</p> 
+                    <p>{{user.bloodGlucose}}</p>
+                    <p>nmol/L</p>
                 </div>
-            </form>
+            {{else}}
+                <form id="bloodGlucoseForm" action="/patient/edit-data/blood-glucose-level" method="post"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
+                    <div class="data_container input_data">
+                        <input type="text" name="bloodGlucoseValue">
+                        <p>nmol/L</p>
+                    </div>
+                </form>
+            {{/if}}
 
             <!--desktop comment section--> 
             <form id="bloodGlucoseCommentForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
@@ -44,12 +51,19 @@
                 <p class="bigger_p">Weight</p>
                 <img class="body_icons comment" src="res/Icon_comment.svg" onclick="openPopup('weight')" style="cursor: pointer;">
             </div>
-            <form id="weightForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
+            {{#if user.weight}}
                 <div class="data_container input_data">
-                    <input type="text" name="weightValue">
-                    <p>kilograms</p>   
+                    <p>{{user.weight}}</p>
+                    <p>kilograms</p>
                 </div>
-            </form>
+            {{else}}
+                <form id="weightForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
+                    <div class="data_container input_data">
+                        <input type="text" name="weightValue">
+                        <p>kilograms</p>
+                    </div>
+                </form>
+            {{/if}}
 
             <!--desktop comment section-->
             <form id="weightCommentForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
@@ -135,6 +149,6 @@
 <script>
     function submitPatientData(data, comment) {
         document.getElementById(data).submit();
-        document.getElementById(comment).submit();
+        //document.getElementById(comment).submit();
     }
 </script>
