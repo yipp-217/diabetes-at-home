@@ -663,6 +663,8 @@ p {font-family: var(--font-family-body);
   display: flex;
   align-items: center;
   width: 100%;
+  padding-top:10%;
+  padding-left: 3%;
 }
 
 .search_bar input{ 
@@ -712,7 +714,6 @@ p {font-family: var(--font-family-body);
 
 
 .dashboard_flex{
-  padding-top: 10%;
   display: flex;
   justify-content: center;
 }
