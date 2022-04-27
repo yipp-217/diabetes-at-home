@@ -1003,6 +1003,10 @@ td:last-child {
       padding-top: 25%;
     }
 
+    .clinician_main{
+      padding-top:25%;
+    }
+
 }
 
 
@@ -1107,6 +1111,10 @@ td:last-child {
 
     .search_bar{
       padding-top: 15%;
+    }
+
+    .clinician_main{
+      padding-top:15%;
     }
 }
 
