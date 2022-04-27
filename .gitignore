@@ -133,4 +133,4 @@ dist
 
 # file format
 *.DS_Store
-
+.vscode
