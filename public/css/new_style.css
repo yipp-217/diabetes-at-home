@@ -321,7 +321,7 @@ p {font-family: var(--font-family-body);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 10%;
+    margin-top: 10%; 
   }
 
   .time{
@@ -627,6 +627,11 @@ p {font-family: var(--font-family-body);
     right: 26%;
   }
 
+/*for about pages*/
+.bottom_button {
+  margin: 8%;
+}
+
 /******************* graph ****************/
 .history_background{
   padding-top: 5%;
@@ -647,15 +652,14 @@ p {font-family: var(--font-family-body);
 }
 
 
-
-  .graph {
-    position: absolute;
-    border-radius: 20px;
-    box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.25);
-    width: 35%;
-    height: 40%;
-    background-color: #9FC0D6;
-  }
+.graph {
+  position: absolute;
+  border-radius: 20px;
+  box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.25);
+  width: 35%;
+  height: 40%;
+  background-color: #9FC0D6;
+}
 
 
 /******************* research bar ****************/
@@ -668,23 +672,19 @@ p {font-family: var(--font-family-body);
 }
 
 .search_bar input{ 
-    margin-left: 5%;
-    border-radius: 0px;
-    width: 35%;
-    height:20px;
-  }
+  margin-left: 5%;
+  border-radius: 0px;
+  width: 35%;
+  height:20px;
+}
 
-  .reaserch_btn {
-    background-color: #424245;
-    padding: 5px;
-    border-radius: 0px;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
-  }
+.reaserch_btn {
+  background-color: #424245;
+  padding: 5px;
+  border-radius: 0px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+}
 
-  /*for about pages*/
-  .bottom_button {
-    margin: 8%;
-  }
   
 /******************* sidebar ****************/
 .sidebar {
@@ -718,6 +718,7 @@ p {font-family: var(--font-family-body);
   justify-content: center;
 }
 
+
 .flex_left {
   background-color: var(--color-background-lightmedium);
   height:100%;
@@ -729,6 +730,7 @@ p {font-family: var(--font-family-body);
   padding-right: 5px;
   border-radius: 20px;
 }
+
 
 .flex_right {
   background-image: linear-gradient(#FFFFFF,#4F6EA2) ;
@@ -1007,6 +1009,41 @@ td:last-child {
       padding-top:25%;
     }
 
+    .note{
+      margin-top: 25%;
+    }
+
+    .contianer_note{
+      width: 67%;
+    }
+
+    .time{
+      font-size:var(--text-smallest);
+    }
+
+    .history_background {
+      padding-top: 20%;
+      margin: 5%;
+      margin-bottom: 5%;
+      width: 20%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+  }
+
+    .graph_data{
+      width: 37%;
+      height: 45%;
+      margin-bottom: 440%;
+    }
+
+    .graph{
+      width: 80%;
+      height: 40%;
+    }
+
+
 }
 
 
@@ -1079,7 +1116,7 @@ td:last-child {
       width: 90%;
     }
 
-    .flex_left, .flex_right{
+    .flex_left, .flex_right, .note{
       margin-top: 20%;
     }
 
@@ -1115,6 +1152,14 @@ td:last-child {
 
     .clinician_main{
       padding-top:15%;
+    }
+
+    .time{
+      font-size: var(--text-smaller);
+    }
+
+    .graph{
+      height: 35%;
     }
 }
 
