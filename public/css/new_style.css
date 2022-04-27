@@ -449,7 +449,7 @@ p {font-family: var(--font-family-body);
     overflow: hidden;
   }  
 
-  .info_contianer{
+  .info_container{
     background-color: var(--color-background-lightmedium);
     width: 100%;
     padding: 4%;
@@ -928,6 +928,18 @@ td:last-child {
 
     .phone_clinician {font-size:5px;}
 
+    .info_contianer h3{
+      font-size: var(--text-medium);
+    }
+
+    .info_contianer p, .info_contianer label{
+      font-size: var(--text-small);
+    }
+
+    .history_link{
+      padding-top:25%;
+    }
+
     /** about diabetes page **/
     .about_grid_format {
         display: flex;
@@ -1043,7 +1055,14 @@ td:last-child {
       height: 40%;
     }
 
-
+    .note_main {
+      margin-left: 10%;
+      margin-right: 10%;
+      width: 75%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 300px 300px;
 }
 
 
@@ -1055,6 +1074,28 @@ td:last-child {
     h2 {font-size: var(--text-subheading);}
     p {font-size: var(--text-medium);}
 
+    .info_container h3{
+      font-size: var(--text-medium);
+    }
+
+    .info_container p, .info_contianer label{
+      font-size: var(--text-smaller);
+    }
+
+    .history_link{
+      padding-top:15%;
+    }
+
+    .note_main {
+      margin-left: 10%;
+      margin-right: 10%;
+      width: 80%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 300px 300px 300px;
+    }
+
     .about_grid_format {
         display: grid;
         grid-gap: 2rem; 
@@ -1065,7 +1106,7 @@ td:last-child {
             "sec3 sec3";
     }
 
-    h5 {font-size: var(--text-smaller);}
+    h5,  .time {font-size: var(--text-smaller);}
 
     th, td {font-size:var(--text-smaller);}
 
@@ -1120,10 +1161,6 @@ td:last-child {
       margin-top: 20%;
     }
 
-    .dashboard_flex{
-      align-items: center;
-    }
-
     .comment {
         display:none;
     }
@@ -1134,7 +1171,6 @@ td:last-child {
     }
 
     .desktop_comment {
-        display: none;
         display:block;
     }
 
@@ -1146,16 +1182,8 @@ td:last-child {
       display: none;
     }
 
-    .search_bar{
+    .search_bar, .clinician_main{
       padding-top: 15%;
-    }
-
-    .clinician_main{
-      padding-top:15%;
-    }
-
-    .time{
-      font-size: var(--text-smaller);
     }
 
     .history_background {
@@ -1163,10 +1191,10 @@ td:last-child {
       grid-template-rows:270px 270px;
     }
 
-
     .graph{
       height: 30%;
     }
+
 }
 
 /************** new handlebar classes used in partials ****************/
