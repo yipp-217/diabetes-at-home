@@ -3,10 +3,10 @@
 <main class="content mainpage_grid_format">
         
     <div id="clinician_message">
-        <h2 style="text-align:left">Hello, JohnDoe</h2>
-        <p style="text-align:left" class="bigger_p">You are doing great :)</p>  
+        <h2 style="text-align:left">Hello, {{user.nameScreen}}</h2>
+        <p style="text-align:left" class="bigger_p">{{user.supportMessage}}</p>
     </div>
-        
+
     <!-- charts -->
     <div class="chart_container container sec1">
         <button class="white_button item_center"> 
@@ -22,22 +22,34 @@
     <div class="data_display">
         <contianer class="container info_square_container">
             <p class="bigger_p">Weight</p>
-            <p>-</p>
+            {{#if user.weight}}
+                <p>{{user.weight}}</p>
+            {{else}}<p>-</p>
+            {{/if}}
         </contianer>
 
         <contianer class="container info_square_container">
             <p class="bigger_p">Blood Glucose Level</p>
-            <p>-</p>
+            {{#if user.bloodGlucose}}
+                <p>{{user.bloodGlucose}}</p>
+            {{else}}<p>-</p>
+            {{/if}}
         </contianer>
 
         <contianer class="container info_square_container">
             <p class="bigger_p">Exercise</p>
-            <p>-</p>
+            {{#if user.exercise}}
+                <p>{{user.exercise}}</p>
+            {{else}}<p>-</p>
+            {{/if}}
         </contianer>
 
         <contianer class="container info_square_container">
             <p class="bigger_p">Doses of Insulin Taken</p>
-            <p>-</p>
+            {{#if user.dosesOfInsulin}}
+                <p>{{user.dosesOfInsulin}}</p>
+            {{else}}<p>-</p>
+            {{/if}}
         </contianer>        
     </div>
 
