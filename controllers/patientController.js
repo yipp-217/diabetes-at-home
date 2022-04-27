@@ -3,20 +3,12 @@ const Clinician = require('../models/clinician')
 const {Patient} = require('../models/patient')
 
 
-const getPatients = async (req, res, next) => {
+const getPatientUser = async (req, res, next) => {
     try {
-        const patients = await Patient.find().lean()
-        return res.render('user', {data: patients})
-    }
-    catch (e) {
-        return next(e)
-    }
-}
-
-const getPatient = async (req, res, next) => {
-    try {
-        // const user = await User.
-
+        // Pat's object id
+        const patientUser = await User.findById('6268f5eaaec105b721a11c62')
+        console.log(patientUser)
+        return res.render('patient_main.hbs', {user: patientUser})
     }
     catch (e) {
         return next(e)
@@ -25,6 +17,5 @@ const getPatient = async (req, res, next) => {
 
 
 module.exports = {
-    createNew,
-    getPatients,
+    getPatientUser
 }
