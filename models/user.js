@@ -5,13 +5,15 @@ const userSchema = new mongoose.Schema({
     email: {type: String, required: true, unique:true},
     password: {type: String, required: true},
     nameFamily: {type: String, required: true},
-    nameGiven: {type: String},
+    nameGiven: String,
     nameScreen: {type: String, required: true},
-    yearBorn: {type: Number},
+    yearBorn: Number,
     bio: String,
-    userType: {type: String, enum: ['patient', 'clinician']}
+
+    onModel: {type: String, enum: ['Clinician', 'Patient']},
+    model: {type: mongoose.Schema.Types.ObjectId, refPath:'onModel'}
 })
 
 
 const User = mongoose.model('User', userSchema)
-module.exports = {User}
+module.exports = User
