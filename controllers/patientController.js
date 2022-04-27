@@ -15,6 +15,17 @@ const getPatientUser = async (req, res, next) => {
     }
 }
 
+const getPatientUserEdit = async (req, res, next) => {
+    try {
+        // Pat's object id
+        let patientUser = await Patient.findOne({email:'pat@patient.com'}).lean()
+        return res.render('patient_edit_data.hbs', {user: patientUser})
+    }
+    catch (e) {
+        return next(e)
+    }
+}
+
 const updateBloodGlucose = async (req, res, next) => {
     try {
         // let patientUser = await Patient.findOne({email:'pat@patient.com'}).lean()
