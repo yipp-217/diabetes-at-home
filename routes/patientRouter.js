@@ -3,7 +3,10 @@ const patientRouter = express.Router()
 
 const patientController = require('../controllers/patientController')
 
-patientRouter.get('/', patientController.getPatients)
+patientRouter.get('/:id', patientController.getPatientUser)
+
+// default to find Pat
+patientRouter.get('/', patientController.getPatientUser)
 
 
 module.exports = patientRouter
