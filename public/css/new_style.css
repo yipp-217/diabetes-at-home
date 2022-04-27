@@ -916,9 +916,6 @@ td:last-child {
     h2 {font-size: var(--text-subheading);}
     p {font-size: var(--text-small);}
     .bigger_p {font-size: var(--text-medium);}
-    .body_icons {
-      width: 9%;
-    }
 
     h5 {font-size: var(--text-smaller);}
 
@@ -935,6 +932,8 @@ td:last-child {
     .info_contianer p, .info_contianer label{
       font-size: var(--text-small);
     }
+
+    .body_icons {width: 9%;}
 
     .history_link{
       padding-top:25%;
@@ -990,7 +989,7 @@ td:last-child {
 
     .dashboard_flex, .flex_left, .flex_right{
         flex-wrap: wrap;
-        width: 90%;
+        width: 100%;
     }
 
 
@@ -1063,6 +1062,7 @@ td:last-child {
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: 300px 300px;
+    }
 }
 
 
@@ -1093,7 +1093,7 @@ td:last-child {
       height: 100%;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 300px 300px 300px;
+      grid-template-rows: 280px 280px 280px;
     }
 
     .about_grid_format {
@@ -1152,11 +1152,8 @@ td:last-child {
         "sec3       sec3"
     }
 
-    .dashboard_flex, .flex_left, .flex_right{
-      flex-wrap: wrap;
-      width: 90%;
-    }
 
+    
     .flex_left, .flex_right, .note{
       margin-top: 20%;
     }
@@ -1195,9 +1192,9 @@ td:last-child {
       height: 30%;
     }
 
-}
-
-/************** new handlebar classes used in partials ****************/
+    
+ 
+  /************** new handlebar classes used in partials ****************/
 .popup {
     display: none;
     flex-direction: column;
@@ -1315,7 +1312,10 @@ header {
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+  }
+
 }
+
 
 @media screen and (max-width: 450px) {
     .sidenav a {font-size: 18px;}
@@ -1348,8 +1348,11 @@ footer {
     text-decoration: none;
 }
 
+
+
 @media screen and (max-width: 1024px) {
-    footer {
+    
+  footer {
         background-color: var(--color-background-white);
         box-shadow: 0 -4px 5px 0 rgba(0, 0, 0, 0.2);
         position: fixed;
@@ -1364,4 +1367,4 @@ footer {
         top:auto;
         padding-top: 0;
     }
-}
+  }
