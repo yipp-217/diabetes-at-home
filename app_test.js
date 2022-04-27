@@ -21,24 +21,15 @@ app.get('/', (req, res) => {
 })
 
 app.get('/about_diabetes', (req, res) => {
-    res.render('about_diabetes.hbs', {context: {
-        'login': false,
-        'page': 'about_diabetes'
-    }})
+    res.render('about_diabetes.hbs')
 })
 
 app.get('/about_website', (req, res) => {
-    res.render('about_website.hbs', {context: {
-        'login': false,
-        'page': 'about_website'
-    }})
+    res.render('about_website.hbs')
 })
 
 app.get('/login', (req, res) => {
-    res.render('login.hbs', {context: {
-        'login': false,
-        'page': 'login'
-    }})
+    res.render('login.hbs')
 })
 
 app.get('/change_password', (req, res) => {
@@ -54,45 +45,23 @@ app.get('/clinician_patient_notes', (req, res) => {
 })
 
 app.get('/patient_leaderboard', (req, res) => {
-    res.render('patient_leaderboard.hbs', {context: {
-        'login': true,
-        'page': 'patient_leaderboard'
-    }})
+    res.render('patient_leaderboard.hbs')
 })
 
 app.get('/patient_edit_data', (req, res) => {
-    res.render('patient_edit_data.hbs', {context: {
-        'login': true,
-        'page': 'patient_edit_data'
-    }})
+    res.render('patient_edit_data.hbs')
 })
 
 app.get('/patient_main', (req, res) => {
-    res.render('patient_main.hbs', {context: {
-        'login': true,
-        'page': 'patient_main'
-    }})
+    res.render('patient_main.hbs')
 })
 
 app.post('/patient_main', (req, res) => {
-    res.render('patient_main.hbs', {context: {
-        'login': true,
-        'page': 'patient_main'
-    }})
-})
-
-app.get('/patient_messages', (req, res) => {
-    res.render('patient_messages.hbs', {context: {
-        'login': true,
-        'page': 'patient_messages'
-    }})
+    res.render('patient_main.hbs')
 })
 
 app.get('/settings', (req, res) => {
-    res.render('settings.hbs', {context: {
-        'login': true,
-        'page': 'settings'
-    }})
+    res.render('settings.hbs')
 })
 
 // Tells the app to listen on port 3000 and logs that information to the console.
