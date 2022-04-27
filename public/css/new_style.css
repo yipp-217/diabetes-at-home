@@ -1158,8 +1158,14 @@ td:last-child {
       font-size: var(--text-smaller);
     }
 
+    .history_background {
+      padding-top: 10%;
+      grid-template-rows:270px 270px;
+    }
+
+
     .graph{
-      height: 35%;
+      height: 30%;
     }
 }
 
