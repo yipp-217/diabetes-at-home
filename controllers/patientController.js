@@ -1,39 +1,22 @@
+const User = require('../models/user')
+const Clinician = require('../models/clinician')
 const {Patient} = require('../models/patient')
 
-const createNew = async (req, res, next) => {
-    /**
-    let patient = new Patient({
-        email: req.body.email,
-        password: req.body.password,
-        nameFamily: req.body.nameFamily,
-        nameGiven: req.body.nameGiven,
-        nameScreen: req.body.nameScreen,
-        yearBorn: req.body.yearBorn,
-        bio: req.body.bio,
 
-        clinician: null,
-        supportMessage: null,
-
-        requirements: null,
-        thresholds : null,
-        patientHealthRecord: null,
-        clinicianNotes: null
-    }) */
-
+const getPatients = async (req, res, next) => {
     try {
-        let patient = new Patient(req.body)
-        await patient.save()
-        return res.redirect('/patient')
+        const patients = await Patient.find().lean()
+        return res.render('user', {data: patients})
     }
     catch (e) {
         return next(e)
     }
 }
 
-const getPatients = async (req, res, next) => {
+const getPatient = async (req, res, next) => {
     try {
-        const patients = await Patient.find().lean()
-        return res.render('user', {data: patients})
+        // const user = await User.
+
     }
     catch (e) {
         return next(e)

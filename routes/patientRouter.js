@@ -5,7 +5,5 @@ const patientController = require('../controllers/patientController')
 
 patientRouter.get('/', patientController.getPatients)
 
-patientRouter.post('/', patientController.createNew)
-
 
 module.exports = patientRouter
