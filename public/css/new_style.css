@@ -663,7 +663,7 @@ p {font-family: var(--font-family-body);
   display: flex;
   align-items: center;
   width: 100%;
-  padding-top:10%;
+  padding-top:8%;
   padding-left: 3%;
 }
 
@@ -732,22 +732,22 @@ p {font-family: var(--font-family-body);
 
 .flex_right {
   background-image: linear-gradient(#FFFFFF,#4F6EA2) ;
-  height:100%;
+  height:75vh;
   float: right;
-  width: 20%;
+  width: 90%;
   flex: inline;
-  margin-right: 5%;
+  margin:5%;
+  margin-top:8%;
   border-radius: 20px;
+  overflow-y:scroll;
+  overflow-x: hidden;
 }
 
-.comment_sec{
-  background-color: #EEF5F5;
-  border-radius: 20px 20px 0px 0px;
-}
 
 .container_comment {
   margin: 3%;
   border-radius: 20px;
+  padding:0;
 }
 
 table {
@@ -976,21 +976,13 @@ td:last-child {
 
     .dashboard_flex, .flex_left, .flex_right{
         flex-wrap: wrap;
-        width: 100%;
+        width: 90%;
     }
 
-    .dashboard_flex{
-        padding-top: 20%;
-    }
 
-    .flex_left{
-        margin-right: 5%;
+    .flex_left, .flex_right{
+      margin-top: 25%;
     }
-
-    .flex_right{
-        margin-left: 5%;
-    }
-
     .comment {
         display: block;
     }
@@ -1005,6 +997,10 @@ td:last-child {
 
     input[name="comment"]{
         display: none;
+    }
+
+    .search_bar{
+      padding-top: 25%;
     }
 
 }
@@ -1056,7 +1052,6 @@ td:last-child {
 
     .dashboard_flex{
         align-items: center;
-        padding-top: 15%;
     }
 
     .flex_left{
@@ -1077,20 +1072,15 @@ td:last-child {
 
     .dashboard_flex, .flex_left, .flex_right{
       flex-wrap: wrap;
-      width: 100%;
+      width: 90%;
+    }
+
+    .flex_left, .flex_right{
+      margin-top: 20%;
     }
 
     .dashboard_flex{
       align-items: center;
-      padding-top: 15%;
-    }
-
-    .flex_left{
-      margin-right: 5%;
-    }
-    
-    .flex_right{
-        margin-left: 5%;
     }
 
     .comment {
@@ -1113,6 +1103,10 @@ td:last-child {
 
     input[name="comment"]{
       display: none;
+    }
+
+    .search_bar{
+      padding-top: 15%;
     }
 }
 
