@@ -8,8 +8,8 @@
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     {{#if login}}
-        <a href="/patient_main">{{#if (isEq page 'patient_main')}}<b>Home</b>{{else}}Home{{/if}}</a>
-        <a href="/patient_edit_data">{{#if (isEq page 'patient_edit_data')}}<b>Edit Data</b>{{else}}Edit Data{{/if}}</a>
+        <a href="/patient">{{#if (isEq page 'patient_main')}}<b>Home</b>{{else}}Home{{/if}}</a>
+        <a href="/patient/edit-data">{{#if (isEq page 'patient_edit_data')}}<b>Edit Data</b>{{else}}Edit Data{{/if}}</a>
         <a href="/patient_leaderboard">{{#if (isEq page 'patient_leaderboard')}}<b>Leaderboard</b>{{else}}Leaderboard{{/if}}</a>
         {{else}}
         <a href="/">Home</a>
