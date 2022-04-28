@@ -321,7 +321,7 @@ p {font-family: var(--font-family-body);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 10%; 
+    margin-top: 10%;
   }
 
   .time{
@@ -333,7 +333,7 @@ p {font-family: var(--font-family-body);
   /*put several data boxes into a bigger box, resizing responsively*/
   .data_display {
     display: flex;
-    width: 100%; 
+    width: 100%;
     grid-area: sec2;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -359,7 +359,7 @@ p {font-family: var(--font-family-body);
     background-repeat: no-repeat;
     padding-left: 40px;
     background-color: var(--color-background-grey);
-    
+
   }
 
   input[type=text], input[type=password] {
@@ -434,7 +434,7 @@ p {font-family: var(--font-family-body);
     width: 30%;
     margin: 3%;
     overflow: hidden;
-  }  
+  }
 
    .info_rectangle_container {
     display: flex;
@@ -447,7 +447,7 @@ p {font-family: var(--font-family-body);
     height: auto;
     margin: 3%;
     overflow: hidden;
-  }  
+  }
 
   .info_container{
     background-color: var(--color-background-lightmedium);
@@ -467,24 +467,24 @@ p {font-family: var(--font-family-body);
 .required:hover input ~ .checkmark {
     background-color: #ccc;
 }
-  
+
 /* When the checkbox is checked, add a blue background */
 .required input:checked ~ .checkmark {
     background-color: #2196F3;
 }
-  
+
 /* Create the checkmark/indicator (hidden when not checked) */
 .required:after {
     content: "";
     position: absolute;
     display: none;
 }
-  
+
 /* Show the checkmark when checked */
 .required input:checked ~ .checkmark:after {
     display: block;
 }
-  
+
 /* Style the checkmark/indicator */
 .required .checkmark:after {
     left: 9px;
@@ -507,8 +507,8 @@ p {font-family: var(--font-family-body);
     width: 25px;
     background-color: #eee;
 }
-  
-  
+
+
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
     content: "";
@@ -529,7 +529,7 @@ p {font-family: var(--font-family-body);
     border-radius: 10px;
     height: 50vh;
   }
-  
+
   .more_info{
     text-align: left;
     margin: 5% 5% 10% 5%;
@@ -627,11 +627,6 @@ p {font-family: var(--font-family-body);
     right: 26%;
   }
 
-/*for about pages*/
-.bottom_button {
-  margin: 8%;
-}
-
 /******************* graph ****************/
 .history_background{
   padding-top: 5%;
@@ -652,14 +647,15 @@ p {font-family: var(--font-family-body);
 }
 
 
-.graph {
-  position: absolute;
-  border-radius: 20px;
-  box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.25);
-  width: 35%;
-  height: 40%;
-  background-color: #9FC0D6;
-}
+
+  .graph {
+    position: absolute;
+    border-radius: 20px;
+    box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.25);
+    width: 35%;
+    height: 40%;
+    background-color: #9FC0D6;
+  }
 
 
 /******************* research bar ****************/
@@ -671,21 +667,25 @@ p {font-family: var(--font-family-body);
   padding-left: 3%;
 }
 
-.search_bar input{ 
-  margin-left: 5%;
-  border-radius: 0px;
-  width: 35%;
-  height:20px;
-}
+.search_bar input{
+    margin-left: 5%;
+    border-radius: 0px;
+    width: 35%;
+    height:20px;
+  }
 
-.reaserch_btn {
-  background-color: #424245;
-  padding: 5px;
-  border-radius: 0px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
-}
+  .reaserch_btn {
+    background-color: #424245;
+    padding: 5px;
+    border-radius: 0px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+  }
 
-  
+  /*for about pages*/
+  .bottom_button {
+    margin: 8%;
+  }
+
 /******************* sidebar ****************/
 .sidebar {
   display: flex;
@@ -718,7 +718,6 @@ p {font-family: var(--font-family-body);
   justify-content: center;
 }
 
-
 .flex_left {
   background-color: var(--color-background-lightmedium);
   height:100%;
@@ -730,7 +729,6 @@ p {font-family: var(--font-family-body);
   padding-right: 5px;
   border-radius: 20px;
 }
-
 
 .flex_right {
   background-image: linear-gradient(#FFFFFF,#4F6EA2) ;
@@ -755,7 +753,7 @@ p {font-family: var(--font-family-body);
 table {
   border-collapse: collapse;
   table-layout: fixed;
-  float:left; 
+  float:left;
   margin: 1%;
   width: 95%;
 }
@@ -1020,6 +1018,7 @@ td:last-child {
       padding-top:25%;
     }
 
+/*<<<<<<< HEAD*/
     .note{
       margin-top: 25%;
     }
@@ -1063,12 +1062,14 @@ td:last-child {
       grid-template-columns: 1fr;
       grid-template-rows: 300px 300px;
     }
+/*=======*/
+/*>>>>>>> parent of 0d4a608 (clinician_history_css)*/
 }
 
 
 
 /**************** tablet size responsive ********************/
-@media screen and (min-width: 450px) and (max-width: 1024px) { 
+@media screen and (min-width: 450px) and (max-width: 1024px) {
 
     h1 {font-size: var(--text-title);}
     h2 {font-size: var(--text-subheading);}
@@ -1098,7 +1099,7 @@ td:last-child {
 
     .about_grid_format {
         display: grid;
-        grid-gap: 2rem; 
+        grid-gap: 2rem;
         grid-template-areas:
             "heading heading"
             "desc desc"
@@ -1153,9 +1154,14 @@ td:last-child {
     }
 
 
-    
-    .flex_left, .flex_right, .note{
-      margin-top: 20%;
+/*!*<<<<<<< HEAD*/
+
+/*    .flex_left, .flex_right, .note{*/
+/*=======*/
+/*    .flex_left, .flex_right{*/
+/*>>>>>>> parent of 0d4a608 (clinician_history_css)*!*/
+    .flex_left, .flex_right, .note {
+        margin-top: 20%;
     }
 
     .comment {
@@ -1183,6 +1189,7 @@ td:last-child {
       padding-top: 15%;
     }
 
+/*<<<<<<< HEAD*/
     .history_background {
       padding-top: 10%;
       grid-template-rows:270px 270px;
@@ -1191,9 +1198,15 @@ td:last-child {
     .graph{
       height: 30%;
     }
+/*=======*/
+    .clinician_main{
+      padding-top:15%;
+    }
+}
+/*>>>>>>> parent of 0d4a608 (clinician_history_css)*/
 
-    
- 
+
+
   /************** new handlebar classes used in partials ****************/
 .popup {
     display: none;
@@ -1314,7 +1327,7 @@ header {
     margin-left: 50px;
   }
 
-}
+
 
 
 @media screen and (max-width: 450px) {
