@@ -37,7 +37,6 @@
                         <textarea id="bloodGlucoseComment" name="bloodGlucoseComment" placeholder="Add Comment Here"></textarea>
                     </div>
                     <br>
-                    <input type="hidden" id="bloodGlucoseDateTime" name="bloodGlucoseDateTime">
                     <button class="center white_button" type="submit">SAVE</button>
                 </form>
             {{/if}}
@@ -54,30 +53,24 @@
                     <p id="weightValue">{{user.weight}}</p>
                     <p>kilograms</p>
                 </div>
+                <div class="desktop_comment">
+                    <p class="enteredData">{{user.weightComment}}</p>
+                </div>
+                <p>{{user.weightRecordDateTime}}</p>
             {{else}}
                 <form id="weightForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
                     <div class="data_container input_data">
                         <input type="text" name="weightValue">
                         <p>kilograms</p>
                     </div>
+                    <div class="desktop_comment">
+                        <textarea id="weightComment" name="weightComment" placeholder="Add Comment Here"></textarea>
+                    </div> 
+                    <br>
+                    <button class="center white_button" type="submit">SAVE</button>
                 </form>
             {{/if}}
-
-            <!--desktop comment section-->
-            <form id="weightCommentForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
-                <div class="desktop_comment">
-                    {{> comment commentId="weightComment"}}
-                </div> 
-                <br>      
-            </form>  
-
-            <!--save button-->
-            <button class="center white_button" onclick="submitPatientData('weightForm', 'weightCommentForm')">SAVE</button>
-
         </contianer>
-        
-        
-
     </div>
 
 
@@ -94,28 +87,23 @@
                     <p id="exerciseValue">{{user.exercise}}</p>
                     <p>kilograms</p>
                 </div>
+                <div class="desktop_comment">
+                    <p class="enteredData">{{user.exerciseComment}}</p>
+                </div>
+                <p>{{user.exerciseRecordDateTime}}</p>
             {{else}}
                 <form id="exerciseForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
                     <div class="data_container input_data">
                         <input type="text" name="exerciseValue">
                         <p>steps</p> 
                     </div>
+                    <div class="desktop_comment">
+                        <textarea id="exerciseComment" name="exerciseComment" placeholder="Add Comment Here"></textarea>
+                    </div> 
+                    <br>   
+                    <button class="center white_button" type="submit">SAVE</button>
                 </form>
             {{/if}}
-            
-
-            <!--desktop comment section-->            
-            <form id="exerciseCommentForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
-                <div class="desktop_comment">
-                    {{> comment commentId="exerciseComment"}}
-                </div> 
-                <br>      
-            </form>  
-
-            <!--save button--> 
-            <button class="center white_button" onclick="submitPatientData('exerciseForm', 'exerciseCommentForm')">SAVE</button>
-
-
         </contianer>
 
         <contianer class="container info_rectangle_container" id="insulinContainer">
@@ -129,30 +117,25 @@
                     <p id="insulinValue">{{user.insulin}}</p>
                     <p>kilograms</p>
                 </div>
+                <div class="desktop_comment">
+                    <p class="enteredData">{{user.insulinComment}}</p>
+                </div>
+                <p>{{user.insulinRecordDateTime}}</p>
             {{else}}
                 <form id="insulinForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
                     <div class="data_container input_data">
                         <input type="text" name="insulinValue"> 
                         <p>doses</p> 
                     </div>
+                    <div class="desktop_comment">
+                        <textarea id="insulinComment" name="insulinComment" placeholder="Add Comment Here"></textarea>
+                    </div>  
+                    <br>
+                     <button class="center white_button" type="submit">SAVE</button>
                 </form>
             {{/if}}
-
-            <!--desktop comment section-->
-            <form id="insulinCommentForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
-                <div class="desktop_comment">
-                    {{> comment commentId="insulinComment"}}
-                </div>  
-                <br>      
-            </form>  
-
-            <!--save button--> 
-            <button class="center white_button" onclick="submitPatientData('insulinForm', 'insulinCommentForm')">SAVE</button>
-
         </contianer>
-
     </div>
-
 </main>
 
 {{> bottomnav login=true page='patient_edit_data'}}
@@ -193,12 +176,5 @@
         } else {
             insulin.style.backgroundColor = "#f28379";
         }
-    }
-
-    function getDateTime() {
-        const today = new Date().toLocaleString("en-AU", {timeZone: "Australia/Melbourne"});
-        const getToday = today.getDateTime();
-        document.getElementById("bloodGlucoseDateTime").value = getToday;
-    }
-    
+    }    
 </script>
