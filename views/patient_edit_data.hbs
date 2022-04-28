@@ -32,20 +32,13 @@
                         <input type="text" name="bloodGlucoseValue">
                         <p>nmol/L</p>
                     </div>
+                    <div class="desktop_comment">
+                        <textarea id="bloodGlucoseComment" name="bloodGlucoseComment" placeholder="Add Comment Here"></textarea>
+                    </div>
+                    <br>
+                    <button class="center white_button" type="submit">SAVE</button>
                 </form>
             {{/if}}
-
-            <!--desktop comment section--> 
-            <form id="bloodGlucoseCommentForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
-                <div class="desktop_comment">
-                    {{> comment commentId="bloodGlucoseComment"}}
-                </div>   
-                <br>      
-            </form>      
-
-            <!--save button--> 
-            <button class="center white_button" onclick="submitPatientData('bloodGlucoseForm', 'bloodGlucoseCommentForm')">SAVE</button>
-            
         </contianer>
 
         <contianer class="container info_rectangle_container" id="weightContainer">
@@ -163,11 +156,8 @@
 {{> bottomnav login=true page='patient_edit_data'}}
 
 
+
 <script>
-    function submitPatientData(data, comment) {
-        document.getElementById(data).submit();
-        //document.getElementById(comment).submit();
-    }
 
     document.body.onload = function(){colourDiv()}
 
