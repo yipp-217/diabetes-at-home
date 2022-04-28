@@ -1,11 +1,5 @@
 {{> sidenav login=true page='patient_edit_data'}}
 
-<!-- Popups for comments -->
-{{> commentPopup dataField='bloodGlucose' title ='Blood Glucose Level' commentId='bloodGlucoseComment'}}
-{{> commentPopup dataField='weight' title = 'Weight' commentId='weightComment'}}
-{{> commentPopup dataField='exercise' title = 'Exercise' commentId='exerciseComment'}}
-{{> commentPopup dataField='insulin' title = 'Doses of Insulin Taken' commentId='insulinComment'}}
-
 <main class="content mainpage_grid_format">
     <h2 style="text-align: left" class="heading">Today</h2>
 
@@ -16,7 +10,10 @@
             <div class="data_container">
                 <img class="body_icons" src="/res/Icon_blood.svg" alt="blood icon image">
                 <p class="bigger_p">Blood Glucose Level</p>
-                <img class="body_icons comment" src="/res/Icon_comment.svg" onclick="openPopup('bloodGlucose')" style="cursor: pointer;">
+                {{#if user.bloodGlucose}}
+                    <p>{{user.bloodGlucoseRecordDateTime}}</p>
+                    {{else}}<img class="body_icons comment" src="/res/Icon_comment.svg" onclick="toggleComment('blood_glucose_desktop_comment')" style="cursor: pointer;">
+                {{/if}}
             </div>
             {{#if user.bloodGlucose}}
                 <div class="data_container input_data">
@@ -26,14 +23,13 @@
                 <div class="desktop_comment">
                     <p class="enteredData">{{user.bloodGlucoseComment}}</p>
                 </div>
-                <p>{{user.bloodGlucoseRecordDateTime}}</p>
             {{else}}
                 <form id="bloodGlucoseForm" action="/patient/edit-data/blood-glucose-level" method="post">
                     <div class="data_container input_data">
                         <input type="text" name="bloodGlucoseValue">
                         <p>nmol/L</p>
                     </div>
-                    <div class="desktop_comment">
+                    <div class="desktop_comment" id="blood_glucose_desktop_comment">
                         <textarea id="bloodGlucoseComment" name="bloodGlucoseComment" placeholder="Add Comment Here"></textarea>
                     </div>
                     <br>
@@ -46,7 +42,10 @@
             <div class="data_container">
                 <img class="body_icons" src="/res/Icon-weight.svg" alt="weight icon image">
                 <p class="bigger_p">Weight</p>
-                <img class="body_icons comment" src="/res/Icon_comment.svg" onclick="openPopup('weight')" style="cursor: pointer;">
+                {{#if user.weight}}
+                    <p>{{user.weightRecordDateTime}}</p>
+                    {{else}}<img class="body_icons comment" src="/res/Icon_comment.svg" onclick="toggleComment('weight_desktop_comment')" style="cursor: pointer;">
+                {{/if}}
             </div>
             {{#if user.weight}}
                 <div class="data_container input_data">
@@ -56,14 +55,13 @@
                 <div class="desktop_comment">
                     <p class="enteredData">{{user.weightComment}}</p>
                 </div>
-                <p>{{user.weightRecordDateTime}}</p>
             {{else}}
                 <form id="weightForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
                     <div class="data_container input_data">
                         <input type="text" name="weightValue">
                         <p>kilograms</p>
                     </div>
-                    <div class="desktop_comment">
+                    <div class="desktop_comment" id="weight_desktop_comment">
                         <textarea id="weightComment" name="weightComment" placeholder="Add Comment Here"></textarea>
                     </div> 
                     <br>
@@ -80,7 +78,10 @@
             <div class="data_container">
                 <img class="body_icons" src="/res/Icon_excercise.svg" alt="exercise icon image">
                 <p class="bigger_p">Exercise</p>
-                <img class="body_icons comment" src="/res/Icon_comment.svg" onclick="openPopup('exercise')" style="cursor: pointer;">
+                {{#if user.exercise}}
+                    <p>{{user.exerciseRecordDateTime}}</p>
+                    {{else}}<img class="body_icons comment" src="/res/Icon_comment.svg" onclick="toggleComment('exercise_desktop_comment')" style="cursor: pointer;">
+                {{/if}}
             </div>
             {{#if user.exercise}}
                 <div class="data_container input_data">
@@ -90,14 +91,13 @@
                 <div class="desktop_comment">
                     <p class="enteredData">{{user.exerciseComment}}</p>
                 </div>
-                <p>{{user.exerciseRecordDateTime}}</p>
             {{else}}
                 <form id="exerciseForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
                     <div class="data_container input_data">
                         <input type="text" name="exerciseValue">
                         <p>steps</p> 
                     </div>
-                    <div class="desktop_comment">
+                    <div class="desktop_comment" id="exercise_desktop_comment">
                         <textarea id="exerciseComment" name="exerciseComment" placeholder="Add Comment Here"></textarea>
                     </div> 
                     <br>   
@@ -110,7 +110,10 @@
             <div class="data_container">
                 <img class="body_icons" src="/res/Icon_doses.svg" alt="doses icon image">
                 <p class="bigger_p">Doses of Insulin Taken</p> 
-                <img class="body_icons comment" src="/res/Icon_comment.svg" onclick="openPopup('insulin')" style="cursor: pointer;">           
+                {{#if user.insulin}}
+                    <p>{{user.insulinRecordDateTime}}</p>
+                    {{else}}<img class="body_icons comment" src="/res/Icon_comment.svg" onclick="toggleComment('insulin_desktop_comment')" style="cursor: pointer;">           
+                {{/if}}
             </div> 
             {{#if user.insulin}}
                 <div class="data_container input_data">
@@ -120,14 +123,13 @@
                 <div class="desktop_comment">
                     <p class="enteredData">{{user.insulinComment}}</p>
                 </div>
-                <p>{{user.insulinRecordDateTime}}</p>
             {{else}}
                 <form id="insulinForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
                     <div class="data_container input_data">
                         <input type="text" name="insulinValue"> 
                         <p>doses</p> 
                     </div>
-                    <div class="desktop_comment">
+                    <div class="desktop_comment" id="insulin_desktop_comment">
                         <textarea id="insulinComment" name="insulinComment" placeholder="Add Comment Here"></textarea>
                     </div>  
                     <br>
@@ -177,4 +179,13 @@
             insulin.style.backgroundColor = "#f28379";
         }
     }    
+
+    function toggleComment(elemid) {
+        if (document.getElementById(elemid).style.display == "block") {
+            document.getElementById(elemid).style.display = "none";
+        } else {
+            document.getElementById(elemid).style.display = "block";
+        }
+    }
+
 </script>
