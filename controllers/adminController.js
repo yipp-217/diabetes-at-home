@@ -34,7 +34,9 @@ Pat = {
     password: "4321",
     yearBorn: 1968,
     supportMessage: "You are doing great!!!",
-    weight: 70
+    weight: 70,
+    bloodGlucoseLowerThreshold: 3,
+    bloodGlucoseUpperThreshold: 15
 }
 
 Piper = {
