@@ -31,6 +31,7 @@ const PORT = process.env.PORT || 8080
 const HOSTNAME = ''
 
 /* Routers */
+const adminRouter = require('./routes/adminRouter')
 const homeRouter = require('./routes/homeRouter')
 const patientRouter = require('./routes/patientRouter')
 const clinicianRouter = require('./routes/clinicianRouter')
@@ -42,6 +43,9 @@ require('./models/db')
 /* ========================================================================= */
 /* Root & Home */
 app.use('/', homeRouter)
+
+/* Admin for api testing and reset database */
+app.use('/admin', adminRouter)
 
 /* Patient */
 app.use('/patient', patientRouter)
