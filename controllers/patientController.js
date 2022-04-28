@@ -17,7 +17,7 @@ const getPatientUser = async (req, res, next) => {
 const getPatientUserEdit = async (req, res, next) => {
     try {
         // Pat's object id
-        let patientUser = await Patient.findOne({email:'pat@patient.com'}).lean()
+        const patientUser = await Patient.findOne({email:'pat@patient.com'}).lean()
         return res.render('patient_edit_data.hbs', {user: patientUser})
     }
     catch (e) {
@@ -28,8 +28,20 @@ const getPatientUserEdit = async (req, res, next) => {
 const updateBloodGlucose = async (req, res, next) => {
     try {
         // let patientUser = await Patient.findOne({email:'pat@patient.com'}).lean()
-        let patientUser = await Patient.findOneAndUpdate({email:'pat@patient.com'}, {$set: {bloodGlucose: req.body.bloodGlucoseValue}}).lean()
+        await Patient.findOneAndUpdate({email:'pat@patient.com'},
+            {$set: {bloodGlucose: req.body.bloodGlucoseValue, bloodGlucoseComment: req.body.bloodGlucoseComment}}).lean()
         console.log(req.body.bloodGlucoseValue)
+        return res.redirect('/patient/edit-data')
+    }
+    catch (e) {
+        return next(e)
+    }
+}
+
+const updateBloodGlucoseComment = async  (req, res, next) => {
+    try {
+        await Patient.findOneAndUpdate({email:'pat@patient.com'}, {$set: {bloodGlucoseComment: req.bloodGlucoseComment}}).lean()
+        console.log(req.body.bloodGlucoseComment)
         return res.redirect('/patient/edit-data')
     }
     catch (e) {
@@ -40,5 +52,6 @@ const updateBloodGlucose = async (req, res, next) => {
 module.exports = {
     getPatientUser,
     getPatientUserEdit,
-    updateBloodGlucose
+    updateBloodGlucose,
+    updateBloodGlucoseComment
 }
