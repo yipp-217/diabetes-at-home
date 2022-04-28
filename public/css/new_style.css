@@ -470,7 +470,7 @@ p {font-family: var(--font-family-body);
     border-radius: 10px;
     width: 80%;
     height: auto;
-    min-height: 40%;
+    min-height: 43%;
     margin: 3%;
     overflow: hidden;
   }
@@ -1035,7 +1035,7 @@ textarea:focus {
 
 /*main & edit data page*/
 .mainpage_grid_format {
-  margin-left: 15vh;
+  margin-left: 18vh;
   display: grid;
   grid-template-columns: 50fr 50fr;
   grid-row-gap: 2rem;
@@ -1136,6 +1136,10 @@ textarea:focus {
         justify-content: space-between;
     }
 
+    .info_rectangle_container {
+      min-height: 148px;
+    }
+
     .desktop_comment {
         display: none;
     }
@@ -1152,7 +1156,6 @@ textarea:focus {
       padding-top:25%;
     }
 
-/*<<<<<<< HEAD*/
     .note{
       margin-top: 25%;
     }
@@ -1196,8 +1199,8 @@ textarea:focus {
       grid-template-columns: 1fr;
       grid-template-rows: 300px 300px;
     }
-/*=======*/
-/*>>>>>>> parent of 0d4a608 (clinician_history_css)*/
+
+    .sidenav a {font-size: 18px;}
 }
 
 
@@ -1303,16 +1306,12 @@ textarea:focus {
     }
 
     .data_container {
-        justify-content: space-between;
+        justify-content: flex-start;
         margin: 2% 0;
     }
 
     .desktop_comment {
         display:block;
-    }
-
-    .data_container {
-      justify-content: flex-start;
     }
 
     input[name="comment"]{
@@ -1339,10 +1338,6 @@ textarea:focus {
 }
 /*>>>>>>> parent of 0d4a608 (clinician_history_css)*/
 
-@media screen and (max-width: 450px) {
-    .sidenav a {font-size: 18px;}
-}
-
 @media screen and (max-width: 1024px) {
     
   footer {
@@ -1360,6 +1355,14 @@ textarea:focus {
         top:auto;
         padding-top: 0;
     }
+
+  .content {
+    padding-bottom: 12vh;
+  }
   }
 
 /* Add the .enteredData class */
+.enteredData {
+  height: 20vh;
+  width: 40vh;
+}
