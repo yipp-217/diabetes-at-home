@@ -134,6 +134,24 @@ p {font-family: var(--font-family-body);
     overflow-x: auto;
   }*/
 
+  header {
+    background-color: var(--color-background-white);
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    height: 7.5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+}
+
+  #hamburger {
+    margin-right: auto;
+  }
+
+
   .clinician_header {
     position: fixed;
     display: flex;
@@ -184,7 +202,8 @@ p {font-family: var(--font-family-body);
   
   /****************** body css style ************************/
   
-  /***LOGO***/
+  /************************* LOGO ***************************/
+
   /*logo container*/
   .logo_container {
     width: 100%;
@@ -204,6 +223,8 @@ p {font-family: var(--font-family-body);
     width: 80%;
   }
 
+
+ /********************* body display **********************/
   .content{
     padding-top: 12vh;
     margin: 0 8%;
@@ -230,7 +251,14 @@ p {font-family: var(--font-family-body);
   .about{
     background-image: linear-gradient(#FFFFFF,#4F6EA2);
   }
-  
+
+  .item_center {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  /******************** video **********************/
   iframe {
     position: absolute;
     top: 0;
@@ -258,6 +286,8 @@ p {font-family: var(--font-family-body);
     height:100%;
     grid-area: desc;
   }
+
+  /********************** dashboard ************************/
 
   #clinician_message {
     width: 100%; 
@@ -316,7 +346,6 @@ p {font-family: var(--font-family-body);
     border-radius: 5px;
   }
 
-
   .note{
     display: flex;
     flex-direction: column;
@@ -329,8 +358,6 @@ p {font-family: var(--font-family-body);
     right:6%;
   }
 
-
-  /*put several data boxes into a bigger box, resizing responsively*/
   .data_display {
     display: flex;
     width: 100%;
@@ -415,7 +442,6 @@ p {font-family: var(--font-family-body);
     justify-content: space-between;
   }
 
-  /*large data container*/
   .boxes_container {
     width:100%;
     display: flex;
@@ -427,7 +453,6 @@ p {font-family: var(--font-family-body);
     display: none;
   }
 
-  /*medium data container*/
   .info_square_container {
     background-color: var(--color-background-accent);
     border-radius: 10px;
@@ -445,6 +470,7 @@ p {font-family: var(--font-family-body);
     border-radius: 10px;
     width: 80%;
     height: auto;
+    min-height: 40%;
     margin: 3%;
     overflow: hidden;
   }
@@ -462,6 +488,26 @@ p {font-family: var(--font-family-body);
     text-decoration:underline;
   }
 
+  .data_container {
+    margin: 4% 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .chart_container {
+    background-color: var(--color-background-light);
+    border-radius: 10px;
+    height: 50vh;
+  }
+
+  .more_info{
+    text-align: left;
+    margin: 5% 5% 10% 5%;
+    color: var(--color-background-white);
+  }
+
+/***************** checkmark *******************/
 
 /* On mouse-over, add a grey background color */
 .required:hover input ~ .checkmark {
@@ -516,39 +562,12 @@ p {font-family: var(--font-family-body);
     display: none;
 }
 
-  /*small data container*/
-  .data_container {
-    margin: 4% 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-  }
-
-  .chart_container {
-    background-color: var(--color-background-light);
-    border-radius: 10px;
-    height: 50vh;
-  }
-
-  .more_info{
-    text-align: left;
-    margin: 5% 5% 10% 5%;
-    color: var(--color-background-white);
-  }
-
-
-  /*lines*/
+  /******************** lines *************************/
   hr {
     width: 96%;
     background-color: var(--color-background-white);
     height: 2px;
     margin-bottom: 2px;
-  }
-
-  .item_center {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
   }
 
   /********************* a tag ****************************/
@@ -646,16 +665,14 @@ p {font-family: var(--font-family-body);
   text-align: left;
 }
 
-
-
-  .graph {
-    position: absolute;
-    border-radius: 20px;
-    box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.25);
-    width: 35%;
-    height: 40%;
-    background-color: #9FC0D6;
-  }
+.graph {
+  position: absolute;
+  border-radius: 20px;
+  box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.25);
+  width: 35%;
+  height: 40%;
+  background-color: #9FC0D6;
+}
 
 
 /******************* research bar ****************/
@@ -698,6 +715,52 @@ p {font-family: var(--font-family-body);
   padding-top: 10vh;
   background-color:var(--color-background-white);
   box-shadow: 4px 0 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+/**************** navigation bar **********************/
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #466fa6;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex: 1;
+  text-decoration: none;
 }
 
 /******************* dashboard table ****************/
@@ -850,6 +913,94 @@ td:last-child {
   box-shadow: 0 -4px 5px 0 rgba(0, 0, 0, 0.2);
   background-color: var(--color-background-white);
 }*/
+
+footer {
+  background-color: var(--color-background-white);
+  /*box-shadow: 0 -4px 5px 0 rgba(0, 0, 0, 0.2);*/
+  box-shadow: 4px 0 5px 0 rgba(0, 0, 0, 0.2);
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  /*width: 100%;
+  height: 7.5%;*/
+  width: 7.4%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /*align-items: center;*/
+}
+
+/************** pop up windows ****************/
+.popup {
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  gap: 10%;
+  min-height: 50%;
+  width: 75%;
+  position: absolute;
+  z-index: 1;
+  background-color: #193773;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border-radius: 5%;
+}
+
+.popup h2 {
+  color: white;
+  padding-top: 15%;
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.popup .closebtn {
+  position: absolute;
+  top: 0;
+  right: 7.5%;
+  font-size: 36px;
+  color: white;
+  text-decoration: none;
+}
+
+.popup form {
+  height: 40%;
+}
+
+.popup textarea {
+  width: 70% !important;
+  height: 100%;
+  border-radius: 5%;
+  resize: none;
+}
+
+/***************** textarea ************************/
+
+textarea {
+  width: 100%;
+  padding: 2.5%;
+  display: inline-block;
+  border: 1px solid;
+  border-color: var(--color-text-grey);
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-family: var(--font-family-heading);
+  resize: none;
+  height: 15vh;
+}
+
+textarea[name="comment"] {
+height: 20vh;
+width: 40vh;
+}
+
+textarea:focus {
+  border: 2px solid;
+}
 /************* desktop size responsive ****************/
 #heading {
     grid-area: heading;
@@ -963,23 +1114,6 @@ td:last-child {
     .data_display {
         margin-bottom: 8vh;
     }
-
-    /*footer {
-        left:auto;
-        top:auto;
-        padding-top: 0;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        height: 7.5vh;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        z-index: 100;
-        box-shadow: 0 -4px 5px 0 rgba(0, 0, 0, 0.2);
-        background-color: var(--color-background-white);
-    }*/
 
     .dashboard_table{
         width: 100%;
@@ -1205,163 +1339,9 @@ td:last-child {
 }
 /*>>>>>>> parent of 0d4a608 (clinician_history_css)*/
 
-
-
-  /************** new handlebar classes used in partials ****************/
-.popup {
-    display: none;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-content: center;
-    gap: 10%;
-    min-height: 50%;
-    width: 75%;
-    position: absolute;
-    z-index: 1;
-    background-color: #193773;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    border-radius: 5%;
-}
-
-.popup h2 {
-    color: white;
-    padding-top: 15%;
-    width: 90%;
-    text-align: center;
-    margin: 0 auto;
-}
-
-.popup .closebtn {
-    position: absolute;
-    top: 0;
-    right: 7.5%;
-    font-size: 36px;
-    color: white;
-    text-decoration: none;
-}
-
-.popup form {
-    height: 40%;
-}
-
-.popup textarea {
-    width: 70% !important;
-    height: 100%;
-    border-radius: 5%;
-    resize: none;
-}
-
-textarea {
-    width: 100%;
-    padding: 2.5%;
-    display: inline-block;
-    border: 1px solid;
-    border-color: var(--color-text-grey);
-    box-sizing: border-box;
-    border-radius: 10px;
-    font-family: var(--font-family-heading);
-    resize: none;
-    height: 15vh;
-}
-
-textarea[name="comment"] {
-  height: 20vh;
-  width: 40vh;
-}
-
-textarea:focus {
-    border: 2px solid;
-}
-
-header {
-    background-color: var(--color-background-white);
-    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
-    position: fixed;
-    width: 100%;
-    height: 7.5%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 100;
-}
-
-#hamburger {
-    margin-right: auto;
-}
-
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 101;
-    top: 0;
-    left: 0;
-    background-color: white;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: black;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav a:hover {
-    color: #466fa6;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-  }
-
-
-
-
 @media screen and (max-width: 450px) {
     .sidenav a {font-size: 18px;}
 }
-
-footer {
-    background-color: var(--color-background-white);
-    /*box-shadow: 0 -4px 5px 0 rgba(0, 0, 0, 0.2);*/
-    box-shadow: 4px 0 5px 0 rgba(0, 0, 0, 0.2);
-    position: fixed;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    /*width: 100%;
-    height: 7.5%;*/
-    width: 7.4%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    /*align-items: center;*/
-}
-
-.nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-    flex: 1;
-    text-decoration: none;
-}
-
-
 
 @media screen and (max-width: 1024px) {
     
