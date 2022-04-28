@@ -23,8 +23,11 @@
                     <p id="bloodGlucoseValue">{{user.bloodGlucose}}</p>
                     <p>nmol/L</p>
                 </div>
+                <div class="desktop_comment">
+                    <p>{{user.bloodGlucoseComment}}</p>
+                </div>
             {{else}}
-                <form id="bloodGlucoseForm" action="/patient/edit-data/blood-glucose-level" method="post"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
+                <form id="bloodGlucoseForm" action="/patient/edit-data/blood-glucose-level" method="post">
                     <div class="data_container input_data">
                         <input type="text" name="bloodGlucoseValue">
                         <p>nmol/L</p>
