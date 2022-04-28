@@ -993,7 +993,7 @@ textarea {
   height: 15vh;
 }
 
-textarea[name="comment"] {
+textarea[name="exerciseComment"], textarea[name="bloodGlucoseComment"], textarea[name="weightComment"], textarea[name="insulinComment"]{
 height: 20vh;
 width: 40vh;
 }
