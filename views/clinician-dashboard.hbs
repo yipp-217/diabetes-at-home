@@ -1,7 +1,46 @@
-<h1>Chris's Patients</h1>
+<header>
+    <h1>Good afternoon, {{user.screenName}}</h1>
+    <button type="button">Settings</button>
+    <button type="button">Log Out</button>
+</header>
 
-<ul>
+<table>
+    <div class="search-container">
+        <input type="text" placeholder="Name.." name="search">
+        <button type="submit">Search</button>
+    </div>
+
+    <tr>
+        <th>Patient Name</th>
+        <th>Blood glucose (nmol/L)</th>
+        <th>Weight (kg)</th>
+        <th>Exercise (steps)</th>
+        <th>Doses of insulin taken</th>
+    </tr>
+
     {{#each patients}}
-        <li>{{this._id}} {{this.nameFamily}} {{this.nameGiven}}</li>
+        <tr>
+            <td>{{this.nameGiven}} {{this.nameFamily}}</td>
+            {{#if this.bloodGlucose}}
+                <td>{{this.bloodGlucose}}</td>
+            {{else}}
+                <td>-</td>
+            {{/if}}
+            {{#if this.weight}}
+                <td>{{this.weight}}</td>
+            {{else}}
+                <td>-</td>
+            {{/if}}
+            {{#if this.exercise}}
+                <td>{{this.exercise}}</td>
+            {{else}}
+                <td>-</td>
+            {{/if}}
+            {{#if this.dosesOfInsulin}}
+                <td>{{this.dosesOfInsulin}}</td>
+            {{else}}
+                <td>-</td>
+            {{/if}}
+        </tr>
     {{/each}}
-</ul>
+</table>
