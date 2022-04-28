@@ -110,18 +110,18 @@
             <div class="data_container">
                 <img class="body_icons" src="/res/Icon_doses.svg" alt="doses icon image">
                 <p class="bigger_p">Doses of Insulin Taken</p> 
-                {{#if user.insulin}}
-                    <p>{{user.insulinRecordDateTime}}</p>
+                {{#if user.dosesOfInsulin}}
+                    <p>{{user.dosesOfInsulinRecordDateTime}}</p>
                     {{else}}<img class="body_icons comment" src="/res/Icon_comment.svg" onclick="toggleComment('insulin_desktop_comment')" style="cursor: pointer;">           
                 {{/if}}
             </div> 
-            {{#if user.insulin}}
+            {{#if user.dosesOfInsulin}}
                 <div class="data_container input_data">
-                    <p id="insulinValue">{{user.insulin}}</p>
+                    <p id="insulinValue">{{user.dosesOfInsulin}}</p>
                     <p>kilograms</p>
                 </div>
                 <div class="desktop_comment">
-                    <p class="enteredData">{{user.insulinComment}}</p>
+                    <p class="enteredData">{{user.dosesOfInsulinComment}}</p>
                 </div>
             {{else}}
                 <form id="insulinForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
