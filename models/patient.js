@@ -42,6 +42,7 @@ const patientSchema = new mongoose.Schema({
     supportMessage: {type: String},
 
     /* today */
+    bloodGlucoseRecordDateTime: String,
     bloodGlucose: Number,
     bloodGlucoseComment: String,
     weight: Number,

@@ -27,9 +27,12 @@ const getPatientUserEdit = async (req, res, next) => {
 
 const updateBloodGlucose = async (req, res, next) => {
     try {
-        // let patientUser = await Patient.findOne({email:'pat@patient.com'}).lean()
+        console.log(req.body.dateTime)
         await Patient.findOneAndUpdate({email:'pat@patient.com'},
-            {$set: {bloodGlucose: req.body.bloodGlucoseValue, bloodGlucoseComment: req.body.bloodGlucoseComment}}).lean()
+            {$set: {
+                    bloodGlucose: req.body.bloodGlucoseValue,
+                    bloodGlucoseComment: req.body.bloodGlucoseComment,
+                    bloodGlucoseRecordDateTime: req.body.dateTime}}).lean()
         console.log(req.body.bloodGlucoseValue)
         return res.redirect('/patient/edit-data')
     }
@@ -38,20 +41,9 @@ const updateBloodGlucose = async (req, res, next) => {
     }
 }
 
-const updateBloodGlucoseComment = async  (req, res, next) => {
-    try {
-        await Patient.findOneAndUpdate({email:'pat@patient.com'}, {$set: {bloodGlucoseComment: req.bloodGlucoseComment}}).lean()
-        console.log(req.body.bloodGlucoseComment)
-        return res.redirect('/patient/edit-data')
-    }
-    catch (e) {
-        return next(e)
-    }
-}
 
 module.exports = {
     getPatientUser,
     getPatientUserEdit,
     updateBloodGlucose,
-    updateBloodGlucoseComment
 }
