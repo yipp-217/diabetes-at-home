@@ -1,46 +1,58 @@
-<header>
-    <h1>Good afternoon, {{user.screenName}}</h1>
-    <button type="button">Settings</button>
-    <button type="button">Log Out</button>
-</header>
+<body onload="checkSafetyThreshold(1, 2, 3)">
+    <header>
+        <h1>Good afternoon, {{user.screenName}}</h1>
+        <button type="button">Settings</button>
+        <button type="button">Log Out</button>
+    </header>
 
-<table>
-    <div class="search-container">
-        <input type="text" placeholder="Name.." name="search">
-        <button type="submit">Search</button>
-    </div>
+    <table>
+        <div class="search-container">
+            <input type="text" placeholder="Name.." name="search">
+            <button type="submit">Search</button>
+        </div>
 
-    <tr>
-        <th>Patient Name</th>
-        <th>Blood glucose (nmol/L)</th>
-        <th>Weight (kg)</th>
-        <th>Exercise (steps)</th>
-        <th>Doses of insulin taken</th>
-    </tr>
-
-    {{#each patients}}
         <tr>
-            <td>{{this.nameGiven}} {{this.nameFamily}}</td>
-            {{#if this.bloodGlucose}}
-                <td>{{this.bloodGlucose}}</td>
-            {{else}}
-                <td>-</td>
-            {{/if}}
-            {{#if this.weight}}
-                <td>{{this.weight}}</td>
-            {{else}}
-                <td>-</td>
-            {{/if}}
-            {{#if this.exercise}}
-                <td>{{this.exercise}}</td>
-            {{else}}
-                <td>-</td>
-            {{/if}}
-            {{#if this.dosesOfInsulin}}
-                <td>{{this.dosesOfInsulin}}</td>
-            {{else}}
-                <td>-</td>
-            {{/if}}
+            <th>Patient Name</th>
+            <th>Blood glucose (nmol/L)</th>
+            <th>Weight (kg)</th>
+            <th>Exercise (steps)</th>
+            <th>Doses of insulin taken</th>
         </tr>
-    {{/each}}
-</table>
+
+        {{#each patients}}
+            <tr>
+                <td>{{this.nameGiven}} {{this.nameFamily}}</td>
+                {{#if this.bloodGlucose}}
+                    <td id="bloodGlucoseValue">{{this.bloodGlucose}}</td>
+                {{else}}
+                    <td>-</td>
+                {{/if}}
+                {{#if this.weight}}
+                    <td>{{this.weight}}</td>
+                {{else}}
+                    <td>-</td>
+                {{/if}}
+                {{#if this.exercise}}
+                    <td>{{this.exercise}}</td>
+                {{else}}
+                    <td>-</td>
+                {{/if}}
+                {{#if this.dosesOfInsulin}}
+                    <td>{{this.dosesOfInsulin}}</td>
+                {{else}}
+                    <td>-</td>
+                {{/if}}
+            </tr>
+        {{/each}}
+    </table>
+</body>
+
+<script>
+    function checkSafetyThreshold(data, min, max) {
+        if (data < min || data > max) {
+            document.getElementById("bloodGlucoseValue").style.color = "#f28379";
+        } else {
+            document.getElementById("bloodGlucoseValue").style.color = "#000000";
+        }
+    }
+</script>
