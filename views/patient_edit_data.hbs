@@ -12,7 +12,7 @@
     <!-- 4 records -->
     <div class="boxes_container sec1">
 
-        <contianer class="container info_rectangle_container">
+        <contianer class="container info_rectangle_container" id="bloodGlucoseContainer">
             <div class="data_container">
                 <img class="body_icons" src="/res/Icon_blood.svg" alt="blood icon image">
                 <p class="bigger_p">Blood Glucose Level</p>
@@ -20,7 +20,7 @@
             </div>
             {{#if user.bloodGlucose}}
                 <div class="data_container input_data">
-                    <p>{{user.bloodGlucose}}</p>
+                    <p id="bloodGlucoseValue">{{user.bloodGlucose}}</p>
                     <p>nmol/L</p>
                 </div>
             {{else}}
@@ -45,7 +45,7 @@
             
         </contianer>
 
-        <contianer class="container info_rectangle_container">
+        <contianer class="container info_rectangle_container" id="weightContainer">
             <div class="data_container">
                 <img class="body_icons" src="/res/Icon-weight.svg" alt="weight icon image">
                 <p class="bigger_p">Weight</p>
@@ -53,7 +53,7 @@
             </div>
             {{#if user.weight}}
                 <div class="data_container input_data">
-                    <p>{{user.weight}}</p>
+                    <p id="weightValue">{{user.weight}}</p>
                     <p>kilograms</p>
                 </div>
             {{else}}
@@ -85,18 +85,25 @@
 
     <div class="boxes_container sec2">
 
-        <contianer class="container info_rectangle_container">
+        <contianer class="container info_rectangle_container" id="exerciseContainer">
             <div class="data_container">
                 <img class="body_icons" src="/res/Icon_excercise.svg" alt="exercise icon image">
                 <p class="bigger_p">Exercise</p>
                 <img class="body_icons comment" src="res/Icon_comment.svg" onclick="openPopup('exercise')" style="cursor: pointer;">
             </div>
-            <form id="exerciseForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
+            {{#if user.exercise}}
                 <div class="data_container input_data">
-                    <input type="text" name="exerciseValue">
-                    <p>steps</p> 
+                    <p id="exerciseValue">{{user.exercise}}</p>
+                    <p>kilograms</p>
                 </div>
-            </form>
+            {{else}}
+                <form id="exerciseForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
+                    <div class="data_container input_data">
+                        <input type="text" name="exerciseValue">
+                        <p>steps</p> 
+                    </div>
+                </form>
+            {{/if}}
             
 
             <!--desktop comment section-->            
@@ -113,18 +120,25 @@
 
         </contianer>
 
-        <contianer class="container info_rectangle_container">
+        <contianer class="container info_rectangle_container" id="insulinContainer">
             <div class="data_container">
                 <img class="body_icons" src="/res/Icon_doses.svg" alt="doses icon image">
                 <p class="bigger_p">Doses of Insulin Taken</p> 
                 <img class="body_icons comment" src="res/Icon_comment.svg" onclick="openPopup('insulin')" style="cursor: pointer;">           
             </div> 
-            <form id="insulinForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
+            {{#if user.insulin}}
                 <div class="data_container input_data">
-                    <input type="text" name="insulinValue"> 
-                    <p>doses</p> 
+                    <p id="insulinValue">{{user.insulin}}</p>
+                    <p>kilograms</p>
                 </div>
-            </form>
+            {{else}}
+                <form id="insulinForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
+                    <div class="data_container input_data">
+                        <input type="text" name="insulinValue"> 
+                        <p>doses</p> 
+                    </div>
+                </form>
+            {{/if}}
 
             <!--desktop comment section-->
             <form id="insulinCommentForm"> <!-- action="" method="post" ~ put this inside form tag and give appropriate action -->
@@ -151,4 +165,39 @@
         document.getElementById(data).submit();
         //document.getElementById(comment).submit();
     }
+
+    document.body.onload = function(){colourDiv()}
+
+    function colourDiv() {
+        const bloodGlucose = document.getElementById("bloodGlucoseContainer");
+        const bloodGlucoseValue = document.getElementById("bloodGlucoseValue");
+        const weight = document.getElementById("weightContainer");
+        const weightValue = document.getElementById("weightValue");
+        const exercise = document.getElementById("exerciseContainer");
+        const exerciseValue = document.getElementById("exerciseValue");
+        const insulin = document.getElementById("insulinContainer");
+        const insulinValue = document.getElementById("insulinValue");
+
+        if (bloodGlucose.contains(bloodGlucoseValue)) {
+            bloodGlucose.style.backgroundColor = "#9FC0D6";
+        } else {
+            bloodGlucose.style.backgroundColor = "#f28379";
+        }
+        if (weight.contains(weightValue)) {
+            weight.style.backgroundColor = "#9FC0D6";
+        } else {
+            weight.style.backgroundColor = "#f28379";
+        }
+        if (exercise.contains(exerciseValue)) {
+            exercise.style.backgroundColor = "#9FC0D6";
+        } else {
+            exercise.style.backgroundColor = "#f28379";
+        }
+        if (insulin.contains(insulinValue)) {
+            insulin.style.backgroundColor = "#9FC0D6";
+        } else {
+            insulin.style.backgroundColor = "#f28379";
+        }
+    }
+    
 </script>
