@@ -32,13 +32,18 @@ const updateBloodGlucose = async (req, res, next) => {
             {$set: {
                     bloodGlucose: req.body.bloodGlucoseValue,
                     bloodGlucoseComment: req.body.bloodGlucoseComment,
-                    bloodGlucoseRecordDateTime: req.body.dateTime}}).lean()
+                    bloodGlucoseRecordDateTime: getDateTime()}}).lean()
         console.log(req.body.bloodGlucoseValue)
         return res.redirect('/patient/edit-data')
     }
     catch (e) {
         return next(e)
     }
+}
+
+function getDateTime() {
+    const today = new Date().toLocaleString("en-AU", {timeZone: "Australia/Melbourne"});
+    return today;
 }
 
 

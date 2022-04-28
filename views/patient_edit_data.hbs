@@ -20,12 +20,13 @@
             </div>
             {{#if user.bloodGlucose}}
                 <div class="data_container input_data">
-                    <p id="bloodGlucoseValue">{{user.bloodGlucose}}</p>
+                    <p class="enteredData" id="bloodGlucoseValue">{{user.bloodGlucose}}</p>
                     <p>nmol/L</p>
                 </div>
                 <div class="desktop_comment">
-                    <p>{{user.bloodGlucoseComment}}</p>
+                    <p class="enteredData">{{user.bloodGlucoseComment}}</p>
                 </div>
+                <p>{{user.bloodGlucoseRecordDateTime}}</p>
             {{else}}
                 <form id="bloodGlucoseForm" action="/patient/edit-data/blood-glucose-level" method="post">
                     <div class="data_container input_data">
@@ -36,6 +37,7 @@
                         <textarea id="bloodGlucoseComment" name="bloodGlucoseComment" placeholder="Add Comment Here"></textarea>
                     </div>
                     <br>
+                    <input type="hidden" id="bloodGlucoseDateTime" name="bloodGlucoseDateTime">
                     <button class="center white_button" type="submit">SAVE</button>
                 </form>
             {{/if}}
@@ -191,6 +193,12 @@
         } else {
             insulin.style.backgroundColor = "#f28379";
         }
+    }
+
+    function getDateTime() {
+        const today = new Date().toLocaleString("en-AU", {timeZone: "Australia/Melbourne"});
+        const getToday = today.getDateTime();
+        document.getElementById("bloodGlucoseDateTime").value = getToday;
     }
     
 </script>
