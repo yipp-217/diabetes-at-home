@@ -38,13 +38,16 @@ const patientSchema = new mongoose.Schema({
     bio: String,
     /* ----- */
 
-    clinician: {type: mongoose.Schema.Types.ObjectId, ref:'Clinician'},
+    // clinician: {type: mongoose.Schema.Types.ObjectId, ref:'Clinician'},
+    clinician: {type: String, required: true},
     supportMessage: {type: String},
 
     /* today */
     bloodGlucoseRecordDateTime: String,
     bloodGlucose: Number,
     bloodGlucoseComment: String,
+    bloodGlucoseUpperThreshold: Number,
+    bloodGlucoseLowerThreshold: Number,
     weight: Number,
     weightComment: String,
     exercise: Number,

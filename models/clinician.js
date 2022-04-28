@@ -14,7 +14,7 @@ const clinicianSchema = new mongoose.Schema({
     bio: String,
     /* ----- */
 
-    patients: {type: [mongoose.Schema.Types.ObjectId], ref: 'Patient'}
+    // patients: {type: [mongoose.Schema.Types.ObjectId], ref: 'Patient'}
 })
 
 
