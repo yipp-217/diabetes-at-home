@@ -45,8 +45,11 @@ const patientSchema = new mongoose.Schema({
     bloodGlucose: Number,
     bloodGlucoseComment: String,
     weight: Number,
+    weightComment: String,
     exercise: Number,
+    exerciseComment: String,
     dosesOfInsulin: Number,
+    dosesOfInsulinComment: String,
     /* ----- */
 
     requirements: requirementsSchema,
