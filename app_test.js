@@ -64,6 +64,8 @@ app.get('/settings', (req, res) => {
     res.render('settings.hbs')
 })
 
+
+
 // Tells the app to listen on port 3000 and logs that information to the console.
 app.listen(3000, () => {
     console.log('Diabetes@Home app is listening on port 3000!')

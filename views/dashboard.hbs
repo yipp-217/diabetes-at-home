@@ -1,62 +1,109 @@
-<header>
-    <h1>Good afternoon, Dr Jones</h1>
-        <button type="button">Settings</button>
-        <button type="button">Log Out</button>
-</header>
+<body class="clinician_body">
+        <header class="clinician_header">
+            <img class="icons_profile" src="../public/res/DocImag.svg" >
+            <h2 class="cilnician_nav">Good afternoon, Dr Jones</h2>
+            <button class="clinician_nav_btn" type="button"><h5 class="phone_clinician">Log Out</h5></button>
+            <img class="icons icon_settings" src="../public/res/Icon_settings.svg">
+        </header>
 
-<table>
-    <div class="search-container">
-        <input type="text" placeholder="Name.." name="search">
-        <button type="submit">Search</i></button> 
-    </div>
+        <section class="search_bar">
+            <input type="text" placeholder="Name.." name="search">
+            <button class="reaserch_btn" type="submit"><img src="../public/res/Icons_reaserch.svg"></button> 
+        </section>
 
-    <tr>
-        <th>Patient Name</th>
-        <th>Weight (kg)</th>
-        <th>Excercise (steps)</th>
-        <th>Blood glucose (nmol/L)</th>
-        <th>Doses of insulin taken</th>
-    </tr>
-    <tr>
-        <td>John Doe</td>
-        <td>68</td>
-        <td>1000000</td>
-        <td>7</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Ed Peng</td>
-        <td>666</td>
-        <td></td>
-        <td>7</td>
-        <td>0</td>
-    </tr>
-    <tr>
-        <td>Brandon Widjaja</td>
-        <td>888</td>
-        <td>3000</td>
-        <td>7</td>
-        <td>0</td>
-    </tr>
-    <tr>
-        <td>Caitlyn Allan</td>
-        <td>68</td>
-        <td>3000</td>
-        <td>7</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Meilun Yao</td>
-        <td>68</td>
-        <td>3000</td>
-        <td>7</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Hanlin Zhu</td>
-        <td>68</td>
-        <td>3000</td>
-        <td>7</td>
-        <td></td>
-    </tr>
-</table>
+        <main class="dashboard_flex">
+           <article class="dash_left"> 
+            <table class="dashboard_table">
+                
+            <tr class="title_box">
+                <th><h5>Patient Name</h5></th>
+                <th><h5>Weight (kg)</h5></th>
+                <th><h5>Excercise (steps)</h5></th>
+                <th><h5>Blood glucose (nmol/L)</h5></th>
+                <th><h5>Doses of insulin taken</h5></th>
+            </tr>
+
+            <tr class="dash_container">
+                <td><img class="icons_small_left" src="../public/res/profile.svg" /><img><p1>John Doe</p1><img  class="icons_small_right" src="../public/res/Icons_Notifications.svg"/><img></td>
+                <td>68</td>
+                <td>1000</td>
+                <td>7</td>
+                <td>-</td>
+            </tr>
+
+            <tr class="dash_container">
+                <td><img class="icons_small_left" src="../public/res/profile.svg" /><img>Ed Peng<img class="icons_small_right" src="../public/res/Icons_Notifications.svg"/><img></td>
+                <td>666</td>
+                <td>-</td>
+                <td>7</td>
+                <td>0</td>
+            </tr>
+
+            <tr class="dash_container">
+                <td><img class="icons_small_left" src="../public/res/profile.svg" /><img>Brandon Widjaja<img class="icons_small_right" src="../public/res/Icons_Notifications.svg"/><img></td>
+                <td>888</td>
+                <td>3000</td>
+                <td>7</td>
+                <td>0</td>
+            </tr>
+
+            <tr class="dash_container">
+                <td><img class="icons_small_left" src="../public/res/profile.svg" /><img>Caitlyn Allan<img class="icons_small_right" src="../public/res/Icons_Notifications.svg"/><img></td>
+                <td>83</td>
+                <td>3000</td>
+                <td>7</td>
+                <td>-</td> 
+            </tr>
+
+            <tr class="dash_container">
+                <td><img class="icons_small_left" src="../public/res/profile.svg" /><img>Meilun Yao<img class="icons_small_right"src="../public/res/Icons_Notifications.svg"/><img></td>
+                <td>54</td>
+                <td>3800</td>
+                <td>7</td>
+                <td>-</td>
+            </tr>
+            
+            <tr class="dash_container">
+                <td><img class="icons_small_left" src="../public/res/profile.svg" /><img>Hanlin Zhu<img class="icons_small_right" src="../public/res/Icons_Notifications.svg"/><img></td>
+                <td>68</td>
+                <td>4300</td>
+                <td>7</td>
+                <td>-</td>
+            </tr>
+
+            <tr class="dash_container">
+                <td><img class="icons_small_left" src="../public/res/profile.svg" /><img>Tony Zhang<img class="icons_small_right" src="../public/res/Icons_Notifications.svg"/><img></td>
+                <td>-</td>
+                <td>3500</td>
+                <td>7</td>
+                <td>-</td>
+            </tr>
+
+            <tr class="dash_container">
+                <td><img class="icons_small_left" src="../public/res/profile.svg" /><img>Josh<img class="icons_small_right" src="../public/res/Icons_Notifications.svg"/><img></td>
+                <td>73</td>
+                <td>2780</td>
+                <td>6</td>
+                <td>-</td>
+            </tr>
+
+            <tr class="dash_container">
+                <td><img class="icons_small_left" src="../public/res/profile.svg" /><img>Glenn Phillips<img class="icons_small_right" src="../public/res/Icons_Notifications.svg"/><img></td>
+                <td>72</td>
+                <td>n/a</td>
+                <td>7</td>
+                <td>n/a</td>
+            </tr>
+
+            <tr class="dash_container">
+                <td><img class="icons_small_left" src="../public/res/profile.svg" /><img>Glenn Phillips<img class="icons_small_right" src="../public/res/Icons_Notifications.svg"/><img></td>
+                <td>72</td>
+                <td>n/a</td>
+                <td>7</td>
+                <td>n/a</td>
+            </tr>
+        </table>
+
+    </article>
+    </main>
+    </body>
