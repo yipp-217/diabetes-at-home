@@ -105,7 +105,11 @@ h5 {font-family: var(--font-family-heading);
 .bigger_p {
   font-size: var(--text-big);
   font-weight: 700;
-}  
+}
+
+.bold_p {
+  font-weight: 700;
+}
 
 p {font-family: var(--font-family-body);
     font-size: var(--text-medium);
@@ -456,6 +460,11 @@ p {font-family: var(--font-family-body);
 
   .comment {
     display: none;
+  }
+
+  .timeInComment {
+    position: absolute;
+    right:4%;
   }
 
   /* after data has been entered */
@@ -1088,7 +1097,7 @@ textarea:focus {
     .phone_clinician {font-size:5px;}
     .info_contianer h3{font-size: var(--text-medium);}
     .info_contianer p, .info_contianer label{font-size: var(--text-small);}
-    .body_icons {width: 9%;}
+    .body_icons {width: 8%;}
     .history_link{padding-top:25%;}
 
     /** grid section **/
@@ -1121,7 +1130,6 @@ textarea:focus {
     
     .data_container {
         justify-content: space-between;
-        max-width: 25vh;
     }
 
     .info_rectangle_container {
@@ -1168,6 +1176,10 @@ textarea:focus {
     textarea[name="exerciseComment"], textarea[name="bloodGlucoseComment"], textarea[name="weightComment"], textarea[name="insulinComment"]{
       width: 25vh;
       }
+
+    .timeInComment {
+        position: relative;
+    }
 
     /** note **/
     .note{
