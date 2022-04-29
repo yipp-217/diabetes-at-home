@@ -117,6 +117,11 @@ p {font-family: var(--font-family-body);
 
 .smallest_p { font-size:var(--text-smallest);}
 
+#bloodGlucoseValue, #weightValue, #exerciseValue, #nsulinValue {
+  font-size: var(--text-subheading);
+  font-weight: 700;
+}
+
 
 /****************** header style ************************/
 
@@ -985,7 +990,6 @@ footer {
 }
 
 /***************** textarea ************************/
-
 textarea {
   width: 100%;
   padding: 2.5%;
@@ -1071,28 +1075,19 @@ textarea:focus {
     h2 {font-size: var(--text-subheading);}
     p {font-size: var(--text-small);}
     .bigger_p {font-size: var(--text-medium);}
-
     h5 {font-size: var(--text-smaller);}
-
     th, td {font-size:var(--text-smallest);}
+    #bloodGlucoseValue, #weightValue, #exerciseValue, #nsulinValue {
+      font-size: var(--text-big);
+    }
 
+    /** clinician **/
     .cilnician_nav {font-size: var(--text-medium);}
-
     .phone_clinician {font-size:5px;}
-
-    .info_contianer h3{
-      font-size: var(--text-medium);
-    }
-
-    .info_contianer p, .info_contianer label{
-      font-size: var(--text-small);
-    }
-
+    .info_contianer h3{font-size: var(--text-medium);}
+    .info_contianer p, .info_contianer label{font-size: var(--text-small);}
     .body_icons {width: 9%;}
-
-    .history_link{
-      padding-top:25%;
-    }
+    .history_link{padding-top:25%;}
 
     /** grid section **/
     .about_grid_format {
