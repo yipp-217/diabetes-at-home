@@ -791,6 +791,7 @@ p {font-family: var(--font-family-body);
 .dashboard_flex{
   display: flex;
   justify-content: center;
+  padding-top: 1%;
 }
 
 .flex_left {
@@ -1137,9 +1138,7 @@ textarea:focus {
         width: 100%;
     }
 
-    .flex_left, .flex_right{
-      margin-top: 25%;
-    }
+
 
     .clinician_main{
       padding-top:25%;
@@ -1257,9 +1256,13 @@ textarea:focus {
     th, td {font-size:var(--text-smaller);}
 
     /** dashboard **/
-    .dashboard_flex, .flex_left, .flex_right{
+    .dashboard_flex, .flex_left{
         flex-wrap: wrap;
         width: 100%;
+    }
+
+    .flex_right{
+      width: 90%;
     }
 
     .dashboard_flex{
@@ -1311,15 +1314,7 @@ textarea:focus {
 
 
 
-
-
-/*!*<<<<<<< HEAD*/
-
-/*    .flex_left, .flex_right, .note{*/
-/*=======*/
-/*    .flex_left, .flex_right{*/
-/*>>>>>>> parent of 0d4a608 (clinician_history_css)*!*/
-    .flex_left, .flex_right, .note {
+ .note {
         margin-top: 20%;
     }
 
@@ -1344,7 +1339,7 @@ textarea:focus {
       padding-top: 15%;
     }
 
-/*<<<<<<< HEAD*/
+
     .history_background {
       padding-top: 10%;
       grid-template-rows:270px 270px;
@@ -1353,12 +1348,12 @@ textarea:focus {
     .graph{
       height: 30%;
     }
-/*=======*/
+
     .clinician_main{
       padding-top:15%;
     }
 }
-/*>>>>>>> parent of 0d4a608 (clinician_history_css)*/
+
 
 @media screen and (max-width: 1024px) {
     
