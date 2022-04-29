@@ -9,9 +9,9 @@
         <contianer class="container info_rectangle_container" id="bloodGlucoseContainer">
             <div class="data_container">
                 <img class="body_icons" src="/res/Icon_blood.svg" alt="blood icon image">
-                <p class="bigger_p">Blood Glucose Level</p>
+                <p class="bold_p">Blood Glucose Level</p>
                 {{#if user.bloodGlucose}}
-                    <p>{{displayDate user.bloodGlucoseRecordDateTime}}</p>
+                    <p class="timeInComment">{{displayDate user.bloodGlucoseRecordDateTime}}</p>
                     {{else}}<img class="body_icons comment" src="/res/Icon_comment.svg" onclick="toggleComment('blood_glucose_desktop_comment')" style="cursor: pointer;">
                 {{/if}}
             </div>
@@ -41,7 +41,7 @@
         <contianer class="container info_rectangle_container" id="weightContainer">
             <div class="data_container">
                 <img class="body_icons" src="/res/Icon-weight.svg" alt="weight icon image">
-                <p class="bigger_p">Weight</p>
+                <p class="bold_p">Weight</p>
                 {{#if user.weight}}
                     <p>{{user.weightRecordDateTime}}</p>
                     {{else}}<img class="body_icons comment" src="/res/Icon_comment.svg" onclick="toggleComment('weight_desktop_comment')" style="cursor: pointer;">
@@ -77,7 +77,7 @@
         <contianer class="container info_rectangle_container" id="exerciseContainer">
             <div class="data_container">
                 <img class="body_icons" src="/res/Icon_excercise.svg" alt="exercise icon image">
-                <p class="bigger_p">Exercise</p>
+                <p class="bold_p">Exercise</p>
                 {{#if user.exercise}}
                     <p>{{user.exerciseRecordDateTime}}</p>
                     {{else}}<img class="body_icons comment" src="/res/Icon_comment.svg" onclick="toggleComment('exercise_desktop_comment')" style="cursor: pointer;">
@@ -109,7 +109,7 @@
         <contianer class="container info_rectangle_container" id="insulinContainer">
             <div class="data_container">
                 <img class="body_icons" src="/res/Icon_doses.svg" alt="doses icon image">
-                <p class="bigger_p">Doses of Insulin Taken</p> 
+                <p class="bold_p">Doses of Insulin Taken</p> 
                 {{#if user.dosesOfInsulin}}
                     <p>{{user.dosesOfInsulinRecordDateTime}}</p>
                     {{else}}<img class="body_icons comment" src="/res/Icon_comment.svg" onclick="toggleComment('insulin_desktop_comment')" style="cursor: pointer;">           
