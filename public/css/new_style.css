@@ -829,6 +829,10 @@ table {
   width: 95%;
 }
 
+tr{
+  vertical-align: middle;
+}
+
 th {
   padding: 8px;
   border:none;
@@ -841,6 +845,7 @@ td {
   padding: 8px;
   width: 20%;
   text-align: left;
+  line-height: 30px;
 }
 
 .dashboard_table td {
