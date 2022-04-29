@@ -15,6 +15,7 @@ patientRouter.get('/:id', patientController.getPatientUser)
 
 // default to find Pat
 patientRouter.get('/', patientController.getPatientUser)
+patientRouter.post('/', patientController.getPatientUser)
 
 
 module.exports = patientRouter

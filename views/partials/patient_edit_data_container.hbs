@@ -1,0 +1,78 @@
+<contianer class="container info_rectangle_container" id="{{field}}Container">
+    <div class="data_container">
+        <img class="body_icons" src={{icon}} alt="{{field}} icon image">
+        <p class="bold_p">{{title}}</p>
+        {{#if value}}
+            <p class="timeInComment">{{displayDate time}}</p>
+            {{else}}<img class="body_icons comment" src="/res/Icon_comment.svg" onclick="toggleComment('{{field}}DesktopComment')" style="cursor: pointer;">
+        {{/if}}
+    </div>
+    {{#if value}}
+        <div class="data_container input_data">
+            <p id="{{field}}Value">{{value}}</p>
+            <p>{{unit}}</p>
+        </div>
+        <div class="desktop_comment">
+            <p class="enteredData">{{comment}}</p>
+        </div>
+    {{else}}
+        <form id="{{field}}Form" action={{action}} method="post">
+            <div class="data_container input_data">
+                <input type="text" name="{{field}}Value" required>
+                <p>{{unit}}</p>
+            </div>
+            <div class="desktop_comment" id="{{field}}DesktopComment">
+                <textarea id="{{field}}Comment" name="{{field}}Comment" placeholder="Add Comment Here"></textarea>
+            </div>
+            <br>
+            <button class="center white_button" type="submit">SAVE</button>
+        </form>
+    {{/if}}
+</contianer>
+
+
+<script>
+
+    document.body.onload = function(){colourDiv()}
+
+    function colourDiv() {
+        const bloodGlucose = document.getElementById("bloodGlucoseContainer");
+        const bloodGlucoseValue = document.getElementById("bloodGlucoseValue");
+        const weight = document.getElementById("weightContainer");
+        const weightValue = document.getElementById("weightValue");
+        const exercise = document.getElementById("exerciseContainer");
+        const exerciseValue = document.getElementById("exerciseValue");
+        const insulin = document.getElementById("insulinContainer");
+        const insulinValue = document.getElementById("insulinValue");
+
+        if (bloodGlucose.contains(bloodGlucoseValue)) {
+            bloodGlucose.style.backgroundColor = "#9FC0D6";
+        } else {
+            bloodGlucose.style.backgroundColor = "#f28379";
+        }
+        if (weight.contains(weightValue)) {
+            weight.style.backgroundColor = "#9FC0D6";
+        } else {
+            weight.style.backgroundColor = "#f28379";
+        }
+        if (exercise.contains(exerciseValue)) {
+            exercise.style.backgroundColor = "#9FC0D6";
+        } else {
+            exercise.style.backgroundColor = "#f28379";
+        }
+        if (insulin.contains(insulinValue)) {
+            insulin.style.backgroundColor = "#9FC0D6";
+        } else {
+            insulin.style.backgroundColor = "#f28379";
+        }
+    }    
+
+    function toggleComment(elemid) {
+        if (document.getElementById(elemid).style.display == "block") {
+            document.getElementById(elemid).style.display = "none";
+        } else {
+            document.getElementById(elemid).style.display = "block";
+        }
+    }
+
+</script>
