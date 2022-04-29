@@ -10,7 +10,7 @@
     {{#if login}}
         <a href="/patient">{{#if (isEq page 'patient_main')}}<b>Home</b>{{else}}Home{{/if}}</a>
         <a href="/patient/edit-data">{{#if (isEq page 'patient_edit_data')}}<b>Edit Data</b>{{else}}Edit Data{{/if}}</a>
-        <a href="/patient_leaderboard">{{#if (isEq page 'patient_leaderboard')}}<b>Leaderboard</b>{{else}}Leaderboard{{/if}}</a>
+        <a href="/patient/leaderboard">{{#if (isEq page 'patient_leaderboard')}}<b>Leaderboard</b>{{else}}Leaderboard{{/if}}</a>
         {{else}}
         <a href="/">Home</a>
         <a href="/login">{{#if (isEq page 'login')}}<b>Login</b>{{else}}Login{{/if}}</a>
@@ -20,7 +20,7 @@
     <a href="/about-website">{{#if (isEq page 'about_website')}}<b>About This Website</b>{{else}}About This Website{{/if}}</a>
     <hr style="background-color: black;">
     {{#if login}}
-        <a href="/settings">{{#if (isEq page 'settings')}}<b>Settings</b>{{else}}Settings{{/if}}</a>
+        <a href="/patient/settings">{{#if (isEq page 'settings')}}<b>Settings</b>{{else}}Settings{{/if}}</a>
         <a href="/login">Log out</a>
     {{/if}}
 </div>

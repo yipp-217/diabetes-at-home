@@ -47,8 +47,29 @@ function getDateTime() {
 }
 
 
+const getLeaderboard = async (req, res, next) => {
+    try {
+        return res.render('patient_leaderboard.hbs')
+    }
+    catch (e) {
+        return next(e)
+    }
+}
+
+const getPatientSettings = async (req, res, next) => {
+    try {
+        return res.render('settings.hbs')
+    }
+    catch (e) {
+        return next(e)
+    }
+}
+
+
 module.exports = {
     getPatientUser,
     getPatientUserEdit,
     updateBloodGlucose,
+    getLeaderboard,
+    getPatientSettings,
 }

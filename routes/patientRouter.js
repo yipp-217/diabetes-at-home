@@ -7,6 +7,10 @@ patientRouter.post('/edit-data/blood-glucose-level', patientController.updateBlo
 
 patientRouter.get('/edit-data', patientController.getPatientUserEdit)
 
+patientRouter.get('/leaderboard', patientController.getLeaderboard)
+
+patientRouter.get('/settings', patientController.getPatientSettings)
+
 patientRouter.get('/:id', patientController.getPatientUser)
 
 // default to find Pat
