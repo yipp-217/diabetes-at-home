@@ -832,7 +832,7 @@ table {
 th {
   padding: 8px;
   border:none;
-  text-align: left;
+  text-align: center;
   font-size: var(--text-big);
 }
 
