@@ -1124,6 +1124,7 @@ textarea:focus {
     
     .data_container {
         justify-content: space-between;
+        max-width: 25vh;
     }
 
     .info_rectangle_container {
@@ -1168,6 +1169,10 @@ textarea:focus {
     .desktop_comment {
         display: none;
     }
+
+    textarea[name="exerciseComment"], textarea[name="bloodGlucoseComment"], textarea[name="weightComment"], textarea[name="insulinComment"]{
+      width: 25vh;
+      }
 
     /** note **/
     .note{
