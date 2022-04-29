@@ -470,6 +470,7 @@ p {font-family: var(--font-family-body);
     width: 30%;
     margin: 3%;
     overflow: hidden;
+    cursor: pointer;
   }
 
    .info_rectangle_container {
