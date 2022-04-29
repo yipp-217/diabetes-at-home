@@ -1,51 +1,46 @@
-    <body class="clinician_body">
-        <header class="clinician_header">
-            <h2 class="cilnician_nav">Patient Comments</h2>
-            <button class="clinician_nav_btn" type="button"><h5 class="phone_clinician">Log Out</h5></button>
-            <img class="icons icon_settings" src="../public/res/Icon_settings.svg">
-        </header>
+<body class="clinician_body">
+    <header class="clinician_header">
+        <h2 class="cilnician_nav">Patient Comments</h2>
+        <button class="clinician_nav_btn" type="button"><h5 class="phone_clinician">Log Out</h5></button>
+        <img class="icons icon_settings" src="/res/Icon_settings.svg">
+    </header>
 
- <article class="flex_right">
-    <section class="container container_comment">
-        <p >John Doe</p> 
-        <p >25/03/2022 10:00 am</p>
-        <p >Blood Glucose Level: 7 nmol/L</p>
-        <p >Looks good today :))</p>
-    </section>
+    <a href="/clinician/dashboard" style="margin-top: 12vh; margin-left:10%; margin-bottom: 2vh;"><button style="background-color: #193773; color: white;">Back to dashboard</button></a>
 
-    <section class="container container_comment">
-        <p>John Doe</p> 
-        <p>25/03/2022 10:00 am</p>
-        <p>Blood Glucose Level: 7 nmol/L</p>
-        <p>Looks good today :))</p>
-    </section>
-
-    <section class="container container_comment">
-        <p>John Doe</p> 
-        <p>25/03/2022 10:00 am</p>
-        <p>Blood Glucose Level: 7 nmol/L</p>
-        <p>Looks good today :))</p>
-    </section>
-
-    <section class="container container_comment">
-        <p>John Doe</p> 
-        <p>25/03/2022 10:00 am</p>
-        <p>Blood Glucose Level: 7 nmol/L</p>
-        <p>Looks good today :))</p>
-    </section>
-
-    <section class="container container_comment">
-        <p>John Doe</p> 
-        <p>25/03/2022 10:00 am</p>
-        <p>Blood Glucose Level: 7 nmol/L</p>
-        <p>Looks good today :))</p>
-    </section>
-
-    <section class="container container_comment">
-        <p>John Doe</p> 
-        <p>25/03/2022 10:00 am</p>
-        <p>Blood Glucose Level: 7 nmol/L</p>
-        <p>Looks good today :))</p>
-    </section>
-</article>
+    <article class="flex_right">
+        {{#each patients}}
+            {{#if this.bloodGlucoseComment}}
+                <section class="container container_comment">
+                    <p >{{this.nameGiven}} {{this.nameFamily}}</p> 
+                    <p >{{this.bloodGlucoseRecordDateTime}}</p>
+                    <p >Blood Glucose Level: {{this.bloodGlucose}} nmol/L</p>
+                    <p >{{this.bloodGlucoseComment}}</p>
+                </section>
+            {{/if}}
+             {{#if this.weightComment}}
+                <section class="container container_comment">
+                    <p >{{this.nameGiven}} {{this.nameFamily}}</p> 
+                    <p >{{this.weightRecordDateTime}}</p>
+                    <p >Weight: {{this.weight}} kg</p>
+                    <p >{{this.weightComment}}</p>
+                </section>
+            {{/if}}
+             {{#if this.exerciseComment}}
+                <section class="container container_comment">
+                    <p >{{this.nameGiven}} {{this.nameFamily}}</p> 
+                    <p >{{this.exerciseRecordDateTime}}</p>
+                    <p >Exercise Level: {{this.exercise}} steps</p>
+                    <p >{{this.exerciseComment}}</p>
+                </section>
+            {{/if}}
+             {{#if this.dosesOfInsulinComment}}
+                <section class="container container_comment">
+                    <p >{{this.nameGiven}} {{this.nameFamily}}</p> 
+                    <p >{{this.dosesOfInsulinRecordDateTime}}</p>
+                    <p >Doses of Insulin: {{this.dosesOfInsulin}} doses</p>
+                    <p >{{this.dosesOfInsulinComment}}</p>
+                </section>
+            {{/if}}
+        {{/each}}
+    </article>
 </body>

@@ -14,7 +14,18 @@ const getClinicianDashboard = async (req, res, next) => {
     }
 }
 
+const getPatientComments = async (req, res, next) => {
+    try {
+        const patients = await Patient.find({clinician: "0001"}).lean()
+        return res.render('dashboard_comment.hbs', {patients: patients})
+    }
+    catch (e) {
+        return next(e)
+    }
+}
+
 
 module.exports = {
-    getClinicianDashboard
+    getClinicianDashboard,
+    getPatientComments
 }
