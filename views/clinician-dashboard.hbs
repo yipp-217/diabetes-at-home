@@ -1,58 +1,66 @@
-<header>
-    <h1>Good afternoon, {{user.nameScreen}}</h1>
-    <button type="button">Settings</button>
-    <button type="button">Log Out</button>
-</header>
+<body class="clinician_body">
+    <header class="clinician_header">
+        <h2 class="cilnician_nav">Good afternoon, {{user.nameScreen}}</h2>
+        <button class="clinician_nav_btn" type="button"><h5 class="phone_clinician">Log Out</h5></button>
+        <img class="icons icon_settings" src="/res/Icon_settings.svg">
+    </header>
 
-<table>
-    <div class="search-container">
+    <section class="search_bar">
         <input type="text" placeholder="Name.." name="search">
-        <button type="submit">Search</button>
-    </div>
-    <tr>
-        <th>Patient Name</th>
-        <th>Blood glucose (nmol/L)</th>
-        <th>Weight (kg)</th>
-        <th>Exercise (steps)</th>
-        <th>Doses of insulin taken</th>
-    </tr>
+        <button class="reaserch_btn" type="submit"><img src="/res/Icons_reaserch.svg"></button> 
+    </section>
 
-    {{#each patients}}
-        <tr>
-            <td>{{this.nameGiven}} {{this.nameFamily}}</td>
-            {{#if this.bloodGlucose}}
-                {{#if (checkThreshold this.bloodGlucose this.bloodGlucoseLowerThreshold this.bloodGlucoseUpperThreshold)}}
-                    <td style="color: #f28379;">{{this.bloodGlucose}}</td>
-                    {{else}}<td>{{this.bloodGlucose}}</td>
-                {{/if}}
-            {{else}}
-                <td>-</td>
-            {{/if}}
-            {{#if this.weight}}
-                {{#if (checkThreshold this.weight this.weightLowerThreshold this.weightUpperThreshold)}}
-                    <td style="color: #f28379;">{{this.weight}}</td>
-                    {{else}}<td>{{this.weight}}</td>
-                {{/if}}
-            {{else}}
-                <td>-</td>
-            {{/if}}
-            {{#if this.exercise}}
-                {{#if (checkThreshold this.exercise this.exerciseLowerThreshold this.exerciseUpperThreshold)}}
-                    <td style="color: #f28379;">{{this.exercise}}</td>
-                    {{else}}<td>{{this.exercise}}</td>
-                {{/if}}
-            {{else}}
-                <td>-</td>
-            {{/if}}
-            {{#if this.dosesOfInsulin}}
-                {{#if (checkThreshold this.dosesOfInsulin this.dosesOfInsulinLowerThreshold this.dosesOfInsulinUpperThreshold)}}
-                    <td style="color: #f28379;">{{this.dosesOfInsulin}}</td>
-                    {{else}}<td>{{this.dosesOfInsulin}}</td>
-                {{/if}}
-                <td>{{this.dosesOfInsulin}}</td>
-            {{else}}
-                <td>-</td>
-            {{/if}}
-        </tr>
-    {{/each}}
-</table>
+    <main class="dashboard_flex">
+        <article class="dash_left">
+            <table class="dashboard_table">
+                <tr class="title_box">
+                    <th>Patient Name</th>
+                    <th>Blood glucose (nmol/L)</th>
+                    <th>Weight (kg)</th>
+                    <th>Exercise (steps)</th>
+                    <th>Doses of insulin taken</th>
+                </tr>
+
+                {{#each patients}}
+                    <tr class="dash_container">
+                        <td>{{this.nameGiven}} {{this.nameFamily}}</td>
+                        {{#if this.bloodGlucose}}
+                            {{#if (checkThreshold this.bloodGlucose this.bloodGlucoseLowerThreshold this.bloodGlucoseUpperThreshold)}}
+                                <td style="color: #f28379;">{{this.bloodGlucose}}</td>
+                                {{else}}<td>{{this.bloodGlucose}}</td>
+                            {{/if}}
+                        {{else}}
+                            <td>-</td>
+                        {{/if}}
+                        {{#if this.weight}}
+                            {{#if (checkThreshold this.weight this.weightLowerThreshold this.weightUpperThreshold)}}
+                                <td style="color: #f28379;">{{this.weight}}</td>
+                                {{else}}<td>{{this.weight}}</td>
+                            {{/if}}
+                        {{else}}
+                            <td>-</td>
+                        {{/if}}
+                        {{#if this.exercise}}
+                            {{#if (checkThreshold this.exercise this.exerciseLowerThreshold this.exerciseUpperThreshold)}}
+                                <td style="color: #f28379;">{{this.exercise}}</td>
+                                {{else}}<td>{{this.exercise}}</td>
+                            {{/if}}
+                        {{else}}
+                            <td>-</td>
+                        {{/if}}
+                        {{#if this.dosesOfInsulin}}
+                            {{#if (checkThreshold this.dosesOfInsulin this.dosesOfInsulinLowerThreshold this.dosesOfInsulinUpperThreshold)}}
+                                <td style="color: #f28379;">{{this.dosesOfInsulin}}</td>
+                                {{else}}<td>{{this.dosesOfInsulin}}</td>
+                            {{/if}}
+                            <td>{{this.dosesOfInsulin}}</td>
+                        {{else}}
+                            <td>-</td>
+                        {{/if}}
+                    </tr>
+                {{/each}}
+            </table> 
+        </article>
+    </main>
+</body>
+

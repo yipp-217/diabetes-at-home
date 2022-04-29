@@ -871,12 +871,12 @@ td:last-child {
 
 /******************* dashboard table verticle line ****************/
 .dashboard_table td:after {
-  content: '';
-     display: block;
-     border-left: 1px solid #333;
-     padding: 0;
-     height: 30px;
-     float: right;
+    content: '';
+    display: block;
+    border-left: 1px solid #333;
+    padding: 0;
+    height: 30px;
+    float: right;
  }
  .dashboard_table td:last-child:after {
   display: none;
