@@ -9,38 +9,10 @@
 
     <article class="flex_right">
         {{#each patients}}
-            {{#if this.bloodGlucoseComment}}
-                <section class="container container_comment">
-                    <p >{{this.nameGiven}} {{this.nameFamily}}</p> 
-                    <p >{{this.bloodGlucoseRecordDateTime}}</p>
-                    <p >Blood Glucose Level: {{this.bloodGlucose}} nmol/L</p>
-                    <p >{{this.bloodGlucoseComment}}</p>
-                </section>
-            {{/if}}
-             {{#if this.weightComment}}
-                <section class="container container_comment">
-                    <p >{{this.nameGiven}} {{this.nameFamily}}</p> 
-                    <p >{{this.weightRecordDateTime}}</p>
-                    <p >Weight: {{this.weight}} kg</p>
-                    <p >{{this.weightComment}}</p>
-                </section>
-            {{/if}}
-             {{#if this.exerciseComment}}
-                <section class="container container_comment">
-                    <p >{{this.nameGiven}} {{this.nameFamily}}</p> 
-                    <p >{{this.exerciseRecordDateTime}}</p>
-                    <p >Exercise Level: {{this.exercise}} steps</p>
-                    <p >{{this.exerciseComment}}</p>
-                </section>
-            {{/if}}
-             {{#if this.dosesOfInsulinComment}}
-                <section class="container container_comment">
-                    <p >{{this.nameGiven}} {{this.nameFamily}}</p> 
-                    <p >{{this.dosesOfInsulinRecordDateTime}}</p>
-                    <p >Doses of Insulin: {{this.dosesOfInsulin}} doses</p>
-                    <p >{{this.dosesOfInsulinComment}}</p>
-                </section>
-            {{/if}}
+            {{> clinician_patient_comments_data patient=this value=this.bloodGlucose comment=this.bloodGlucoseComment time=this.bloodGlucoseRecordDateTime title="Blood Glucose Level" unit="nmol/L"}}
+            {{> clinician_patient_comments_data patient=this value=this.weight comment=this.weightComment time=this.weightRecordDateTime title="Weight" unit="kg"}}
+            {{> clinician_patient_comments_data patient=this value=this.exercise comment=this.exerciseComment time=this.exerciseRecordDateTime title="Exercise Level" unit="steps"}}
+            {{> clinician_patient_comments_data patient=this value=this.dosesOfInsulin comment=this.dosesOfInsulinComment time=this.dosesOfInsulinRecordDateTime title="Doses of Insulin" unit="doses"}}
         {{/each}}
     </article>
 </body>

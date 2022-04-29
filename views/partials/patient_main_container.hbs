@@ -1,0 +1,44 @@
+<contianer class="container info_square_container" id="{{field}}Container" onclick="goToPatientEditData()">
+    <p class="bigger_p">{{title}}</p>
+    {{#if value}}
+        <p>{{value}}</p>
+        {{else}}<p>-</p>
+    {{/if}}
+</contianer>
+
+<script>
+    document.body.onload = function(){colourDiv()}
+
+    function colourDiv() {
+        const bloodGlucose = document.getElementById("bloodGlucoseContainer");
+        const weight = document.getElementById("weightContainer");
+        const exercise = document.getElementById("exerciseContainer");
+        const insulin = document.getElementById("insulinContainer");
+
+        if (bloodGlucose.textContent.includes('-')) {
+            bloodGlucose.style.backgroundColor = "#f28379";
+        } else {
+            bloodGlucose.style.backgroundColor = "#9FC0D6";
+        }
+        if (weight.textContent.includes('-')) {
+            weight.style.backgroundColor = "#f28379";
+        } else {
+            weight.style.backgroundColor = "#9FC0D6";
+        }
+        if (exercise.textContent.includes('-')) {
+            exercise.style.backgroundColor = "#f28379";
+        } else {
+            exercise.style.backgroundColor = "#9FC0D6";
+        }
+        if (insulin.textContent.includes('-')) {
+            insulin.style.backgroundColor = "#f28379";
+        } else {
+            insulin.style.backgroundColor = "#9FC0D6";
+        }
+    }
+
+    function goToPatientEditData() {
+        location.href = "/patient/edit-data"
+    }
+    
+</script>

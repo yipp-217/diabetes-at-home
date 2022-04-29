@@ -1,0 +1,8 @@
+{{#if value}}
+    {{#if (checkThreshold value lowerThreshold upperThreshold)}}
+        <td style="color: #f28379;">{{value}}</td>
+        {{else}}<td>{{value}}</td>
+    {{/if}}
+    {{else}}
+        <td>-</td>
+{{/if}}
