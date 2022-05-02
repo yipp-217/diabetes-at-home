@@ -8,7 +8,7 @@ if (process.env.NODE_ENV !== 'production') {
 mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    dbName: 'info30005'
+    dbName: 'project'
 })
 
 const db = mongoose.connection.on('error', err => {
