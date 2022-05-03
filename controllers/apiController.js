@@ -5,7 +5,6 @@ const {Patient} = require('../models/patient')
 
 const getUsers = async (req, res) => {
     const users = await User.find().lean()
-    console.log('Hi')
     return res.render('API-user-signup.hbs', {users: users})
 }
 
@@ -34,9 +33,41 @@ const userSignup = async (req, res, next) => {
     }
 }
 
+const registrations = async (req, res, next) => {
+    const users = [];
+    const patients = await User.find({onModel: 'Patient'}).lean()
+    for (const patient of patients) {
+        const user = {namePatient: patient.nameGiven + ' ' + patient.nameFamily}
+        const clinician = await Clinician.findOne({_id: patient.clinician}).lean()
+        if (!clinician) {
+            user.nameClinician = 'null'
+        }
+        else {
+            user.nameClinician = clinician.nameGiven + ' ' + clinician.nameFamily
+        }
+        users.push(user)
+    }
+    return res.render('API-registerPatient.hbs', {users: users})
+}
+
+const registerPatient = async (req, res, next) => {
+    try {
+        const clinician = await User.findOne({email: req.body.emailClinician}).lean()
+        //await User.findOne({email: req.body.emailPatient}, {$set: {clinician: clinician._id}})
+        await User.updateOne({email: req.body.emailPatient}, {$set: {clinician: clinician}})
+        console.log(await User.updateOne({email: req.body.emailPatient}))
+        return res.redirect('/api/registration')
+    }
+    catch(e){
+        return next(e)
+    }
+}
+
 
 
 module.exports = {
     getUsers,
-    userSignup
+    userSignup,
+    registrations,
+    registerPatient
 }

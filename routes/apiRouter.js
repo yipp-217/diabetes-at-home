@@ -6,7 +6,11 @@ const apiController = require('../controllers/apiController')
 
 apiRouter.get('/user-signup', apiController.getUsers)
 
-apiRouter.post('/user-signup', apiController.userSignup)
+apiRouter.post('/signup-user', apiController.userSignup)
+
+apiRouter.get('/registration', apiController.registrations)
+
+apiRouter.post('/register-patient', apiController.registerPatient)
 
 
 module.exports = apiRouter
