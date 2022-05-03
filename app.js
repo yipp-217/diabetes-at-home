@@ -38,7 +38,7 @@ const HOSTNAME = ''
 
 /* Routers */
 const adminRouter = require('./routes/adminRouter')
-const apiRouter = require('./routes/adminRouter')
+const apiRouter = require('./routes/apiRouter')
 
 const homeRouter = require('./routes/homeRouter')
 const patientRouter = require('./routes/patientRouter')
