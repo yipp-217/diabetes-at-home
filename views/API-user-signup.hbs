@@ -1,12 +1,12 @@
 <h3>Displaying users </h3>
 <ul>
-    {{#each data}}
+    {{#each users}}
         <li>{{this.nameFamily}} {{this.nameGiven}} – {{this.email}}</li>
     {{/each}}
 </ul>
 
 <h3>User signup</h3>
-<form action="/users" method="POST">
+<form action="/api/user-signup" method="POST">
     <input type="text" placeholder="email" name="email"/>
     <input type="text" placeholder="password" name="password"/>
     <input type="text" placeholder="family name" name="nameFamily"/>
