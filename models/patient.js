@@ -26,35 +26,24 @@ const thresholdSchema = new mongoose.Schema({
 
 /* Patient User */
 const patientSchema = new mongoose.Schema({
-    // user: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
+    user: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
+    clinician: {type: mongoose.Schema.Types.ObjectId, ref:'Clinician'},
 
-    /* user properties */
-    email: {type: String, required: true, unique:true},
-    password: {type: String, required: true},
-    nameFamily: {type: String, required: true},
-    nameGiven: String,
-    nameScreen: {type: String, required: true},
-    yearBorn: Number,
-    bio: String,
-    /* ----- */
-
-    // clinician: {type: mongoose.Schema.Types.ObjectId, ref:'Clinician'},
-    clinician: {type: String, required: true},
     supportMessage: {type: String},
 
-    /* today */
-    bloodGlucoseRecordDateTime: String,
-    bloodGlucose: Number,
-    bloodGlucoseComment: String,
-    bloodGlucoseUpperThreshold: Number,
-    bloodGlucoseLowerThreshold: Number,
-    weight: Number,
-    weightComment: String,
-    exercise: Number,
-    exerciseComment: String,
-    dosesOfInsulin: Number,
-    dosesOfInsulinComment: String,
-    /* ----- */
+    // /* today */
+    // bloodGlucoseRecordDateTime: String,
+    // bloodGlucose: Number,
+    // bloodGlucoseComment: String,
+    // bloodGlucoseUpperThreshold: Number,
+    // bloodGlucoseLowerThreshold: Number,
+    // weight: Number,
+    // weightComment: String,
+    // exercise: Number,
+    // exerciseComment: String,
+    // dosesOfInsulin: Number,
+    // dosesOfInsulinComment: String,
+    // /* ----- */
 
     requirements: requirementsSchema,
     thresholds : [thresholdSchema],
