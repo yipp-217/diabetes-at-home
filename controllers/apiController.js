@@ -53,9 +53,10 @@ const registrations = async (req, res, next) => {
 const registerPatient = async (req, res, next) => {
     try {
         const clinician = await User.findOne({email: req.body.emailClinician}).lean()
-        //await User.findOne({email: req.body.emailPatient}, {$set: {clinician: clinician._id}})
+
+        console.log(await User.findOne({email: req.body.emailPatient}).lean())
         await User.updateOne({email: req.body.emailPatient}, {$set: {clinician: clinician}})
-        console.log(await User.updateOne({email: req.body.emailPatient}))
+        console.log(await User.findOne({email: req.body.emailPatient}).lean())
         return res.redirect('/api/registration')
     }
     catch(e){

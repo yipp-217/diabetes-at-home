@@ -27,7 +27,9 @@ const thresholdSchema = new mongoose.Schema({
 /* Patient User */
 const patientSchema = new mongoose.Schema({
     user: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
-    clinician: {type: mongoose.Schema.Types.ObjectId, ref:'Clinician'},
+    clinician: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
+
+    clinician2: String,
 
     supportMessage: {type: String},
 
