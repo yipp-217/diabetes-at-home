@@ -1,5 +1,5 @@
-const User = require('../models/user')
-const Clinician = require('../models/clinician')
+const {User} = require('../models/user')
+const {Clinician} = require('../models/clinician')
 const {Patient} = require('../models/patient')
 
 
