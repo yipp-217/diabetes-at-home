@@ -1,0 +1,15 @@
+<h3>Registrations</h3>
+<ul>
+    {{#each users}}
+        <li>{{this.namePatient}} is with {{this.nameClinician}}</li>
+    {{/each}}
+</ul>
+
+<h3>Patient registration</h3>
+<form action="/api/register-patient" method="POST">
+    <input type="text" placeholder="clinician email" name="emailClinician"/>
+    <input type="text" placeholder="patient email" name="emailPatient"/>
+    <br>
+
+    <input type="submit"/>
+</form>
