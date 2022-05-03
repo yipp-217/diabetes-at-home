@@ -38,6 +38,8 @@ const HOSTNAME = ''
 
 /* Routers */
 const adminRouter = require('./routes/adminRouter')
+const apiRouter = require('./routes/adminRouter')
+
 const homeRouter = require('./routes/homeRouter')
 const patientRouter = require('./routes/patientRouter')
 const clinicianRouter = require('./routes/clinicianRouter')
@@ -52,6 +54,9 @@ app.use('/', homeRouter)
 
 /* Admin for api testing and reset database */
 app.use('/admin', adminRouter)
+
+/* For testing api */
+app.use('/api', apiRouter)
 
 /* Patient */
 app.use('/patient', patientRouter)
