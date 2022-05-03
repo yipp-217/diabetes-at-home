@@ -9,4 +9,6 @@ const clinicianSchema = new mongoose.Schema({
 
 const Clinician = mongoose.model('Clinician', clinicianSchema)
 
-module.exports = Clinician
+module.exports = {
+    Clinician
+}
