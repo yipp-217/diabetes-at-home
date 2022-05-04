@@ -9,6 +9,8 @@ patientRouter.get('/edit-data', patientController.getPatientUserEdit)
 
 patientRouter.get('/leaderboard', patientController.getLeaderboard)
 
+patientRouter.get('/settings/change-password', patientController.getPatientChangePassword)
+
 patientRouter.get('/settings', patientController.getPatientSettings)
 
 patientRouter.get('/:id', patientController.getPatientUser)

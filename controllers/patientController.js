@@ -65,6 +65,15 @@ const getPatientSettings = async (req, res, next) => {
     }
 }
 
+const getPatientChangePassword = async (req, res, next) => {
+    try {
+        return res.render('change_password.hbs')
+    }
+    catch (e) {
+        return next(e)
+    }
+}
+
 
 module.exports = {
     getPatientUser,
@@ -72,4 +81,5 @@ module.exports = {
     updateBloodGlucose,
     getLeaderboard,
     getPatientSettings,
+    getPatientChangePassword,
 }

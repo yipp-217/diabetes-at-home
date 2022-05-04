@@ -1,5 +1,9 @@
 <header>
-    <img src="/res/menu.svg" class="icons" id="hamburger" onclick="openNav()">
+    {{#if (isEq page 'change_password')}}
+        <a href="/patient/settings"><img src="/res/back-arrow.svg" class="icons"></a>
+        {{else}}
+        <img src="/res/menu.svg" class="icons" id="hamburger" onclick="openNav()">
+    {{/if}}
     {{#if login}}
         <img src="/res/badge.svg" class="icons">
     {{/if}}
