@@ -27,14 +27,14 @@
     --color-text-black: #000000;
     --color-text-white: #ffffff;
     --color-text-grey: #707070;
-  }
-  
+}
+
 * {
     margin: 0;
     padding: 0;
     border: 0;
     outline: none;
-  }
+}
 
 /****************** font css style ************************/
 .poppins60{
@@ -42,94 +42,103 @@
     font-family: var(--font-family-heading);
     font-weight: 700;
     text-align: center;
-  }
+}
 
 .poppins36{
     font-size: var(--text-subheading-desktop);
     font-family: var(--font-family-heading);
     font-weight: 700;
     text-align: center;
-  }
+}
 
 .poppins33{
     font-size: var(--text-title);
     font-family: var(--font-family-heading);
     font-weight: 700;
     text-align: center;
-  }
-  
+}
+
 .poppins26 {
     font-size: var(--text-subheading);
     font-family: var(--font-family-heading);
     font-weight: 700;
-  }
-  
+}
+
 .PT20{
     font-family: var(--font-family-body);
     font-size: var(--text-medium);
     color: var(--color-text-black);
     text-align: center;
     padding: 1%;
-  }
-  
+}
+
 /******************* desktop font style *****************/
-h1 {font-size: var(--text-title-desktop);
+h1 {
+    font-size: var(--text-title-desktop);
     font-family: var(--font-family-heading);
     font-weight: 700;
-    text-align: center;}
+    text-align: center;
+}
 
-h2 {font-size: var(--text-subheading-desktop);
+h2 {
+    font-size: var(--text-subheading-desktop);
     font-family: var(--font-family-heading);
     font-weight: 700;
-    text-align: center;}
-
-h3 {font-size: var(--text-subheading);
-   font-family: var(--font-family-heading);
-   font-weight: 700;
-   text-align: center;
+    text-align: center;
 }
 
-h4 {font-size: var( --text-big);
-   font-family: var(--font-family-heading);
-   font-weight: 700;
-   text-align: center;
+h3 {
+    font-size: var(--text-subheading);
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    text-align: center;
 }
 
-h5 {font-family: var(--font-family-heading);
-  font-size: var(--text-medium);
-  color: var(--color-text-black);
-  text-align: center;
-  padding: 1%;
+h4 {
+    font-size: var( --text-big);
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    text-align: center;
 }
 
-.bigger_p {
-  font-size: var(--text-big);
-  font-weight: 700;
-}
-
-.bold_p {
-  font-weight: 700;
-}
-
-p {font-family: var(--font-family-body);
+h5 {
+    font-family: var(--font-family-heading);
     font-size: var(--text-medium);
     color: var(--color-text-black);
     text-align: center;
-    padding: 1%;}
+    padding: 1%;
+}
+
+.bigger_p {
+    font-size: var(--text-big);
+    font-weight: 700;
+}
+
+.bold_p {
+    font-weight: 700;
+}
+
+p {
+    font-family: var(--font-family-body);
+    font-size: var(--text-medium);
+    color: var(--color-text-black);
+    text-align: center;
+    padding: 1%;
+}
 
 .smaller_p {font-size: var(--text-smaller);}
 
 .smallest_p { font-size:var(--text-smallest);}
 
 #bloodGlucoseValue, #weightValue, #exerciseValue, #nsulinValue {
-  font-size: var(--text-subheading);
-  font-weight: 700;
+    font-size: var(--text-subheading);
+    font-weight: 700;
 }
 
 
 /****************** header style ************************/
 
-  header {
+header {
     background-color: var(--color-background-white);
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
     position: fixed;
@@ -142,12 +151,12 @@ p {font-family: var(--font-family-body);
     z-index: 100;
 }
 
-  #hamburger {
+#hamburger {
     margin-right: auto;
-  }
+}
 
 
-  .clinician_header {
+.clinician_header {
     position: fixed;
     display: flex;
     width: 100%;
@@ -157,144 +166,144 @@ p {font-family: var(--font-family-body);
     font-size: var(--text-small);
     align-items: center;
     z-index: 100;
-  }
-  
-  .icons {
+}
+
+.icons {
     width: 4vh;
     padding-left: 2%;
     padding-right: 2%;
     cursor: pointer;
-  }
+}
 
-  .icons_small_left{
+.icons_small_left{
     width: 15%;
     margin-left: 4%;
     margin-right: 4%;
     float:left;
-  }
+}
 
-  .icons_small_right{
+.icons_small_right{
     width: 13%;
     margin-left: 4%;
     margin-right: 4%;
     float:right;
     right: 5px;
     position:absolute;
-  }
+}
 
-  .icons_profile {
+.icons_profile {
     width: 4%;
     margin: 3%;
     position: absolute;
     left: 1%;
 }
 
-  .icon_settings{
+.icon_settings{
     width: 4%;
     position: absolute;
     right: 1%;
-  }
-  
-  /****************** body css style ************************/
-  
-  /************************* LOGO ***************************/
+}
 
-  /*logo container*/
-  .logo_container {
+/****************** body css style ************************/
+
+/************************* LOGO ***************************/
+
+/*logo container*/
+.logo_container {
     width: 100%;
     position: relative;
     text-align: center;
-  }
+}
 
-  /* Centered logo text */
-  .logoText {
+/* Centered logo text */
+.logoText {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
+}
 
-  .logo_image {
+.logo_image {
     width: 80%;
-  }
+}
 
 
- /********************* body display **********************/
-  .content{
+/********************* body display **********************/
+.content{
     padding-top: 12vh;
     margin: 0 8%;
     text-align: center;
-  }
+}
 
-  body {
+body {
     background-color: var(--color-background-white);
     display: flex;
     flex-direction: column;
     width: 100%; 
     height:100%;
     background-attachment: fixed;
-  }
+}
 
-  .clinician_body{
+.clinician_body{
     background-color: #EFF6F9;
-  }
+}
 
-  .body_icons {
+.body_icons {
     width: 10%;
-  }
-  
-  .about{
-    background-image: linear-gradient(#FFFFFF,#4F6EA2);
-  }
+}
 
-  .item_center {
+.about{
+    background-image: linear-gradient(#FFFFFF,#4F6EA2);
+}
+
+.item_center {
     display: flex;
     align-items: center;
     justify-content: space-around;
-  }
+}
 
-  /******************** video **********************/
-  iframe {
+/******************** video **********************/
+iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-  }
-  #desc {
+}
+#desc {
     padding-bottom: 5%;
     grid-area: desc;
-  }
-  #video {
-      position: relative;
-      width: 80%;
-      height: 0;
-      padding-bottom: 56.25%;
-      padding-top: 35px;
-      align-self: center;
-  }
+}
+#video {
+    position: relative;
+    width: 80%;
+    height: 0;
+    padding-bottom: 56.25%;
+    padding-top: 35px;
+    align-self: center;
+}
 
-  .video_section {
+.video_section {
     display: flex;
     flex-direction: column;
     width: 100%; 
     height:100%;
     grid-area: desc;
-  }
+}
 
-  /********************** dashboard ************************/
+/********************** dashboard ************************/
 
-  #clinician_message {
+#clinician_message {
     width: 100%; 
     height:100%;
     grid-area: heading;
-  }
-  .dashboard_content {
+}
+.dashboard_content {
     margin: 5%;
     margin-top: 8%;
-  }
+}
 
-  .dash_left{
+.dash_left{
     background-color: var(--color-background-lightmedium);
     width: 90%;
     height: 70vh;
@@ -307,9 +316,9 @@ p {font-family: var(--font-family-body);
     flex-direction: column;
     overflow-y:scroll;
     overflow-x:hidden;
-  }
+}
 
-  .big_background{
+.big_background{
     background-color: var(--color-background-lightmedium);
     margin:5%;
     width: 90%;
@@ -317,74 +326,73 @@ p {font-family: var(--font-family-body);
     border-radius: 20px;
     display: flex;
     align-items: center;
-  }
+}
 
-  .setting_contanier{
+.setting_contanier{
     margin:2%;
     width: 45%;
-  }
+}
 
-  .personal_info{
+.personal_info{
     text-align: left;
     margin: 5%;
-  }
+}
 
-  .personal_info h5 {
+.personal_info h5 {
     text-align: left;
-  }
+}
 
-  .contianer_note{
+.contianer_note{
     display: flex;
     background-color: #eff6f9;
     width: 75%;
     margin:1%;
     border-radius: 5px;
-  }
+}
 
-  .note{
+.note{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-top: 10%;
-  }
+}
 
-  .time{
+.time{
     position: absolute;
     right:6%;
-  }
+}
 
-  .data_display {
+.data_display {
     display: flex;
     width: 100%;
     grid-area: sec2;
     flex-wrap: wrap;
     justify-content: space-around;
     bottom: 0;
-  }
+}
 /*********************** input *************************/
-  .input_data {
+.input_data {
     justify-content: center !important;
     height:20%;
-  }
+}
 
-  input[name="email"] {
+input[name="email"] {
     background-image: url(../res/profile_gray.svg);
     z-index:1;
-  }
+}
 
-  input[type=password] {
+input[type=password] {
     background-image: url(../res/lock.svg);
-  }
+}
 
-  input[name="email"], input[type=password] {
+input[name="email"], input[type=password] {
     background-position: 10px 10px;
     background-repeat: no-repeat;
     padding-left: 40px;
     background-color: var(--color-background-grey);
+}
 
-  }
-
-  input[type=text], input[type=password] {
+input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 40px;
     margin: 8px 5px;
@@ -394,25 +402,25 @@ p {font-family: var(--font-family-body);
     box-sizing: border-box;
     border-radius: 10px;
     font-family: var(--font-family-heading);
-  }
+}
 
-  input[type=text]:focus, input[type=password]:focus {
+input[type=text]:focus, input[type=password]:focus {
     border: 2px solid;
-  }
+}
 
-  input[name="comment"]{
+input[name="comment"]{
     height: 200px;
-  }
+}
 
-  span.psw, span.rememberme {
+span.psw, span.rememberme {
     padding: 30px 0;
     font-family: var(--font-family-heading);
     font-size: var(--text-small);
-  }
+}
 
 
 /******************** container *****************************/
-  .container{
+.container{
     background-color: var(--color-background-light);
     filter:drop-shadow(5px 5px 5px rgb(0,0,0,0.16));
     border-radius: 35px;
@@ -420,55 +428,55 @@ p {font-family: var(--font-family-body);
     align-items: center;
     justify-content: center;
     display: block;
-  }
+}
 
-  .column_container {
+.column_container {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: stretch;
     gap: 3vh;
-  }
+}
 
-  .login_container {
+.login_container {
     width:100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-  }
+}
 
-  .boxes_container {
+.boxes_container {
     width:100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  }
+}
 
-  .comment {
+.comment {
     display: none;
-  }
+}
 
-  .timeInComment {
+.timeInComment {
     position: absolute;
     right:4%;
-  }
+}
 
-  /* after data has been entered */
-  .enteredData {
+/* after data has been entered */
+.enteredData {
     height: 20vh;
     width: 40vh;
-  }
+}
 
-  .info_square_container {
+.info_square_container {
     background-color: var(--color-background-accent);
     border-radius: 10px;
     width: 30%;
     margin: 3%;
     overflow: hidden;
     cursor: pointer;
-  }
+}
 
-   .info_rectangle_container {
+.info_rectangle_container {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -480,39 +488,39 @@ p {font-family: var(--font-family-body);
     min-height: 43%;
     margin: 3%;
     overflow: hidden;
-  }
+}
 
-  .info_container{
+.info_container{
     background-color: var(--color-background-lightmedium);
     width: 100%;
     padding: 4%;
     border-radius: 20px;
-  }
+}
 
-  .history_link{
+.history_link{
     padding-top:8%;
     padding-left: 70%;
     text-decoration:underline;
-  }
+}
 
-  .data_container {
+.data_container {
     margin: 4% 0;
     width: 100%;
     display: flex;
     align-items: center;
-  }
+}
 
-  .chart_container {
+.chart_container {
     background-color: var(--color-background-light);
     border-radius: 10px;
     height: 50vh;
-  }
+}
 
-  .more_info{
+.more_info{
     text-align: left;
     margin: 5% 5% 10% 5%;
     color: var(--color-background-white);
-  }
+}
 
 /***************** checkmark *******************/
 
@@ -569,30 +577,30 @@ p {font-family: var(--font-family-body);
     display: none;
 }
 
-  /******************** lines *************************/
-  hr {
+/******************** lines *************************/
+hr {
     width: 96%;
     background-color: var(--color-background-white);
     height: 2px;
     margin-bottom: 2px;
-  }
+}
 
-  /********************* a tag ****************************/
-  a, a:hover {
+/********************* a tag ****************************/
+a, a:hover {
     color: var(--color-text-white);
     text-decoration: none;
-  }
+}
 
-  #forgetPassword {
+#forgetPassword {
     color: var(--color-text-black);
-  }
+}
 
-  .blacktext {
+.blacktext {
     color: var(--color-text-black);
-  }
+}
 
-  /******************** button ****************************/
-  button {
+/******************** button ****************************/
+button {
     display: inline-flex;
     background-color: var(--color-background-light);
     color: var(--color-text-black);
@@ -605,90 +613,90 @@ p {font-family: var(--font-family-body);
     border-radius: 12px !important;;
     cursor: pointer;
     box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.2) !important;;
-  }
+}
 
-  button:active {
+button:active {
     box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.6);
     transform: translateY(4px);
-  }
+}
 
-  .white_button {
+.white_button {
     background-color: var(--color-background-white);
     margin-bottom: 5%;
-  }
+}
 
-  .pink_button {
+.pink_button {
     background-color: var(--color-background-accent);
-  }
+}
 
-  .lightmedium_button {
+.lightmedium_button {
     background-color: var(--color-background-lightmedium);
-  }
+}
 
-  .medium_button {
+.medium_button {
     background-color: var(--color-background-medium);
     color:var(--color-background-white);
-  }
+}
 
-  .dark_button {
+.dark_button {
     background-color: var(--color-background-dark);
     color:var(--color-background-white);
-  }
+}
 
-  .clinician_nav_btn{
+.clinician_nav_btn{
     border-radius: 5px;
     background-color:#EFF6F9;
     padding: 0px;
     width: 12%;
     position: absolute;
     right: 10%;
-  }
+}
 
-  .clinician_nav_btn2{
+.clinician_nav_btn2{
     border-radius: 5px;
     background-color:#EFF6F9;
     padding: 0px;
     width: 15%;
     position: absolute;
     right: 26%;
-  }
+}
 
 /******************* graph ****************/
 .history_background{
-  padding-top: 5%;
-  margin-left:10%;
-  margin-right:10%;
-  margin-top:5%;
-  margin-bottom:5%;
-  width: 80%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows:400px 400px;
-  grid-gap: 5%;
+    padding-top: 5%;
+    margin-left:10%;
+    margin-right:10%;
+    margin-top:5%;
+    margin-bottom:5%;
+    width: 80%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:400px 400px;
+    grid-gap: 5%;
 }
 
 .graph_data h3{
-  text-align: left;
+    text-align: left;
 }
 
 .graph {
-  position: absolute;
-  border-radius: 20px;
-  box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.25);
-  width: 35%;
-  height: 40%;
-  background-color: #9FC0D6;
+    position: absolute;
+    border-radius: 20px;
+    box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.25);
+    width: 35%;
+    height: 40%;
+    background-color: #9FC0D6;
 }
 
 
 /******************* search bar ****************/
 .search_bar {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding-top:8%;
-  padding-left: 3%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-top:8%;
+    padding-left: 3%;
 }
 
 .search_bar input{
@@ -696,178 +704,178 @@ p {font-family: var(--font-family-body);
     border-radius: 0px;
     width: 35%;
     height:20px;
-  }
+}
 
-  .reaserch_btn {
+.reaserch_btn {
     background-color: #424245;
     padding: 5px;
     border-radius: 0px;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
-  }
+}
 
-  /*for about pages*/
-  .bottom_button {
+/*for about pages*/
+.bottom_button {
     margin: 8%;
-  }
+}
 
 /******************* sidebar ****************/
 .sidebar {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  padding-top: 10vh;
-  background-color:var(--color-background-white);
-  box-shadow: 4px 0 5px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    padding-top: 10vh;
+    background-color:var(--color-background-white);
+    box-shadow: 4px 0 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 /**************** navigation bar **********************/
 
 .sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 101;
-  top: 0;
-  left: 0;
-  background-color: white;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 }
 
 .sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: black;
-  display: block;
-  transition: 0.3s;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3s;
 }
 
 .sidenav a:hover {
-  color: #466fa6;
+    color: #466fa6;
 }
 
 .sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
 }
 
 .nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
-  flex: 1;
-  text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex: 1;
+    text-decoration: none;
 }
 
 /******************* dashboard table ****************/
 .flex-btn {
-  width: 100%;
-  position:none;
+    width: 100%;
+    position:none;
 }
 
 
 .cilnician_nav {
-  position:absolute;
-  left:10%;
+    position:absolute;
+    left:10%;
 }
 
 
 .dashboard_flex{
-  display: flex;
-  justify-content: center;
-  padding-top: 1%;
+    display: flex;
+    justify-content: center;
+    padding-top: 1%;
 }
 
 .flex_left {
-  background-color: var(--color-background-lightmedium);
-  height:100%;
-  width: 70%;
-  margin-right: 2%;
-  margin-left: 5%;
-  float: left;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-radius: 20px;
+    background-color: var(--color-background-lightmedium);
+    height:100%;
+    width: 70%;
+    margin-right: 2%;
+    margin-left: 5%;
+    float: left;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 20px;
 }
 
 .flex_right {
-  background-image: linear-gradient(#FFFFFF,#4F6EA2) ;
-  height:75vh;
-  float: right;
-  width: 90%;
-  flex: inline;
-  margin-left: 5%;
-  margin-right: 5%;
-  border-radius: 20px;
-  overflow-y:scroll;
-  overflow-x: hidden;
+    background-image: linear-gradient(#FFFFFF,#4F6EA2) ;
+    height:75vh;
+    float: right;
+    width: 90%;
+    flex: inline;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 20px;
+    overflow-y:scroll;
+    overflow-x: hidden;
 }
 
 
 .container_comment {
-  margin: 3%;
-  border-radius: 20px;
-  padding:0;
+    margin: 3%;
+    border-radius: 20px;
+    padding:0;
 }
 
 table {
-  border-collapse: collapse;
-  table-layout: fixed;
-  float:left;
-  margin: 1%;
-  width: 95%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    float:left;
+    margin: 1%;
+    width: 95%;
 }
 
 tr{
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 th {
-  padding: 8px;
-  border:none;
-  text-align: center;
-  font-size: var(--text-big);
+    padding: 8px;
+    border:none;
+    text-align: center;
+    font-size: var(--text-big);
 }
 
 td {
-  border:none;
-  padding: 8px;
-  width: 20%;
-  text-align: left;
-  line-height: 30px;
+    border:none;
+    padding: 8px;
+    width: 20%;
+    text-align: left;
+    line-height: 30px;
 }
 
 .dashboard_table td {
-  border-top: 5px solid var(--color-background-lightmedium);
-  border-bottom: 5px solid var(--color-background-lightmedium);
+    border-top: 5px solid var(--color-background-lightmedium);
+    border-bottom: 5px solid var(--color-background-lightmedium);
 }
 td:first-child {
- border-radius: 25px 0 0 25px;
- position:relative;
+    border-radius: 25px 0 0 25px;
+    position:relative;
 }
 td:last-child {
- border-radius: 0 25px 25px 0;
+    border-radius: 0 25px 25px 0;
 }
 
 .dash_container {
-  background-color: #EEF5F5;
+    background-color: #EEF5F5;
 }
 
 .title_box{
-  background-color: #FFFFFF;
-  border-radius: 40px;
-  margin: 2%;
+    background-color: #FFFFFF;
+    border-radius: 40px;
+    margin: 2%;
 }
 
 
@@ -879,121 +887,117 @@ td:last-child {
     padding: 0;
     height: 30px;
     float: right;
- }
- .dashboard_table td:last-child:after {
-  display: none;
- }
+}
+.dashboard_table td:last-child:after {
+    display: none;
+}
 
 /****************** clinician body ***********************/
- .clinician_main{
-   padding-top: 10%;
- }
+.clinician_main{
+    padding-top: 10%;
+}
 
- .note_main{
-      margin-left:10%;
-      margin-right:10%;
-      margin-bottom:5%;
-      width: 80%;
-      height: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows:300px 300px;
-      grid-gap: 5%;
- }
+.note_main{
+    margin-left:10%;
+    margin-right:10%;
+    margin-bottom:5%;
+    width: 80%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows:300px 300px;
+    grid-gap: 5%;
+}
 
- .clinician_main h3{
-   margin-left: 5%;
-  float:left;
- }
+.clinician_main h3{
+    margin-left: 5%;
+    float:left;
+}
 
 
 /****************** footer style ***********************/
 
 footer {
-  background-color: var(--color-background-white);
-  /*box-shadow: 0 -4px 5px 0 rgba(0, 0, 0, 0.2);*/
-  box-shadow: 4px 0 5px 0 rgba(0, 0, 0, 0.2);
-  position: fixed;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  /*width: 100%;
-  height: 7.5%;*/
-  width: 7.4%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  /*align-items: center;*/
+    background-color: var(--color-background-white);
+    box-shadow: 4px 0 5px 0 rgba(0, 0, 0, 0.2);
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    width: 7.4%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 /************** pop up windows ****************/
 .popup {
-  display: none;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-content: center;
-  gap: 10%;
-  min-height: 50%;
-  width: 75%;
-  position: absolute;
-  z-index: 1;
-  background-color: #193773;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  border-radius: 5%;
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    gap: 10%;
+    min-height: 50%;
+    width: 75%;
+    position: absolute;
+    z-index: 1;
+    background-color: #193773;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 5%;
 }
 
 .popup h2 {
-  color: white;
-  padding-top: 15%;
-  width: 90%;
-  text-align: center;
-  margin: 0 auto;
+    color: white;
+    padding-top: 15%;
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .popup .closebtn {
-  position: absolute;
-  top: 0;
-  right: 7.5%;
-  font-size: 36px;
-  color: white;
-  text-decoration: none;
+    position: absolute;
+    top: 0;
+    right: 7.5%;
+    font-size: 36px;
+    color: white;
+    text-decoration: none;
 }
 
 .popup form {
-  height: 40%;
+    height: 40%;
 }
 
 .popup textarea {
-  width: 70% !important;
-  height: 100%;
-  border-radius: 5%;
-  resize: none;
+    width: 70% !important;
+    height: 100%;
+    border-radius: 5%;
+    resize: none;
 }
 
 /***************** textarea ************************/
 textarea {
-  width: 100%;
-  padding: 2.5%;
-  display: inline-block;
-  border: 1px solid;
-  border-color: var(--color-text-grey);
-  box-sizing: border-box;
-  border-radius: 10px;
-  font-family: var(--font-family-heading);
-  resize: none;
-  height: 15vh;
+    width: 100%;
+    padding: 2.5%;
+    display: inline-block;
+    border: 1px solid;
+    border-color: var(--color-text-grey);
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-family: var(--font-family-heading);
+    resize: none;
+    height: 15vh;
 }
 
 textarea[name="exerciseComment"], textarea[name="bloodGlucoseComment"], textarea[name="weightComment"], textarea[name="insulinComment"]{
-height: 20vh;
-width: 40vh;
+    height: 20vh;
+    width: 40vh;
 }
 
 textarea:focus {
-  border: 2px solid;
+    border: 2px solid;
 }
 /************* desktop size responsive ****************/
 #heading {
@@ -1029,28 +1033,28 @@ textarea:focus {
 
 /*main & edit data page*/
 .mainpage_grid_format {
-  margin-left: 18vh;
-  display: grid;
-  grid-template-columns: 50fr 50fr;
-  grid-row-gap: 2rem;
-  grid-column-gap:1rem;
-  grid-template-areas:
-  "heading subheading"
-  "sec1  sec2"
-  "sec3  sec3"
+    margin-left: 18vh;
+    display: grid;
+    grid-template-columns: 50fr 50fr;
+    grid-row-gap: 2rem;
+    grid-column-gap:1rem;
+    grid-template-areas:
+        "heading subheading"
+        "sec1  sec2"
+        "sec3  sec3"
 }
 
 /*welcome & login page*/
 .login_grid_format {
-  overflow: hidden;
-  position: fixed;
-  align-items: center;
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  grid-row-gap: 2rem;
-  grid-column-gap:2rem;
-  grid-template-areas:
-    "logo sec1"
+    overflow: hidden;
+    position: fixed;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-row-gap: 2rem;
+    grid-column-gap:2rem;
+    grid-template-areas:
+        "logo sec1"
 }
 
 /**************** phone size responsive ********************/
@@ -1063,7 +1067,7 @@ textarea:focus {
     h5 {font-size: var(--text-smaller);}
     th, td {font-size:var(--text-smallest);}
     #bloodGlucoseValue, #weightValue, #exerciseValue, #nsulinValue {
-      font-size: var(--text-big);
+        font-size: var(--text-big);
     }
 
     /** clinician **/
@@ -1107,7 +1111,7 @@ textarea:focus {
     }
 
     .info_rectangle_container {
-      min-height: 148px;
+        min-height: 148px;
     }
 
     /** dashboard **/
@@ -1123,19 +1127,19 @@ textarea:focus {
 
 
     .clinician_main{
-      padding-top:25%;
+        padding-top:25%;
     }
 
     .history_background {
-      padding-top: 20%;
-      margin: 5%;
-      margin-bottom: 5%;
-      width: 20%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-  }
+        padding-top: 20%;
+        margin: 5%;
+        margin-bottom: 5%;
+        width: 20%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
 
 
     /** comment **/
@@ -1148,8 +1152,8 @@ textarea:focus {
     }
 
     textarea[name="exerciseComment"], textarea[name="bloodGlucoseComment"], textarea[name="weightComment"], textarea[name="insulinComment"]{
-      width: 25vh;
-      }
+        width: 25vh;
+    }
 
     .timeInComment {
         position: relative;
@@ -1157,26 +1161,26 @@ textarea:focus {
 
     /** note **/
     .note{
-      margin-top: 25%;
+        margin-top: 25%;
     }
 
     .contianer_note{
-      width: 67%;
+        width: 67%;
     }    
 
     .note_main {
-      margin-left: 10%;
-      margin-right: 10%;
-      width: 75%;
-      height: 100%;
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: 300px 300px;
+        margin-left: 10%;
+        margin-right: 10%;
+        width: 75%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 300px 300px;
     }
 
     /** bars **/
     .search_bar{
-      padding-top: 25%;
+        padding-top: 25%;
     }  
 
     .sidenav a {font-size: 18px;}
@@ -1187,19 +1191,19 @@ textarea:focus {
     }
 
     .time{
-      font-size:var(--text-smallest);
+        font-size:var(--text-smallest);
     }
 
     /** graph **/
     .graph_data{
-      width: 37%;
-      height: 45%;
-      margin-bottom: 440%;
+        width: 37%;
+        height: 45%;
+        margin-bottom: 440%;
     }
 
     .graph{
-      width: 80%;
-      height: 40%;
+        width: 80%;
+        height: 40%;
     }   
 }
 
@@ -1207,33 +1211,33 @@ textarea:focus {
 
 /**************** tablet size responsive ********************/
 @media screen and (min-width: 450px) and (max-width: 1024px) {
-  /** tablet font style **/
+    /** tablet font style **/
     h1 {font-size: var(--text-title);}
     h2 {font-size: var(--text-subheading);}
     p {font-size: var(--text-medium);}
 
     /** containers **/
     .info_container h3{
-      font-size: var(--text-medium);
+        font-size: var(--text-medium);
     }
 
     .info_container p, .info_contianer label{
-      font-size: var(--text-smaller);
+        font-size: var(--text-smaller);
     }
 
     /** note **/
     .history_link{
-      padding-top:15%;
+        padding-top:15%;
     }
 
     .note_main {
-      margin-left: 10%;
-      margin-right: 10%;
-      width: 80%;
-      height: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 280px 280px 280px;
+        margin-left: 10%;
+        margin-right: 10%;
+        width: 80%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 280px 280px 280px;
     }
 
     /** table **/
@@ -1248,7 +1252,7 @@ textarea:focus {
     }
 
     .flex_right{
-      width: 90%;
+        width: 90%;
     }
 
     .dashboard_flex{
@@ -1291,16 +1295,14 @@ textarea:focus {
         grid-row-gap: 2rem;
         grid-column-gap:1rem;
         grid-template-areas:
-        "heading    heading"
-        "sec1       sec1"
-        "subheading ."
-        "sec2       sec2"
-        "sec3       sec3"
+            "heading    heading"
+            "sec1       sec1"
+            "subheading ."
+            "sec2       sec2"
+            "sec3       sec3"
     }
 
-
-
- .note {
+    .note {
         margin-top: 20%;
     }
 
@@ -1318,32 +1320,31 @@ textarea:focus {
     }
 
     input[name="comment"]{
-      display: none;
+        display: none;
     }
 
     .search_bar, .clinician_main{
-      padding-top: 15%;
+        padding-top: 15%;
     }
 
 
     .history_background {
-      padding-top: 10%;
-      grid-template-rows:270px 270px;
+        padding-top: 10%;
+        grid-template-rows:270px 270px;
     }
 
     .graph{
-      height: 30%;
+        height: 30%;
     }
 
     .clinician_main{
-      padding-top:15%;
+        padding-top:15%;
     }
 }
 
 
-@media screen and (max-width: 1024px) {
-    
-  footer {
+    @media screen and (max-width: 1024px) {
+    footer {
         background-color: var(--color-background-white);
         box-shadow: 0 -4px 5px 0 rgba(0, 0, 0, 0.2);
         position: fixed;
@@ -1359,7 +1360,7 @@ textarea:focus {
         padding-top: 0;
     }
 
-  .content {
-    padding-bottom: 12vh;
-  }
-  }
+    .content {
+        padding-bottom: 12vh;
+    }
+}
