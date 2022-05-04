@@ -20,8 +20,12 @@
   "homepage": "https://github.com/yipp-217/diabetes-at-home#readme",
   "dependencies": {
     "express": "^4.17.3",
+    "express-flash": "^0.0.2",
     "express-handlebars": "^6.0.5",
-    "mongoose": "^6.3.1"
+    "express-session": "^1.17.2",
+    "mongoose": "^6.3.1",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "dotenv": "^16.0.0"
