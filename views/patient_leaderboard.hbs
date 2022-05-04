@@ -1,29 +1,44 @@
-<body class="leaderboard_bg">
+<body class="leaderboard_background">
     {{> sidenav login=true page='patient_leaderboard'}}
-    <br />
-    <br />
-    <br />
-    <br />
-    <main>
-        <title>Leaderboard</title>
+    <main class="content">   
+        <div class="leaderboard_title_container">
+            <img src="/res/crown.svg" alt="crown"/>
+            <h1>Leaderboard</h1>
+        </div>
+        <div class="leaderboard_grid_format">
+            <!--podium-->
+            <div class="podium_container">
+                <!--no.2-->
+                <div class="podium_column">
+                    <div class="podium_user"><h6>USER 2</h6></div>
+                    <div class="podium_rank rank_second"><h6>2nd</h6></div>
+                </div>
+                <!--no.1-->
+                <div class="podium_column">
+                    <div class="podium_user"><h6>USER 1</h6></div>
+                    <div class="podium_rank rank_first"><h6>1st</h6></div>
+                </div>
+                <!--no.3-->
+                <div class="podium_column">
+                    <div class="podium_user"><h6>USER 3</h6></div>
+                    <div class="podium_rank rank_third"><h6>3rd</h6></div>
+                </div>
+            </div>
+
+            <div class="sec1">
+                <div class="banner_container Top3"><h3>First: USER 1</h3></div>
+                <div class="banner_container Top3"><h3>Second: USER 2</h3></div>
+                <div class="banner_container Top3"><h3>Third: USER 3</h3></div>
+                <div class="banner_container"><h3>Fourth: USER 4</h3></div>
+                <div class="banner_container"><h3>Fifth: USER 5</h3></div>            
+            </div>
+        </div>
+            
+
+
+
+            
         
-        <div class="center">
-            <img src="/res/crown.svg" alt="crown" />
-        </div>
-    
-        <div class="center"><h1>Leaderboard</h1></div>
-
-        <div class="center">
-            <img src="/res/podium.svg" alt="podium img" />
-        </div>
-
-        <div class="banner">
-            <h3>Fourth: USER 4</h3>
-        </div>
-
-        <div class="banner">
-            <h3>Fifth: USER 5</h3>
-        </div>
     </main>
     <br />
     {{> bottomnav login=true page='patient_leaderboard'}}

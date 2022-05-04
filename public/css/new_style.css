@@ -109,6 +109,14 @@ h5 {
     padding: 1%;
 }
 
+h6 {
+    font-family: var(--font-family-heading);
+    font-size: var(--text-subheading);
+    color: var(--color-background-dark);
+    text-align: center;
+    padding-bottom: 10%;
+}
+
 .bigger_p {
     font-size: var(--text-big);
     font-weight: 700;
@@ -227,7 +235,6 @@ header {
     width: 80%;
 }
 
-
 /********************* body display **********************/
 .content{
     padding-top: 12vh;
@@ -254,6 +261,12 @@ body {
 
 .about{
     background-image: linear-gradient(#FFFFFF,#4F6EA2);
+}
+
+.leaderboard_background {
+    background: linear-gradient(180deg, rgba(25,55,115,1) 7%, rgba(98,131,196,1) 30%, rgba(255,255,255,1) 40%);
+    background-repeat: no-repeat;
+    overflow: hidden;
 }
 
 .item_center {
@@ -520,6 +533,20 @@ span.psw, span.rememberme {
     text-align: left;
     margin: 5% 5% 10% 5%;
     color: var(--color-background-white);
+}
+
+.leaderboard_title_container {
+    color:var(--color-background-white);
+    text-shadow: 3px 3px 5px var(--color-background-dark);
+    margin: 2% 0;
+}
+
+.banner_container {
+    background-color:var(--color-background-dark);
+    color:var(--color-background-white);
+    margin: 2%;
+    padding: 2% 0;
+    width: 100%;
 }
 
 /***************** checkmark *******************/
@@ -914,6 +941,46 @@ td:last-child {
     float:left;
 }
 
+/***************** podium ******************************/
+.podium_container{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-top: 8%;
+    padding-bottom: 2%;
+    border-bottom: 5px solid var(--color-background-dark);
+}
+
+.podium_column{
+    width: 50%;
+    margin: 0 2%;
+}
+
+.podium_user{
+    text-align: center;
+    padding-bottom: 2%;
+}
+
+.podium_rank{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 2%;;
+    background: linear-gradient(var(--color-background-lightaccent), var(--color-background-accent));
+    border-radius: 10px;
+}
+
+.rank_first{
+    height: 40vh;
+}
+
+.rank_second{
+    height: 30vh;
+}
+
+.rank_third{
+    height: 20vh;
+}
 
 /****************** footer style ***********************/
 
@@ -1055,6 +1122,14 @@ textarea:focus {
     grid-column-gap:2rem;
     grid-template-areas:
         "logo sec1"
+}
+
+.leaderboard_grid_format {
+    display: grid;
+    grid-template-areas: "logo sec1";
+    margin: 5%;
+    align-items: end;
+    grid-column-gap: 2vw;
 }
 
 /**************** phone size responsive ********************/
@@ -1362,5 +1437,37 @@ textarea:focus {
 
     .content {
         padding-bottom: 12vh;
+    }
+
+    .leaderboard_background{
+        background: linear-gradient(180deg, rgba(25,55,115,1) 7%, rgba(98,131,196,1) 20%, rgba(255,255,255,1) 30%);
+        overflow:unset;
+    }
+
+    .leaderboard_grid_format {
+        display: flex;
+        flex-direction: column;
+        row-gap: 3rem;
+        align-items: unset;
+    }
+
+    .rank_first{
+        height: 30vh;
+    }
+    
+    .rank_second{
+        height: 23vh;
+    }
+    
+    .rank_third{
+        height: 16vh;
+    }
+
+    h6 {
+        font-size: var(--text-big);
+    }
+
+    .Top3 {
+        display: none;
     }
 }
