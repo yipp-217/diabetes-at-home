@@ -2,14 +2,14 @@
 
     <header class="clinician_header">
         <h2 class="cilnician_nav">John Doe</h2>
-        <button class="clinician_nav_btn" type="button"><h5>Back to Dashboard</h5></button>
+        <a href="/clinician/dashboard" class="clinician_nav_btn"><button type="button"><h5>Back to Dashboard</h5></button></a>
     </header>
 
-    <a href="url"><p class="history_link"> Data History</p></a>
+    <a href="/clinician/patient/data-history"><p class="history_link"> Data History</p></a>
 
     <main class="note_main">
-        <section class="info_container">
-            <div class="weight">
+        <form>
+            <section class="info_container">
                 <h3>Weight</h3>
                 <p>68kg</p>
                 <label class="required">Required
@@ -24,11 +24,9 @@
                     <label>Upper Threshold</label>
                     <input class="input" type="text">
                 </form>
-            </div>
-        </section>
+            </section>
 
-        <section class="info_container">
-            <div class="weight">
+            <section class="info_container">
                 <h3>Blood Glucose</h3>
                 <p>7 nmol/L</p>
                 <label class="required">Required
@@ -43,20 +41,9 @@
                     <label>Upper Threshold</label>
                     <input class="input" type="text">
                 </form>
-            </div>
-        </section>
+            </section>
 
-        <section class="info_container">
-            <h3>Support Messages</h3>
-            <p>Current Message:</p>
-            <p class="message">You are doing great :)</p>
-            <label>New Message:</label>
-            <input class="input" type="text">
-            <button type="button"><h5>Update Message</h5></button>
-        </section>
-
-        <section class="info_container">
-            <div class="weight">
+            <section class="info_container">
                 <h3>Exercise</h3>
                 <p>3000 steps</p>
                 <label class="required">Required
@@ -71,11 +58,9 @@
                     <label>Upper Threshold</label>
                     <input class="input" type="text">
                 </form>
-            </div>
-        </section>
+            </section>
 
-        <section class="info_container">
-            <div class="weight">
+            <section class="info_container">
                 <h3>Doses of Insulin Taken</h3>
                 <p>--</p>
                 <label class="required">Required
@@ -90,17 +75,29 @@
                     <label>Upper Threshold</label>
                     <input class="input" type="text">
                 </form>
-            </div>
+            </section>
+
+            <button class="lightmedium_button" type="submit">Save</button>
+        </form>
+
+        <section class="info_container">
+            <h3>Support Messages</h3>
+            <p>Current Message:</p>
+            <p class="message">You are doing great :)</p>
+            <form>
+                <label>New Message:</label>
+                <input class="input" type="text">
+                <button type="submit"><h5>Update Message</h5></button>
+            </form>
         </section>
-
-
 
         <section class="info_container">
             <h3>Notes</h3>
-            <input class="input" type="text">
-            <a href="url">See Past Notes</a>
+            <form>
+                <textarea class="input" name="clinicianNote" placeholder="Add Note Here"></textarea>
+                <button type="submit"><h5>SAVE</h5></button><br>
+            </form>
+            <a href="/clinician/patient/clinician-notes">See Past Notes</a>
         </section>
-
-        <button class="lightmedium_button" type="button">Save</button>
     </main>
 </body>

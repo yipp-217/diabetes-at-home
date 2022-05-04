@@ -1,8 +1,8 @@
 <body class="clinician_body">
     <header class="clinician_header">
         <h2 class="cilnician_nav">Good afternoon, {{user.nameScreen}}</h2>
-        <button class="clinician_nav_btn" type="button"><h5 class="phone_clinician">Log Out</h5></button>
-        <img class="icons icon_settings" src="/res/Icon_settings.svg">
+        <a href="/" class="clinician_nav_btn"><button><h5 class="phone_clinician">Log Out</h5></button></a>
+        <a class="icons icon_settings" href="/clinician/settings"><img src="/res/Icon_settings.svg"></a>
     </header>
 
     <section class="search_bar">
@@ -23,7 +23,7 @@
                 </tr>
 
                 {{#each patients}}
-                    <tr class="dash_container">
+                    <tr class="dash_container" onclick="goToPatient()" style="cursor: pointer;">
                         <td>{{this.nameGiven}} {{this.nameFamily}}</td>
                         {{> clinician_dashboard_patient_data value=this.bloodGlucose lowerThreshold=this.bloodGlucoseLowerThreshold upperThreshold=this.bloodGlucoseUpperThreshold}}
                         {{> clinician_dashboard_patient_data value=this.weight lowerThreshold=this.weightLowerThreshold upperThreshold=this.weighteUpperThreshold}}
@@ -36,3 +36,8 @@
     </main>
 </body>
 
+<script>
+    function goToPatient() {
+        location.href = "/clinician/patient"
+    }
+</script>
