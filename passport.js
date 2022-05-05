@@ -1,37 +1,64 @@
 const passport = require('passport')
+const {User} = require('./models/user')
 const LocalStrategy = require('passport-local').Strategy
-
-// Hardcode user for now
-const USER = { id: 003, username: 'PEEPEE', password: '123', secret: 'shhh' }
-
+/* ==========================================CLEAN==========================================*/
 // serialize
 passport.serializeUser((user, done) => {
-    // Use id to serialize user
-    done(undefined, user.id)
+    done(undefined, user._id)
 })
 
 // desserialize
 passport.deserializeUser((userId, done) => {
-    // match with hardcoded user
-    if (userId === USER.id) {
-        done(undefined, USER)
-    } else {
-        done(new Error('Bad User'), undefined)
-    }
+    User.findById(userId, { password: 0 }, (err, user) => {
+        if (err) {
+            return done(err, undefined)
+        }
+        return done(undefined, user)
+    })
 })
 
 // local authentication strategy for Passport
 passport.use(
-    new LocalStrategy((username, password, done) => {
-        // check if user exists and password matches the hash (hardcoded)
-        if (username !== USER.username || password !== USER.password) {
-            return done(undefined, false, {
-                message: 'Incorrect username/password',
+    new LocalStrategy((email, password, done) => {
+        User.findOne({ email }, {}, {}, (err, user) => {
+            if (err) {
+                return done(undefined, false, {
+                    message: 'Unknown error has occurred'
+                })
+            }
+            if (!user) {
+                return done(undefined, false, {
+                    message: 'Incorrect username or password',
+                })
+            }
+
+            // Check password
+            user.verifyPassword(password, (err, valid) => {
+                if (err) {
+                    return done(undefined, false, {
+                        message: 'Unknown error has occurred'
+                    })
+                }
+                if (!valid) {
+                    return done(undefined, false, {
+                        message: 'Incorrect username or password',
+                    })
+                }
+            
+                // If user exists and password matches the hash in the database
+                return done(undefined, user)
             })
-        }
-        // return user in callback
-        return done(undefined, USER)
+        })
     })
 )
+/* ==========================================CLEAN==========================================*/
+/*
+User.find({}, (err, users) => {
+    User.create({ email: 'user', password: 'hashed!', secret: "N^T_ev6D-+Pus4T5fB?z6&dM9YQ?fPtC", nameFamily: "testFam", nameScreen: "usertest" }, (err) => {
+        if (err) { console.log(err); return; }
+        console.log('Dummy user inserted')
+    })
+})*/
+
 
 module.exports = passport

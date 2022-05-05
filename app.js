@@ -44,12 +44,12 @@ app.use((req, res, next) => {
 app.use(flash())
 
 // Track authenticated users through login sessions
+/* ==========================================CLEAN==========================================*/
 app.use(
     session({
-        // The secret used to sign session cookies (ADD ENV VAR)
         
         secret: process.env.SESSION_SECRET,
-        name: 'demo', // The cookie name (CHANGE THIS)
+        name: 'Diabetes@Home', // The cookie name (CHANGE THIS)
         saveUninitialized: false,
         resave: false,
         cookie: {
