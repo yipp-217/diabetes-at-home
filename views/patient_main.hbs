@@ -1,7 +1,7 @@
 {{> sidenav login=true page='patient_main'}}
 
 <main class="content mainpage_grid_format">
-        
+    
     <div id="clinician_message">
         <h2 style="text-align:left">Hello, {{user.nameScreen}}</h2>
         <p style="text-align:left" class="bigger_p">{{user.supportMessage}}</p>
@@ -25,7 +25,10 @@
         {{> patient_main_container field="exercise" title="Exercise" value=user.exercise}}
         {{> patient_main_container field="insulin" title="Doses of Insulin Taken" value=user.dosesOfInsulin}}       
     </div>
-
+    <h3>Logged in as {{user.id}}. Secret: {{user.secret}}</h3>
+    <form method="POST" action="/logout">
+    <button>Logout</button>
+</form>
 </main>
 
 {{> bottomnav login=true page='patient_main'}}
