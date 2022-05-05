@@ -27,6 +27,13 @@ app.set('view engine', 'hbs')
 
 
 /* ------------------------------------------------------------------------- */
+/* get env for session secret */
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config()
+}
+
+
+/* ------------------------------------------------------------------------- */
 /* debugger, log message */
 app.use((req, res, next) => {
     console.log('msg: ' + req.method + req.path)
@@ -40,7 +47,8 @@ app.use(flash())
 app.use(
     session({
         // The secret used to sign session cookies (ADD ENV VAR)
-        secret: process.env.SESSION_SECRET || 'keyboard cat',
+        
+        secret: process.env.SESSION_SECRET,
         name: 'demo', // The cookie name (CHANGE THIS)
         saveUninitialized: false,
         resave: false,
