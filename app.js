@@ -1,5 +1,7 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
+const flash = require('express-flash')
+const session = require('express-session')
 
 const app = express()
 
@@ -31,6 +33,32 @@ app.use((req, res, next) => {
     next()
 })
 
+// Flash messages for failed logins, and (possibly) other success/error messages
+app.use(flash())
+
+// Track authenticated users through login sessions
+app.use(
+    session({
+        // The secret used to sign session cookies (ADD ENV VAR)
+        secret: process.env.SESSION_SECRET || 'keyboard cat',
+        name: 'demo', // The cookie name (CHANGE THIS)
+        saveUninitialized: false,
+        resave: false,
+        cookie: {
+            sameSite: 'strict',
+            httpOnly: true,
+            secure: app.get('env') === 'production'
+        },
+    })
+)
+
+if (app.get('env') === 'production') {
+    app.set('trust proxy', 1); // Trust first proxy
+}
+
+// Initialise Passport.js
+const passport = require('./passport')
+app.use(passport.authenticate('session'))
 
 /* ========================================================================= */
 const PORT = process.env.PORT || 8080
