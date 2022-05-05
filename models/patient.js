@@ -1,69 +1,66 @@
 const mongoose = require('mongoose')
 
-/* each entry stores health data object(s) */
+
 const healthDataEntrySchema = new mongoose.Schema({
-    data: {type: [mongoose.Schema.Types.ObjectId], ref: 'HealthData'},
-    date: {type: String}
+    date: {type: String},
+
+    valueBloodGlucoseLevel: Number,
+    commentBloodGlucoseLevel: String,
+    timeBloodGlucoseLevel: String,
+
+    valueWeight: Number,
+    commentWeight: String,
+    timeWeight: String,
+
+    valueExercise: Number,
+    commentExercise: String,
+    timeExercise: String,
+
+    valueDosesOfInsulinTaken: Number,
+    commentDosesOfInsulinTaken: String,
+    timeDosesOfInsulinTaken: String
 })
 
 const clinicianNoteSchema = new mongoose.Schema({
-    time: {type: Date, default: Date.now},
+    time: {type: String},
     note: String
 })
 
-const requirementsSchema = new mongoose.Schema({
-    bloodGlucoseLevel: Boolean,
-    weight: Boolean,
-    dosesOfInsulinTaken: Boolean,
-    exercise: Boolean
-})
-
-const thresholdSchema = new mongoose.Schema({
-    category: {type: String, enum: ['bloodGlucoseLevel', 'weight', 'dosesOfInsulinTaken', 'exercise']},
-    upper: Number,
-    lower: Number
-})
 
 /* Patient User */
 const patientSchema = new mongoose.Schema({
     user: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
     clinician: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
 
-    clinician2: String,
-
     supportMessage: {type: String},
 
-    // /* today */
-    // bloodGlucoseRecordDateTime: String,
-    // bloodGlucose: Number,
-    // bloodGlucoseComment: String,
-    // bloodGlucoseUpperThreshold: Number,
-    // bloodGlucoseLowerThreshold: Number,
-    // weight: Number,
-    // weightComment: String,
-    // exercise: Number,
-    // exerciseComment: String,
-    // dosesOfInsulin: Number,
-    // dosesOfInsulinComment: String,
-    // /* ----- */
+    requirementBloodGlucoseLevel: Boolean,
+    bloodGlucoseUpperThreshold: Number,
+    bloodGlucoseLowerThreshold: Number,
 
-    requirements: requirementsSchema,
-    thresholds : [thresholdSchema],
-    patientHealthRecord: [healthDataEntrySchema],
+    requirementWeight: Boolean,
+    weightUpperThreshold: Number,
+    weightLowerThreshold: Number,
+
+    requirementExercise: Boolean,
+    exerciseUpperThreshold: Number,
+    exerciseLowerThreshold: Number,
+
+    requirementDosesOfInsulinTaken: Boolean,
+    dosesOfInsulinUpperThreshold: Number,
+    dosesOfInsulinLowerThreshold: Number,
+
+    patientHealthEntries: [healthDataEntrySchema],
     clinicianNotes: [clinicianNoteSchema]
 })
 
 
 const Patient = mongoose.model('Patient', patientSchema)
-const Requirements = mongoose.model('Requirements', requirementsSchema)
-const Threshold = mongoose.model('Threshold', thresholdSchema)
 const HealthDataEntry = mongoose.model('HealthDataEntry', healthDataEntrySchema)
-const ClinicianNote = mongoose.model('ClinicianNote',clinicianNoteSchema)
+const ClinicianNote = mongoose.model('ClinicianNote', clinicianNoteSchema)
 
 module.exports = {
     Patient,
-    Requirements,
-    Threshold,
     HealthDataEntry,
     ClinicianNote
 }
