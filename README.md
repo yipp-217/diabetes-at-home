@@ -12,7 +12,7 @@ Dependencies:
 - npm install connect-mongo
 - npm install express
 - npm install express-flash
-- - npm install express-handlebars
+- npm install express-handlebars
 - npm install express-session
 - npm install mongoose
 - npm install passport
