@@ -787,6 +787,21 @@ button:active {
     color: #466fa6;
 }
 
+.sidenav input {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    color: black;
+    display: block;
+    transition: 0.3s;
+    font: var(--font-family-body);
+    background-color: white;
+    cursor: pointer;
+}
+
+.sidenav input:hover {
+    color: #466fa6;
+}
+
 .sidenav .closebtn {
     position: absolute;
     top: 0;

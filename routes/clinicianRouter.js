@@ -2,21 +2,22 @@ const express = require('express')
 const clinicianRouter = express.Router()
 
 const clinicianController = require('../controllers/clinicianController')
+const homeController = require('../controllers/homeController')
 
 
-clinicianRouter.get('/dashboard', clinicianController.getClinicianDashboard)
+clinicianRouter.get('/dashboard', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getClinicianDashboard)
 
-clinicianRouter.get('/patient-comments', clinicianController.getPatientComments)
+clinicianRouter.get('/patient-comments', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getPatientComments)
 
-clinicianRouter.get('/patient/clinician-notes', clinicianController.getPatientNotes)
+clinicianRouter.get('/patient/clinician-notes', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getPatientNotes)
 
-clinicianRouter.get('/patient/data-history', clinicianController.getPatientDataHistory)
+clinicianRouter.get('/patient/data-history', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getPatientDataHistory)
 
-clinicianRouter.get('/patient', clinicianController.getPatient)
+clinicianRouter.get('/patient', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getPatient)
 
-clinicianRouter.get('/settings', clinicianController.getClinicianSettings)
+clinicianRouter.get('/settings', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getClinicianSettings)
 
-clinicianRouter.get('/register-patient', clinicianController.getRegisterPatient)
+clinicianRouter.get('/register-patient', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getRegisterPatient)
 
 
 module.exports = clinicianRouter

@@ -25,11 +25,6 @@
         {{> patient_main_container field="exercise" title="Exercise" value=user.exercise}}
         {{> patient_main_container field="insulin" title="Doses of Insulin Taken" value=user.dosesOfInsulin}}       
     </div>
-    {{!-- /* ==========================================CLEAN==========================================*/ --}}
-    <h3>Logged in as {{user.name}}. Secret: {{user.secret}}</h3>
-    <form method="POST" action="/logout">
-    <button>Logout</button>
-</form>
 </main>
 
-{{> bottomnav login=true page='patient_main'}}
+{{> bottomnav page='patient_main'}}

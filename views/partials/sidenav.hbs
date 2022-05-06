@@ -25,7 +25,9 @@
     <hr style="background-color: black;">
     {{#if login}}
         <a href="/patient/settings">{{#if (isEq page 'settings')}}<b>Settings</b>{{else}}Settings{{/if}}</a>
-        <a href="/login">Log out</a>
+        <form method="POST" action="/logout">
+            <input type="submit" value="Logout" style="font-size: 25px;">
+        </form>
     {{/if}}
 </div>
 
