@@ -8,6 +8,7 @@
     <a href="/clinician/patient/data-history"><p class="history_link"> Data History</p></a>
 
     <main class="note_main">
+        <form>
             <section class="info_container">
                 <h3>Weight</h3>
                 <p>68kg</p>
@@ -16,15 +17,15 @@
                     <input type="checkbox" checked="checked">
                     <span class="checkmark"></span>
                 </label>
-                <form class="lower-threshold">
+                <div class="lower-threshold">
                     <label>Lower Threshold</label>
                     <input class="input" type="text">
-                </form>
+                </div>
 
-                <form class="upper-threshold">
+                <div class="upper-threshold">
                     <label>Upper Threshold</label>
                     <input class="input" type="text">
-                </form>
+                </div>
             </section>
 
             <section class="info_container">
@@ -36,15 +37,15 @@
                     <span class="checkmark"></span>
                 </label>
                 
-                <form class="lower-threshold">
+                <div class="lower-threshold">
                     <label>Lower Threshold</label>
                     <input class="input" type="text">
-                </form>
+                </div>
 
-                <form class="upper-threshold">
+                <div class="upper-threshold">
                     <label>Upper Threshold</label>
                     <input class="input" type="text">
-                </form>
+                </div>
             </section>
 
             <section class="info_container">
@@ -54,14 +55,14 @@
                     <input type="checkbox" checked="checked">
                     <span class="checkmark"></span>
                 </label>
-                <form class="lower-threshold">
+                <div class="lower-threshold">
                     <label>Lower Threshold</label>
                     <input class="input" type="text">
-                </form>
-                <form class="upper-threshold">
+                </div>
+                <div class="upper-threshold">
                     <label>Upper Threshold</label>
                     <input class="input" type="text">
-                </form>
+                </div>
             </section>
 
             <section class="info_container">
@@ -71,17 +72,19 @@
                     <input type="checkbox" checked="checked">
                     <span class="checkmark"></span>
                 </label>
-                <form class="lower-threshold">
+                <div class="lower-threshold">
                     <label>Lower Threshold</label>
                     <input class="input" type="text">
-                </form>
+                </div>
 
-                <form class="upper-threshold">
+                <div class="upper-threshold">
                     <label>Upper Threshold</label>
                     <input class="input" type="text">
-                </form>
-
+                </div>
             </section>
+
+            <button class="lightmedium_button" type="submit">Save</button>
+        </form>
 
         <section class="info_container">
             <h3>Support Messages</h3>
@@ -102,8 +105,6 @@
             </form>
             <a href="/clinician/patient/clinician-notes">See Past Notes</a>
         </section>
-
-        <button class="lightmedium_button" type="submit">Save</button>
     </main>
     
 </body>

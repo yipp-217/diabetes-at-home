@@ -13,7 +13,7 @@ app.engine('hbs', exphbs.engine({
     defaultLayout: 'main',
     extname: 'hbs',
     helpers: {
-        isEq: (x, y) => x == y,
+        isEq: (x, y) => x == y, //===
         checkThreshold: (data, min, max) => data < min || data > max,
         displayDate: (x) => {
             const time = x.substring(11, 16);

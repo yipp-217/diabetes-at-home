@@ -15,7 +15,7 @@
     <form action="login" method="POST" class="sec1">
         <div style="margin: 8%"><h4>Welcome Back!</h4></div>
         {{#each flash}}
-            <p class="alert">{{this}}</p>
+            <p class="alert" style="color: red;">{{this}}</p>
         {{/each}}
         <div>
             <input type="text" id="email" placeholder="Email" name="username" required />
