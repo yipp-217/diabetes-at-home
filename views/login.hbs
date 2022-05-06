@@ -2,13 +2,6 @@
 
 <main class="content login_grid_format">
     {{!-- /* ==========================================CLEAN==========================================*/ --}}
-    <form action="login" method="POST">
-    <label for="username">Username:</label>
-    <input type="text" name="username" />
-    <label for="password">Password:</label>
-    <input type="password" name="password" />
-    <input type="submit" value="Submit" />
-    </form>
     
     <!--logo-->
     <div class="logo">
@@ -19,11 +12,14 @@
     </div>
 
     <!--form-->
-    <form action="/patient" method="post" class="sec1">
+    <form action="login" method="POST" class="sec1">
         <div style="margin: 8%"><h4>Welcome Back!</h4></div>
+        {{#each flash}}
+            <p class="alert">{{this}}</p>
+        {{/each}}
         <div>
-            <input type="text" id="email" placeholder="Email" name="email" required />
-            <input type="password" id="password" placeholder="Password" name="psw" required />
+            <input type="text" id="email" placeholder="Email" name="username" required />
+            <input type="password" id="password" placeholder="Password" name="password" required />
             <div class="login_container">
             <span class="rememberme">
                 <input
@@ -37,12 +33,4 @@
         <button class="medium_button" type="submit">Login</button>
         </div>
     </form>
-
-    <h1>Login</h1>
-
-{{#each flash}}
-<p class="alert">{{this}}</p>
-{{/each}}
-
-
 </main>

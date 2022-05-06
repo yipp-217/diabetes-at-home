@@ -3,12 +3,17 @@ const Clinician = require('../models/clinician')
 const {Patient} = require('../models/patient')
 
 const getHome = (req, res) => {
-    res.render('index.hbs')
+    res.render('index.hbs', {title: "Express", user: req.user.toJSON()})
 }
 
 
 const getLogin = (req, res) => {
-    res.render('login.hbs')
+    res.render('login.hbs', {flash: req.flash('error'), title: 'Login'})
+}
+
+const logout = (req, res) => {
+    req.logout()
+    res.redirect('/')
 }
 
 /** */
@@ -35,4 +40,5 @@ module.exports = {
     login,
     getAboutDiabetes,
     getAboutWebsite,
+    logout,
 }

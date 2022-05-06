@@ -17,26 +17,18 @@ homeRouter.get('/', isAuthenticated, homeController.getHome)
 
 homeRouter.get('/login', homeController.getLogin)
 
-// homeRouter.post('/login', homeController.login)
-
-homeRouter.get('/about-diabetes', homeController.getAboutDiabetes)
-
-homeRouter.get('/about-website', homeController.getAboutWebsite)
-
-
-
-// Handle login
-homeRouter.post('/login',passport.authenticate('local', {
+// Handle Login
+homeRouter.post('/login', 
+    passport.authenticate('local', {
         successRedirect: '/', failureRedirect: '/login', failureFlash: true
     })
 )
 
 // Handle logout
-homeRouter.post('/logout', (req, res) => {
-    req.logout()
-    res.redirect('/')
-})
+homeRouter.post('/logout', homeController.logout)
 
+homeRouter.get('/about-diabetes', homeController.getAboutDiabetes)
 
+homeRouter.get('/about-website', homeController.getAboutWebsite)
 
 module.exports = homeRouter
