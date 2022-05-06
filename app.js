@@ -2,6 +2,8 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const flash = require('express-flash')
 const session = require('express-session')
+const MongoStore = require('connect-mongo')
+const mongooseClient = require('./models/db')
 
 const app = express()
 
@@ -57,6 +59,7 @@ app.use(
             httpOnly: true,
             secure: app.get('env') === 'production'
         },
+        store: MongoStore.create({ clientPromise: mongooseClient })
     })
 )
 
