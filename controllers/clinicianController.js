@@ -75,6 +75,15 @@ const getClinicianSettings = async (req, res, next) => {
     }
 }
 
+const getRegisterPatient = async (req, res, next) => {
+    try {
+        return res.render('patient_register.hbs')
+    }
+    catch (e) {
+        return next(e)
+    }
+}
+
 module.exports = {
     getClinicianDashboard,
     getPatientComments,
@@ -82,4 +91,5 @@ module.exports = {
     getPatientNotes,
     getPatientDataHistory,
     getClinicianSettings,
+    getRegisterPatient,
 }
