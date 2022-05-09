@@ -80,11 +80,19 @@ h1 {
     text-align: center;
 }
 
+.dark h1 {
+    color: #ffffff;
+}
+
 h2 {
     font-size: var(--text-subheading-desktop);
     font-family: var(--font-family-heading);
     font-weight: 700;
     text-align: center;
+}
+
+.dark h2 {
+    color: #ffffff;
 }
 
 h3 {
@@ -134,6 +142,10 @@ p {
     padding: 1%;
 }
 
+.dark .edit_data p {
+    color: #000000;
+}
+
 .smaller_p {font-size: var(--text-smaller);}
 
 .smallest_p { font-size:var(--text-smallest);}
@@ -147,7 +159,7 @@ p {
 /****************** header style ************************/
 
 header {
-    background-color: var(--color-background-white);
+    background-color: #ffffff;
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
     position: fixed;
     width: 100%;
@@ -181,6 +193,10 @@ header {
     padding-left: 2%;
     padding-right: 2%;
     cursor: pointer;
+}
+
+.dark .icons {
+    fill: #ffffff;
 }
 
 .icons_small_left{
@@ -251,6 +267,23 @@ body {
     background-attachment: fixed;
 }
 
+body.dark {
+    /* Background Colours */
+    --color-background-white: #000000;
+    --color-background-light: #193773;
+    --color-background-lightmedium: #466fa6;
+    --color-background-medium: #9FC0D6;
+    --color-background-dark: #eff6f9;
+    --color-background-lightaccent: #f2c1ae;
+    --color-background-accent: #f28379;
+    --color-background-grey:#7070701c;
+
+    /* Font Colours */
+    --color-text-black: #ffffff;
+    --color-text-white: #000000;
+    --color-text-grey: #707070;
+}
+
 .clinician_body{
     background-color: #EFF6F9;
 }
@@ -267,6 +300,10 @@ body {
     background: linear-gradient(180deg, rgba(25,55,115,1) 7%, rgba(98,131,196,1) 30%, rgba(255,255,255,1) 40%);
     background-repeat: no-repeat;
     overflow: hidden;
+}
+
+.dark.leaderboard_background  {
+    background: #000000;
 }
 
 .item_center {
@@ -536,14 +573,19 @@ span.psw, span.rememberme {
 }
 
 .leaderboard_title_container {
-    color:var(--color-background-white);
+    color:var(--color-text-white);
     text-shadow: 3px 3px 5px var(--color-background-dark);
     margin: 2% 0;
 }
 
+.dark .leaderboard_title_container {
+    color:var(--color-text-black);
+    text-shadow: 3px 3px 5px var(--color-background-light);
+}
+
 .banner_container {
     background-color:var(--color-background-dark);
-    color:var(--color-background-white);
+    color:var(--color-text-white);
     margin: 2%;
     padding: 2% 0;
     width: 100%;
@@ -612,10 +654,18 @@ hr {
     margin-bottom: 2px;
 }
 
+.dark hr {
+    background-color: #ffffff;
+}
+
 /********************* a tag ****************************/
 a, a:hover {
     color: var(--color-text-white);
     text-decoration: none;
+}
+
+.dark a, a:hover {
+    color: #ffffff;;
 }
 
 #forgetPassword {
@@ -1000,7 +1050,7 @@ td:last-child {
 /****************** footer style ***********************/
 
 footer {
-    background-color: var(--color-background-white);
+    background-color: #ffffff;
     box-shadow: 4px 0 5px 0 rgba(0, 0, 0, 0.2);
     position: fixed;
     bottom: 0;
@@ -1435,7 +1485,7 @@ textarea:focus {
 
     @media screen and (max-width: 1024px) {
     footer {
-        background-color: var(--color-background-white);
+        background-color: #ffffff;
         box-shadow: 0 -4px 5px 0 rgba(0, 0, 0, 0.2);
         position: fixed;
         bottom: 0;
@@ -1457,6 +1507,10 @@ textarea:focus {
     .leaderboard_background{
         background: linear-gradient(180deg, rgba(25,55,115,1) 7%, rgba(98,131,196,1) 20%, rgba(255,255,255,1) 30%);
         overflow:unset;
+    }
+
+    .dark.leaderboard_background  {
+        background: #000000;
     }
 
     .leaderboard_grid_format {
