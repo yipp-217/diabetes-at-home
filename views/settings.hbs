@@ -5,5 +5,14 @@
 <br>
 <br>
 <br>
-<a href="/patient/settings/change-password" style="color: black;"><h4>Change Password</h4></a>
+<main class="content">
+    <button><a href="/patient/settings/change-password" style="color: black;"><h4>Change Password</h4></a></button>
+    <button class="theme-toggle-button">dark mode</button>    
+</main>
 {{> bottomnav page='settings'}}
+
+<script>
+    document.querySelector('.theme-toggle-button').addEventListener('click', () => {
+    document.body.classList.toggle('dark')
+    })
+</script>
