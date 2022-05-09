@@ -738,6 +738,18 @@ button:active {
     right: 26%;
 }
 
+.theme-toggle-button {
+    background-color: var(--color-background-accent);
+    width: 50%;
+    transition: 1s;
+    transform: scale(1);
+}
+
+.theme-toggle-button:hover,
+.theme-toggle-button:focus {
+    /*transform: scale(1.1);*/
+}
+
 /******************* graph ****************/
 .history_background{
     padding-top: 5%;
