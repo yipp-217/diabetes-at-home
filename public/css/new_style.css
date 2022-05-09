@@ -547,6 +547,40 @@ span.psw, span.rememberme {
     border-radius: 20px;
 }
 
+.overall{
+    background-color: #ccc;
+    border-radius: 25px;
+    padding-right: 4%;
+    padding-top:2%;
+    padding-left:2%;
+    padding-bottom: 7%;
+    margin-left: 5%;
+    margin-right: 3%;
+    margin-bottom: 5%;
+    width: 65%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5%;
+}
+
+.patient_right{
+    margin-bottom: 5%;
+    margin-right: 5%;
+    background-color: #ccc;
+    border-radius: 25px;
+    padding-right: 5%;
+    padding-top:2%;
+    padding-left:3%;
+}
+
+.patient_right .info_container{
+    margin-bottom: 13%;
+}
+
+
+
+
 .history_link{
     padding-top:8%;
     padding-left: 70%;
@@ -736,6 +770,15 @@ button:active {
     width: 15%;
     position: absolute;
     right: 26%;
+}
+
+.save-btn{
+    text-align: center;
+    padding-left: 90%;
+}
+
+.center_btn{
+    text-align: center;
 }
 
 .theme-toggle-button {
@@ -1001,16 +1044,11 @@ td:last-child {
     padding-top: 10%;
 }
 
+
 .note_main{
-    margin-left:10%;
-    margin-right:10%;
-    margin-bottom:5%;
-    width: 80%;
+    width: 100%;
     height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows:300px 300px;
-    grid-gap: 5%;
+    display: flex;
 }
 
 .clinician_main h3{
@@ -1132,7 +1170,7 @@ textarea {
     border-radius: 10px;
     font-family: var(--font-family-heading);
     resize: none;
-    height: 15vh;
+    height: 19vh;
 }
 
 textarea[name="exerciseComment"], textarea[name="bloodGlucoseComment"], textarea[name="weightComment"], textarea[name="insulinComment"]{

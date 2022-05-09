@@ -8,7 +8,7 @@
     <a href="/clinician/patient/data-history"><p class="history_link"> Data History</p></a>
 
     <main class="note_main">
-        <form>
+        <section class="overall">
             <section class="info_container">
                 <h3>Weight</h3>
                 <p>68kg</p>
@@ -83,28 +83,36 @@
                 </div>
             </section>
 
+        <section class="save-btn">   
             <button class="lightmedium_button" type="submit">Save</button>
-        </form>
+        </section>
 
+        </section>
+
+
+        
+        <article class="patient_right">
         <section class="info_container">
             <h3>Support Messages</h3>
             <p>Current Message:</p>
             <p class="message">You are doing great :)</p>
-            <form>
+            <section>
                 <label>New Message:</label>
                 <input class="input" type="text">
-                <button type="submit"><h5>Update Message</h5></button>
-            </form>
+               <section class="center_btn"><button type="submit"><h5>Update</h5></button></section>
+            </section>
         </section>
 
         <section class="info_container">
             <h3>Notes</h3>
-            <form>
+            <section>
                 <textarea class="input" name="clinicianNote" placeholder="Add Note Here"></textarea>
-                <button type="submit"><h5>SAVE</h5></button><br>
-            </form>
+                <section class="center_btn"> <button type="submit"><h5>SAVE</h5></button><br></section>
+            </section>
             <a href="/clinician/patient/clinician-notes">See Past Notes</a>
-        </section>
+        </article>
+
+
     </main>
     
 </body>
