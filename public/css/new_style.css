@@ -286,6 +286,7 @@ body.dark {
 
 .clinician_body{
     background-color: #EFF6F9;
+    overflow: hidden;
 }
 
 .body_icons {
