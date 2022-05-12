@@ -626,6 +626,7 @@ span.psw, span.rememberme {
     width: 100%;
 }
 
+
 /***************** checkmark *******************/
 
 /* On mouse-over, add a grey background color */
@@ -787,6 +788,11 @@ button:active {
     width: 50%;
     transition: 1s;
     transform: scale(1);
+}
+
+.change_btn{
+    margin-left: 90%;
+    transform: rotateY(180deg);
 }
 
 .theme-toggle-button:hover,
@@ -1396,6 +1402,27 @@ textarea:focus {
         width: 80%;
         height: 40%;
     }   
+
+
+    .setting_hid{
+        background-color: transparent;
+    }
+
+    .big_background{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .setting_contanier{
+        width: 100%;
+    }
+
+    .setting_phone{
+        background-color:var(--color-background-lightmedium);
+        border-radius: 10px;
+    }
+
+
 }
 
 
