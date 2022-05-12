@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs')
 const userSchema = new mongoose.Schema({
     email: {type: String, required: true, unique:true},
     password: {type: String, required: true},
-    secret: { type: String, required: true },
+    secret: {type: String, required: true},
     nameFamily: {type: String, required: true},
     nameGiven: String,
     nameScreen: {type: String, required: true},
@@ -41,6 +41,7 @@ userSchema.pre('save', function save(next) {
         next()
     })
 })
+
 
 const User = mongoose.model('User', userSchema)
 

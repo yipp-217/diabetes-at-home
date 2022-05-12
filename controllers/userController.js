@@ -11,6 +11,8 @@ const getUsers = async (req, res) => {
 const createUser = async (req, res, next) => {
     try {
         const user = new User(req.body)
+        // need to secure the session key
+        user.secret = "SqS8yF:Ac;<zn9YM8:=3s\",/q$9Rn9}hX\\y7&..Q!D~h'dJu5-BGKJ7#cR``\\Z^k"
         console.log(req.body)
         if (Boolean(req.body.clinician)) {
             user.onModel = 'Clinician'
