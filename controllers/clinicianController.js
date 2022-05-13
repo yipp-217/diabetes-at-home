@@ -28,7 +28,12 @@ const getPatientComments = async (req, res, next) => {
             res.redirect('/patient')
         } 
         else
-            return res.render('clinician_dashboard_comment.hbs', {user: req.user.toJSON()})
+            clinician = await Clinician.findById(req.user.toJSON().model).lean()
+            patients = await getPatients(clinician.patients)
+            patients = await getPatientsHealthData(patients)
+            return res.render('clinician_dashboard_comment.hbs', {
+                user: req.user.toJSON(), patients: patients
+            })
     }
     catch (e) {
         return next(e)
