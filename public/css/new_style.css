@@ -1078,7 +1078,7 @@ td:last-child {
 }
 
 .clinician_main h3{
-    margin-left: 5%;
+    margin-left: 8%;
     float:left;
 }
 
@@ -1330,6 +1330,10 @@ textarea:focus {
         min-height: 148px;
     }
 
+    .clinician_header{
+        height: 7vh;
+    }
+
     /** dashboard **/
     .dashboard_table{
         width: 100%;
@@ -1340,10 +1344,12 @@ textarea:focus {
         width: 100%;
     }
 
-
+    .clinician_main h3 {
+        margin-left: 35%;
+    }
 
     .clinician_main{
-        padding-top:25%;
+        padding-top:20%;
     }
 
     .history_background {
@@ -1468,6 +1474,30 @@ textarea:focus {
      }
 
 
+         /** clinician patient flex **/
+    .note_main, .overall{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .overall{
+        width: 85%;
+    }
+
+    .info_container{
+        padding:1%;
+        margin-bottom: 3%;
+    }
+
+    .patient_right {
+        background-color: transparent;
+        padding-left: 7%;
+    }
+
+    .save-btn {
+        padding-left: 0%;
+    }
+
 
 }
 
@@ -1508,6 +1538,10 @@ textarea:focus {
     h5, .time {font-size: var(--text-smaller);}
 
     th, td {font-size:var(--text-smaller);}
+
+    .clinician_header{
+        height: 8vh;
+    }
 
     /** dashboard **/
     .dashboard_flex, .flex_left{
@@ -1588,7 +1622,7 @@ textarea:focus {
     }
 
     .search_bar, .clinician_main{
-        padding-top: 15%;
+        padding-top: 14%;
     }
 
 
@@ -1603,6 +1637,26 @@ textarea:focus {
 
     .clinician_main{
         padding-top:15%;
+    }
+
+    /** clinician patient flex **/
+    .note_main {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .overall{
+        width: 85%;
+        height: 610px;
+    }
+
+    .info_container{
+        padding: 2%;
+    }
+
+    .patient_right {
+        background-color: transparent;
+        padding-left: 7%;
     }
 
 }
