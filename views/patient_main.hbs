@@ -4,7 +4,7 @@
     
     <div id="clinician_message">
         <h2 style="text-align:left">Hello, {{user.nameScreen}}</h2>
-        <p style="text-align:left" class="bigger_p">{{user.supportMessage}}</p>
+        <p style="text-align:left" class="bigger_p">{{patient.supportMessage}}</p>
     </div>
 
     <!-- charts -->
@@ -20,10 +20,18 @@
 
     <!--flexbox-->
     <div class="data_display">
-        {{> patient_main_container field="weight" title="Weight" value=user.weight}}
-        {{> patient_main_container field="bloodGlucose" title="Blood Glucose Level" value=user.bloodGlucose}}
-        {{> patient_main_container field="exercise" title="Exercise" value=user.exercise}}
-        {{> patient_main_container field="insulin" title="Doses of Insulin Taken" value=user.dosesOfInsulin}}       
+        {{#if patient.requirementWeight}}
+            {{> patient_main_container field="weight" title="Weight" value=healthData.valueWeight}}
+        {{/if}}
+        {{#if patient.requirementBloodGlucoseLevel}}
+            {{> patient_main_container field="bloodGlucose" title="Blood Glucose Level" value=healthData.valueBloodGlucoseLevel}}
+        {{/if}}
+        {{#if patient.requirementExercise}}
+            {{> patient_main_container field="exercise" title="Exercise" value=healthData.valueExercise}}
+        {{/if}}
+        {{#if patient.requirementDosesOfInsulinTaken}}
+            {{> patient_main_container field="insulin" title="Doses of Insulin Taken" value=healthData.valueDosesOfInsulinTaken}}   
+        {{/if}}  
     </div>
 </main>
 

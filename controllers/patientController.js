@@ -1,6 +1,7 @@
 const User = require('../models/user')
 const Clinician = require('../models/clinician')
 const {Patient} = require('../models/patient')
+const {HealthDataEntry} = require('../models/patient')
 
 const getPatientUser = async (req, res, next) => {
     try {
@@ -8,10 +9,24 @@ const getPatientUser = async (req, res, next) => {
             res.redirect('/clinician/dashboard')
         } 
         else
-            return res.render('patient_main.hbs', {user: req.user.toJSON()})
+            patient = await Patient.findById(req.user.toJSON().model).lean()
+            healthData = await getHealthData(patient)
+            return res.render('patient_main.hbs', {
+                user: req.user.toJSON(), patient: patient, healthData: healthData
+            })
     }
     catch (e) {
         return next(e)
+    }
+}
+
+const getHealthData = async (patient) => {
+    for (let i = 0; i < patient.patientHealthEntries.length; i++) {
+        data = await HealthDataEntry.findById(patient.patientHealthEntries[0]).lean()
+        today = getDateTime().slice(0, 10)
+        if (today === data.date) {
+            return data
+        }
     }
 }
 
