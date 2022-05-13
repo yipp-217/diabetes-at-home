@@ -23,7 +23,7 @@
                 </tr>
                 
                 {{#each patients}}       
-                    <tr class="dash_container" onclick="goToPatient()" style="cursor: pointer;">
+                    <tr class="dash_container" onclick="goToPatient('{{this._id}}')" style="cursor: pointer;">
                         <td>{{this.user.nameGiven}} {{this.user.nameFamily}}</td>
                         {{> clinician_dashboard_patient_data value=this.patientHealthEntries.valueBloodGlucoseLevel lowerThreshold=this.bloodGlucoseLowerThreshold upperThreshold=this.bloodGlucoseUpperThreshold}}
                         {{> clinician_dashboard_patient_data value=this.patientHealthEntries.valueWeight lowerThreshold=this.weightLowerThreshold upperThreshold=this.weighteUpperThreshold}}
@@ -37,8 +37,8 @@
 </body>
 
 <script>
-    function goToPatient() {
-        location.href = "/clinician/patient"
+    function goToPatient(patient) {
+        location.href = "/clinician/patient/" + patient 
     }
 
     const getPatient = async (user) => {

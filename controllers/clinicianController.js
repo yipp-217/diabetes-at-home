@@ -45,8 +45,15 @@ const getPatient = async (req, res, next) => {
         if (req.user.onModel == 'Patient') {
             res.redirect('/patient')
         } 
-        else
-            return res.render('clinician_patient.hbs', {user: req.user.toJSON()})
+        else {
+            patient = await Patient.findById(req.params.id).lean()
+            patient = await Patient.findById(patient).populate("user").lean()
+            patient.patientHealthEntries = await patientController.getHealthData(patient)
+            return res.render('clinician_patient.hbs', {
+                user: req.user.toJSON(),
+                patient: patient
+            })
+        }
     }
     catch (e) {
         return next(e)

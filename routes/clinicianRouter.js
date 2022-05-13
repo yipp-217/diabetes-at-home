@@ -9,6 +9,8 @@ clinicianRouter.get('/dashboard', homeController.isAuthenticated, homeController
 
 clinicianRouter.get('/patient-comments', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getPatientComments)
 
+clinicianRouter.get('/patient/:id', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getPatient)
+
 clinicianRouter.get('/patient/clinician-notes', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getPatientNotes)
 
 clinicianRouter.get('/patient/data-history', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getPatientDataHistory)
