@@ -5,16 +5,22 @@
 
     <!-- 4 records -->
     <div class="boxes_container sec1">
-        {{> patient_edit_data_container title="Blood Glucose Level" field="bloodGlucose" unit="nmol/L" value=user.bloodGlucose comment=user.bloodGlucoseComment time=user.bloodGlucoseRecordDateTime icon="/res/Icon_blood.svg" action="/patient/edit-data/blood-glucose-level"}}
-
-        {{> patient_edit_data_container title="Weight" field="weight" unit="kilograms" value=user.weight comment=user.weightComment time=user.weightRecordDateTime icon="/res/Icon-weight.svg" action=""}}
+        {{#if patient.requirementWeight}}
+            {{> patient_edit_data_container title="Blood Glucose Level" field="bloodGlucose" unit="nmol/L" value=healthData.valueBloodGlucoseLevel comment=healthData.commentBloodGlucoseLevel time=healthData.timeBloodGlucoseLevel icon="/res/Icon_blood.svg" action="/patient/edit-data/blood-glucose-level"}}
+        {{/if}}
+        {{#if patient.requirementWeight}}
+            {{> patient_edit_data_container title="Weight" field="weight" unit="kilograms" value=healthData.valueWeight comment=healthData.commentWeight time=healthData.timeWeight icon="/res/Icon-weight.svg" action=""}}
+        {{/if}}
     </div>
 
 
     <div class="boxes_container sec2">
-        {{> patient_edit_data_container title="Exercise" field="exercise" unit="steps" value=user.exercise comment=user.exerciseComment time=user.exerciseRecordDateTime icon="/res/Icon_excercise.svg" action=""}}
-        
-        {{> patient_edit_data_container title="Doses of Insulin Taken" field="dosesOfInsulin" unit="doses" value=user.dosesOfInsulin comment=user.dosesOfInsulinComment time=user.dosesOfInsulinRecordDateTime icon="/res/Icon_doses.svg" action=""}}
+        {{#if patient.requirementWeight}}
+            {{> patient_edit_data_container title="Exercise" field="exercise" unit="steps" value=healthData.valueExercise comment=healthData.commentExercise time=healthData.timeExercise icon="/res/Icon_excercise.svg" action=""}}    
+        {{/if}}
+        {{#if patient.requirementWeight}}
+            {{> patient_edit_data_container title="Doses of Insulin Taken" field="dosesOfInsulin" unit="doses" value=healthData.valueDosesOfInsulinTaken comment=healthData.commentDosesOfInsulinTaken time=user.timeDosesOfInsulinTaken icon="/res/Icon_doses.svg" action=""}}
+        {{/if}}
     </div>
 </main>
 

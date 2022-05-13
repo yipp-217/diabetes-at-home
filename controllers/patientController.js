@@ -20,23 +20,17 @@ const getPatientUser = async (req, res, next) => {
     }
 }
 
-const getHealthData = async (patient) => {
-    for (let i = 0; i < patient.patientHealthEntries.length; i++) {
-        data = await HealthDataEntry.findById(patient.patientHealthEntries[0]).lean()
-        today = getDateTime().slice(0, 10)
-        if (today === data.date) {
-            return data
-        }
-    }
-}
-
 const getPatientUserEdit = async (req, res, next) => {
     try {
         if (req.user.onModel == 'Clinician') {
             res.redirect('/clinician/dashboard')
         } 
         else
-            return res.render('patient_edit_data.hbs', {user: req.user.toJSON()})
+            patient = await Patient.findById(req.user.toJSON().model).lean()
+            healthData = await getHealthData(patient)
+            return res.render('patient_edit_data.hbs', {
+                user: req.user.toJSON(), patient: patient, healthData: healthData
+            })
     }
     catch (e) {
         return next(e)
@@ -67,6 +61,16 @@ const updateBloodGlucose = async (req, res, next) => {
 function getDateTime() {
     const today = new Date().toLocaleString("en-AU", {timeZone: "Australia/Melbourne"});
     return today;
+}
+
+const getHealthData = async (patient) => {
+    for (let i = 0; i < patient.patientHealthEntries.length; i++) {
+        data = await HealthDataEntry.findById(patient.patientHealthEntries[0]).lean()
+        today = getDateTime().slice(0, 10)
+        if (today === data.date) {
+            return data
+        }
+    }
 }
 
 
