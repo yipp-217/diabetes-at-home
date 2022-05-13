@@ -3,13 +3,17 @@ const Clinician = require('../models/clinician')
 const {Patient} = require('../models/patient')
 const {HealthDataEntry} = require('../models/patient')
 
+const getPatient = async (user) => {
+    return await Patient.findById(user).lean()
+}
+
 const getPatientUser = async (req, res, next) => {
     try {
         if (req.user.onModel == 'Clinician') {
             res.redirect('/clinician/dashboard')
         } 
         else
-            patient = await Patient.findById(req.user.toJSON().model).lean()
+            patient = await getPatient(req.user.toJSON().model)
             healthData = await getHealthData(patient)
             return res.render('patient_main.hbs', {
                 user: req.user.toJSON(), patient: patient, healthData: healthData
@@ -26,7 +30,7 @@ const getPatientUserEdit = async (req, res, next) => {
             res.redirect('/clinician/dashboard')
         } 
         else
-            patient = await Patient.findById(req.user.toJSON().model).lean()
+            patient = await getPatient(req.user.toJSON().model)
             healthData = await getHealthData(patient)
             return res.render('patient_edit_data.hbs', {
                 user: req.user.toJSON(), patient: patient, healthData: healthData
@@ -269,4 +273,5 @@ module.exports = {
     updateWeight,
     updateExercise,
     updateInsulin,
+    getHealthData,
 }

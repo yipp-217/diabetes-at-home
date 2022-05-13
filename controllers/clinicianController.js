@@ -1,5 +1,7 @@
-const Clinician = require('../models/clinician')
+const {Clinician} = require('../models/clinician')
 const {Patient} = require('../models/patient')
+
+const patientController = require('../controllers/patientController')
 
 
 const getClinicianDashboard = async (req, res, next) => {
@@ -8,25 +10,12 @@ const getClinicianDashboard = async (req, res, next) => {
             res.redirect('/patient')
         } 
         else
-            return res.render('clinician-dashboard.hbs', {user: req.user.toJSON()})
-        // Chris's object id
-        //const clinician = await Clinician.findOne({email: 'chris@mail.com'}).lean()
-        //const patients = await Patient.find({clinician: "0001"}).lean()
-        //return res.render('clinician-dashboard.hbs', {user: clinician, patients: patients})
-        //return res.render('clinician-dashboard.hbs', {
-        //    user: {
-        //        nameScreen: "Dr. Chris"
-        //    }, 
-        //    patients: {
-        //        patient1: {
-        //            nameGiven: "Pat",
-        //            nameFamily: "Patient",
-        //            bloodGlucose: 3,
-        //            bloodGlucoseLowerThreshold: 1,
-        //            bloodGlucoseUpperThreshold: 5
-        //        }
-        //    }
-        //})
+            clinician = await Clinician.findById(req.user.toJSON().model).lean()
+            patients = await getPatients(clinician.patients)
+            patients = await getPatientsHealthData(patients)
+            return res.render('clinician-dashboard.hbs', {
+                user: req.user.toJSON(), patients: patients
+            })
     }
     catch (e) {
         return next(e)
@@ -40,9 +29,6 @@ const getPatientComments = async (req, res, next) => {
         } 
         else
             return res.render('clinician_dashboard_comment.hbs', {user: req.user.toJSON()})
-        //const patients = await Patient.find({clinician: "0001"}).lean()
-        //return res.render('dashboard_comment.hbs', {patients: patients})
-        //return res.render('clinician_dashboard_comment.hbs')
     }
     catch (e) {
         return next(e)
@@ -112,6 +98,23 @@ const getRegisterPatient = async (req, res, next) => {
     catch (e) {
         return next(e)
     }
+}
+
+const getPatientsHealthData = async (patients) => {
+    for (let i = 0; i < patients.length; i++) {
+        patients[i].patientHealthEntries = await patientController.getHealthData(patients[i])
+    }
+    return patients
+}
+
+const getPatients = async (patients) => {
+    newPatients = []
+    for (let i = 0; i < patients.length; i++) {
+        newPat = await Patient.findById(patients[i]).lean()
+        newPat = await Patient.findById(patients[i]).populate("user").lean()
+        newPatients[i] = newPat
+    }
+    return newPatients
 }
 
 module.exports = {

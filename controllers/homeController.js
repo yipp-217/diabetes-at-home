@@ -47,16 +47,6 @@ const logout = (req, res) => {
     res.redirect('/')
 }
 
-/** */
-const login = (req, res, next) => {
-    try {
-
-    }
-    catch (e) {
-        console.log(e)
-    }
-}
-
 const getAboutDiabetes = (req, res) => {
     res.render('about_diabetes.hbs', {loggedin: req.isAuthenticated()})
 }
@@ -71,7 +61,6 @@ module.exports = {
     roleRedirect,
     getHome,
     getLogin,
-    login,
     getAboutDiabetes,
     getAboutWebsite,
     logout,

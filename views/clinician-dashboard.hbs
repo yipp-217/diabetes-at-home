@@ -21,14 +21,14 @@
                     <th>Exercise (steps)</th>
                     <th>Doses of insulin taken</th>
                 </tr>
-
-                {{#each patients}}
+                
+                {{#each patients}}       
                     <tr class="dash_container" onclick="goToPatient()" style="cursor: pointer;">
-                        <td>{{this.nameGiven}} {{this.nameFamily}}</td>
-                        {{> clinician_dashboard_patient_data value=this.bloodGlucose lowerThreshold=this.bloodGlucoseLowerThreshold upperThreshold=this.bloodGlucoseUpperThreshold}}
-                        {{> clinician_dashboard_patient_data value=this.weight lowerThreshold=this.weightLowerThreshold upperThreshold=this.weighteUpperThreshold}}
-                        {{> clinician_dashboard_patient_data value=this.exercise lowerThreshold=this.exerciseLowerThreshold upperThreshold=this.exerciseUpperThreshold}}
-                        {{> clinician_dashboard_patient_data value=this.dosesOfInsulin lowerThreshold=this.dosesOfInsulinLowerThreshold upperThreshold=this.dosesOfInsulinUpperThreshold}}                        
+                        <td>{{this.user.nameGiven}} {{this.user.nameFamily}}</td>
+                        {{> clinician_dashboard_patient_data value=this.patientHealthEntries.valueBloodGlucoseLevel lowerThreshold=this.bloodGlucoseLowerThreshold upperThreshold=this.bloodGlucoseUpperThreshold}}
+                        {{> clinician_dashboard_patient_data value=this.patientHealthEntries.valueWeight lowerThreshold=this.weightLowerThreshold upperThreshold=this.weighteUpperThreshold}}
+                        {{> clinician_dashboard_patient_data value=this.patientHealthEntries.valueExercise lowerThreshold=this.exerciseLowerThreshold upperThreshold=this.exerciseUpperThreshold}}
+                        {{> clinician_dashboard_patient_data value=this.patientHealthEntries.valueDosesOfInsulinTaken lowerThreshold=this.dosesOfInsulinLowerThreshold upperThreshold=this.dosesOfInsulinUpperThreshold}}                        
                     </tr>
                 {{/each}}
             </table> 
@@ -39,5 +39,9 @@
 <script>
     function goToPatient() {
         location.href = "/clinician/patient"
+    }
+
+    const getPatient = async (user) => {
+        return await Patient.findById(user).lean()
     }
 </script>
