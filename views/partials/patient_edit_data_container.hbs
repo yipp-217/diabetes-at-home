@@ -3,7 +3,7 @@
         <img class="body_icons" src={{icon}} alt="{{field}} icon image">
         <p class="bold_p">{{title}}</p>
         {{#if value}}
-            <p class="timeInComment">{{displayDate time}}</p>
+            <p class="timeInComment">{{time}}</p>
             {{else}}<img class="body_icons comment" src="/res/Icon_comment.svg" onclick="toggleComment('{{field}}DesktopComment')" style="cursor: pointer;">
         {{/if}}
     </div>
@@ -42,8 +42,8 @@
         const weightValue = document.getElementById("weightValue");
         const exercise = document.getElementById("exerciseContainer");
         const exerciseValue = document.getElementById("exerciseValue");
-        const insulin = document.getElementById("insulinContainer");
-        const insulinValue = document.getElementById("insulinValue");
+        const insulin = document.getElementById("dosesOfInsulinContainer");
+        const insulinValue = document.getElementById("dosesOfInsulinValue");
 
         if (bloodGlucose.contains(bloodGlucoseValue)) {
             bloodGlucose.style.backgroundColor = "#9FC0D6";

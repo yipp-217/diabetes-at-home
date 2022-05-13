@@ -154,7 +154,7 @@ p {
 
 .smallest_p { font-size:var(--text-smallest);}
 
-#bloodGlucoseValue, #weightValue, #exerciseValue, #nsulinValue {
+#bloodGlucoseValue, #weightValue, #exerciseValue, #dosesOfInsulinValue {
     font-size: var(--text-subheading);
     font-weight: 700;
 }

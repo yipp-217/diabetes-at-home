@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-
+const ObjectId = mongoose.Types.ObjectId;
 
 const healthDataEntrySchema = new mongoose.Schema({
     date: {type: String},
@@ -50,7 +50,7 @@ const patientSchema = new mongoose.Schema({
     dosesOfInsulinUpperThreshold: Number,
     dosesOfInsulinLowerThreshold: Number,
 
-    patientHealthEntries: [healthDataEntrySchema],
+    patientHealthEntries: [ObjectId],
     clinicianNotes: [clinicianNoteSchema]
 })
 
