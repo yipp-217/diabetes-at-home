@@ -229,7 +229,7 @@ header {
 .icon_settings{
     width: 4%;
     position: absolute;
-    right: 1%;
+    right: 4%;
 }
 
 /****************** body css style ************************/
@@ -637,6 +637,18 @@ span.psw, span.rememberme {
     width: 100%;
 }
 
+.flex{
+    display: flex;
+    line-height: 5vh;
+    align-items: center;
+}
+
+.change_btn img{
+    transform: rotateY(180deg);
+    margin-left: 90%;
+    display: block;
+}
+
 
 /***************** checkmark *******************/
 
@@ -801,11 +813,6 @@ button:active {
     transform: scale(1);
 }
 
-
-.change_btn{
-    margin-left: 90%;
-    transform: rotateY(180deg);
-}
 
 .theme-toggle-button:hover,
 .theme-toggle-button:focus {
@@ -1415,7 +1422,7 @@ textarea:focus {
         height: 40%;
     }   
 
-
+    /** setting_container **/
     .setting_hid{
         background-color: transparent;
     }
@@ -1435,8 +1442,31 @@ textarea:focus {
         border-radius: 10px;
         display: flex;
         padding:3%;
-        line-height: 3vh;
+        align-items: center;
+        line-height: 5vh;
     }
+
+
+    .change_btn{
+        right: 15%;
+        position: absolute;
+    }
+
+    .setting_content{
+        padding-top: 10vh;
+        margin: 0;
+        text-align: center;
+    }
+
+/** clinician_header **/    
+     .clinician_nav_btn{
+         right:18%;
+     }
+
+     .icon_settings{
+         right:13%;
+     }
+
 
 
 }
@@ -1574,6 +1604,7 @@ textarea:focus {
     .clinician_main{
         padding-top:15%;
     }
+
 }
 
 
@@ -1633,4 +1664,5 @@ textarea:focus {
     .Top3 {
         display: none;
     }
+
 }
