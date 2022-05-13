@@ -801,6 +801,7 @@ button:active {
     transform: scale(1);
 }
 
+
 .change_btn{
     margin-left: 90%;
     transform: rotateY(180deg);
@@ -1426,11 +1427,15 @@ textarea:focus {
 
     .setting_contanier{
         width: 100%;
+        margin: -2%;
     }
 
     .setting_phone{
         background-color:var(--color-background-lightmedium);
         border-radius: 10px;
+        display: flex;
+        padding:3%;
+        line-height: 3vh;
     }
 
 
