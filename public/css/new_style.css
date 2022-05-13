@@ -109,6 +109,10 @@ h4 {
     text-align: center;
 }
 
+.dark h4 {
+    color: #ffffff;
+}
+
 h5 {
     font-family: var(--font-family-heading);
     font-size: var(--text-medium);
@@ -247,6 +251,10 @@ header {
     transform: translate(-50%, -50%);
 }
 
+.dark .logoText {
+    text-shadow: 0 5px 15px var(--color-background-light);
+}
+
 .logo_image {
     width: 80%;
 }
@@ -269,7 +277,7 @@ body {
 
 body.dark {
     /* Background Colours */
-    --color-background-white: #000000;
+    --color-background-white: #272727;
     --color-background-light: #193773;
     --color-background-lightmedium: #466fa6;
     --color-background-medium: #9FC0D6;
@@ -440,7 +448,6 @@ input[name="email"], input[type=password] {
     background-position: 10px 10px;
     background-repeat: no-repeat;
     padding-left: 40px;
-    background-color: var(--color-background-grey);
 }
 
 input[type=text], input[type=password] {
@@ -467,6 +474,10 @@ span.psw, span.rememberme {
     padding: 30px 0;
     font-family: var(--font-family-heading);
     font-size: var(--text-small);
+}
+
+.dark .rememberme {
+    color:#ffffff;
 }
 
 
