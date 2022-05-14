@@ -1,5 +1,7 @@
-const User = require('../models/user')
-const Clinician = require('../models/clinician')
+
+
+const {User} = require('../models/user')
+const {Clinician} = require('../models/clinician')
 const {Patient} = require('../models/patient')
 const {HealthDataEntry} = require('../models/patient')
 
@@ -62,6 +64,22 @@ const getHealthData = async (patient) => {
     }
     return null
 }
+const calculateEngagement = async (patient, req) => {
+    const oneDay = 24 * 60 * 60 * 1000
+    const data = await User.findById(patient.user).lean()
+
+    dayCreated = data.dateCreated.substring(0, 10)
+    today = getDateTime().substring(0,10)
+    
+    dateOne = new Date(dayCreated.substring(6,10), dayCreated.substring(3,5), dayCreated.substring(0,2))
+    dateTwo = new Date(today.substring(6,10), today.substring(3,5), today.substring(0,2))
+
+    diffDays = Math.round(Math.abs((dateOne - dateTwo) / oneDay))
+    numEntries = patient.patientHealthEntries.length
+   
+    console.log((numEntries/diffDays) * 100)
+    return (numEntries/diffDays) * 100
+}
 
 
 const getLeaderboard = async (req, res, next) => {
@@ -69,8 +87,11 @@ const getLeaderboard = async (req, res, next) => {
         if (req.user.onModel == 'Clinician') {
             res.redirect('/clinician/dashboard')
         } 
-        else
+        else {
+            patient = await getPatient(req.user.toJSON().model)
+            engagement = await calculateEngagement(patient, req)
             return res.render('patient_leaderboard.hbs', {user: req.user.toJSON()})
+        }
     }
     catch (e) {
         return next(e)

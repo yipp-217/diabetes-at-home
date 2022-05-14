@@ -13,6 +13,7 @@ const createUser = async (req, res, next) => {
         const user = new User(req.body)
         // need to secure the session key
         user.secret = "SqS8yF:Ac;<zn9YM8:=3s\",/q$9Rn9}hX\\y7&..Q!D~h'dJu5-BGKJ7#cR``\\Z^k"
+        user.dateCreated = getDateTime()
         console.log(req.body)
         if (Boolean(req.body.clinician)) {
             user.onModel = 'Clinician'
@@ -34,6 +35,11 @@ const createUser = async (req, res, next) => {
     catch (e) {
         return next(e)
     }
+}
+
+const getDateTime = () => {
+    const today = new Date().toLocaleString("en-AU", {timeZone: "Australia/Melbourne"});
+    return today;
 }
 
 

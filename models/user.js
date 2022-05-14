@@ -9,8 +9,10 @@ const userSchema = new mongoose.Schema({
     nameFamily: {type: String, required: true},
     nameGiven: String,
     nameScreen: {type: String, required: true},
+    dateCreated:  {type: String},
     yearBorn: Number,
     bio: String,
+    
 
     onModel: {type: String, enum: ['Clinician', 'Patient']},
     model: {type: mongoose.Schema.Types.ObjectId, refPath:'onModel'}
