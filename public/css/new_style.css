@@ -610,6 +610,7 @@ span.psw, span.rememberme {
     background-color: var(--color-background-light);
     border-radius: 10px;
     height: 50vh;
+    position: relative;
 }
 
 .more_info{
@@ -749,6 +750,7 @@ button {
     border-radius: 12px !important;;
     cursor: pointer;
     box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.2) !important;;
+    z-index: 100;
 }
 
 button:active {
@@ -817,6 +819,15 @@ button:active {
 .theme-toggle-button:hover,
 .theme-toggle-button:focus {
     /*transform: scale(1.1);*/
+}
+
+.chart_button {
+    position: absolute;
+}
+
+#curve_chart {
+    height: 50vh;
+    z-index: 99;
 }
 
 /******************* graph ****************/
@@ -1426,7 +1437,15 @@ textarea:focus {
     .graph{
         width: 80%;
         height: 40%;
-    }   
+    } 
+    
+    .chart_container {
+        height: 40vh;
+    }
+
+    #curve_chart {
+        height: 40vh;
+    }
 
     /** setting_container **/
     .setting_hid{

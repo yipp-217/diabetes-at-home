@@ -1,7 +1,7 @@
 {{> sidenav login=true page='patient_main'}}
 
 <main class="content mainpage_grid_format">
-    
+
     <div id="clinician_message">
         <h2 style="text-align:left">Hello, {{user.nameScreen}}</h2>
         <p style="text-align:left" class="bigger_p">{{patient.supportMessage}}</p>
@@ -9,10 +9,13 @@
 
     <!-- charts -->
     <div class="chart_container container sec1">
-        <button class="white_button item_center"> 
+        <!--drop down button-->
+        <button class="white_button item_center chart_button"> 
             <p style="margin-right: 1vh">All</p>
             <img src="/res/Icon-down.svg">
-        </button>
+        </button> 
+        <!--line charts-->
+        <div id="curve_chart"></div>
     </div>
 
     <!-- data entry -->
@@ -36,3 +39,38 @@
 </main>
 
 {{> bottomnav page='patient_main'}}
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {packages: ['corechart', 'line']});
+google.charts.setOnLoadCallback(drawbloogGlucoseLevel);
+
+function drawbloogGlucoseLevel() {
+    var data = google.visualization.arrayToDataTable([
+          ['Days', 'Blood Glucose Level'],
+          ['1',  125],
+          ['2',  135],
+          ['3',  118],
+          ['4',  120],
+          ['5',  118],
+          ['6',  120],
+          ['7',  115]
+        ]);
+
+      var options = {
+        curveType: 'function',
+        hAxis: {
+          title: 'Days'
+        },
+        vAxis: {
+          title: 'nmol/L',
+          minValue: 100
+        },
+        backgroundColor: 'transparent',
+        legend: { position: 'bottom' }
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+      chart.draw(data, options);
+    }
+    </script>
