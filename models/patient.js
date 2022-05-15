@@ -33,6 +33,7 @@ const patientSchema = new mongoose.Schema({
     clinician: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
 
     supportMessage: {type: String},
+    engagement: {type: Number, default: 0},
 
     requirementBloodGlucoseLevel: Boolean,
     bloodGlucoseUpperThreshold: Number,
