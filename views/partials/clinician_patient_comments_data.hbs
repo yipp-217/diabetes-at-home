@@ -1,8 +1,14 @@
 {{#if comment}}
-    <section class="container container_comment">
+    <section class="container container_comment" onclick="goToPatient('{{patient._id}}')">
         <p >{{patient.user.nameGiven}} {{patient.user.nameFamily}}</p> 
         <p >{{time}}</p>
         <p >{{title}}: {{value}} {{unit}}</p>
         <p >{{comment}}</p>
     </section>
 {{/if}}
+
+<script>
+    function goToPatient(patient) {
+        location.href = "/clinician/patient/" + patient 
+    }
+</script>

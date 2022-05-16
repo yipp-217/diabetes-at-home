@@ -40,8 +40,4 @@
     function goToPatient(patient) {
         location.href = "/clinician/patient/" + patient 
     }
-
-    const getPatient = async (user) => {
-        return await Patient.findById(user).lean()
-    }
 </script>
