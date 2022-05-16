@@ -91,8 +91,10 @@ const getPatientDataHistory = async (req, res, next) => {
         if (req.user.onModel == 'Patient') {
             res.redirect('/patient')
         } 
-        else
-            return res.render('clinician_data_history.hbs', {user: req.user.toJSON()})
+        else {
+            patient = await Patient.findById(req.params.id).populate("user").lean()
+            return res.render('clinician_data_history.hbs', {user: req.user.toJSON(), patient: patient})
+        }
     }
     catch (e) {
         return next(e)
