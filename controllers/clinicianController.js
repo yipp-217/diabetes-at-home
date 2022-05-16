@@ -192,7 +192,6 @@ const addNote = async (req, res, next) => {
 const updatePatientRequirements = async (req, res, next) => {
     try {
         patient = await Patient.findById(req.params.id).populate("user").lean()
-        console.log(req.body.weightReq)
         await Patient.findOneAndUpdate(
             {_id: patient._id},
             {$set: {
@@ -266,26 +265,6 @@ const updatePatientRequirements = async (req, res, next) => {
                 }}
             ).lean()
         }
-        await Patient.findOneAndUpdate(
-            {_id: patient._id},
-            {$set: {
-                //requirementBloodGlucoseLevel: req.body.bloodGlucoseReq,
-                //bloodGlucoseUpperThreshold: req.body.bloodGlucoseUpperThreshold,
-                //bloodGlucoseLowerThreshold: req.body.bloodGlucoseLowerThreshold,
-
-                //requirementWeight: req.body.weightReq,
-                //weightUpperThreshold: req.body.weightUpperThreshold,
-                //weightLowerThreshold: req.body.weightLowerThreshold,
-
-                //requirementExercise: req.body.exerciseReq,
-                //exerciseUpperThreshold: req.body.exerciseUpperThreshold,
-                //exerciseLowerThreshold: req.body.exerciseLowerThreshold,
-
-                //requirementDosesOfInsulinTaken: req.body.insulinReq,
-                //dosesOfInsulinUpperThreshold: req.body.insulinUpperThreshold,
-                //dosesOfInsulinLowerThreshold: req.body.insulinReq,
-            }}
-        ).lean()
         return res.redirect('/clinician/patient/' + patient._id)
     }
     catch (e) {

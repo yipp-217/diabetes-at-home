@@ -1,60 +1,50 @@
 {{> sidenav login=true page='settings'}}
 
 <main class="content setting_content">
-
-     <h3 >Dr Jones</h3>
-        <section class="big_background setting_hid">
-    
+     <h3>{{user.nameScreen}}</h3>
+    <form class="big_background setting_hid" action="/update-user" method="post">
         <section class="setting_contanier">
-                <article class="personal_info setting_phone">
-                    <h5>Full name:</h5>
-                    <p>Sally Megan Jones</p>
-                </article>
-    
-                <article class="personal_info setting_phone">
-                    <label for="Email"></label><h5>Email:</h5> </label>
-                    <input type="text" placeholder="sally.jones@doctor.com" name="Email">
-                </article>
+            <article class="personal_info setting_phone">
+                <h5>Full name:</h5>
+                <p>{{user.nameGiven}} {{user.nameFamily}}</p>
+            </article>
 
-                <article class="personal_info setting_phone flex">
-                    <label for="change_password"></label><h5>change_password</h5><a class="change_btn" href=""><img src="/res/back_arrow.svg"></a></label>
-                </article>
+            <article class="personal_info setting_phone">
+                <label for="Email"></label><h5>Email:</h5> </label>
+                <p>{{user.email}}</p>
+            </article>
 
+            <article class="personal_info setting_phone">
+                <label for="Password"></label><h5>New Password:</h5></label>
+                <input type="password" placeholder="" name="Password">
+            </article>
+
+            <article class="personal_info setting_phone">
+                <label for="Confirm_Password"></label><h5>Confirm Password:</h5></label>
+                <input type="password" placeholder="" name="Confirm_Password">
+            </article>
         </section>
     
         <section class="setting_contanier">
-
-            <article class="personal_info setting_phone">
-                <h5>Date of Birth:</h5>
-                <p>01/01/1980</p>
+           <article class="personal_info setting_phone">
+                <h5>Year Born:</h5>
+                <p>{{user.yearBorn}}</p>
             </article>
-    
+
             <article class="personal_info setting_phone">
                 <label for="Bio"></label><h5>Bio:</h5> </label>
-                <textarea class="input" name="Bio" placeholder="I have been a doctor for 10 years! I love helping others."></textarea>
-                
+                <textarea class="input" name="bio" >{{user.bio}}</textarea> 
             </article>
-    
-            <section class="center_btn"><button class="pink_button" type="submit"><h5>Log Out</h5></button></section>
-            
-            
+            <section class="center_btn"><button class="pink_button" type="submit"><h5>Update</h5></button></section>
         </section>
-
-        </section>
-        
-        <button class="theme-toggle-button">dark mode</button> 
-
+    </form>
+    <button class="theme-toggle-button">Dark Mode</button> 
 </main>
 {{> bottomnav page='settings'}}
-
- <main class="clinician_main">
-       
-    </main>
-    </body>
 
 
 <script>
     document.querySelector('.theme-toggle-button').addEventListener('click', () => {
-    document.body.classList.toggle('dark')
+        document.body.classList.toggle('dark')
     })
 </script>

@@ -21,4 +21,6 @@ homeRouter.get('/about-website', homeController.getAboutWebsite)
 
 homeRouter.get('/error', homeController.getError)
 
+homeRouter.post('/update-user', homeController.isAuthenticated, homeController.updateUserDetails)
+
 module.exports = homeRouter
