@@ -1,56 +1,17 @@
 <body class="clinician_body">
     <header class="clinician_header">
-        <h2 class="cilnician_nav"> Clinician Patient Notes</h2>
-        <a href="/clinician/patient" class="clinician_nav_btn"><h5>Back to Patient</h5></a>
+        <h2 class="cilnician_nav"> Notes for {{patient.user.nameGiven}} {{patient.user.nameFamily}}</h2>
+        <a href="/clinician/patient/{{patient._id}}" class="clinician_nav_btn"><h5>Back to Patient</h5></a>
     </header>
 
     <main >
         <section class="big_background note">
-            <article class="contianer_note">
-                <p> This is a example of a note.</p>
-                <p class="time">01/02/2022 13:43</p>
-            </article>
-
-            <article class="contianer_note">
-                <p>This is a example of a note.</p>
-                <p class="time">01/02/2022 13:43</p>
-            </article>
-
-            <article class="contianer_note">
-                <p>This is a example of a note.</p>
-                <p class="time">01/02/2022 13:43</p>
-            </article>
-
-            <article class="contianer_note">
-                <p>This is a example of a note.</p>
-                <p class="time">01/02/2022 13:43</p>
-            </article>
-
-            <article class="contianer_note">
-                <p>This is a example of a note.</p>
-                <p class="time">01/02/2022 13:43</p>
-            </article>
-
-            <article class="contianer_note">
-                <p>This is a example of a note.</p>
-                <p class="time">01/02/2022 13:43</p>
-            </article>
-
-            <article class="contianer_note">
-                <p>This is a example of a note.</p>
-                <p class="time">01/02/2022 13:43</p>
-            </article>
-
-            <article class="contianer_note">
-                <p>This is a example of a note.</p>
-                <p class="time">01/02/2022 13:43</p>
-            </article>
-            
-            <article class="contianer_note">
-                <p>This is a example of a note.</p>
-                <p class="time">01/02/2022 13:43</p>
-            </article>
-
+            {{#each notes}}
+                <article class="contianer_note">
+                    <p>{{this.note}}</p>
+                    <p class="time">{{this.time}}</p>
+                </article>
+            {{/each}}
         </section>
     </main>
 </body>

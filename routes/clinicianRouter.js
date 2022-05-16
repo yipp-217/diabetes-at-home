@@ -11,9 +11,11 @@ clinicianRouter.get('/patient-comments', homeController.isAuthenticated, homeCon
 
 clinicianRouter.post('/patient/:id/update-support', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.updateSupportMsg)
 
-clinicianRouter.get('/patient/:id', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getPatient)
+clinicianRouter.post('/patient/:id/add-note', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.addNote)
 
-clinicianRouter.get('/patient/clinician-notes', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getPatientNotes)
+clinicianRouter.get('/patient/:id/clinician-notes', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getPatientNotes)
+
+clinicianRouter.get('/patient/:id', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getPatient)
 
 clinicianRouter.get('/patient/data-history', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getPatientDataHistory)
 

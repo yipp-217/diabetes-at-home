@@ -1,5 +1,6 @@
 const {Clinician} = require('../models/clinician')
 const {Patient} = require('../models/patient')
+const {ClinicianNote} = require('../models/patient')
 
 const patientController = require('../controllers/patientController')
 
@@ -65,12 +66,24 @@ const getPatientNotes = async (req, res, next) => {
         if (req.user.onModel == 'Patient') {
             res.redirect('/patient')
         } 
-        else
-            return res.render('clinician_patient_notes.hbs', {user: req.user.toJSON()})
+        else {
+            patient = await Patient.findById(req.params.id).populate("user").lean()
+            notes = await getClinicianNotes(patient)
+            return res.render('clinician_patient_notes.hbs', {user: req.user.toJSON(), patient: patient, notes: notes})
+        }
     }
     catch (e) {
         return next(e)
     }
+}
+
+const getClinicianNotes = async (patient) => {
+    notes = []
+    for (let i = 0; i < patient.clinicianNotes.length; i++) {
+        data = await ClinicianNote.findById(patient.clinicianNotes[i]).lean()
+        notes[i] = data
+    }
+    return notes
 }
 
 const getPatientDataHistory = async (req, res, next) => {
@@ -149,6 +162,31 @@ const updateSupportMsg = async (req, res, next) => {
     }
 }
 
+const addNote = async (req, res, next) => {
+    try {
+        if (req.user.onModel == 'Patient') {
+            res.redirect('/patient')
+        } 
+        else {
+            newNote = await ClinicianNote.insertMany({
+                time: patientController.getDateTime(),
+                note: req.body.clinicianNote
+            })
+            newId = newNote[0]._id
+            await Patient.findOneAndUpdate(
+                {_id: patient._id},
+                {$push: {
+                    clinicianNotes: newId
+                }}
+            ).lean()
+            return res.redirect('/clinician/patient/' + patient._id)
+        }
+    }
+    catch (e) {
+        return next(e)
+    }
+}
+
 module.exports = {
     getClinicianDashboard,
     getPatientComments,
@@ -158,4 +196,5 @@ module.exports = {
     getClinicianSettings,
     getRegisterPatient,
     updateSupportMsg,
+    addNote,
 }

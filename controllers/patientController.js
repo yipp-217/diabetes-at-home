@@ -68,6 +68,7 @@ const getHealthData = async (patient) => {
     }
     return null
 }
+
 const calculateEngagement = async (patient, req) => {
     const oneDay = 24 * 60 * 60 * 1000
     const data = await User.findById(patient.user).lean()
@@ -305,4 +306,5 @@ module.exports = {
     updateExercise,
     updateInsulin,
     getHealthData,
+    getDateTime,
 }
