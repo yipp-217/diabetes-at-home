@@ -25,7 +25,6 @@
     "express-flash": "^0.0.2",
     "express-handlebars": "^6.0.5",
     "express-session": "^1.17.3",
-    "highcharts": "^10.1.0",
     "mongoose": "^6.3.3",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0"
