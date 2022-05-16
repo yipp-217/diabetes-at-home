@@ -17,7 +17,7 @@ const getPatientUser = async (req, res, next) => {
         else
             patient = await getPatient(req.user.toJSON().model)
             healthData = await getHealthData(patient)
-            engagementRate = await calculateEngagement(patient, req)
+            engagementRate = await calculateEngagement(patient)
             await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
             return res.render('patient_main.hbs', {
                 user: req.user.toJSON(), patient: patient, healthData: healthData
@@ -35,7 +35,7 @@ const getPatientUserEdit = async (req, res, next) => {
         } 
         else
             patient = await getPatient(req.user.toJSON().model)
-            engagementRate = await calculateEngagement(patient, req)
+            engagementRate = await calculateEngagement(patient)
             await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
             healthData = await getHealthData(patient)
             return res.render('patient_edit_data.hbs', {
@@ -68,8 +68,7 @@ const getHealthData = async (patient) => {
     }
     return null
 }
-
-const calculateEngagement = async (patient, req) => {
+const calculateEngagement = async (patient) => {
     const oneDay = 24 * 60 * 60 * 1000
     const data = await User.findById(patient.user).lean()
 
@@ -95,7 +94,8 @@ const getLeaderboard = async (req, res, next) => {
         } 
         else {
             patient = await getPatient(req.user.toJSON().model)
-            engagementRate = await calculateEngagement(patient, req)
+            engagementRate = await calculateEngagement(patient)
+            
             
             await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
             return res.render('patient_leaderboard.hbs', {user: req.user.toJSON()})
@@ -113,7 +113,7 @@ const getPatientSettings = async (req, res, next) => {
         } 
         else
             patient = await getPatient(req.user.toJSON().model)
-            engagementRate = await calculateEngagement(patient, req)
+            engagementRate = await calculateEngagement(patient)
             await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
             return res.render('settings.hbs', {user: req.user.toJSON()})
     }
@@ -306,5 +306,4 @@ module.exports = {
     updateExercise,
     updateInsulin,
     getHealthData,
-    getDateTime,
 }
