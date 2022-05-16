@@ -42,25 +42,27 @@
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load('current', {packages: ['corechart', 'line']});
-google.charts.setOnLoadCallback(drawbloogGlucoseLevel);
+    google.charts.load('current', {packages: ['corechart', 'line']});
 
-function drawbloogGlucoseLevel() {
+    //draw chart
+    google.charts.setOnLoadCallback(drawbloogGlucoseLevel);
+    function drawbloogGlucoseLevel() {
     var data = google.visualization.arrayToDataTable([
           ['Days', 'Blood Glucose Level'],
-          ['1',  125],
-          ['2',  135],
-          ['3',  118],
-          ['4',  120],
-          ['5',  118],
-          ['6',  120],
-          ['7',  115]
+          ['Monday',  125],
+          ['Tuesday',  135],
+          ['Wednesday',  118],
+          ['Thursday',  120],
+          ['Friday',  118],
+          ['Saturday',  120],
+          ['Sunday',  115]
         ]);
 
       var options = {
         curveType: 'function',
         hAxis: {
-          title: 'Days'
+          title: 'Days',
+          slantedText: true
         },
         vAxis: {
           title: 'nmol/L',
@@ -73,4 +75,6 @@ function drawbloogGlucoseLevel() {
       var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
       chart.draw(data, options);
     }
+
+    window.onresize = drawbloogGlucoseLevel;
     </script>
