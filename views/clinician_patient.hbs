@@ -8,7 +8,7 @@
     <a href="/clinician/patient/{{patient._id}}/data-history"><p class="history_link"> Data History</p></a>
 
     <main class="note_main">
-        <section class="overall">
+        <form class="overall" action="/clinician/patient/{{patient._id}}/update-reqs" method="post">
             <section class="info_container">
                 <h3>Weight</h3>
                 {{#if patient.patientHealthEntries.valueWeight}}
@@ -18,25 +18,19 @@
 
                <label class="required">Required
                     {{#if patient.requirementWeight}}
-                        <input type="checkbox" checked="true">
-                        {{else}}<input type="checkbox">
+                        <input type="checkbox" checked name="weightReq">
+                        {{else}}<input type="checkbox" name="weightReq">
                     {{/if}}
                     <span class="checkmark"></span>
                 </label>
                 <div class="lower-threshold">
                     <label>Lower Threshold</label>
-                    {{#if patient.weightLowerThreshold}}
-                        <input class="input" type="text" placeholder="{{patient.weightLowerThreshold}}">
-                        {{else}}<input class="input" type="text">
-                    {{/if}}
+                    <input class="input" type="text" name="weightLowerThreshold" value="{{patient.weightLowerThreshold}}">
                 </div>
 
                 <div class="upper-threshold">
                     <label>Upper Threshold</label>
-                    {{#if patient.weightUpperThreshold}}
-                        <input class="input" type="text" placeholder="{{patient.weightUpperThreshold}}">
-                        {{else}}<input class="input" type="text">
-                    {{/if}}
+                    <input class="input" type="text" name="weightUpperThreshold" value="{{patient.weightUpperThreshold}}">
                 </div>
             </section>
 
@@ -49,26 +43,20 @@
 
               <label class="required">Required
                     {{#if patient.requirementBloodGlucoseLevel}}
-                        <input type="checkbox" checked="true">
-                        {{else}}<input type="checkbox">
+                        <input type="checkbox" checked name="bloodGlucoseReq">
+                        {{else}}<input type="checkbox" name="bloodGlucoseReq">
                     {{/if}}
                     <span class="checkmark"></span>
                 </label>
                 
                 <div class="lower-threshold">
                     <label>Lower Threshold</label>
-                    {{#if patient.bloodGlucoseLowerThreshold}}
-                        <input class="input" type="text" placeholder="{{patient.bloodGlucoseLowerThreshold}}">
-                        {{else}}<input class="input" type="text">
-                    {{/if}}
+                    <input class="input" type="text" name="bloodGlucoseLowerThreshold" value="{{patient.bloodGlucoseLowerThreshold}}">
                 </div>
 
                 <div class="upper-threshold">
                     <label>Upper Threshold</label>
-                    {{#if patient.bloodGlucoseUpperThreshold}}
-                        <input class="input" type="text" placeholder="{{patient.bloodGlucoseUpperThreshold}}">
-                        {{else}}<input class="input" type="text">
-                    {{/if}}
+                    <input class="input" type="text" name="bloodGlucoseUpperThreshold" value="{{patient.bloodGlucoseUpperThreshold}}">
                 </div>
             </section>
 
@@ -80,24 +68,18 @@
                 {{/if}}
                 <label class="required">Required
                     {{#if patient.requirementExercise}}
-                        <input type="checkbox" checked="true">
-                        {{else}}<input type="checkbox">
+                        <input type="checkbox" checked name="exerciseReq">
+                        {{else}}<input type="checkbox" name="exerciseReq">
                     {{/if}}
                     <span class="checkmark"></span>
                 </label>
                 <div class="lower-threshold">
                     <label>Lower Threshold</label>
-                    {{#if patient.exerciseLowerThreshold}}
-                        <input class="input" type="text" placeholder="{{patient.exerciseLowerThreshold}}">
-                        {{else}}<input class="input" type="text">
-                    {{/if}}
+                    <input class="input" type="text" name="exerciseLowerThreshold" value="{{patient.exerciseLowerThreshold}}">
                 </div>
                 <div class="upper-threshold">
                     <label>Upper Threshold</label>
-                    {{#if patient.exerciseUpperThreshold}}
-                        <input class="input" type="text" placeholder="{{patient.exerciseUpperThreshold}}">
-                        {{else}}<input class="input" type="text">
-                    {{/if}}
+                    <input class="input" type="text" name="exerciseUpperThreshold" value="{{patient.exerciseUpperThreshold}}">
                 </div>
             </section>
 
@@ -109,33 +91,27 @@
                 {{/if}}
                 <label class="required">Required
                     {{#if patient.requirementDosesOfInsulinTaken}}
-                        <input type="checkbox" checked="true">
-                        {{else}}<input type="checkbox">
+                        <input type="checkbox" checked name="insulinReq">
+                        {{else}}<input type="checkbox" name="insulinReq">
                     {{/if}}
                     <span class="checkmark"></span>
                 </label>
                 <div class="lower-threshold">
                     <label>Lower Threshold</label>
-                    {{#if patient.dosesOfInsulinLowerThreshold}}
-                        <input class="input" type="text" placeholder="{{patient.dosesOfInsulinLowerThreshold}}">
-                        {{else}}<input class="input" type="text">
-                    {{/if}}
+                    <input class="input" type="text" name="insulinLowerThreshold" value="{{patient.dosesOfInsulinLowerThreshold}}">
                 </div>
 
                 <div class="upper-threshold">
                     <label>Upper Threshold</label>
-                    {{#if patient.dosesOfInsulinUpperThreshold}}
-                        <input class="input" type="text" placeholder="{{patient.dosesOfInsulinUpperThreshold}}">
-                        {{else}}<input class="input" type="text">
-                    {{/if}}
+                    <input class="input" type="text" name="insulinUpperThreshold" value="{{patient.dosesOfInsulinUpperThreshold}}">
                 </div>
             </section>
 
-        <section class="save-btn">   
-            <button class="lightmedium_button" type="submit">Save</button>
-        </section>
+            <section class="save-btn">   
+                <button class="lightmedium_button" type="submit">Save</button>
+            </section>
 
-        </section>
+        </form>
 
 
         

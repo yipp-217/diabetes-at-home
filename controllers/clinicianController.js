@@ -189,6 +189,110 @@ const addNote = async (req, res, next) => {
     }
 }
 
+const updatePatientRequirements = async (req, res, next) => {
+    try {
+        patient = await Patient.findById(req.params.id).populate("user").lean()
+        console.log(req.body.weightReq)
+        await Patient.findOneAndUpdate(
+            {_id: patient._id},
+            {$set: {
+                requirementWeight: (req.body.weightReq === "on"),
+                requirementBloodGlucoseLevel: (req.body.bloodGlucoseReq === "on"),
+                requirementExercise: (req.body.exerciseReq === "on"),
+                requirementDosesOfInsulinTaken: (req.body.insulinReq === "on")
+            }}
+        ).lean()
+        if (req.body.bloodGlucoseLowerThreshold != "") {
+            await Patient.findOneAndUpdate(
+                {_id: patient._id},
+                {$set: {
+                    bloodGlucoseLowerThreshold: parseFloat(req.body.bloodGlucoseLowerThreshold)
+                }}
+            ).lean()
+        }
+        if (req.body.bloodGlucoseUpperThreshold != "") {
+            await Patient.findOneAndUpdate(
+                {_id: patient._id},
+                {$set: {
+                    bloodGlucoseUpperThreshold: parseFloat(req.body.bloodGlucoseUpperThreshold)
+                }}
+            ).lean()
+        }
+        if (req.body.weightLowerThreshold != "") {
+            await Patient.findOneAndUpdate(
+                {_id: patient._id},
+                {$set: {
+                    weightLowerThreshold: parseFloat(req.body.weightLowerThreshold)
+                }}
+            ).lean()
+        }
+        if (req.body.weightUpperThreshold != "") {
+            await Patient.findOneAndUpdate(
+                {_id: patient._id},
+                {$set: {
+                    weightUpperThreshold: parseFloat(req.body.weightUpperThreshold)
+                }}
+            ).lean()
+        }
+        if (req.body.exerciseLowerThreshold != "") {
+            await Patient.findOneAndUpdate(
+                {_id: patient._id},
+                {$set: {
+                    exerciseLowerThreshold: parseInt(req.body.exerciseLowerThreshold)
+                }}
+            ).lean()
+        }
+        if (req.body.exerciseUpperThreshold != "") {
+            await Patient.findOneAndUpdate(
+                {_id: patient._id},
+                {$set: {
+                    exerciseUpperThreshold: parseInt(req.body.exerciseUpperThreshold)
+                }}
+            ).lean()
+        }
+        if (req.body.insulinLowerThreshold != "") {
+            await Patient.findOneAndUpdate(
+                {_id: patient._id},
+                {$set: {
+                    dosesOfInsulinLowerThreshold: parseInt(req.body.insulinLowerThreshold)
+                }}
+            ).lean()
+        }
+        if (req.body.insulinUpperThreshold != "") {
+            await Patient.findOneAndUpdate(
+                {_id: patient._id},
+                {$set: {
+                    dosesOfInsulinUpperThreshold: parseInt(req.body.insulinUpperThreshold)
+                }}
+            ).lean()
+        }
+        await Patient.findOneAndUpdate(
+            {_id: patient._id},
+            {$set: {
+                //requirementBloodGlucoseLevel: req.body.bloodGlucoseReq,
+                //bloodGlucoseUpperThreshold: req.body.bloodGlucoseUpperThreshold,
+                //bloodGlucoseLowerThreshold: req.body.bloodGlucoseLowerThreshold,
+
+                //requirementWeight: req.body.weightReq,
+                //weightUpperThreshold: req.body.weightUpperThreshold,
+                //weightLowerThreshold: req.body.weightLowerThreshold,
+
+                //requirementExercise: req.body.exerciseReq,
+                //exerciseUpperThreshold: req.body.exerciseUpperThreshold,
+                //exerciseLowerThreshold: req.body.exerciseLowerThreshold,
+
+                //requirementDosesOfInsulinTaken: req.body.insulinReq,
+                //dosesOfInsulinUpperThreshold: req.body.insulinUpperThreshold,
+                //dosesOfInsulinLowerThreshold: req.body.insulinReq,
+            }}
+        ).lean()
+        return res.redirect('/clinician/patient/' + patient._id)
+    }
+    catch (e) {
+        return next(e)
+    }
+}
+
 module.exports = {
     getClinicianDashboard,
     getPatientComments,
@@ -199,4 +303,5 @@ module.exports = {
     getRegisterPatient,
     updateSupportMsg,
     addNote,
+    updatePatientRequirements,
 }

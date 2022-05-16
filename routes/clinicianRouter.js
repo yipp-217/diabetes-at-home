@@ -17,6 +17,8 @@ clinicianRouter.get('/patient/:id/clinician-notes', homeController.isAuthenticat
 
 clinicianRouter.get('/patient/:id/data-history', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getPatientDataHistory)
 
+clinicianRouter.post('/patient/:id/update-reqs', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.updatePatientRequirements)
+
 clinicianRouter.get('/patient/:id', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getPatient)
 
 clinicianRouter.get('/patient', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getPatient)
