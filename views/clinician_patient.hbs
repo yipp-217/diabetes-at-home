@@ -1,7 +1,7 @@
 <body class="clinician_body">
 
     <header class="clinician_header">
-        <h2 class="cilnician_nav">{{patient.user.nameGiven}} {{patient.user.nameFamily}}</h2>
+        <h2 class="cilnician_nav">{{patient.user.nameGiven}} {{patient.user.nameFamily}}'s Requirements</h2>
         <a href="/clinician/dashboard" class="clinician_nav_btn"><h5>Dashboard</h5></a>
     </header>
 
@@ -140,24 +140,25 @@
 
         
         <article class="patient_right">
-        <section class="info_container">
-            <h3>Support Messages</h3>
-            <p>Current Message:</p>
-            <p class="message">{{patient.supportMessage}}</p>
-            <section>
-                <label>New Message:</label>
-                <input class="input" type="text">
-               <section class="center_btn"><button type="submit"><h5>Update</h5></button></section>
+            <section class="info_container">
+                <h3>Support Messages</h3>
+                <p>Current Message:</p>
+                <p class="message">{{patient.supportMessage}}</p>
+                <form id="supportMsgForm" action="/clinician/patient/{{patient}}/update-support" method="post">
+                    <label>New Message:</label>
+                    <input class="input" type="text" name="supportMsg" required>
+                    <section class="center_btn"><button type="submit"><h5>Update</h5></button></section>
+                </form>
             </section>
-        </section>
 
-        <section class="info_container">
-            <h3>Notes</h3>
-            <section>
-                <textarea class="input" name="clinicianNote" placeholder="Add Note Here"></textarea>
-                <section class="center_btn"> <button type="submit"><h5>SAVE</h5></button><br></section>
+            <section class="info_container">
+                <h3>Notes</h3>
+                <section>
+                    <textarea class="input" name="clinicianNote" placeholder="Add Note Here"></textarea>
+                    <section class="center_btn"> <button type="submit"><h5>SAVE</h5></button><br></section>
+                </section>
+                <a href="/clinician/patient/clinician-notes">See Past Notes</a>
             </section>
-            <a href="/clinician/patient/clinician-notes">See Past Notes</a>
         </article>
 
 

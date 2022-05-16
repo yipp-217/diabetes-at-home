@@ -129,6 +129,26 @@ const getPatients = async (patients) => {
     return newPatients
 }
 
+const updateSupportMsg = async (req, res, next) => {
+    try {
+        if (req.user.onModel == 'Patient') {
+            res.redirect('/patient')
+        } 
+        else {
+            await Patient.findOneAndUpdate(
+                {_id: patient._id},
+                {$set: {
+                    supportMessage: req.body.supportMsg
+                }}
+            ).lean()
+            return res.redirect('/clinician/patient/' + patient._id)
+        }
+    }
+    catch (e) {
+        return next(e)
+    }
+}
+
 module.exports = {
     getClinicianDashboard,
     getPatientComments,
@@ -137,4 +157,5 @@ module.exports = {
     getPatientDataHistory,
     getClinicianSettings,
     getRegisterPatient,
+    updateSupportMsg,
 }
