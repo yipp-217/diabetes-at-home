@@ -19,4 +19,6 @@ homeRouter.get('/about-diabetes', homeController.getAboutDiabetes)
 
 homeRouter.get('/about-website', homeController.getAboutWebsite)
 
+homeRouter.get('/error', homeController.getError)
+
 module.exports = homeRouter
