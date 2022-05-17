@@ -100,13 +100,34 @@ const getLeaderboard = async (req, res, next) => {
             res.redirect('/clinician/dashboard')
         } 
         else {
-            
+
             for await (const doc of Patient.find()) {
                 patient = await Patient.findById(doc._id)
                 await calculateEngagement(patient)
+                
+            }
+
+            var dict = {}
+            for await (const doc of User.find({onModel: "Patient"}).sort('nameScreen')){
+                screenName = doc.nameScreen
+
+                currPatient = await Patient.findById(doc.model)
+                dict[screenName] = currPatient.engagement
+
             }
             
-            return res.render('patient_leaderboard.hbs', {user: req.user.toJSON(), darkMode: req.user.darkMode})
+            //console.log(dict)
+            var items = Object.keys(dict).map((key) => { return [key, dict[key]] });
+
+            items.sort((first, second) => { return first[1] - second[1] });
+
+            var keys = items.map((e) => { return e[0] });
+
+            keys = keys.slice(-5)
+            keys = keys.reverse()
+            console.log(keys)
+            
+            return res.render('patient_leaderboard.hbs', {user: req.user.toJSON(), darkMode: req.user.darkMode, topfive: keys})
         }
     }
     catch (e) {
