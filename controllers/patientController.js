@@ -307,13 +307,13 @@ const turnOnDarkMode = async(req, res, next) => {
         }else{
             const patient = await getPatient(req.user.toJSON().model)
             const data = await User.findById(patient.user).lean()
-            console.log(data)
+            
             if (data.darkMode == true){
                 await User.findOneAndUpdate({_id: data._id}, {$set: {darkMode: false}}).lean()
             } else{
                 await User.findOneAndUpdate({_id: data._id}, {$set: {darkMode: true}}).lean()
             }
-            console.log(await User.findById(patient.user).lean())
+            console.log("Dark mode: " + data.darkMode)
             res.redirect('/patient/settings')
         }
     } 
