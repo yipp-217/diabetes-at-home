@@ -610,7 +610,6 @@ span.psw, span.rememberme {
     background-color: var(--color-background-light);
     border-radius: 10px;
     height: 50vh;
-    position: relative;
 }
 
 .more_info{
@@ -819,15 +818,6 @@ button:active {
 .theme-toggle-button:hover,
 .theme-toggle-button:focus {
     /*transform: scale(1.1);*/
-}
-
-.chart_button {
-    position: absolute;
-}
-
-#curve_chart {
-    height: 50vh;
-    z-index: 99;
 }
 
 /******************* graph ****************/
@@ -1444,10 +1434,6 @@ textarea:focus {
         height: 40vh;
     }
 
-    #curve_chart {
-        height: 40vh;
-    }
-
     /** setting_container **/
     .setting_hid{
         background-color: transparent;
@@ -1679,6 +1665,9 @@ textarea:focus {
         padding-left: 7%;
     }
 
+    .chart_container {
+        height: 60vh;
+    }
 }
 
 

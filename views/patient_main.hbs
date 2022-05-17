@@ -9,13 +9,8 @@
 
     <!-- charts -->
     <div class="chart_container container sec1">
-        <!--drop down button-->
-        <button class="white_button item_center chart_button"> 
-            <p style="margin-right: 1vh">All</p>
-            <img src="/res/Icon-down.svg">
-        </button> 
         <!--line charts-->
-        <div id="curve_chart"></div>
+        {{> charts}}
     </div>
 
     <!-- data entry -->
@@ -39,42 +34,3 @@
 </main>
 
 {{> bottomnav page='patient_main'}}
-
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-    google.charts.load('current', {packages: ['corechart', 'line']});
-
-    //draw chart
-    google.charts.setOnLoadCallback(drawbloogGlucoseLevel);
-    function drawbloogGlucoseLevel() {
-    var data = google.visualization.arrayToDataTable([
-          ['Days', 'Blood Glucose Level'],
-          ['Monday',  125],
-          ['Tuesday',  135],
-          ['Wednesday',  118],
-          ['Thursday',  120],
-          ['Friday',  118],
-          ['Saturday',  120],
-          ['Sunday',  115]
-        ]);
-
-      var options = {
-        curveType: 'function',
-        hAxis: {
-          title: 'Days',
-          slantedText: true
-        },
-        vAxis: {
-          title: 'nmol/L',
-          minValue: 100
-        },
-        backgroundColor: 'transparent',
-        legend: { position: 'bottom' }
-      };
-
-      var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-      chart.draw(data, options);
-    }
-
-    window.onresize = drawbloogGlucoseLevel;
-    </script>
