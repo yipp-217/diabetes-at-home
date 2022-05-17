@@ -21,7 +21,7 @@ const getPatientUser = async (req, res, next) => {
             await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
 
             dataset = [4,3,7,3,6,4,7].toString()
-            console.log(dataset)
+            
             return res.render('patient_main.hbs', {
                 user: req.user.toJSON(), patient: patient, healthData: healthData, darkMode: req.user.darkMode, dataset: dataset
             })
@@ -100,13 +100,34 @@ const getLeaderboard = async (req, res, next) => {
             res.redirect('/clinician/dashboard')
         } 
         else {
-            
+            // update every patients engagement rate
             for await (const doc of Patient.find()) {
                 patient = await Patient.findById(doc._id)
                 await calculateEngagement(patient)
+                
+            }
+
+            // create dictionary of scores sorted by screen names
+            var dict = {}
+            for await (const doc of User.find({onModel: "Patient"}).sort('nameScreen')){
+                screenName = doc.nameScreen
+
+                currPatient = await Patient.findById(doc.model)
+                dict[screenName] = currPatient.engagement
+
             }
             
-            return res.render('patient_leaderboard.hbs', {user: req.user.toJSON(), darkMode: req.user.darkMode})
+            //console.log(dict)
+            var items = Object.keys(dict).map((key) => { return [key, dict[key]] });
+            items.sort((first, second) => { return first[1] - second[1] });
+            var keys = items.map((e) => { return e[0] });
+
+            keys = keys.slice(-5)
+            keys = keys.reverse()
+
+            console.log(keys)
+            
+            return res.render('patient_leaderboard.hbs', {user: req.user.toJSON(), darkMode: req.user.darkMode, topfive: keys})
         }
     }
     catch (e) {

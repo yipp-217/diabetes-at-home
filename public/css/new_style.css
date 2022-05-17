@@ -102,6 +102,14 @@ h3 {
     text-align: center;
 }
 
+.dark h3{
+    color: #ffffff;
+}
+
+.dark .stayBlack {
+    color: #000000;
+}
+
 h4 {
     font-size: var( --text-big);
     font-family: var(--font-family-heading);
@@ -612,6 +620,10 @@ span.psw, span.rememberme {
     height: 50vh;
 }
 
+.dark .chart_container {
+    background-color: var(--color-background-dark);
+}
+
 .more_info{
     text-align: left;
     margin: 5% 5% 10% 5%;
@@ -764,6 +776,7 @@ button:active {
 
 .pink_button {
     background-color: var(--color-background-accent);
+    width: 50%;
 }
 
 .lightmedium_button {
@@ -818,6 +831,10 @@ button:active {
 .theme-toggle-button:hover,
 .theme-toggle-button:focus {
     /*transform: scale(1.1);*/
+}
+
+#chart_button {
+    background-color: #ffffff;;
 }
 
 /******************* graph ****************/
