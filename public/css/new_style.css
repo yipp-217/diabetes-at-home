@@ -624,6 +624,10 @@ span.psw, span.rememberme {
     background-color: var(--color-background-dark);
 }
 
+.single_chart_container {
+    margin-top: 10%;
+}
+
 .more_info{
     text-align: left;
     margin: 5% 5% 10% 5%;
@@ -659,6 +663,11 @@ span.psw, span.rememberme {
     transform: rotateY(180deg);
     margin-left: 90%;
     display: block;
+}
+
+canvas {
+    display: flex;
+    align-items: center;
 }
 
 
@@ -827,12 +836,6 @@ button:active {
     transform: scale(1);
 }
 
-
-.theme-toggle-button:hover,
-.theme-toggle-button:focus {
-    /*transform: scale(1.1);*/
-}
-
 #chart_button {
     background-color: #ffffff;;
 }
@@ -858,11 +861,15 @@ button:active {
 
 .graph {
     position: absolute;
+    display: flex;
     border-radius: 20px;
     box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.25);
     width: 35%;
     height: 40%;
     background-color: #9FC0D6;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2%;
 }
 
 
@@ -1446,10 +1453,6 @@ textarea:focus {
         width: 80%;
         height: 40%;
     } 
-    
-    .chart_container {
-        height: 40vh;
-    }
 
     /** setting_container **/
     .setting_hid{
@@ -1683,9 +1686,27 @@ textarea:focus {
     }
 
     .chart_container {
-        height: 60vh;
+        height: 65vh;
     }
 }
+
+    @media screen and (min-width: 450px) and (max-width: 900px){
+        .chart_container{
+            height: 55vh;
+        }
+        .single_chart_container {
+            margin-top: 7%;
+        }
+
+    }
+
+    @media screen and (max-width: 530px){
+        .chart_container {
+            height: 40vh;
+        }
+    }
+
+
 
 
     @media screen and (max-width: 1024px) {

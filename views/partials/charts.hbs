@@ -43,7 +43,6 @@
     <!--drop down button-->
     <button class="white_button item_center" id="chart_button"> 
         <select id="healthDataChart">
-            <option value="0">Select history data</option>
             <option value="1">Blood Glucose Level</option>
             <option value="2">weight</option>
             <option value="3">Does taken</option>
@@ -51,7 +50,7 @@
         </select>
     </button>
 
-    <div>
+    <div class="single_chart_container">
         <canvas id="myChart"></canvas>
     </div>
 
@@ -61,19 +60,19 @@
 
     <script>
     //Chart.defaults.global.legend.display = false;
-    const labels = ["03/02", "04/02", "05/02", "06/02", "07/02", "08/02", "09/02"];
+    const labels = ["03/02", "04/02", "05/02", "06/02", "07/02", "08/02", "09/02"]; //import the blood glucode level as default display value
 
     const data = {
     labels: labels,
     datasets: [{
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
-         //data: [0, 10, 5, 2, 20, 30, 45],
+        backgroundColor: '#f28379',
+        borderColor: '#f28379',
+         data: [120, 125, null, 118, 113, 110, 112], //import the blood glucode level as default display value
         }]
     };
 
     const config = {
-        type: 'line',
+        type: 'bar',
         data: data,
         options: {plugins: {legend: {display: false}}}
     };
@@ -90,20 +89,24 @@
         const healthDataChart = document.getElementById('healthDataChart');
         healthDataChart.addEventListener('change', switchChart);
         function switchChart(){
+          //blood glucose level
           if ("1".localeCompare(healthDataChart.value)==0){
             myChart.data.datasets[0].data = [120, 125, null, 118, 113, 110, 112];
             myChart.data.labels = ["03/02", "04/02", "05/02", "06/02", "07/02", "08/02", "09/02"];
             myChart.config.type = 'bar';
             myChart.update();
+          //weight
           }else if ("2".localeCompare(healthDataChart.value)==0){
             myChart.data.datasets[0].data = [55, 55, 55.4, 56, 55.2, 55.8, 55.7];
             myChart.config.type = 'line';
             myChart.update();
+          //does taken
           }else if ("3".localeCompare(healthDataChart.value)==0){
             myChart.data.datasets[0].data = [1, 0, 0, 1, 0, 0, 0];
             myChart.config.type = 'scatter';
             //myChart.data.labels = [0, 10, 5, 2, 20, 30, 45];
             myChart.update();
+          //exercise
           }else if ("4".localeCompare(healthDataChart.value)==0){
             myChart.data.datasets[0].data = [2000, 400, 1300, 5400, 700, 10000, 200];
             myChart.config.type = 'line';
