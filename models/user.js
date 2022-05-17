@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
     nameScreen: {type: String, required: true},
     dateCreated:  {type: String},
     yearBorn: Number,
-    bio: String,
+    bio: {Type: String, default: ""},
     darkMode: {type: Boolean, default: false},
     
 
