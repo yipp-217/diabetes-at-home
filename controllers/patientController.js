@@ -300,6 +300,28 @@ const updateInsulin = async (req, res, next) => {
     }
 }
 
+const turnOnDarkMode = async(req, res, next) => {
+    try {
+        if (req.user.onModel == 'Clinician') {
+            res.redirect('/clinician/dashboard')
+        }else{
+            const patient = await getPatient(req.user.toJSON().model)
+            const data = await User.findById(patient.user).lean()
+            console.log(data)
+            if (data.darkMode == true){
+                await User.findOneAndUpdate({_id: data._id}, {$set: {darkMode: false}}).lean()
+            } else{
+                await User.findOneAndUpdate({_id: data._id}, {$set: {darkMode: true}}).lean()
+            }
+            console.log(await User.findById(patient.user).lean())
+            res.redirect('/patient/settings')
+        }
+    } 
+    catch(e){
+        return next(e)
+    }
+}
+
 module.exports = {
     getPatientUser,
     getPatientUserEdit,
@@ -311,4 +333,5 @@ module.exports = {
     updateExercise,
     updateInsulin,
     getHealthData,
+    turnOnDarkMode,
 }

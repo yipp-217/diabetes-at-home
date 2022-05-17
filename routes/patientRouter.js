@@ -20,6 +20,8 @@ patientRouter.get('/settings/change-password', homeController.isAuthenticated, h
 
 patientRouter.get('/settings', homeController.isAuthenticated, homeController.hasRole('Patient'), patientController.getPatientSettings)
 
+patientRouter.get('/dark-mode', homeController.isAuthenticated, homeController.hasRole('Patient'), patientController.turnOnDarkMode)
+
 patientRouter.get('/', homeController.isAuthenticated, homeController.hasRole('Patient'), patientController.getPatientUser)
 
 
