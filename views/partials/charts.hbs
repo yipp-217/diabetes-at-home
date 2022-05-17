@@ -91,9 +91,9 @@
         healthDataChart.addEventListener('change', switchChart);
         function switchChart(){
           if ("1".localeCompare(healthDataChart.value)==0){
-            myChart.data.datasets[0].data = [120, 125, 115, 118, 113, 110, 112];
+            myChart.data.datasets[0].data = [120, 125, null, 118, 113, 110, 112];
             myChart.data.labels = ["03/02", "04/02", "05/02", "06/02", "07/02", "08/02", "09/02"];
-            myChart.config.type = 'line';
+            myChart.config.type = 'bar';
             myChart.update();
           }else if ("2".localeCompare(healthDataChart.value)==0){
             myChart.data.datasets[0].data = [55, 55, 55.4, 56, 55.2, 55.8, 55.7];
