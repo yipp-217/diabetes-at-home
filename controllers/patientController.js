@@ -84,8 +84,9 @@ const calculateEngagement = async (patient) => {
     
     
     engagementRate = (numEntries/diffDays) * 100
-    console.log(engagementRate)
+    
     await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
+    console.log("Updated " + data.nameGiven + "'s engagement, new value: " + engagementRate)
     return (numEntries/diffDays) * 100
 }
 
@@ -98,18 +99,10 @@ const getLeaderboard = async (req, res, next) => {
         else {
             
             for await (const doc of Patient.find()) {
-                console.log(doc.user)
-                
                 patient = await Patient.findById(doc._id)
                 await calculateEngagement(patient)
-                
             }
             
-            
-            
-            
-            
-           
             return res.render('patient_leaderboard.hbs', {user: req.user.toJSON()})
         }
     }
