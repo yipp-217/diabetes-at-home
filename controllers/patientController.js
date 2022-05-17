@@ -19,8 +19,11 @@ const getPatientUser = async (req, res, next) => {
             healthData = await getHealthData(patient)
             engagementRate = await calculateEngagement(patient)
             await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
+
+            dataset = [4,3,7,3,6,4,7].toString()
+            console.log(dataset)
             return res.render('patient_main.hbs', {
-                user: req.user.toJSON(), patient: patient, healthData: healthData, darkMode: req.user.darkMode
+                user: req.user.toJSON(), patient: patient, healthData: healthData, darkMode: req.user.darkMode, dataset: dataset
             })
     }
     catch (e) {

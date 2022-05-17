@@ -44,7 +44,7 @@
     <button class="white_button item_center"> 
         <select id="healthDataChart">
             <option value="">Select history data</option>
-            <option value="1,2,3,4,5,6,7">Blood Glucose Level</option>
+            <option value={{dataset}}>Blood Glucose Level</option>
             <option value="1,2,3,4,5,6,7">weight</option>
             <option value="">Does taken</option>
             <option value="">Exercise</option>
@@ -54,6 +54,8 @@
     <div>
         <canvas id="myChart"></canvas>
     </div>
+
+    
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -96,7 +98,7 @@
         healthDataChart.addEventListener('change', switchChart);
         function switchChart(){
             //const dateAndValue = healthDataChart.value.split(',');
-            myChart.data.datasets[0].data = [2,4,6,8,9,2,4];
+            myChart.data.datasets[0].data = healthDataChart.value.split(',');
             myChart.update();
         }
     </script>
