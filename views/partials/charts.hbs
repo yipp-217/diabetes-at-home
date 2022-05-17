@@ -96,8 +96,7 @@
         healthDataChart.addEventListener('change', switchChart);
         function switchChart(){
             //const dateAndValue = healthDataChart.value.split(',');
-            myChart.data.datasets[0].data = healthDataChart.value.split(',');
-            //{{printValue dateAndValue}};
+            myChart.data.datasets[0].data = [2,4,6,8,9,2,4];
             myChart.update();
         }
     </script>

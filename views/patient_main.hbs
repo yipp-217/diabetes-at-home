@@ -1,7 +1,9 @@
 {{> sidenav login=true page='patient_main'}}
 
 <main class="content mainpage_grid_format">
-
+    {{#if darkMode}}
+        <body class="dark"></body>
+    {{/if}}
     <div id="clinician_message">
         <h2 style="text-align:left">Hello, {{user.nameScreen}}</h2>
         <p style="text-align:left" class="bigger_p">{{patient.supportMessage}}</p>

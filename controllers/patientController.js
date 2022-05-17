@@ -20,7 +20,7 @@ const getPatientUser = async (req, res, next) => {
             engagementRate = await calculateEngagement(patient)
             await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
             return res.render('patient_main.hbs', {
-                user: req.user.toJSON(), patient: patient, healthData: healthData
+                user: req.user.toJSON(), patient: patient, healthData: healthData, darkMode: req.user.darkMode
             })
     }
     catch (e) {
@@ -39,7 +39,7 @@ const getPatientUserEdit = async (req, res, next) => {
             await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
             healthData = await getHealthData(patient)
             return res.render('patient_edit_data.hbs', {
-                user: req.user.toJSON(), patient: patient, healthData: healthData
+                user: req.user.toJSON(), patient: patient, healthData: healthData, darkMode: req.user.darkMode
             })
     }
     catch (e) {
@@ -103,7 +103,7 @@ const getLeaderboard = async (req, res, next) => {
                 await calculateEngagement(patient)
             }
             
-            return res.render('patient_leaderboard.hbs', {user: req.user.toJSON()})
+            return res.render('patient_leaderboard.hbs', {user: req.user.toJSON(), darkMode: req.user.darkMode})
         }
     }
     catch (e) {
@@ -120,7 +120,7 @@ const getPatientSettings = async (req, res, next) => {
             patient = await getPatient(req.user.toJSON().model)
             engagementRate = await calculateEngagement(patient)
             await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
-            return res.render('settings.hbs', {user: req.user.toJSON()})
+            return res.render('settings.hbs', {user: req.user.toJSON(), darkMode: req.user.darkMode})
     }
     catch (e) {
         return next(e)
@@ -133,7 +133,7 @@ const getPatientChangePassword = async (req, res, next) => {
             res.redirect('/clinician/dashboard')
         } 
         else
-            return res.render('change_password.hbs', {user: req.user.toJSON()})
+            return res.render('change_password.hbs', {user: req.user.toJSON(), darkMode: req.user.darkMode})
     }
     catch (e) {
         return next(e)

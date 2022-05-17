@@ -1,6 +1,7 @@
-<body class="leaderboard_background">
+<body>
     {{> sidenav login=true page='patient_leaderboard'}}
-    <main class="content">   
+    <main class="content">  
+        
         <div class="leaderboard_title_container">
             <img src="/res/crown.svg" alt="crown"/>
             <h1>Leaderboard</h1>
@@ -35,7 +36,9 @@
         </div>
             
 
-
+        {{#if darkMode}}
+            <body class="dark"></body>
+        {{/if}} 
 
             
         
