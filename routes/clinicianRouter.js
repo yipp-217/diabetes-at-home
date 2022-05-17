@@ -3,6 +3,7 @@ const clinicianRouter = express.Router()
 
 const clinicianController = require('../controllers/clinicianController')
 const homeController = require('../controllers/homeController')
+const userController = require('../controllers/userController')
 
 
 clinicianRouter.get('/dashboard', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getClinicianDashboard)
@@ -27,5 +28,6 @@ clinicianRouter.get('/settings', homeController.isAuthenticated, homeController.
 
 clinicianRouter.get('/register-patient', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getRegisterPatient)
 
+clinicianRouter.post('/register-patient', homeController.isAuthenticated, homeController.hasRole('Clinician'), userController.createPatientUser)
 
 module.exports = clinicianRouter
