@@ -9,6 +9,27 @@ const getUsers = async (req, res) => {
 }
 
 
+const createClinicianUser = async (req, res, next) => {
+    try {
+        const user = new User(req.body)
+        user.secret = "SqS8yF:Ac;<zn9YM8:=3s\",/q$9Rn9}hX\\y7&..Q!D~h'dJu5-BGKJ7#cR``\\Z^k"
+        user.dateCreated = getDateTime()
+        user.onModel = 'Clinician'
+
+        const clinician = new Clinician
+        clinician.user = user
+        await clinician.save()
+
+        user.model = clinician
+        await user.save()
+        return res.redirect('/login')
+    }
+    catch (e) {
+        return next(e)
+    }
+}
+
+
 const createPatientUser = async (req, res, next) => {
     try {
         if (req.user.onModel === 'Patient') {
@@ -50,5 +71,6 @@ const getDateTime = () => {
 
 module.exports = {
     getUsers,
+    createClinicianUser,
     createPatientUser
 }
