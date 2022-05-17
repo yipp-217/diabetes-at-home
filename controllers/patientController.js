@@ -82,7 +82,10 @@ const calculateEngagement = async (patient) => {
     diffDays = Math.round(Math.abs((dateOne - dateTwo) / oneDay))
     numEntries = patient.patientHealthEntries.length
     
-    console.log((numEntries/diffDays) * 100)
+    
+    engagementRate = (numEntries/diffDays) * 100
+    console.log(engagementRate)
+    await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
     return (numEntries/diffDays) * 100
 }
 
@@ -93,11 +96,20 @@ const getLeaderboard = async (req, res, next) => {
             res.redirect('/clinician/dashboard')
         } 
         else {
-            patient = await getPatient(req.user.toJSON().model)
-            engagementRate = await calculateEngagement(patient)
+            
+            for await (const doc of Patient.find()) {
+                console.log(doc.user)
+                
+                patient = await Patient.findById(doc._id)
+                await calculateEngagement(patient)
+                
+            }
             
             
-            await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
+            
+            
+            
+           
             return res.render('patient_leaderboard.hbs', {user: req.user.toJSON()})
         }
     }
