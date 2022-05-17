@@ -51,10 +51,10 @@ const createPatientUser = async (req, res, next) => {
             user.model = patient
             await user.save()
 
-            await Clinician.findById(
-                {_id: req.user._id},
-                {$push: {patients: user}}
-            )
+            // await Clinician.findById(
+            //     {_id: req.user._id},
+            //     {$push: {patients: user}}
+            // )
         }
         return res.redirect('/clinician/dashboard')
     }
