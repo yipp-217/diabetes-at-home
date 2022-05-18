@@ -642,13 +642,12 @@ span.psw, span.rememberme {
 }
 
 .leaderboard_title_container {
-    color:var(--color-text-white);
-    text-shadow: 3px 3px 5px var(--color-background-dark);
+    color:var(--color-text-black);
+    text-shadow: 3px 3px 5px var(--color-background-lightmedium);
     margin: 2% 0;
 }
 
 .dark .leaderboard_title_container {
-    color:var(--color-text-black);
     text-shadow: 3px 3px 5px var(--color-background-light);
 }
 
@@ -1743,7 +1742,7 @@ textarea:focus {
         overflow:unset;
     }
 
-    .dark.leaderboard_background  {
+    .dark  {
         background: #000000;
     }
 
