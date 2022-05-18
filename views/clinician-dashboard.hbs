@@ -2,13 +2,17 @@
     <header class="clinician_header">
         <h2 class="cilnician_nav">Good afternoon, {{user.nameScreen}}</h2>
         <a href="/" class="clinician_nav_btn"><h5 class="phone_clinician">Log Out</h5></a>
-        <a class="icons icon_settings" href="/clinician/settings"><img src="/res/Icon_settings.svg"></a>
+        <a href="/clinician/settings"><img class="icons icon_settings" src="/res/Icon_settings.svg"></a>
     </header>
 
     <section class="search_bar">
-        <input type="text" placeholder="Name.." name="search">
-        <button class="reaserch_btn" type="submit"><img src="/res/Icons_reaserch.svg"></button> 
-        <a href="/clinician/patient-comments" style="margin-right: 10%; margin-left:auto;"><button button class="lightmedium_button"><h5>Patient Comments</h5></button></a>
+
+            <input type="text" placeholder="Name.." name="search">
+            <button class="reaserch_btn" type="submit"><img src="/res/Icons_reaserch.svg"></button> 
+
+
+        <a href="/clinician/patient-comments"class="comment_btn"><h5>Patient Comments</h5></a>
+        <a href="/clinician/register-patient"class="register_btn"><h5>Go to Register</h5></a>
     </section>
 
     <main class="dashboard_flex">

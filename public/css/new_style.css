@@ -235,9 +235,10 @@ header {
 }
 
 .icon_settings{
+    top: 10%;
     width: 4%;
     position: absolute;
-    right: 4%;
+    right: 2% ;
 }
 
 /****************** body css style ************************/
@@ -398,6 +399,10 @@ iframe {
 .setting_contanier{
     margin:2%;
     width: 50%;
+}
+
+.setting_container button{
+    text-align: center;
 }
 
 .personal_info{
@@ -861,6 +866,32 @@ button:active {
     background-color: #ffffff;;
 }
 
+.comment_btn{
+    width: 19%;
+    background-color: #9FC0D6;
+    border-radius: 5px;
+    padding: 0.7%;
+    position: absolute;
+    right: 22%;
+}
+
+.register_btn{
+    width: 15%;
+    background-color: #9FC0D6;
+    border-radius: 5px;
+    padding: 0.7%;
+    position: absolute;
+    right: 5%;
+}
+
+.reaserch_btn {
+    background-color: #424245;
+}
+
+.register_patient{
+    align-items: center;
+}
+
 /******************* graph ****************/
 .history_background{
     padding-top: 5%;
@@ -910,12 +941,7 @@ button:active {
     height:20px;
 }
 
-.reaserch_btn {
-    background-color: #424245;
-    padding: 5px;
-    border-radius: 0px;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
-}
+
 
 /*for about pages*/
 .bottom_button {
@@ -1449,7 +1475,7 @@ textarea:focus {
 
     /** bars **/
     .search_bar{
-        padding-top: 25%;
+        padding-top: 20%;
     }  
 
     .sidenav a {font-size: 18px;}
@@ -1509,6 +1535,12 @@ textarea:focus {
         padding-top: 10vh;
         margin: 0;
         text-align: center;
+    }
+
+    .icon_settings{
+        top: 20%;
+        width: 8%;
+        position: absolute;
     }
 
 /** clinician_header **/    
@@ -1709,7 +1741,14 @@ textarea:focus {
     .chart_container {
         height: 65vh;
     }
+
+    .icon_settings{
+        top: 20%;
+        width: 5%;
+        position: absolute;
+    }
 }
+
 
     @media screen and (min-width: 450px) and (max-width: 900px){
         .chart_container{
