@@ -18,7 +18,7 @@
     {{else}}
         <form id="{{field}}Form" action={{action}} method="post">
             <div class="data_container input_data">
-                <input type="text" name="{{field}}Value" required>
+                <input type="number" name="{{field}}Value" min="0" max="{{max}}" required title="Value is negative or too big">
                 <p>{{unit}}</p>
             </div>
             <div class="desktop_comment" id="{{field}}DesktopComment">

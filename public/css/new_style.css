@@ -458,7 +458,7 @@ input[name="email"], input[type=password] {
     padding-left: 40px;
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=number] {
     width: 97%;
     padding: 12px 40px;
     margin: 8px 5px;
@@ -468,10 +468,17 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
     border-radius: 10px;
     font-family: var(--font-family-heading);
+    -moz-appearance: textfield;
 }
 
-input[type=text]:focus, input[type=password]:focus {
+input[type=text]:focus, input[type=password]:focus, input[type=number]:focus {
     border: 2px solid;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 input[name="comment"]{
