@@ -802,6 +802,7 @@ button:active {
 .medium_button {
     background-color: var(--color-background-medium);
     color:var(--color-background-white);
+    margin-top: 5%;
 }
 
 .dark_button {
