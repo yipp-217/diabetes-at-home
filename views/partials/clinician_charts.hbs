@@ -17,7 +17,26 @@
         //import health data value here
          data: [1,2,3,4,5,6],
         }]},
-        options: {plugins: {legend: {display: false}}}
+        options: {
+          scales: {
+            yAxes: {
+                title: {
+                    display: true,
+                    text: 'Blood Glucose Level(nmol/L)',
+                },
+                ticks: {
+                  min: 50,
+                  max: 500
+                }
+            },
+            xAxes: {
+                title: {
+                    display: true,
+                    text: "Date of recording data",
+                }
+            }
+        },
+          plugins: {legend: {display: false}}}
     }
     );
     </script>
