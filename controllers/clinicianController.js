@@ -14,7 +14,7 @@ const getClinicianDashboard = async (req, res, next) => {
             clinician = await Clinician.findById(req.user.model)
             patients = await getPatients(clinician.patients)
             patients = await getPatientsHealthData(patients)
-            return res.render('clinician-dashboard.hbs', {
+            return res.render('clinician_dashboard.hbs', {
                 user: req.user.toJSON(), patients: patients
             })
         }
