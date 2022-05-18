@@ -10,13 +10,14 @@ const getClinicianDashboard = async (req, res, next) => {
         if (req.user.onModel == 'Patient') {
             res.redirect('/patient')
         } 
-        else
-            clinician = await Clinician.findById(req.user.toJSON().model).lean()
+        else {
+            clinician = await Clinician.findById(req.user.model)
             patients = await getPatients(clinician.patients)
             patients = await getPatientsHealthData(patients)
             return res.render('clinician-dashboard.hbs', {
                 user: req.user.toJSON(), patients: patients
             })
+        }
     }
     catch (e) {
         return next(e)

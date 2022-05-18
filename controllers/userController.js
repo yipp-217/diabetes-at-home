@@ -54,9 +54,10 @@ const createPatientUser = async (req, res, next) => {
 
             const doc = await Clinician.findById(req.user.toJSON().model)
             const usr = await User.findOne({email}, {_id: 1})
+            const pat = await Patient.findOne({user: usr._id})
             await Clinician.findOneAndUpdate(
                 {_id: doc._id},
-                {$push: {patients: usr._id}}
+                {$push: {patients: pat._id}}
             )
         }
         return res.redirect('/clinician/dashboard')
