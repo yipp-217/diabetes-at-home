@@ -73,23 +73,32 @@ const getHealthData = async (patient) => {
 }
 const calculateEngagement = async (patient) => {
     const oneDay = 24 * 60 * 60 * 1000
-    const data = await User.findById(patient.user).lean()
-
-    dayCreated = data.dateCreated.substring(0, 10)
-    today = getDateTime().substring(0,10)
     
+    const data = await User.findById(patient.user).lean()
+    //console.log(data)
+    dayCreated = data.dateCreated.substring(0, 10)
+    //console.log(dayCreated)
+    today = getDateTime().substring(0,10)
+    //console.log(today)
     //dayCreated = "07/05/2022"
     dateOne = new Date(dayCreated.substring(6,10), dayCreated.substring(3,5), dayCreated.substring(0,2))
     dateTwo = new Date(today.substring(6,10), today.substring(3,5), today.substring(0,2))
     
     diffDays = Math.round(Math.abs((dateOne - dateTwo) / oneDay))
+    //console.log(diffDays)
     numEntries = patient.patientHealthEntries.length
     
+    if (diffDays == 0){
+        if (patient.patientHealthEntries.length > 0){
+            engagementRate = 100
+        }
+    } else{
+        engagementRate = (numEntries/diffDays) * 100
+    }
     
-    engagementRate = (numEntries/diffDays) * 100
     
     await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
-    console.log("Updated " + data.nameGiven + "'s engagement, new value: " + engagementRate)
+    console.log("Updated " + data.email + "'s engagement, new value: " + engagementRate)
     return (numEntries/diffDays) * 100
 }
 
