@@ -330,6 +330,10 @@ body.dark {
     justify-content: space-around;
 }
 
+.hidden{
+    visibility:hidden;
+}
+
 /******************** video **********************/
 iframe {
     position: absolute;
@@ -889,7 +893,12 @@ button:active {
 }
 
 .register_patient{
-    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    top:3;
+    margin-bottom: 2%;
 }
 
 /******************* graph ****************/
