@@ -4,9 +4,16 @@ const patientRouter = express.Router()
 const patientController = require('../controllers/patientController')
 const homeController = require('../controllers/homeController')
 
+const { body } = require('express-validator');
+
 patientRouter.post('/edit-data/blood-glucose-level', homeController.isAuthenticated, homeController.hasRole('Patient'), patientController.updateBloodGlucose)
 
-patientRouter.post('/edit-data/weight', homeController.isAuthenticated, homeController.hasRole('Patient'), patientController.updateWeight)
+patientRouter.post('/edit-data/weight', 
+                    homeController.isAuthenticated, 
+                    homeController.hasRole('Patient'), 
+                    body('weightValue', 'cannot be empty').not().isEmpty().isFloat().escape(),
+                    body('weightComment').escape(),
+                    patientController.updateWeight)
 
 patientRouter.post('/edit-data/exercise', homeController.isAuthenticated, homeController.hasRole('Patient'), patientController.updateExercise)
 
