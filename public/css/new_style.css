@@ -193,7 +193,7 @@ header {
     display: flex;
     width: 100%;
     height: 10vh;
-    background: var(--color-background-dark);
+    background: #193773;
     color: var(--color-background-white);
     font-size: var(--text-small);
     align-items: center;
@@ -642,13 +642,12 @@ span.psw, span.rememberme {
 }
 
 .leaderboard_title_container {
-    color:var(--color-text-white);
-    text-shadow: 3px 3px 5px var(--color-background-dark);
+    color:var(--color-text-black);
+    text-shadow: 3px 3px 5px var(--color-background-lightmedium);
     margin: 2% 0;
 }
 
 .dark .leaderboard_title_container {
-    color:var(--color-text-black);
     text-shadow: 3px 3px 5px var(--color-background-light);
 }
 
@@ -813,19 +812,33 @@ button:active {
 .clinician_nav_btn{
     border-radius: 5px;
     background-color:#EFF6F9;
-    padding: 0px;
+    padding: 0.7%;
     width: 12%;
     position: absolute;
     right: 10%;
+    margin-right: 3%;
+}
+
+.dark .phone_clinician {
+    color:#000000;
+}
+
+.dark .clinician_nav_btn h5 {
+    color:#000000;
+}
+
+.dark .clinician_nav_btn2 h5 {
+    color:#000000;
 }
 
 .clinician_nav_btn2{
     border-radius: 5px;
     background-color:#EFF6F9;
-    padding: 0px;
+    padding: 0.7%;
     width: 15%;
     position: absolute;
     right: 26%;
+    margin-right: 3%;
 }
 
 .save-btn{
@@ -1743,7 +1756,7 @@ textarea:focus {
         overflow:unset;
     }
 
-    .dark.leaderboard_background  {
+    .dark  {
         background: #000000;
     }
 
