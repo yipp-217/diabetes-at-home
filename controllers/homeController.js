@@ -42,13 +42,6 @@ const getHome = (req, res) => {
 
 
 const getLogin = (req, res) => {
-    if (req.isAuthenticated()) {
-        if (req.user.onModel == 'Patient') {
-            res.redirect('/patient')
-        } else if (req.user.onModel == 'Clinician') {
-            res.redirect('/clinician/dashboard')
-        }
-    }
     res.render('login.hbs', {flash: req.flash('error'), title: 'Login'})
 }
 
