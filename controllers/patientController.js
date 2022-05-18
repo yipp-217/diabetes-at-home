@@ -135,8 +135,8 @@ const getLeaderboard = async (req, res, next) => {
             keys = keys.reverse()
 
             console.log(keys)
-            
-            return res.render('patient_leaderboard.hbs', {user: req.user.toJSON(), darkMode: req.user.darkMode, topfive: keys})
+            patient = await getPatient(req.user.toJSON().model)
+            return res.render('patient_leaderboard.hbs', {user: req.user.toJSON(), patient: patient, darkMode: req.user.darkMode, topfive: keys})
         }
     }
     catch (e) {
@@ -153,7 +153,7 @@ const getPatientSettings = async (req, res, next) => {
             patient = await getPatient(req.user.toJSON().model)
             engagementRate = await calculateEngagement(patient)
             await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
-            return res.render('settings.hbs', {user: req.user.toJSON(), darkMode: req.user.darkMode})
+            return res.render('settings.hbs', {user: req.user.toJSON(), patient: patient, darkMode: req.user.darkMode})
     }
     catch (e) {
         return next(e)
