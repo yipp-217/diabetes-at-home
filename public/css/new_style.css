@@ -802,6 +802,7 @@ button:active {
 .medium_button {
     background-color: var(--color-background-medium);
     color:var(--color-background-white);
+    margin-top: 5%;
 }
 
 .dark_button {
@@ -1773,4 +1774,10 @@ textarea:focus {
         display: none;
     }
 
+}
+
+@media screen and (max-width: 400px) {
+    .chart_container {
+        height: 30vh;
+    }
 }
