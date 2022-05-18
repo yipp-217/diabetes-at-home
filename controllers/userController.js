@@ -38,7 +38,7 @@ const createPatientUser = async (req, res, next) => {
         else {
             // if (req.body.password !== req.body.password2)
             const user = new User(req.body)
-            console.log(req.body)
+            const email = req.body.email
             user.secret = "SqS8yF:Ac;<zn9YM8:=3s\",/q$9Rn9}hX\\y7&..Q!D~h'dJu5-BGKJ7#cR``\\Z^k"
             user.dateCreated = getDateTime()
             user.onModel = 'Patient'
@@ -51,10 +51,13 @@ const createPatientUser = async (req, res, next) => {
             user.model = patient
             await user.save()
 
-            // await Clinician.findById(
-            //     {_id: req.user._id},
-            //     {$push: {patients: user}}
-            // )
+
+            const doc = await Clinician.findById(req.user.toJSON().model)
+            const usr = await User.findOne({email}, {_id: 1})
+            await Clinician.findOneAndUpdate(
+                {_id: doc._id},
+                {$push: {patients: usr._id}}
+            )
         }
         return res.redirect('/clinician/dashboard')
     }
