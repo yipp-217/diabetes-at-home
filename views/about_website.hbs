@@ -39,9 +39,12 @@
         </div>
 
         <div class="sec3">
-            <a href="/login">
-                <button class="bottom_button">Log in</button>
-            </a>
+            {{#if loggedin}}
+                {{else}}
+                <a href="/login">
+                    <button class="bottom_button">Log in</button>
+                </a>
+            {{/if}}
         </div>
     </main>
-  </body>
+</body>
