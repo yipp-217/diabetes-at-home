@@ -18,7 +18,7 @@
     {{else}}
         <form id="{{field}}Form" action={{action}} method="post">
             <div class="data_container input_data">
-                <input type="number" name="{{field}}Value" min="0" max="{{max}}" required>
+                <input type="number" name="{{field}}Value" min="0" max="{{max}}" step="{{step}}" required>
                 <p>{{unit}}</p>
             </div>
             <div class="desktop_comment" id="{{field}}DesktopComment">
