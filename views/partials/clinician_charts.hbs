@@ -1,28 +1,28 @@
     <!--unique id-->
-    <canvas id="chart"></canvas>
+    <canvas id={{chartType}}></canvas>
 
      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
     //unique const name
     const thisChart = new Chart(
-      document.getElementById('chart'),
+      document.getElementById({{chartType}}),
       {
         type: 'line',
         data: {
         //import date here
-        labels: [1,2,3,4,5,6],
+        labels: {{xAxesData}},
         datasets: [{
         backgroundColor: 'black',
         borderColor: 'black',
         //import health data value here
-         data: [1,2,3,4,5,6],
+         data: {{yAxesDate}},
         }]},
         options: {
           scales: {
             yAxes: {
                 title: {
                     display: true,
-                    text: 'Blood Glucose Level(nmol/L)',
+                    text: "hiiii",
                 },
                 ticks: {
                   min: 50,
