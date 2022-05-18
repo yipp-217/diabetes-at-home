@@ -67,14 +67,35 @@
     datasets: [{
         backgroundColor: '#f28379',
         borderColor: '#f28379',
-         data: [120, 125, null, 118, 113, 110, 112], //import the blood glucode level as default display value
+         data: [120, 125, 110, 118, 113, 110, 112], //import the blood glucode level as default display value
         }]
     };
 
     const config = {
-        type: 'bar',
+        type: 'line',
         data: data,
-        options: {plugins: {legend: {display: false}}}
+        options: 
+          {
+            scales: {
+            yAxes: {
+                title: {
+                    display: true,
+                    text: 'Blood Glucose Level(nmol/L)',
+                },
+                ticks: {
+                  min: 50,
+                  max: 500
+                }
+            },
+            xAxes: {
+                title: {
+                    display: true,
+                    text: "Date of recording data",
+                }
+            }
+        },
+            plugins: {legend: {display: false}}
+          }
     };
     </script>
 
@@ -93,24 +114,25 @@
           if ("1".localeCompare(healthDataChart.value)==0){
             myChart.data.datasets[0].data = [120, 125, null, 118, 113, 110, 112];
             myChart.data.labels = ["03/02", "04/02", "05/02", "06/02", "07/02", "08/02", "09/02"];
-            myChart.config.type = 'bar';
+            myChart.config.type = 'line';
             myChart.update();
           //weight
           }else if ("2".localeCompare(healthDataChart.value)==0){
             myChart.data.datasets[0].data = [55, 55, 55.4, 56, 55.2, 55.8, 55.7];
             myChart.config.type = 'line';
+            myChart.config.options.scales.yAxes.title.text = 'Weight(kg)';
             myChart.update();
           //does taken
           }else if ("3".localeCompare(healthDataChart.value)==0){
             myChart.data.datasets[0].data = [1, 0, 0, 1, 0, 0, 0];
             myChart.config.type = 'scatter';
-            //myChart.data.labels = [0, 10, 5, 2, 20, 30, 45];
+            myChart.config.options.scales.yAxes.title.text = 'No. of does taken';
             myChart.update();
           //exercise
           }else if ("4".localeCompare(healthDataChart.value)==0){
             myChart.data.datasets[0].data = [2000, 400, 1300, 5400, 700, 10000, 200];
             myChart.config.type = 'line';
-            //myChart.data.labels = [0, 10, 5, 2, 20, 30, 45];
+            myChart.config.options.scales.yAxes.title.text = 'Exercise(steps)';
             myChart.update();
           }
             // myChart.data.datasets[0].data = healthDataChart.value.split(',');
