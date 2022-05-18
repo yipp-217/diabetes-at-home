@@ -190,6 +190,10 @@ const updateBloodGlucose = async (req, res, next) => {
             res.redirect('/clinician/dashboard')
         } 
         else {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                return res.redirect('/patient/edit-data')
+            }
             today = getDateTime()
             if (healthData === null) {
                 newHealthData = await HealthDataEntry.insertMany({
@@ -274,6 +278,10 @@ const updateExercise = async (req, res, next) => {
             res.redirect('/clinician/dashboard')
         } 
         else {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                return res.redirect('/patient/edit-data')
+            }
             today = getDateTime()
             if (healthData === null) {
                 newHealthData = await HealthDataEntry.insertMany({
@@ -314,6 +322,10 @@ const updateInsulin = async (req, res, next) => {
             res.redirect('/clinician/dashboard')
         } 
         else {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                return res.redirect('/patient/edit-data')
+            }
             today = getDateTime()
             if (healthData === null) {
                 newHealthData = await HealthDataEntry.insertMany({
