@@ -93,21 +93,11 @@ const calculateEngagement = async (patient) => {
     dateOne = new Date(dayCreated.substring(6,10), dayCreated.substring(3,5), dayCreated.substring(0,2))
     dateTwo = new Date(today.substring(6,10), today.substring(3,5), today.substring(0,2))
     
-    diffDays = Math.round(Math.abs((dateOne - dateTwo) / oneDay))
+    diffDays = Math.round(Math.abs((dateOne - dateTwo) / oneDay)) + 1
     //console.log(diffDays)
     numEntries = patient.patientHealthEntries.length
-    let engagementRate
-    if (diffDays == 0){
-        if (patient.patientHealthEntries.length > 0){
-            engagementRate = 100
-        } else {
-            engagementRate = 0
-        }
-    } else{
-        engagementRate = (numEntries/diffDays) * 100
-    }
-    
-    
+    engagementRate = (numEntries/diffDays) * 100
+
     await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
     console.log("Updated " + data.email + "'s engagement, new value: " + engagementRate)
     return engagementRate
