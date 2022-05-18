@@ -1774,3 +1774,9 @@ textarea:focus {
     }
 
 }
+
+@media screen and (max-width: 400px) {
+    .chart_container {
+        height: 30vh;
+    }
+}
