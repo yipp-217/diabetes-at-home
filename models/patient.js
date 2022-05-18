@@ -51,8 +51,8 @@ const patientSchema = new mongoose.Schema({
     dosesOfInsulinUpperThreshold: Number,
     dosesOfInsulinLowerThreshold: Number,
 
-    patientHealthEntries: [ObjectId],
-    clinicianNotes: [ObjectId]
+    patientHealthEntries: {type: [ObjectId], default: []},
+    clinicianNotes: {type: [ObjectId], default: []}
 })
 
 
