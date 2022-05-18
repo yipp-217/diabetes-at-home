@@ -5,6 +5,8 @@ const {Clinician} = require('../models/clinician')
 const {Patient} = require('../models/patient')
 const {HealthDataEntry} = require('../models/patient')
 
+const { validationResult } = require('express-validator');
+
 const getPatient = async (user) => {
     return await Patient.findById(user).lean()
 }
@@ -62,6 +64,9 @@ const displayDate = (x) => {
 }
 
 const getHealthData = async (patient) => {
+    if (patient.HealthDataEntries === null) {
+        return null
+    }
     for (let i = 0; i < patient.patientHealthEntries.length; i++) {
         data = await HealthDataEntry.findById(patient.patientHealthEntries[i]).lean()
         today = getDateTime().slice(0, 10)
@@ -75,10 +80,14 @@ const calculateEngagement = async (patient) => {
     const oneDay = 24 * 60 * 60 * 1000
     
     const data = await User.findById(patient.user).lean()
-    //console.log(data)
-    dayCreated = data.dateCreated.substring(0, 10)
     //console.log(dayCreated)
     today = getDateTime().substring(0,10)
+    //console.log(data)
+    if (data == null) {
+        dayCreated = today
+    } else {
+        dayCreated = data.dateCreated.substring(0, 10)
+    }
     //console.log(today)
     //dayCreated = "07/05/2022"
     dateOne = new Date(dayCreated.substring(6,10), dayCreated.substring(3,5), dayCreated.substring(0,2))
@@ -221,6 +230,10 @@ const updateWeight = async (req, res, next) => {
             res.redirect('/clinician/dashboard')
         } 
         else {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                return res.redirect('/patient/edit-data')
+            }
             today = getDateTime()
             if (healthData === null) {
                 newHealthData = await HealthDataEntry.insertMany({
