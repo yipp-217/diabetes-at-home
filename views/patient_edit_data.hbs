@@ -9,7 +9,7 @@
     <!-- 4 records -->
     <div class="boxes_container sec1">
         {{#if patient.requirementBloodGlucoseLevel}}
-            {{> patient_edit_data_container title="Blood Glucose Level" field="bloodGlucose" unit="nmol/L" value=healthData.valueBloodGlucoseLevel comment=healthData.commentBloodGlucoseLevel time=healthData.timeBloodGlucoseLevel icon="/res/Icon_blood.svg" action="/patient/edit-data/blood-glucose-level" max="150"}}
+            {{> patient_edit_data_container title="Blood Glucose Level" field="bloodGlucose" unit="nmol/L" value=healthData.valueBloodGlucoseLevel comment=healthData.commentBloodGlucoseLevel time=healthData.timeBloodGlucoseLevel icon="/res/blood_glucose_icon.svg" action="/patient/edit-data/blood-glucose-level" max="150"}}
         {{/if}}
         {{#if patient.requirementWeight}}
             {{> patient_edit_data_container title="Weight" field="weight" unit="kilograms" value=healthData.valueWeight comment=healthData.commentWeight time=healthData.timeWeight icon="/res/Icon-weight.svg" action="/patient/edit-data/weight" max="650"}}

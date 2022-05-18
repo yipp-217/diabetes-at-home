@@ -454,7 +454,7 @@ input[name="email"] {
 }
 
 input[type=password] {
-    background-image: url(../res/lock.svg);
+    background-image: url(../res/password_lock.svg);
 }
 
 input[name="email"], input[type=password] {
