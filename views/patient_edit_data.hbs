@@ -8,7 +8,7 @@
     
     <!-- 4 records -->
     <div class="boxes_container sec1">
-        {{#if patient.requirementWeight}}
+        {{#if patient.requirementBloodGlucoseLevel}}
             {{> patient_edit_data_container title="Blood Glucose Level" field="bloodGlucose" unit="nmol/L" value=healthData.valueBloodGlucoseLevel comment=healthData.commentBloodGlucoseLevel time=healthData.timeBloodGlucoseLevel icon="/res/Icon_blood.svg" action="/patient/edit-data/blood-glucose-level" max="150"}}
         {{/if}}
         {{#if patient.requirementWeight}}
@@ -18,10 +18,10 @@
 
 
     <div class="boxes_container sec2">
-        {{#if patient.requirementWeight}}
+        {{#if patient.requirementExercise}}
             {{> patient_edit_data_container title="Exercise" field="exercise" unit="steps" value=healthData.valueExercise comment=healthData.commentExercise time=healthData.timeExercise icon="/res/Icon_excercise.svg" action="/patient/edit-data/exercise" max="1000000"}}    
         {{/if}}
-        {{#if patient.requirementWeight}}
+        {{#if patient.requirementDosesOfInsulinTaken}}
             {{> patient_edit_data_container title="Doses of Insulin Taken" field="dosesOfInsulin" unit="doses" value=healthData.valueDosesOfInsulinTaken comment=healthData.commentDosesOfInsulinTaken time=healthData.timeDosesOfInsulinTaken icon="/res/Icon_doses.svg" action="/patient/edit-data/doses-of-insulin-taken" max="900"}}
         {{/if}}
     </div>
