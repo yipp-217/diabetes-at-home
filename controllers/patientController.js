@@ -82,8 +82,7 @@ const calculateEngagement = async (patient, req) => {
     
     diffDays = Math.round(Math.abs((dateOne - dateTwo) / oneDay))
     numEntries = patient.patientHealthEntries.length
-    
-    console.log((numEntries/diffDays) * 100)
+
     return (numEntries/diffDays) * 100
 }
 
