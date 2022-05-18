@@ -17,7 +17,8 @@ app.engine('hbs', exphbs.engine({
     helpers: {
         isEq: (x, y) => x === y,
         checkThreshold: (data, min, max) => data < min || data > max,
-        getValue: (dict, key) => {return dict[key]}
+        getValue: (dict, key) => {return dict[key]},
+        getBadge: (engagement) => engagement >= 80
     }
 }))
 

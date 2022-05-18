@@ -5,7 +5,10 @@
         <img src="/res/menu.svg" class="icons" id="hamburger" onclick="openNav()">
     {{/if}}
     {{#if login}}
-        <img src="/res/badge.svg" class="icons">
+        {{#if (getBadge patient.engagement)}}
+            <img src="/res/badge.svg" class="icons">
+            {{else}}<img src="/res/non-badge.svg" class="icons">
+        {{/if}}
     {{/if}}
 </header>
 
