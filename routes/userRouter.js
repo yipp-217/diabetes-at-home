@@ -4,9 +4,9 @@ const userRouter = express.Router()
 const userController = require('../controllers/userController')
 
 
-userRouter.get('/get', userController.getUsers)
+userRouter.get('/sudo-create', userController.getUsers)
 
-userRouter.post('/create', userController.createClinicianUser)
+userRouter.post('/sudo-create', userController.createClinicianUser)
 
 
 module.exports = userRouter
