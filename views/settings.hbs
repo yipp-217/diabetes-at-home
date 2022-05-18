@@ -38,13 +38,14 @@
             <section class="center_btn"><button class="pink_button" type="submit"><h5>Update</h5></button></section>
         </section>
     </form>
-    <button class="theme-toggle-button">Dark Mode</button> 
+    {{#if darkMode}}
+        <body class="dark"></body>
+    {{/if}}
+    <form action="/patient/dark-mode">
+        <button class="theme-toggle-button"><h5>Light/Dark Theme</h5></button> 
+    </form>
+    
 </main>
 {{> bottomnav page='settings'}}
 
 
-<script>
-    document.querySelector('.theme-toggle-button').addEventListener('click', () => {
-        document.body.classList.toggle('dark')
-    })
-</script>

@@ -1,11 +1,11 @@
-<h3>Displaying users </h3>
+<h3>Displaying all users </h3>
 <ul>
     {{#each users}}
         <li>{{this.nameFamily}} {{this.nameGiven}} – {{this.email}}</li>
     {{/each}}
 </ul>
 
-<h3>User signup</h3>
+<h3>Clinician User signup</h3>
 <form action="/user/create" method="POST">
     <input type="text" placeholder="email" name="email"/>
     <input type="text" placeholder="password" name="password"/>
@@ -15,8 +15,6 @@
     <input type="number" placeholder="year born" name="yearBorn"/>
     <input type="text" placeholder="bio" name="bio"/>
 
-    <label for="Clinician">Are you signing up as a clinician?</label>
-    <input type="checkbox" id="Clinician" name="clinician"/>
     <br>
 
     <input type="submit"/>

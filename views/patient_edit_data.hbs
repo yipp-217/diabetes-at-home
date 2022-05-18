@@ -2,7 +2,10 @@
 
 <main class="content mainpage_grid_format edit_data">
     <h2 style="text-align: left" class="heading">Today</h2>
-
+    {{#if darkMode}}
+        <body class="dark"></body>
+    {{/if}}
+    
     <!-- 4 records -->
     <div class="boxes_container sec1">
         {{#if patient.requirementWeight}}

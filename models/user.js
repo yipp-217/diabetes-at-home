@@ -11,8 +11,8 @@ const userSchema = new mongoose.Schema({
     nameScreen: {type: String, required: true},
     dateCreated:  {type: String},
     yearBorn: Number,
-    bio: String,
-    lightMode: {type: Boolean, default: true, required: true},
+    bio: {Type: String, default: ""},
+    darkMode: {type: Boolean, default: false},
     
 
     onModel: {type: String, enum: ['Clinician', 'Patient']},

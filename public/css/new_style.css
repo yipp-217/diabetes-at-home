@@ -102,6 +102,14 @@ h3 {
     text-align: center;
 }
 
+.dark h3{
+    color: #ffffff;
+}
+
+.dark .stayBlack {
+    color: #000000;
+}
+
 h4 {
     font-size: var( --text-big);
     font-family: var(--font-family-heading);
@@ -610,7 +618,14 @@ span.psw, span.rememberme {
     background-color: var(--color-background-light);
     border-radius: 10px;
     height: 50vh;
-    position: relative;
+}
+
+.dark .chart_container {
+    background-color: var(--color-background-dark);
+}
+
+.single_chart_container {
+    margin-top: 10%;
 }
 
 .more_info{
@@ -648,6 +663,11 @@ span.psw, span.rememberme {
     transform: rotateY(180deg);
     margin-left: 90%;
     display: block;
+}
+
+canvas {
+    display: flex;
+    align-items: center;
 }
 
 
@@ -765,6 +785,7 @@ button:active {
 
 .pink_button {
     background-color: var(--color-background-accent);
+    width: 50%;
 }
 
 .lightmedium_button {
@@ -815,19 +836,8 @@ button:active {
     transform: scale(1);
 }
 
-
-.theme-toggle-button:hover,
-.theme-toggle-button:focus {
-    /*transform: scale(1.1);*/
-}
-
-.chart_button {
-    position: absolute;
-}
-
-#curve_chart {
-    height: 50vh;
-    z-index: 99;
+#chart_button {
+    background-color: #ffffff;;
 }
 
 /******************* graph ****************/
@@ -851,11 +861,15 @@ button:active {
 
 .graph {
     position: absolute;
+    display: flex;
     border-radius: 20px;
     box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.25);
     width: 35%;
     height: 40%;
     background-color: #9FC0D6;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2%;
 }
 
 
@@ -1439,14 +1453,6 @@ textarea:focus {
         width: 80%;
         height: 40%;
     } 
-    
-    .chart_container {
-        height: 40vh;
-    }
-
-    #curve_chart {
-        height: 40vh;
-    }
 
     /** setting_container **/
     .setting_hid{
@@ -1679,7 +1685,28 @@ textarea:focus {
         padding-left: 7%;
     }
 
+    .chart_container {
+        height: 65vh;
+    }
 }
+
+    @media screen and (min-width: 450px) and (max-width: 900px){
+        .chart_container{
+            height: 55vh;
+        }
+        .single_chart_container {
+            margin-top: 7%;
+        }
+
+    }
+
+    @media screen and (max-width: 530px){
+        .chart_container {
+            height: 40vh;
+        }
+    }
+
+
 
 
     @media screen and (max-width: 1024px) {

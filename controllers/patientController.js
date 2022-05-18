@@ -17,10 +17,13 @@ const getPatientUser = async (req, res, next) => {
         else
             patient = await getPatient(req.user.toJSON().model)
             healthData = await getHealthData(patient)
-            engagementRate = await calculateEngagement(patient, req)
+            engagementRate = await calculateEngagement(patient)
             await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
+
+            dataset = [4,3,7,3,6,4,7].toString()
+            
             return res.render('patient_main.hbs', {
-                user: req.user.toJSON(), patient: patient, healthData: healthData
+                user: req.user.toJSON(), patient: patient, healthData: healthData, darkMode: req.user.darkMode, dataset: dataset
             })
     }
     catch (e) {
@@ -35,11 +38,11 @@ const getPatientUserEdit = async (req, res, next) => {
         } 
         else
             patient = await getPatient(req.user.toJSON().model)
-            engagementRate = await calculateEngagement(patient, req)
+            engagementRate = await calculateEngagement(patient)
             await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
             healthData = await getHealthData(patient)
             return res.render('patient_edit_data.hbs', {
-                user: req.user.toJSON(), patient: patient, healthData: healthData
+                user: req.user.toJSON(), patient: patient, healthData: healthData, darkMode: req.user.darkMode
             })
     }
     catch (e) {
@@ -68,8 +71,7 @@ const getHealthData = async (patient) => {
     }
     return null
 }
-
-const calculateEngagement = async (patient, req) => {
+const calculateEngagement = async (patient) => {
     const oneDay = 24 * 60 * 60 * 1000
     const data = await User.findById(patient.user).lean()
 
@@ -82,7 +84,12 @@ const calculateEngagement = async (patient, req) => {
     
     diffDays = Math.round(Math.abs((dateOne - dateTwo) / oneDay))
     numEntries = patient.patientHealthEntries.length
-
+    
+    
+    engagementRate = (numEntries/diffDays) * 100
+    
+    await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
+    console.log("Updated " + data.nameGiven + "'s engagement, new value: " + engagementRate)
     return (numEntries/diffDays) * 100
 }
 
@@ -93,11 +100,34 @@ const getLeaderboard = async (req, res, next) => {
             res.redirect('/clinician/dashboard')
         } 
         else {
-            patient = await getPatient(req.user.toJSON().model)
-            engagementRate = await calculateEngagement(patient, req)
+            // update every patients engagement rate
+            for await (const doc of Patient.find()) {
+                patient = await Patient.findById(doc._id)
+                await calculateEngagement(patient)
+                
+            }
+
+            // create dictionary of scores sorted by screen names
+            var dict = {}
+            for await (const doc of User.find({onModel: "Patient"}).sort('nameScreen')){
+                screenName = doc.nameScreen
+
+                currPatient = await Patient.findById(doc.model)
+                dict[screenName] = currPatient.engagement
+
+            }
             
-            await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
-            return res.render('patient_leaderboard.hbs', {user: req.user.toJSON()})
+            //console.log(dict)
+            var items = Object.keys(dict).map((key) => { return [key, dict[key]] });
+            items.sort((first, second) => { return first[1] - second[1] });
+            var keys = items.map((e) => { return e[0] });
+
+            keys = keys.slice(-5)
+            keys = keys.reverse()
+
+            console.log(keys)
+            
+            return res.render('patient_leaderboard.hbs', {user: req.user.toJSON(), darkMode: req.user.darkMode, topfive: keys})
         }
     }
     catch (e) {
@@ -112,9 +142,9 @@ const getPatientSettings = async (req, res, next) => {
         } 
         else
             patient = await getPatient(req.user.toJSON().model)
-            engagementRate = await calculateEngagement(patient, req)
+            engagementRate = await calculateEngagement(patient)
             await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
-            return res.render('settings.hbs', {user: req.user.toJSON()})
+            return res.render('settings.hbs', {user: req.user.toJSON(), darkMode: req.user.darkMode})
     }
     catch (e) {
         return next(e)
@@ -127,7 +157,7 @@ const getPatientChangePassword = async (req, res, next) => {
             res.redirect('/clinician/dashboard')
         } 
         else
-            return res.render('change_password.hbs', {user: req.user.toJSON()})
+            return res.render('change_password.hbs', {user: req.user.toJSON(), darkMode: req.user.darkMode})
     }
     catch (e) {
         return next(e)
@@ -294,6 +324,28 @@ const updateInsulin = async (req, res, next) => {
     }
 }
 
+const turnOnDarkMode = async(req, res, next) => {
+    try {
+        if (req.user.onModel == 'Clinician') {
+            res.redirect('/clinician/dashboard')
+        }else{
+            const patient = await getPatient(req.user.toJSON().model)
+            const data = await User.findById(patient.user).lean()
+            
+            if (data.darkMode == true){
+                await User.findOneAndUpdate({_id: data._id}, {$set: {darkMode: false}}).lean()
+            } else{
+                await User.findOneAndUpdate({_id: data._id}, {$set: {darkMode: true}}).lean()
+            }
+            console.log("Dark mode: " + data.darkMode)
+            res.redirect('/patient/settings')
+        }
+    } 
+    catch(e){
+        return next(e)
+    }
+}
+
 module.exports = {
     getPatientUser,
     getPatientUserEdit,
@@ -305,5 +357,5 @@ module.exports = {
     updateExercise,
     updateInsulin,
     getHealthData,
-    getDateTime,
+    turnOnDarkMode,
 }

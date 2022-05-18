@@ -35,19 +35,19 @@ const patientSchema = new mongoose.Schema({
     supportMessage: {type: String},
     engagement: {type: Number, default: 0},
 
-    requirementBloodGlucoseLevel: Boolean,
+    requirementBloodGlucoseLevel: {type: Boolean, default: true},
     bloodGlucoseUpperThreshold: Number,
     bloodGlucoseLowerThreshold: Number,
 
-    requirementWeight: Boolean,
+    requirementWeight: {type: Boolean, default: true},
     weightUpperThreshold: Number,
     weightLowerThreshold: Number,
 
-    requirementExercise: Boolean,
+    requirementExercise: {type: Boolean, default: true},
     exerciseUpperThreshold: Number,
     exerciseLowerThreshold: Number,
 
-    requirementDosesOfInsulinTaken: Boolean,
+    requirementDosesOfInsulinTaken: {type: Boolean, default: true},
     dosesOfInsulinUpperThreshold: Number,
     dosesOfInsulinLowerThreshold: Number,
 
