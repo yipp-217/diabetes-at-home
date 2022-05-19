@@ -656,8 +656,10 @@ span.psw, span.rememberme {
 }
 
 #past_notes_link {
-    margin-top: 5%;
+    margin: 10% 0;
     text-decoration: underline;
+    text-align: center;
+    font-size: var(--text-big);
 }
 
 .data_container {

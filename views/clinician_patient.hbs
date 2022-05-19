@@ -38,11 +38,11 @@
 
             <section class="info_container">
                 <h3>Notes</h3>
+                <div id="past_notes_link"><a href="/clinician/patient/{{patient._id}}/clinician-notes">See Past Notes</a></div>
                 <form id="clinicianNoteForm" action="/clinician/patient/{{patient}}/add-note" method="post">
                     <textarea class="input" name="clinicianNote" placeholder="Add Note Here" required></textarea>
                     <section class="center_btn"><button type="submit"><h5>SAVE</h5></button><br></section>
                 </form>
-                <div id="past_notes_link"><a href="/clinician/patient/{{patient._id}}/clinician-notes">See Past Notes</a></div>
             </section>
         </article>
 
