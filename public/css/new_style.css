@@ -137,6 +137,12 @@ h6 {
     padding-bottom: 10%;
 }
 
+h7 {
+    font-family: var(--font-family-heading);
+    font-size: var(--text-small);
+    text-align: center;
+}
+
 .bigger_p {
     font-size: var(--text-big);
     font-weight: 700;
@@ -840,6 +846,7 @@ button:active {
 
 .lightmedium_button {
     background-color: var(--color-background-lightmedium);
+    margin-right: 5%;
 }
 
 .medium_button {
@@ -910,16 +917,7 @@ button:active {
     background-color: #9FC0D6;
     border-radius: 5px;
     padding: 0.7%;
-    position: absolute;
     left:20%;
-}
-
-.register_btn{
-    background-color: #9FC0D6;
-    border-radius: 5px;
-    padding: 0.7%;
-    position: absolute;
-    right: 20%;
 }
 
 .reaserch_btn {
@@ -975,9 +973,9 @@ button:active {
 .search_bar {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     width: 100%;
-    padding-top:4%;
-    padding-left: 3%;
+    margin-top: 14vh;
 }
 
 /*for about pages*/
@@ -1078,9 +1076,8 @@ button:active {
     display: flex;
     justify-content: center;
     padding-top: 1%;
+    margin-top: 1%;
 }
-
-.dashboard_padding{padding-top: 8%;}
 
 .flex_left {
     background-color: var(--color-background-lightmedium);
@@ -1511,13 +1508,6 @@ textarea:focus {
         grid-template-rows: 300px 300px;
     }
 
-    .dashboard_padding{padding-top: 18%;}
-
-    /** bars **/
-    .search_bar{
-        padding-bottom: 10%;
-    }  
-
     .sidenav a {font-size: 18px;}
 
     input[name="logout"] {font-size: 18px !important;}
@@ -1620,8 +1610,6 @@ textarea:focus {
     }
 
     .comment_btn {left: 10%;}
-    .register_btn {right: 10%;}
-
 
 }
 
@@ -1676,7 +1664,6 @@ textarea:focus {
 
     .flex_right{width: 90%;}
     .dashboard_flex{align-items: center;}
-    .dashboard_padding{padding-top: 14%;}
 
     .flex_left{
         margin-right: 5%;
@@ -1741,9 +1728,6 @@ textarea:focus {
     input[name="comment"]{
         display: none;
     }
-
-    .search_bar, .clinician_main{padding-top: 7%;}
-
 
     .history_background {
         padding-top: 10%;
