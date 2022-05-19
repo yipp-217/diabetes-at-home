@@ -46,7 +46,6 @@ app.use(flash())
 /* ==========================================CLEAN==========================================*/
 app.use(
     session({
-        
         secret: process.env.SESSION_SECRET,
         name: 'Diabetes@Home', // The cookie name (CHANGE THIS)
         saveUninitialized: false,
@@ -54,7 +53,8 @@ app.use(
         cookie: {
             sameSite: 'strict',
             httpOnly: true,
-            secure: app.get('env') === 'production'
+            secure: app.get('env') === 'production',
+            maxAge: 180000000
         },
         store: MongoStore.create({ clientPromise: mongooseClient })
     })
