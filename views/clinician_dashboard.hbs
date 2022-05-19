@@ -4,7 +4,9 @@
 {{/if}}
     <header class="clinician_header">
         <h2 class="cilnician_nav">Good afternoon, {{user.nameScreen}}</h2>
-        <a href="/" class="clinician_nav_btn"><h5 class="phone_clinician">Log Out</h5></a>
+        <form method="POST" action="/logout">
+            <button type="submit" class="clinician_nav_btn"><h5 class="phone_clinician">Log Out</h5></button>
+        </form>
         <a href="/clinician/settings"><img class="icons icon_settings" src="/res/settings.svg"></a>
     </header>
 
