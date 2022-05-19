@@ -438,6 +438,12 @@ form[id$="Form"]{
     margin-top: 10%;
 }
 
+#notes {
+    margin-top: 5%;
+    font-family: var(--font-family-heading);
+    color: var(--color-text-grey);
+}
+
 .time{
     position: absolute;
     right:6%;
@@ -1822,10 +1828,6 @@ textarea:focus {
     .leaderboard_background{
         background: linear-gradient(180deg, rgba(25,55,115,1) 7%, rgba(98,131,196,1) 20%, rgba(255,255,255,1) 30%);
         overflow:unset;
-    }
-
-    .dark  {
-        background: #000000;
     }
 
     .leaderboard_grid_format {

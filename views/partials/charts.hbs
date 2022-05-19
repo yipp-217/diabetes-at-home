@@ -11,6 +11,7 @@
 
     <div class="single_chart_container">
         <canvas id="myChart"></canvas>
+        <p class="smaller_p" id="notes"></p>
     </div>
 
     
@@ -19,6 +20,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <script>
+     if (window.outerWidth < 700){
+       Chart.defaults.font.size = 10;
+     }    
+      function responsiveFont(){
+      if (window.outerWidth <700){
+          Chart.defaults.font.size = 10;
+        }else if (window.outerWidth > 1024){
+          Chart.defaults.font.size = 10;
+        }else {
+          Chart.defaults.font.size = 13;
+        };
+      };
+
       var dataValue;
       var dataDate;
       $(document).ready(
@@ -28,12 +42,12 @@
         var cntrol = $(this);
         dataValue = cntrol.find(":selected").data("value");
         dataDate = cntrol.find(":selected").data("date");
+        $('#notes').text("hover over the dots to see your health data in detail :)");
         });
 
     const myChart = new Chart(
       document.getElementById('myChart'),
       {
-        display: false,
         type: 'line',
         data: {
         labels: null,
@@ -50,17 +64,19 @@
                 title: {
                     display: true,
                     text: '',
-                }
+                },
+                ticks: {precision: 0}
             },
             xAxes: {
                 title: {
                     display: true,
                     text: "Date",
                 }}},
-            plugins: {legend: {display: false}}
+            plugins: {legend: {display: false},
+                          
+            }
         }});
-      
-    
+              
         const healthDataChart = document.getElementById('healthDataChart');
         healthDataChart.addEventListener('change', switchChart);
         function switchChart(){

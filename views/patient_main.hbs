@@ -1,5 +1,5 @@
-{{> sidenav login=true page='patient_main' patient=patient}}
-
+<body onresize="responsiveFont()">
+    {{> sidenav login=true page='patient_main' patient=patient}}
 <main class="content mainpage_grid_format">
     {{#if darkMode}}
         <body class="dark"></body>
@@ -50,3 +50,5 @@
 </main>
 
 {{> bottomnav page='patient_main'}}
+
+</body>
