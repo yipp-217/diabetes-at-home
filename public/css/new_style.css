@@ -1248,6 +1248,8 @@ td:last-child {
 .podium_user{
     text-align: center;
     padding-bottom: 2%;
+    inline-size: 100%;
+    word-break: break-all;
 }
 
 .podium_rank{
@@ -1421,6 +1423,7 @@ textarea:focus {
     /**** phone font style ****/
     h1 {font-size: var(--text-title);}
     h2 {font-size: var(--text-subheading);}
+    h6 {font-size: var(--text-small) !important; font-weight: 400;}
     p {font-size: var(--text-small);}
     .bigger_p {font-size: var(--text-medium);}
     h5 {font-size: var(--text-smaller);}
