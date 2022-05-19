@@ -3,7 +3,7 @@
         <select id="healthDataChart">
           <option value="">-- select --</option>
             <option value="1" data-value={{valueBloodGlucoseLevel}} data-date={{dateBloodGlucoseLevel}}>Blood Glucose Level</option>
-            <option value="2" data-value={{valueWeight}} data-date={{dateWeight}}>weight</option>
+            <option value="2" data-value={{valueWeight}} data-date={{dateWeight}}>Weight</option>
             <option value="3" data-value={{valueDosesOfInsulinTaken}} data-date={{dateDosesOfInsulinTaken}}>Does taken</option>
             <option value="4" data-value={{valueExercise}} data-date={{dateExercise}}>Exercise</option>
         </select>
@@ -42,7 +42,7 @@
         var cntrol = $(this);
         dataValue = cntrol.find(":selected").data("value");
         dataDate = cntrol.find(":selected").data("date");
-        $('#notes').text("hover over the dots to see your health data in detail :)");
+        $('#notes').text("Hover over the dots to see your health data in detail :)");
         });
 
     const myChart = new Chart(
