@@ -1079,6 +1079,12 @@ button:active {
     margin-top: 1%;
 }
 
+.data_history_table{
+    display: flex;
+    justify-content: center;
+    margin-top: 7%;
+}
+
 .flex_left {
     background-color: var(--color-background-lightmedium);
     height:100%;
@@ -1660,6 +1666,10 @@ textarea:focus {
     .dashboard_flex, .flex_left{
         flex-wrap: wrap;
         width: 100%;
+    }
+
+    #data_history_table {
+        margin-top: 15vh;
     }
 
     .flex_right{width: 90%;}
