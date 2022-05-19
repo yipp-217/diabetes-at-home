@@ -363,6 +363,11 @@ iframe {
     grid-area: desc;
 }
 
+/********************** form *****************************/
+form[id$="Form"]{
+    width: 70%;
+}
+
 /********************** dashboard ************************/
 
 #clinician_message {
@@ -1292,11 +1297,6 @@ textarea {
     font-family: var(--font-family-heading);
     resize: none;
     height: 19vh;
-}
-
-textarea[name="exerciseComment"], textarea[name="bloodGlucoseComment"], textarea[name="weightComment"], textarea[name="insulinComment"]{
-    height: 20vh;
-    width: 40vh;
 }
 
 textarea:focus {
