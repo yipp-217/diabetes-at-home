@@ -11,22 +11,22 @@
 
                 <article class="personal_info">
                     <label for="Email"></label><h5>Email:</h5> </label>
-                    <input type="text" placeholder="Email" name="email">
+                    <input type="text" placeholder="Email" name="email" required>
                 </article>
 
                 <article class="personal_info">
                     <h5>First name:</h5>
-                    <input type="text" placeholder="First name" name="nameGiven">
+                    <input type="text" placeholder="First name" name="nameGiven" required>
                 </article>
 
                 <article class="personal_info">
                     <h5>Last name:</h5>
-                    <input type="text" placeholder="Last name" name="nameFamily">
+                    <input type="text" placeholder="Last name" name="nameFamily" required>
                 </article>
 
                 <article class="personal_info">
                     <h5>Screen name:</h5>
-                    <input type="text" placeholder="Screen name" name="nameScreen">
+                    <input type="text" placeholder="Screen name" name="nameScreen" required>
                 </article>
                 <button class="light_button" id="register_btn"><a href=""><h5>Register</h5></a></button>
             </section>
@@ -34,28 +34,22 @@
 
                 <article class="personal_info">
                     <h5>Year born:</h5>
-                    <input type="text" placeholder="Year" name="yearBorn">
+                    <input type="number" placeholder="Year born" name="yearBorn" min="1900" max="2022" step="1" required>
                 </article>
 
-
+                <article class="personal_info">
+                    <p class="alert" style="color: #f28379;">{{error}}</p>
+                </article>
 
                 <article class="personal_info">
                     <label for="Password"></label><h5>Password:</h5></label>
-                    <input type="password" placeholder="" name="password">
+                    <input type="password" placeholder="" name="password" required>
                 </article>
 
                 <article class="personal_info">
                     <label for="Confirm_Password"></label><h5>Confirm Password:</h5></label>
-                    <input type="password" placeholder="" name="password2">
+                    <input type="password" placeholder="" name="password2" required>
                 </article>
-
-                <article class="personal_info hidden">
-                    <label for="Confirm_Password"></label><h5>Confirm Password:</h5></label>
-                    <input type="password" placeholder="" name="password2">
-                </article>
-
-
-
             </section>
         </form>
     </main>
