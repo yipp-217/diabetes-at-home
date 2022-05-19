@@ -60,10 +60,6 @@ const getAboutWebsite = (req, res) => {
     res.render('about_website.hbs', {loggedin: req.isAuthenticated()})
 }
 
-const getError = (req, res) => {
-    res.render('error_page.hbs')
-}
-
 const updateUserDetails = async (req, res, next) => {
     try {
         const errors = validationResult(req);
@@ -114,6 +110,5 @@ module.exports = {
     getAboutDiabetes,
     getAboutWebsite,
     logout,
-    getError,
     updateUserDetails,
 }

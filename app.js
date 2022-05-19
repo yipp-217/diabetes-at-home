@@ -95,6 +95,10 @@ app.use('/patient', patientRouter)
 /* Clinician */
 app.use('/clinician', clinicianRouter)
 
+app.get('*', function(req, res){
+    res.render('error_page.hbs')
+});
+
 /* ------------------------------------------------------------------------- */
 app.listen(PORT, HOSTNAME => {
     console.log('Diabetes@Home is listening on port ' + PORT)

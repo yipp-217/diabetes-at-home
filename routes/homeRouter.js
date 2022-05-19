@@ -21,8 +21,6 @@ homeRouter.get('/about-diabetes', homeController.getAboutDiabetes)
 
 homeRouter.get('/about-website', homeController.getAboutWebsite)
 
-homeRouter.get('/error', homeController.getError)
-
 homeRouter.post('/update-user', 
                 homeController.isAuthenticated, 
                 body('bio').escape(),
