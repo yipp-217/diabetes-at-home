@@ -3,12 +3,12 @@
 {{/if}}
 {{> clinician_sidenav page="patient" title="'s Notes" user=patient.user}}
 
-<a href="/clinician/patient/{{patient._id}}" style="margin-top: 12vh; margin-left:5%;"><button class="lightmedium_button"><h7>Back to Patient</h7></button></a>
+<a href="/clinician/patient/{{patient._id}}" style="margin-top: 14vh; margin-left:5%;"><button class="lightmedium_button"><h7>Back to Patient</h7></button></a>
     <main >
-        <section class="big_background note">
+        <section class="big_background notes">
             {{#each notes}}
                 <article class="contianer_note">
-                    <p>{{this.note}}</p>
+                    <p style="color:#000000">{{this.note}}</p>
                     <p class="time">{{this.time}}</p>
                 </article>
             {{/each}}
