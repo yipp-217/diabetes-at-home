@@ -3,6 +3,8 @@ const Clinician = require('../models/clinician')
 const {Patient} = require('../models/patient')
 const bcrypt = require('bcryptjs')
 
+const { validationResult } = require('express-validator');
+
 const SALT_FACTOR = 10
 
 // Authentication middleware
@@ -64,12 +66,15 @@ const getError = (req, res) => {
 
 const updateUserDetails = async (req, res, next) => {
     try {
-        await User.findOneAndUpdate(
-            {_id: req.user._id},
-            {$set: {
-                bio: req.body.bio
-            }}
-        ).lean()
+        const errors = validationResult(req);
+        if (errors.isEmpty()) {
+            await User.findOneAndUpdate(
+                {_id: req.user._id},
+                {$set: {
+                    bio: req.body.bio
+                }}
+            ).lean()
+        }
         if (req.body.Password != "") {
             if (req.body.Password.localeCompare(req.body.Confirm_Password) == 0) {
                 bcrypt.hash(req.body.Password, SALT_FACTOR, async (err, hash) => {

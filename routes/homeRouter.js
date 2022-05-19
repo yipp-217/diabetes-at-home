@@ -3,6 +3,8 @@ const homeRouter = express.Router()
 const passport = require('passport')
 const homeController = require('../controllers/homeController')
 
+const { body } = require('express-validator');
+
 homeRouter.get('/', homeController.getHome)
 
 homeRouter.get('/login', homeController.getLogin)
@@ -21,6 +23,9 @@ homeRouter.get('/about-website', homeController.getAboutWebsite)
 
 homeRouter.get('/error', homeController.getError)
 
-homeRouter.post('/update-user', homeController.isAuthenticated, homeController.updateUserDetails)
+homeRouter.post('/update-user', 
+                homeController.isAuthenticated, 
+                body('bio').escape(),
+                homeController.updateUserDetails)
 
 module.exports = homeRouter

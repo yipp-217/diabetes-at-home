@@ -45,25 +45,33 @@
         const insulin = document.getElementById("dosesOfInsulinContainer");
         const insulinValue = document.getElementById("dosesOfInsulinValue");
 
-        if (bloodGlucose.contains(bloodGlucoseValue)) {
-            bloodGlucose.style.backgroundColor = "#9FC0D6";
-        } else {
-            bloodGlucose.style.backgroundColor = "#f28379";
+        if (bloodGlucose != null) {
+            if (bloodGlucose.contains(bloodGlucoseValue)) {
+                bloodGlucose.style.backgroundColor = "#9FC0D6";
+            } else {
+                bloodGlucose.style.backgroundColor = "#f28379";
+            }
         }
-        if (weight.contains(weightValue)) {
-            weight.style.backgroundColor = "#9FC0D6";
-        } else {
-            weight.style.backgroundColor = "#f28379";
+        if (weight != null) {
+            if (weight.contains(weightValue)) {
+                weight.style.backgroundColor = "#9FC0D6";
+            } else {
+                weight.style.backgroundColor = "#f28379";
+            }
         }
-        if (exercise.contains(exerciseValue)) {
-            exercise.style.backgroundColor = "#9FC0D6";
-        } else {
-            exercise.style.backgroundColor = "#f28379";
+        if (exercise != null) {
+            if (exercise.contains(exerciseValue)) {
+                exercise.style.backgroundColor = "#9FC0D6";
+            } else {
+                exercise.style.backgroundColor = "#f28379";
+            }
         }
-        if (insulin.contains(insulinValue)) {
-            insulin.style.backgroundColor = "#9FC0D6";
-        } else {
-            insulin.style.backgroundColor = "#f28379";
+        if (insulin != null) {
+            if (insulin.contains(insulinValue)) {
+                insulin.style.backgroundColor = "#9FC0D6";
+            } else {
+                insulin.style.backgroundColor = "#f28379";
+            }
         }
     }    
 

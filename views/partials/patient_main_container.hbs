@@ -15,25 +15,33 @@
         const exercise = document.getElementById("exerciseContainer");
         const insulin = document.getElementById("insulinContainer");
 
-        if (bloodGlucose.textContent.includes('-')) {
-            bloodGlucose.style.backgroundColor = "#f28379";
-        } else {
-            bloodGlucose.style.backgroundColor = "#9FC0D6";
+        if (bloodGlucose != null) {
+            if (bloodGlucose.textContent.includes('-')) {
+                bloodGlucose.style.backgroundColor = "#f28379";
+            } else {
+                bloodGlucose.style.backgroundColor = "#9FC0D6";
+            }
         }
-        if (weight.textContent.includes('-')) {
-            weight.style.backgroundColor = "#f28379";
-        } else {
-            weight.style.backgroundColor = "#9FC0D6";
+        if (weight != null) {
+            if (weight.textContent.includes('-')) {
+                weight.style.backgroundColor = "#f28379";
+            } else {
+                weight.style.backgroundColor = "#9FC0D6";
+            }
         }
-        if (exercise.textContent.includes('-')) {
-            exercise.style.backgroundColor = "#f28379";
-        } else {
-            exercise.style.backgroundColor = "#9FC0D6";
+        if (exercise != null) {
+            if (exercise.textContent.includes('-')) {
+                exercise.style.backgroundColor = "#f28379";
+            } else {
+                exercise.style.backgroundColor = "#9FC0D6";
+            }
         }
-        if (insulin.textContent.includes('-')) {
-            insulin.style.backgroundColor = "#f28379";
-        } else {
-            insulin.style.backgroundColor = "#9FC0D6";
+        if (insulin != null) {
+            if (insulin.textContent.includes('-')) {
+                insulin.style.backgroundColor = "#f28379";
+            } else {
+                insulin.style.backgroundColor = "#9FC0D6";
+            }
         }
     }
 
