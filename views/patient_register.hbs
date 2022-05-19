@@ -2,12 +2,7 @@
         <body class="dark"></body>
 {{/if}}
 
-    <header class="clinician_header">
-        <h2 class="cilnician_nav">Register Patient</h2>
-        <a href="/" class="clinician_nav_btn" style="margin-right: 20%"><h5 class="phone_clinician">Log Out</h5></a>
-        <a href="/clinician/dashboard" class="clinician_nav_btn"><h5>Dashboard</h5></a>
-        <a href="/clinician/settings"><img class="icons icon_settings" src="/res/settings.svg"></a>
-    </header>
+{{> clinician_sidenav page="clinician_register_patient" title="Register Patient"}}
 
     <main class="clinician_main">
         <h3 class="notification">Please fill in this form to create an account for your patient.</h3>

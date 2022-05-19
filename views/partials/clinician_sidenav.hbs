@@ -1,0 +1,33 @@
+<header class="clinician_header">
+    <img src="/res/hamburger_menu_white.svg" class="icons" id="hamburger" onclick="openNav()">
+    <h2 class="cilnician_nav">{{#if (isEq page 'patient')}}{{user.nameGiven}} {{patient.user.nameFamily}}{{/if}}{{title}}{{#if (isEq page 'clinician_dashboard')}}{{user.nameScreen}}{{/if}}</h2>
+    <a href="/clinician/settings"><img class="icons icon_settings" src="/res/settings.svg"></a>
+</header>
+
+<div id="clinicinaSidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/clinician/dashboard">{{#if (isEq page 'clinician_dashboard')}}<b>Dashboard</b>{{else}}Dashboard{{/if}}</a>
+    <a href="/clinician/patient-comments">{{#if (isEq page 'clinician_patient_comments')}}<b>Patient Comments</b>{{else}}Patient Comments{{/if}}</a>
+    <hr style="background-color: black;">
+    <a href="/clinician/register-patient">{{#if (isEq page 'clinician_register_patient')}}<b>Register New Patient</b>{{else}}Register New Patient{{/if}}</a>
+    <hr style="background-color: black;">
+    <a href="/clinician/settings">{{#if (isEq page 'clinician_settings')}}<b>Settings</b>{{else}}Settings{{/if}}</a>
+    <form method="POST" action="/logout">
+        <input type="submit" value="Logout" name="logout">
+    </form>
+</div>
+
+<script>
+    function openNav() {
+        document.getElementById("clinicinaSidenav").style.width = "35%";
+        document.getElementById("clinicinaSidenav").style.borderRight = "4px solid #555";
+        document.getElementById("clinicinaSidenav").style.borderTopRightRadius = "20px";
+        document.getElementById("clinicinaSidenav").style.boxShadow = "0 0 0 100vmax rgba(0,0,0,.3)";
+    }
+
+    function closeNav() {
+        document.getElementById("clinicinaSidenav").style.width = "0";
+        document.getElementById("clinicinaSidenav").style.borderRight = "0";
+        document.getElementById("clinicinaSidenav").style.boxShadow = "0 0 0 100vmax rgba(0,0,0,0)";
+    }
+</script>

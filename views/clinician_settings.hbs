@@ -2,14 +2,8 @@
 {{#if darkMode}}
         <body class="dark"></body>
 {{/if}}
-    <header class="clinician_header">
-        <h2 class="cilnician_nav">Settings</h2>
-        <a href="/clinician/dashboard" class="clinician_nav_btn2"><h5>Dashboard</h5></a>
-        <form method="POST" action="/logout">
-            <button type="submit" class="clinician_nav_btn"><h5 class="phone_clinician">Log Out</h5></button>
-        </form>
-        <a href="/clinician/settings"><img class="icons icon_settings" src="/res/settings.svg"></a>
-    </header>
+
+{{> clinician_sidenav page="clinician_settings" title="Settings"}}
 
     <main class="content setting_content">
         <h3 style="text-align: left; margin-left: 5%">Dr {{user.nameFamily}}</h3>

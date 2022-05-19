@@ -1,11 +1,8 @@
 {{#if darkMode}}
     <body class="dark"></body>
 {{/if}}
-    <header class="clinician_header">
-        <h2 class="cilnician_nav">{{patient.user.nameGiven}} {{patient.user.nameFamily}}'s Requirements</h2>
-        <a href="/clinician/dashboard" class="clinician_nav_btn"><h5>Dashboard</h5></a>
-        <a href="/clinician/settings"><img class="icons icon_settings" src="/res/settings.svg"></a>
-    </header>
+
+{{> clinician_sidenav page="patient" title="'s Requirements" user=patient.user}}
 
     <a href="/clinician/patient/{{patient._id}}/data-history"><p class="history_link"> Data History</p></a>
 
