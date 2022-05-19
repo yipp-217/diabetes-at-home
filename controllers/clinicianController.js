@@ -1,6 +1,7 @@
 const {Clinician} = require('../models/clinician')
 const {Patient} = require('../models/patient')
 const {ClinicianNote} = require('../models/patient')
+const {HealthDataEntry} = require('../models/patient')
 
 const patientController = require('../controllers/patientController')
 
@@ -95,7 +96,32 @@ const getPatientDataHistory = async (req, res, next) => {
         } 
         else {
             patient = await Patient.findById(req.params.id).populate("user").lean()
-            return res.render('clinician_data_history.hbs', {user: req.user.toJSON(), patient: patient})
+            
+            const oneDay = 24 * 60 * 60 * 1000
+            dayCreated = patient.user.dateCreated
+            today = getDateTime().substring(0,10)
+            
+            
+            dateOne = new Date(dayCreated.substring(6,10), dayCreated.substring(3,5), dayCreated.substring(0,2))
+            dateTwo = new Date(today.substring(6,10), today.substring(3,5), today.substring(0,2))
+            diffDays = Math.round(Math.abs((dateOne - dateTwo) / oneDay)) + 1
+
+            currDate = new Date(dayCreated.substring(6,10), dayCreated.substring(3,5), dayCreated.substring(0,2))
+            nextDay = new Date(currDate)
+
+            dates = []
+            bloodGlucoseData = []
+            for (let i = 0; i < diffDays; i++){
+                dates.push(nextDay.toLocaleString().substring(0,10))
+                
+                nextDay.setDate(currDate.getDate() + 1)
+                currDate = nextDay
+                
+            }
+
+            console.log(dates)
+            
+            return res.render('clinician_data_history.hbs', {user: req.user.toJSON(), patient: patient, date: dates})
         }
     }
     catch (e) {
@@ -284,6 +310,11 @@ const updatePatientRequirements = async (req, res, next) => {
     catch (e) {
         return next(e)
     }
+}
+
+const getDateTime = () => {
+    const today = new Date().toLocaleString("en-AU", {timeZone: "Australia/Melbourne"});
+    return today;
 }
 
 module.exports = {
