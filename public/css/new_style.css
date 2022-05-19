@@ -657,6 +657,10 @@ span.psw, span.rememberme {
     margin-top: 10%;
 }
 
+#healthDataChart {
+    padding: 2%;
+}
+
 .more_info{
     text-align: left;
     margin: 5% 5% 10% 5%;
@@ -880,7 +884,8 @@ button:active {
 }
 
 #chart_button {
-    background-color: #ffffff;;
+    background-color: #ffffff;
+    padding: 0.5% 3% !important;
 }
 
 .comment_btn{
