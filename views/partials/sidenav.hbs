@@ -29,7 +29,7 @@
     {{#if login}}
         <a href="/patient/settings">{{#if (isEq page 'settings')}}<b>Settings</b>{{else}}Settings{{/if}}</a>
         <form method="POST" action="/logout">
-            <input type="submit" value="Logout" style="font-size: 25px;">
+            <input type="submit" value="Logout" name="logout">
         </form>
     {{/if}}
 </div>

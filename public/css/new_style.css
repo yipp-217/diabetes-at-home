@@ -494,6 +494,19 @@ input[name="comment"]{
     height: 200px;
 }
 
+input[name="logout"] {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px !important;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+
+input[name="logout"]:hover {
+    color: #466fa6;
+}
+
 span.psw, span.rememberme {
     padding: 30px 0;
     font-family: var(--font-family-heading);
@@ -1489,6 +1502,8 @@ textarea:focus {
     }  
 
     .sidenav a {font-size: 18px;}
+
+    input[name="logout"] {font-size: 18px !important;}
 
     /** input info **/
     input[name="comment"]{
