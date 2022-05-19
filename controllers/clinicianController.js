@@ -129,27 +129,28 @@ const getPatientDataHistory = async (req, res, next) => {
                 Dfound = 0
                 
                 for (let j = 0; j < patient.patientHealthEntries.length; j++){
-                    for await (const doc of HealthDataEntry.findById(patient.patientHealthEntries[j])){
-                        if (doc.date == nextDay.toLocaleString().substring(0,10)){
-                            if (doc.valueBloodGlucoseLevel){
-                                bloodGlucoseData.push(doc.valueBloodGlucoseLevel)
-                                BGfound = 1
-                            }
-                            if (doc.valueWeight){
-                                weightData.push(doc.valueWeight)
-                                Wfound = 1
-                            }
-                            if (doc.valueExercise){
-                                exData.push(doc.valueExercise)
-                                Efound = 1
-                            }
-                            if (doc.valueDosesOfInsulinTaken){
-                                doseData.push(doc.valueDosesOfInsulinTaken)
-                                Dfound = 1
-                            }
-                            
+                    const doc = await HealthDataEntry.findById(patient.patientHealthEntries[j])
+                    
+                    if (doc.date == nextDay.toLocaleString().substring(0,10)){
+                        if (doc.valueBloodGlucoseLevel){
+                            bloodGlucoseData.push(doc.valueBloodGlucoseLevel)
+                            BGfound = 1
                         }
+                        if (doc.valueWeight){
+                            weightData.push(doc.valueWeight)
+                            Wfound = 1
+                        }
+                        if (doc.valueExercise){
+                            exData.push(doc.valueExercise)
+                            Efound = 1
+                        }
+                        if (doc.valueDosesOfInsulinTaken){
+                            doseData.push(doc.valueDosesOfInsulinTaken)
+                            Dfound = 1
+                        }
+                            
                     }
+                
                 }
                 if (BGfound == 0){
                     bloodGlucoseData.push("---")

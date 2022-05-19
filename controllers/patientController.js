@@ -81,6 +81,7 @@ const getPatientUser = async (req, res, next) => {
             if (valExc.length == 1){
                 valExc = valExc + ",null"
                 dateExc = dateExc + ","
+                
             }
             if (valExc.length == 0){
                 valExc = "null,null"
