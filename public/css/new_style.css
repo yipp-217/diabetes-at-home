@@ -847,6 +847,7 @@ button:active {
 .lightmedium_button {
     background-color: var(--color-background-lightmedium);
     margin-right: 5%;
+    color: var(--color-text-black);
 }
 
 .medium_button {
@@ -859,6 +860,7 @@ button:active {
     background-color: var(--color-background-dark);
     color:var(--color-background-white);
 }
+
 
 .clinician_nav_btn{
     border-radius: 5px;
@@ -1110,6 +1112,9 @@ button:active {
     overflow-x: hidden;
 }
 
+.flex_btn {
+    display: flex;
+}
 
 .container_comment {
     margin: 3%;

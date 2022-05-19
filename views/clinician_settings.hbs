@@ -11,8 +11,8 @@
         <a href="/clinician/settings"><img class="icons icon_settings" src="/res/settings.svg"></a>
     </header>
 
-    <main class="clinician_main">
-        <h3 >Dr {{user.nameFamily}}</h3>
+    <main class="content setting_content">
+        <h3 style="text-align: left; margin-left: 5%">Dr {{user.nameFamily}}</h3>
         <form class="big_background setting_hid" action="/update-user" method="post">
             <section class="setting_contanier">
                 <article class="personal_info setting_phone">
@@ -48,10 +48,12 @@
                 </article>
 
                 <section class="center_btn"><button type="submit"><h5>Update Details</h5></button></section>
-                
             </section>
         </form>
-        <form action="/clinician/dark-mode">
-                <button class="theme-toggle-button"><h5>Light/Dark Theme</h5></button>
-        </form>
+        {{#if darkMode}}
+        <body class="dark"></body>
+    {{/if}}
+    <form action="/clinician/dark-mode">
+        <button class="theme-toggle-button" style="margin-bottom:5%"><h5>Light/Dark Theme</h5></button> 
+    </form>
     </main>
