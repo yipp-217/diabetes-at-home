@@ -18,14 +18,53 @@ const getPatientUser = async (req, res, next) => {
         } 
         else
             patient = await getPatient(req.user.toJSON().model)
+            console.log(patient)
             healthData = await getHealthData(patient)
             engagementRate = await calculateEngagement(patient)
             await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
 
-            dataset = [4,3,7,3,6,4,7].toString()
+            dateBG = []
+            valBG = []
+            dateW = []
+            valW = []
+            dateDose = []
+            valDose = []
+            dateExc = []
+            valExc = []
+            for (let i = 0; i < patient.patientHealthEntries.length; i++){
+                console.log(patient.patientHealthEntries[i])
+                currHealthEntry = await HealthDataEntry.findById(patient.patientHealthEntries[i])
+                console.log(currHealthEntry)
+                if (currHealthEntry.valueBloodGlucoseLevel){
+                    dateBG.push(currHealthEntry.date)
+                    valBG.push(currHealthEntry.valueBloodGlucoseLevel)
+                }
+                if (currHealthEntry.valueWeight){
+                    dateW.push(currHealthEntry.date)
+                    valW.push(currHealthEntry.valueWeight)
+                }
+                if (currHealthEntry.valueDosesOfInsulinTaken){
+                    dateDose.push(currHealthEntry.date)
+                    valDose.push(currHealthEntry.valueDosesOfInsulinTaken)
+                }
+                if (currHealthEntry.valueExercise){
+                    dateExc.push(currHealthEntry.date)
+                    valExc.push(currHealthEntry.valueExercise)
+                }
+                
+                
+            }
             
+            console.log(valDose, dateDose)
+            dataset = [4,3,7,3,6,4,7].toString()
+            valDose = [1,null]
+            dateDose = [3,null]
             return res.render('patient_main.hbs', {
-                user: req.user.toJSON(), patient: patient, healthData: healthData, darkMode: req.user.darkMode, dataset: dataset
+                user: req.user.toJSON(), patient: patient, healthData: healthData, darkMode: req.user.darkMode, 
+                bloodGlucoseLevel: valBG.toString(), dateBloodGlucose: dateBG.toString(),
+                weightValue: valW.toString(), weightDate: dateW.toString(),
+                doseValue: valDose.toString(), doseDate: dateDose.toString(),
+                excValue: valExc.toString(), excDate: dateExc.toString()
             })
     }
     catch (e) {
