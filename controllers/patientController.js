@@ -26,9 +26,9 @@ const getPatientUser = async (req, res, next) => {
 
             for (let i = 0; i < patient.patientHealthEntries.length; i++){
 
-                console.log(patient.patientHealthEntries[i])
+                
                 currHealthEntry = await HealthDataEntry.findById(patient.patientHealthEntries[i])
-                console.log(currHealthEntry)
+                
                 if (currHealthEntry.valueBloodGlucoseLevel){
                     dateBG.push(currHealthEntry.date)
                     valBG.push(currHealthEntry.valueBloodGlucoseLevel)
@@ -166,7 +166,7 @@ const calculateEngagement = async (patient) => {
     engagementRate = (numEntries/diffDays) * 100
 
     await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
-    console.log("Updated " + data.email + "'s engagement, new value: " + engagementRate)
+    //console.log("Updated " + data.email + "'s engagement, new value: " + engagementRate)
     return engagementRate
 }
 
@@ -194,7 +194,7 @@ const getLeaderboard = async (req, res, next) => {
 
             }
             
-            //console.log(dict)
+            console.log(dict)
             var items = Object.keys(dict).map((key) => { return [key, dict[key]] });
             items.sort((first, second) => { return first[1] - second[1] });
             var keys = items.map((e) => { return e[0] });
@@ -202,7 +202,7 @@ const getLeaderboard = async (req, res, next) => {
             keys = keys.slice(-5)
             keys = keys.reverse()
 
-            console.log(keys)
+            
             patient = await getPatient(req.user.toJSON().model)
             return res.render('patient_leaderboard.hbs', {user: req.user.toJSON(), patient: patient, darkMode: req.user.darkMode, topfive: keys})
         }
