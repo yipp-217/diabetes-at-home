@@ -1,5 +1,6 @@
-<body class="clinician_body">
-
+{{#if darkMode}}
+    <body class="dark"></body>
+{{/if}}
     <header class="clinician_header">
         <h2 class="cilnician_nav">{{patient.user.nameGiven}} {{patient.user.nameFamily}}'s Requirements</h2>
         <a href="/clinician/dashboard" class="clinician_nav_btn"><h5>Dashboard</h5></a>
@@ -48,4 +49,3 @@
         </article>
 
     </main>
-</body>

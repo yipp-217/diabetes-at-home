@@ -1,5 +1,7 @@
-<body class="clinician_body">
 
+{{#if darkMode}}
+        <body class="dark"></body>
+{{/if}}
     <header class="clinician_header">
         <h2 class="cilnician_nav">Settings</h2>
         <a href="/clinician/dashboard" class="clinician_nav_btn2"><h5>Dashboard</h5></a>
@@ -43,9 +45,10 @@
                 </article>
 
                 <section class="center_btn"><button type="submit"><h5>Update Details</h5></button></section>
-                    <form action="/patient/dark-mode">
-                    <button class="theme-toggle-button"><h5>Light/Dark Theme</h5></button></form>
+                
             </section>
         </form>
+        <form action="/clinician/dark-mode">
+                <button class="theme-toggle-button"><h5>Light/Dark Theme</h5></button>
+        </form>
     </main>
-</body>

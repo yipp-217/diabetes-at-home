@@ -50,4 +50,6 @@ clinicianRouter.get('/register-patient', homeController.isAuthenticated, homeCon
 
 clinicianRouter.post('/register-patient', homeController.isAuthenticated, homeController.hasRole('Clinician'), userController.createPatientUser)
 
+clinicianRouter.get('/dark-mode', homeController.isAuthenticated, homeController.hasRole('Clinician'),clinicianController.turnOnDarkMode)
+
 module.exports = clinicianRouter

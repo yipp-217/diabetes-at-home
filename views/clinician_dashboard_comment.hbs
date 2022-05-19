@@ -1,4 +1,6 @@
-<body class="clinician_body">
+{{#if darkMode}}
+        <body class="dark"></body>
+{{/if}}
     <header class="clinician_header">
         <h2 class="cilnician_nav">Patient Comments</h2>
         <a href="/" class="clinician_nav_btn"><h5 class="phone_clinician">Log Out</h5></a>
@@ -15,4 +17,3 @@
             {{> clinician_patient_comments_data patient=this value=this.patientHealthEntries.valueDosesOfInsulinTaken comment=this.patientHealthEntries.commentDosesOfInsulinTaken time=this.patientHealthEntries.timeDosesOfInsulinTaken title="Doses of Insulin" unit="doses"}}
         {{/each}}
     </article>
-</body>

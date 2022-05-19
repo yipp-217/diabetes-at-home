@@ -1,4 +1,7 @@
-<body class="clinician_body">
+
+{{#if darkMode}}
+        <body class="dark"></body>
+{{/if}}
     <header class="clinician_header">
         <h2 class="cilnician_nav">Good afternoon, {{user.nameScreen}}</h2>
         <a href="/" class="clinician_nav_btn"><h5 class="phone_clinician">Log Out</h5></a>
@@ -33,7 +36,8 @@
         <a href="/clinician/patient-comments"class="comment_btn"><h5>Patient Comments</h5></a>
         <a href="/clinician/register-patient"class="register_btn"><h5>Register New Patient</h5></a>
     </section>
-</body>
+    
+
 
 <script>
     function goToPatient(patient) {

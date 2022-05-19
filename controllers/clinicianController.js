@@ -2,6 +2,7 @@ const {Clinician} = require('../models/clinician')
 const {Patient} = require('../models/patient')
 const {ClinicianNote} = require('../models/patient')
 const {HealthDataEntry} = require('../models/patient')
+const {User} = require('../models/user')
 
 const patientController = require('../controllers/patientController')
 
@@ -16,8 +17,9 @@ const getClinicianDashboard = async (req, res, next) => {
             clinician = await Clinician.findById(req.user.model)
             patients = await getPatients(clinician.patients)
             patients = await getPatientsHealthData(patients)
+            
             return res.render('clinician_dashboard.hbs', {
-                user: req.user.toJSON(), patients: patients
+                user: req.user.toJSON(), patients: patients, darkMode: req.user.darkMode
             })
         }
     }
@@ -36,7 +38,7 @@ const getPatientComments = async (req, res, next) => {
             patients = await getPatients(clinician.patients)
             patients = await getPatientsHealthData(patients)
             return res.render('clinician_dashboard_comment.hbs', {
-                user: req.user.toJSON(), patients: patients
+                user: req.user.toJSON(), patients: patients, darkMode: req.user.darkMode
             })
     }
     catch (e) {
@@ -55,7 +57,8 @@ const getPatient = async (req, res, next) => {
             patient.patientHealthEntries = await patientController.getHealthData(patient)
             return res.render('clinician_patient.hbs', {
                 user: req.user.toJSON(),
-                patient: patient
+                patient: patient,
+                darkMode: req.user.darkMode
             })
         }
     }
@@ -72,7 +75,7 @@ const getPatientNotes = async (req, res, next) => {
         else {
             patient = await Patient.findById(req.params.id).populate("user").lean()
             notes = await getClinicianNotes(patient)
-            return res.render('clinician_patient_notes.hbs', {user: req.user.toJSON(), patient: patient, notes: notes})
+            return res.render('clinician_patient_notes.hbs', {user: req.user.toJSON(), patient: patient, notes: notes, darkMode: req.user.darkMode})
         }
     }
     catch (e) {
@@ -167,7 +170,7 @@ const getPatientDataHistory = async (req, res, next) => {
 
             
             return res.render('clinician_data_history.hbs', {user: req.user.toJSON(), patient: patient, date: dates, 
-                bloodGlucose: bloodGlucoseData, weight: weightData, excercise: exData, doses: doseData})
+                bloodGlucose: bloodGlucoseData, weight: weightData, excercise: exData, doses: doseData, darkMode: req.user.darkMode})
         }
     }
     catch (e) {
@@ -181,7 +184,7 @@ const getClinicianSettings = async (req, res, next) => {
             res.redirect('/patient')
         } 
         else
-            return res.render('clinician_settings.hbs', {user: req.user.toJSON()})
+            return res.render('clinician_settings.hbs', {user: req.user.toJSON(), darkMode: req.user.darkMode})
     }
     catch (e) {
         return next(e)
@@ -194,7 +197,7 @@ const getRegisterPatient = async (req, res, next) => {
             res.redirect('/patient')
         } 
         else
-            return res.render('patient_register.hbs', {user: req.user.toJSON()})
+            return res.render('patient_register.hbs', {user: req.user.toJSON(), darkMode: req.user.darkMode})
     }
     catch (e) {
         return next(e)
@@ -358,6 +361,32 @@ const updatePatientRequirements = async (req, res, next) => {
     }
 }
 
+const getClinician = async (user) => {
+    return await Clinician.findById(user).lean()
+}
+
+const turnOnDarkMode = async(req, res, next) => {
+    try {
+        if (req.user.onModel == 'Patient') {
+            res.redirect('/patient')
+        }else{
+            const clinician = await getClinician(req.user.toJSON().model)
+            const data = await User.findById(clinician.user).lean()
+            
+            if (data.darkMode == true){
+                await User.findOneAndUpdate({_id: data._id}, {$set: {darkMode: false}}).lean()
+            } else{
+                await User.findOneAndUpdate({_id: data._id}, {$set: {darkMode: true}}).lean()
+            }
+            console.log("Dark mode: " + data.darkMode)
+            res.redirect('/clinician/settings')
+        }
+    } 
+    catch(e){
+        return next(e)
+    }
+}
+
 const getDateTime = () => {
     const today = new Date().toLocaleString("en-AU", {timeZone: "Australia/Melbourne"});
     return today;
@@ -373,5 +402,6 @@ module.exports = {
     getRegisterPatient,
     updateSupportMsg,
     addNote,
+    turnOnDarkMode,
     updatePatientRequirements,
 }

@@ -1,4 +1,6 @@
-<body class="clinician_body">
+{{#if darkMode}}
+        <body class="dark"></body>
+{{/if}}
     <header class="clinician_header">
         <h2 class="cilnician_nav"> Notes for {{patient.user.nameGiven}} {{patient.user.nameFamily}}</h2>
         <a href="/clinician/patient/{{patient._id}}" class="clinician_nav_btn"><h5>Back to Patient</h5></a>
@@ -14,4 +16,3 @@
             {{/each}}
         </section>
     </main>
-</body>
