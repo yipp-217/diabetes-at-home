@@ -5,20 +5,40 @@ const clinicianController = require('../controllers/clinicianController')
 const homeController = require('../controllers/homeController')
 const userController = require('../controllers/userController')
 
+const { body } = require('express-validator');
 
 clinicianRouter.get('/dashboard', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getClinicianDashboard)
 
 clinicianRouter.get('/patient-comments', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getPatientComments)
 
-clinicianRouter.post('/patient/:id/update-support', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.updateSupportMsg)
+clinicianRouter.post('/patient/:id/update-support', 
+                    homeController.isAuthenticated, 
+                    homeController.hasRole('Clinician'), 
+                    body('supportMsg', 'cannot be empty').not().isEmpty().escape(),
+                    clinicianController.updateSupportMsg)
 
-clinicianRouter.post('/patient/:id/add-note', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.addNote)
+clinicianRouter.post('/patient/:id/add-note', 
+                    homeController.isAuthenticated, 
+                    homeController.hasRole('Clinician'), 
+                    body('clinicianNote', 'cannot be empty').not().isEmpty().escape(),
+                    clinicianController.addNote)
 
 clinicianRouter.get('/patient/:id/clinician-notes', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getPatientNotes)
 
 clinicianRouter.get('/patient/:id/data-history', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getPatientDataHistory)
 
-clinicianRouter.post('/patient/:id/update-reqs', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.updatePatientRequirements)
+clinicianRouter.post('/patient/:id/update-reqs', 
+                    homeController.isAuthenticated, 
+                    homeController.hasRole('Clinician'), 
+                    body('bloodGlucoseLowerThreshold').escape(),
+                    body('weightLowerThreshold').escape(),
+                    body('exerciseLowerThreshold').escape(),
+                    body('insulinLowerThreshold').escape(),
+                    body('bloodGlucoseUpperThreshold').escape(),
+                    body('weightUpperThreshold').escape(),
+                    body('exerciseUpperThreshold').escape(),
+                    body('insulinUpperThreshold').escape(),
+                    clinicianController.updatePatientRequirements)
 
 clinicianRouter.get('/patient/:id', homeController.isAuthenticated, homeController.hasRole('Clinician'), clinicianController.getPatient)
 

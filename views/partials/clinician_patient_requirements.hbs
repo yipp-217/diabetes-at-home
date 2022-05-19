@@ -1,0 +1,24 @@
+<section class="info_container">
+    <h3>{{title}}</h3>
+    {{#if value}}
+        <p>{{value}} {{unit}}</p>
+        {{else}}<p>-</p>
+    {{/if}}
+
+    <label class="required">Required
+        {{#if requirement}}
+            <input type="checkbox" checked name="{{field}}Req">
+            {{else}}<input type="checkbox" name="{{field}}Req">
+        {{/if}}
+        <span class="checkmark"></span>
+    </label>
+    <div class="lower-threshold">
+        <label>Lower Threshold</label>
+        <input class="input" type="number" min="0" max="{{max}}" step="{{step}}" name="{{field}}LowerThreshold" value="{{lowerThreshold}}">
+    </div>
+
+    <div class="upper-threshold">
+        <label>Upper Threshold</label>
+        <input class="input" type="number" min="0" max="{{max}}" step="{{step}}" name="{{field}}UpperThreshold" value="{{upperThreshold}}">
+    </div>
+</section>

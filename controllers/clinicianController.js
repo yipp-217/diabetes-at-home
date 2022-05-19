@@ -4,6 +4,7 @@ const {ClinicianNote} = require('../models/patient')
 
 const patientController = require('../controllers/patientController')
 
+const { validationResult } = require('express-validator');
 
 const getClinicianDashboard = async (req, res, next) => {
     try {
@@ -151,6 +152,10 @@ const updateSupportMsg = async (req, res, next) => {
             res.redirect('/patient')
         } 
         else {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                return res.redirect('/clinician/patient/' + patient._id)
+            }
             await Patient.findOneAndUpdate(
                 {_id: patient._id},
                 {$set: {
@@ -171,6 +176,10 @@ const addNote = async (req, res, next) => {
             res.redirect('/patient')
         } 
         else {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                return res.redirect('/clinician/patient/' + patient._id)
+            }
             newNote = await ClinicianNote.insertMany({
                 time: patientController.getDateTime(),
                 note: req.body.clinicianNote
@@ -202,7 +211,11 @@ const updatePatientRequirements = async (req, res, next) => {
                 requirementDosesOfInsulinTaken: (req.body.insulinReq === "on")
             }}
         ).lean()
-        if (req.body.bloodGlucoseLowerThreshold != "") {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.redirect('/clinician/patient/' + patient._id)
+        }
+        if (req.body.bloodGlucoseLowerThreshold != "" && !isNaN(req.body.bloodGlucoseLowerThreshold)) {
             await Patient.findOneAndUpdate(
                 {_id: patient._id},
                 {$set: {
@@ -210,7 +223,7 @@ const updatePatientRequirements = async (req, res, next) => {
                 }}
             ).lean()
         }
-        if (req.body.bloodGlucoseUpperThreshold != "") {
+        if (req.body.bloodGlucoseUpperThreshold != "" && !isNaN(req.body.bloodGlucoseUpperThreshold)) {
             await Patient.findOneAndUpdate(
                 {_id: patient._id},
                 {$set: {
@@ -218,7 +231,7 @@ const updatePatientRequirements = async (req, res, next) => {
                 }}
             ).lean()
         }
-        if (req.body.weightLowerThreshold != "") {
+        if (req.body.weightLowerThreshold != "" && !isNaN(req.body.weightLowerThreshold)) {
             await Patient.findOneAndUpdate(
                 {_id: patient._id},
                 {$set: {
@@ -226,7 +239,7 @@ const updatePatientRequirements = async (req, res, next) => {
                 }}
             ).lean()
         }
-        if (req.body.weightUpperThreshold != "") {
+        if (req.body.weightUpperThreshold != "" && !isNaN(req.body.weightUpperThreshold)) {
             await Patient.findOneAndUpdate(
                 {_id: patient._id},
                 {$set: {
@@ -234,7 +247,7 @@ const updatePatientRequirements = async (req, res, next) => {
                 }}
             ).lean()
         }
-        if (req.body.exerciseLowerThreshold != "") {
+        if (req.body.exerciseLowerThreshold != "" && Number.isInteger(req.body.exerciseLowerThreshold)) {
             await Patient.findOneAndUpdate(
                 {_id: patient._id},
                 {$set: {
@@ -242,7 +255,7 @@ const updatePatientRequirements = async (req, res, next) => {
                 }}
             ).lean()
         }
-        if (req.body.exerciseUpperThreshold != "") {
+        if (req.body.exerciseUpperThreshold != "" && Number.isInteger(req.body.exerciseUpperThreshold)) {
             await Patient.findOneAndUpdate(
                 {_id: patient._id},
                 {$set: {
@@ -250,7 +263,7 @@ const updatePatientRequirements = async (req, res, next) => {
                 }}
             ).lean()
         }
-        if (req.body.insulinLowerThreshold != "") {
+        if (req.body.insulinLowerThreshold != "" && Number.isInteger(req.body.insulinLowerThreshold)) {
             await Patient.findOneAndUpdate(
                 {_id: patient._id},
                 {$set: {
@@ -258,7 +271,7 @@ const updatePatientRequirements = async (req, res, next) => {
                 }}
             ).lean()
         }
-        if (req.body.insulinUpperThreshold != "") {
+        if (req.body.insulinUpperThreshold != "" && Number.isInteger(req.body.insulinUpperThreshold)) {
             await Patient.findOneAndUpdate(
                 {_id: patient._id},
                 {$set: {
