@@ -2,6 +2,7 @@ const {User} = require('../models/user')
 const {Clinician} = require('../models/clinician')
 const {Patient} = require('../models/patient')
 
+const { validationResult } = require('express-validator');
 
 const getUsers = async (req, res) => {
     const users = await User.find().lean()
@@ -36,7 +37,13 @@ const createPatientUser = async (req, res, next) => {
             res.redirect('/patient')
         }
         else {
-            // if (req.body.password !== req.body.password2)
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                return res.render('patient_register.hbs', {user: req.user.toJSON(), darkMode: req.user.darkMode})
+            }
+            if (req.body.password !== req.body.password2) {
+                return res.render('patient_register.hbs', {user: req.user.toJSON(), darkMode: req.user.darkMode, error: "Passwords did not match"})
+            }
             const user = new User(req.body)
             const email = req.body.email
             user.secret = "SqS8yF:Ac;<zn9YM8:=3s\",/q$9Rn9}hX\\y7&..Q!D~h'dJu5-BGKJ7#cR``\\Z^k"
