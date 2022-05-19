@@ -25,6 +25,7 @@ const getPatientUser = async (req, res, next) => {
             dateBG= [], valBG = [], dateW = [], valW = [], dateDose = [], valDose = [], dateExc = [], valExc = []
 
             for (let i = 0; i < patient.patientHealthEntries.length; i++){
+
                 console.log(patient.patientHealthEntries[i])
                 currHealthEntry = await HealthDataEntry.findById(patient.patientHealthEntries[i])
                 console.log(currHealthEntry)
@@ -87,7 +88,6 @@ const getPatientUser = async (req, res, next) => {
             }
             
             
-            
             return res.render('patient_main.hbs', {
                 user: req.user.toJSON(), patient: patient, healthData: healthData, darkMode: req.user.darkMode, 
                 bloodGlucoseLevel: valBG, dateBloodGlucose: dateBG,
@@ -148,21 +148,20 @@ const calculateEngagement = async (patient) => {
     const oneDay = 24 * 60 * 60 * 1000
     
     const data = await User.findById(patient.user).lean()
-    //console.log(dayCreated)
+    
     today = getDateTime().substring(0,10)
-    //console.log(data)
+    
     if (data == null) {
         dayCreated = today
     } else {
         dayCreated = data.dateCreated.substring(0, 10)
     }
-    //console.log(today)
-    //dayCreated = "07/05/2022"
+
     dateOne = new Date(dayCreated.substring(6,10), dayCreated.substring(3,5), dayCreated.substring(0,2))
     dateTwo = new Date(today.substring(6,10), today.substring(3,5), today.substring(0,2))
     
     diffDays = Math.round(Math.abs((dateOne - dateTwo) / oneDay)) + 1
-    //console.log(diffDays)
+    
     numEntries = patient.patientHealthEntries.length
     engagementRate = (numEntries/diffDays) * 100
 
