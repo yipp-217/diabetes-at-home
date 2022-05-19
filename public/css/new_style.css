@@ -884,21 +884,19 @@ button:active {
 }
 
 .comment_btn{
-    width: 19%;
     background-color: #9FC0D6;
     border-radius: 5px;
     padding: 0.7%;
     position: absolute;
-    right: 22%;
+    left:20%;
 }
 
 .register_btn{
-    width: 15%;
     background-color: #9FC0D6;
     border-radius: 5px;
     padding: 0.7%;
     position: absolute;
-    right: 5%;
+    right: 20%;
 }
 
 .reaserch_btn {
@@ -948,23 +946,14 @@ button:active {
 }
 
 
-/******************* search bar ****************/
+
 .search_bar {
     display: flex;
     align-items: center;
     width: 100%;
-    padding-top:8%;
+    padding-top:4%;
     padding-left: 3%;
 }
-
-.search_bar input{
-    margin-left: 5%;
-    border-radius: 0px;
-    width: 35%;
-    height:20px;
-}
-
-
 
 /*for about pages*/
 .bottom_button {
@@ -1046,6 +1035,7 @@ button:active {
     text-decoration: none;
 }
 
+
 /******************* dashboard table ****************/
 .flex-btn {
     width: 100%;
@@ -1064,6 +1054,8 @@ button:active {
     justify-content: center;
     padding-top: 1%;
 }
+
+.dashboard_padding{padding-top: 8%;}
 
 .flex_left {
     background-color: var(--color-background-lightmedium);
@@ -1496,9 +1488,11 @@ textarea:focus {
         grid-template-rows: 300px 300px;
     }
 
+    .dashboard_padding{padding-top: 18%;}
+
     /** bars **/
     .search_bar{
-        padding-top: 20%;
+        padding-top: 15%;
     }  
 
     .sidenav a {font-size: 18px;}
@@ -1602,6 +1596,9 @@ textarea:focus {
         padding-left: 0%;
     }
 
+    .comment_btn {left: 10%;}
+    .register_btn {right: 10%;}
+
 
 }
 
@@ -1653,13 +1650,9 @@ textarea:focus {
         width: 100%;
     }
 
-    .flex_right{
-        width: 90%;
-    }
-
-    .dashboard_flex{
-        align-items: center;
-    }
+    .flex_right{width: 90%;}
+    .dashboard_flex{align-items: center;}
+    .dashboard_padding{padding-top: 14%;}
 
     .flex_left{
         margin-right: 5%;
@@ -1725,9 +1718,7 @@ textarea:focus {
         display: none;
     }
 
-    .search_bar, .clinician_main{
-        padding-top: 14%;
-    }
+    .search_bar, .clinician_main{padding-top: 7%;}
 
 
     .history_background {
