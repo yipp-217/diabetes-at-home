@@ -913,6 +913,8 @@ button:active {
     margin-bottom: 2%;
 }
 
+.register{padding:1.5%}
+
 /******************* graph ****************/
 .history_background{
     padding-top: 5%;
@@ -1373,6 +1375,7 @@ textarea:focus {
     #bloodGlucoseValue, #weightValue, #exerciseValue, #nsulinValue {
         font-size: var(--text-big);
     }
+    .notification {font-size: var(--text-small);}
 
     /** clinician **/
     .cilnician_nav {font-size: var(--text-medium);}
@@ -1381,6 +1384,7 @@ textarea:focus {
     .info_contianer p, .info_contianer label{font-size: var(--text-small);}
     .body_icons {width: 8%;}
     .history_link{padding-top:25%;}
+    .register{padding:2.5%}
 
     /** grid section **/
     .about_grid_format {
@@ -1433,7 +1437,8 @@ textarea:focus {
     }
 
     .clinician_main h3 {
-        margin-left: 35%;
+        margin-left: 2%;
+        text-align: center;
     }
 
     .clinician_main{
@@ -1492,7 +1497,7 @@ textarea:focus {
 
     /** bars **/
     .search_bar{
-        padding-top: 15%;
+        padding-bottom: 10%;
     }  
 
     .sidenav a {font-size: 18px;}
@@ -1610,6 +1615,7 @@ textarea:focus {
     h1 {font-size: var(--text-title);}
     h2 {font-size: var(--text-subheading);}
     p {font-size: var(--text-medium);}
+    .notification {font-size: var(--text-medium);}
 
     /** containers **/
     .info_container h3{
@@ -1763,6 +1769,8 @@ textarea:focus {
         width: 5%;
         position: absolute;
     }
+
+    .register{padding:2%}
 }
 
 
