@@ -451,4 +451,5 @@ module.exports = {
     updateInsulin,
     getHealthData,
     turnOnDarkMode,
+    getDateTime,
 }
