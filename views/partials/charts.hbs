@@ -2,10 +2,10 @@
     <button class="white_button item_center" id="chart_button"> 
         <select id="healthDataChart">
           <option value="">-- select --</option>
-            <option value="1" data-value="1,2,3,4,5,6,7" data-date="0,0,0,0,0,0,0">Blood Glucose Level</option>
-            <option value="2" data-value="2,4,6,8,10,12,14" data-date="1/1,2/1,3/1,4/1,5/1,6/1,7/1">weight</option>
-            <option value="3" data-value="2,4,6,8,10,12,14" data-date="2,2,2,2,2,2,2">Does taken</option>
-            <option value="4" data-value="2,4,6,8,10,12,14" data-date="3,3,3,3,3,3,3">Exercise</option>
+            <option value="1" data-value={{valueBloodGlucoseLevel}} data-date={{dateBloodGlucoseLevel}}>Blood Glucose Level</option>
+            <option value="2" data-value={{valueWeight}} data-date={{dateWeight}}>weight</option>
+            <option value="3" data-value={{valueDosesOfInsulinTaken}} data-date={{dateDosesOfInsulinTaken}}>Does taken</option>
+            <option value="4" data-value={{valueExercise}} data-date={{dateExercise}}>Exercise</option>
         </select>
     </button>
 
