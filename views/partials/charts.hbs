@@ -82,7 +82,7 @@
           }else if ("3".localeCompare(healthDataChart.value)==0){
             myChart.data.datasets[0].data = dataValue.split(',');
             myChart.data.labels = dataDate.split(',');
-            myChart.config.type = 'scatter';
+            myChart.config.type = 'line';
             myChart.config.options.scales.yAxes.title.text = 'No. of does taken';
             myChart.update();
           //exercise
