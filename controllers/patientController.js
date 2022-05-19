@@ -18,20 +18,14 @@ const getPatientUser = async (req, res, next) => {
         } 
         else
             patient = await getPatient(req.user.toJSON().model)
-            console.log(patient)
             healthData = await getHealthData(patient)
             engagementRate = await calculateEngagement(patient)
             await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
 
-            dateBG = []
-            valBG = []
-            dateW = []
-            valW = []
-            dateDose = []
-            valDose = []
-            dateExc = []
-            valExc = []
+            dateBG= [], valBG = [], dateW = [], valW = [], dateDose = [], valDose = [], dateExc = [], valExc = []
+
             for (let i = 0; i < patient.patientHealthEntries.length; i++){
+
                 console.log(patient.patientHealthEntries[i])
                 currHealthEntry = await HealthDataEntry.findById(patient.patientHealthEntries[i])
                 console.log(currHealthEntry)
@@ -55,16 +49,51 @@ const getPatientUser = async (req, res, next) => {
                 
             }
             
-            console.log(valDose, dateDose)
-            dataset = [4,3,7,3,6,4,7].toString()
-            valDose = [1,null]
-            dateDose = [3,null]
+            valBG = valBG.toString(), dateBG = dateBG.toString()
+            valW = valW.toString(), dateW = dateW.toString()
+            valDose = valDose.toString(), dateDose = dateDose.toString()
+            valExc = valExc.toString(), dateExc = dateExc.toString()
+
+            if (valBG.length == 1){
+                valBG = valBG + ",null"
+                dateBG = dateBG + ","
+            }
+            if (valBG.length == 0){
+                valBG = "null,null"
+                dateBG = ","
+            }
+            if (valW.length == 1){
+                valW = valW + ",null"
+                dateW = dateW + ","
+            }
+            if (valW.length == 0){
+                valW = "null,null"
+                dateW = ","
+            }
+            if (valDose.length == 1){
+                valDose = valDose + ",null"
+                dateDose = dateDose + ","
+            }
+            if (valDose.length == 0){
+                valDose = "null,null"
+                dateDose = ","
+            }
+            if (valExc.length == 1){
+                valExc = valExc + ",null"
+                dateExc = dateExc + ","
+            }
+            if (valExc.length == 0){
+                valExc = "null,null"
+                dateExc = ","
+            }
+            
+            
             return res.render('patient_main.hbs', {
                 user: req.user.toJSON(), patient: patient, healthData: healthData, darkMode: req.user.darkMode, 
-                bloodGlucoseLevel: valBG.toString(), dateBloodGlucose: dateBG.toString(),
-                weightValue: valW.toString(), weightDate: dateW.toString(),
-                doseValue: valDose.toString(), doseDate: dateDose.toString(),
-                excValue: valExc.toString(), excDate: dateExc.toString()
+                bloodGlucoseLevel: valBG, dateBloodGlucose: dateBG,
+                weightValue: valW, weightDate: dateW,
+                doseValue: valDose, doseDate: dateDose,
+                excValue: valExc, excDate: dateExc
             })
     }
     catch (e) {
@@ -119,21 +148,20 @@ const calculateEngagement = async (patient) => {
     const oneDay = 24 * 60 * 60 * 1000
     
     const data = await User.findById(patient.user).lean()
-    //console.log(dayCreated)
+    
     today = getDateTime().substring(0,10)
-    //console.log(data)
+    
     if (data == null) {
         dayCreated = today
     } else {
         dayCreated = data.dateCreated.substring(0, 10)
     }
-    //console.log(today)
-    //dayCreated = "07/05/2022"
+
     dateOne = new Date(dayCreated.substring(6,10), dayCreated.substring(3,5), dayCreated.substring(0,2))
     dateTwo = new Date(today.substring(6,10), today.substring(3,5), today.substring(0,2))
     
     diffDays = Math.round(Math.abs((dateOne - dateTwo) / oneDay)) + 1
-    //console.log(diffDays)
+    
     numEntries = patient.patientHealthEntries.length
     engagementRate = (numEntries/diffDays) * 100
 
