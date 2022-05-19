@@ -402,7 +402,7 @@ form[id$="Form"]{
     height: 100%;
     border-radius: 20px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .setting_contanier{
@@ -636,15 +636,22 @@ span.psw, span.rememberme {
 
 .patient_right .info_container{
     margin-bottom: 13%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8%;
 }
-
-
 
 
 .history_link{
     padding-top:8%;
     padding-left: 70%;
     text-decoration:underline;
+}
+
+#past_notes_link {
+    margin-top: 5%;
+    text-decoration: underline;
 }
 
 .data_container {
