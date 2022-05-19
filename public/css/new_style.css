@@ -938,6 +938,12 @@ button:active {
     margin-bottom: 2%;
 }
 
+.register_page_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .register{padding:1.5%}
 
 /******************* graph ****************/
