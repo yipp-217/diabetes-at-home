@@ -848,7 +848,6 @@ button:active {
 
 .lightmedium_button {
     background-color: var(--color-background-lightmedium);
-    margin-right: 5%;
     color: var(--color-text-black);
 }
 
