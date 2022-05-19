@@ -20,12 +20,13 @@
                 {{#each date}}       
                     <tr class="dash_container" style="cursor: pointer;">
                         <td>{{this}}</td>
-                        {{> clinician_dashboard_patient_data value=this.patientHealthEntries.valueBloodGlucoseLevel lowerThreshold=this.bloodGlucoseLowerThreshold upperThreshold=this.bloodGlucoseUpperThreshold requirement=this.requirementBloodGlucoseLevel}}
+                        <td>{{lookup ../bloodGlucose @index}}</td>
                         {{> clinician_dashboard_patient_data value=this.patientHealthEntries.valueWeight lowerThreshold=this.weightLowerThreshold upperThreshold=this.weighteUpperThreshold requirement=this.requirementWeight}}
                         {{> clinician_dashboard_patient_data value=this.patientHealthEntries.valueExercise lowerThreshold=this.exerciseLowerThreshold upperThreshold=this.exerciseUpperThreshold requirement=this.requirementExercise}}
                         {{> clinician_dashboard_patient_data value=this.patientHealthEntries.valueDosesOfInsulinTaken lowerThreshold=this.dosesOfInsulinLowerThreshold upperThreshold=this.dosesOfInsulinUpperThreshold requirement=this.requirementDosesOfInsulinTaken}}                        
                     </tr>
                 {{/each}}
+                
             </table> 
         </article>
     </main>

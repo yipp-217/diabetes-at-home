@@ -101,27 +101,58 @@ const getPatientDataHistory = async (req, res, next) => {
             dayCreated = patient.user.dateCreated
             today = getDateTime().substring(0,10)
             
-            
             dateOne = new Date(dayCreated.substring(6,10), dayCreated.substring(3,5), dayCreated.substring(0,2))
             dateTwo = new Date(today.substring(6,10), today.substring(3,5), today.substring(0,2))
             diffDays = Math.round(Math.abs((dateOne - dateTwo) / oneDay)) + 1
 
             currDate = new Date(dayCreated.substring(6,10), dayCreated.substring(3,5), dayCreated.substring(0,2))
             nextDay = new Date(currDate)
+            
 
             dates = []
+
             bloodGlucoseData = []
+            weightData = []
+            doseData = []
+            exData = []
+
+            nextDay.setMonth(nextDay.getMonth() - 1)
             for (let i = 0; i < diffDays; i++){
-                dates.push(nextDay.toLocaleString().substring(0,10))
                 
+                dates.push(nextDay.toLocaleString().substring(0,10))
+                BGfound = 0
+                Wfound = 0
+                Dfound = 0
+                Efoound = 0
+                for (let j = 0; j < patient.patientHealthEntries.length; j++){
+                    for await (const doc of HealthDataEntry.findById(patient.patientHealthEntries[j])){
+                        if (doc.date == nextDay.toLocaleString().substring(0,10)){
+                            if (doc.valueBloodGlucoseLevel){
+                                bloodGlucoseData.push(doc.valueBloodGlucoseLevel.toLocaleString())
+                                BGfound = 1
+                            }
+                            if (doc.valueWeight){
+                                weightData.push(doc.valueWeight)
+                                Wfound = 1
+                            }
+                        }
+                    }
+                }
+                if (BGfound == 0){
+                    bloodGlucoseData.push("---")
+                }
+                if (Wfound == 0){
+                    weightData.push("---")
+                }
                 nextDay.setDate(currDate.getDate() + 1)
                 currDate = nextDay
                 
             }
 
+            console.log(bloodGlucoseData, weightData)
             console.log(dates)
-            
-            return res.render('clinician_data_history.hbs', {user: req.user.toJSON(), patient: patient, date: dates})
+            console.log(bloodGlucoseData.length, dates.length)
+            return res.render('clinician_data_history.hbs', {user: req.user.toJSON(), patient: patient, date: dates, bloodGlucose: bloodGlucoseData})
         }
     }
     catch (e) {
