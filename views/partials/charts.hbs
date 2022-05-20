@@ -103,7 +103,8 @@
             myChart.update();
           //exercise
           }else if ("4".localeCompare(healthDataChart.value)==0){
-            myChart.data.datasets[0].data = dataValue.split(',');
+            myChart.data.datasets[0].data = dataValue.toString().split(',');
+            console.log(myChart.data.datasets[0].data)
             myChart.data.labels = dataDate.split(',');
             myChart.config.type = 'line';
             myChart.config.options.scales.yAxes.title.text = 'Exercise(steps)';
