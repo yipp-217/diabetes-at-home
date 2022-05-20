@@ -1,54 +1,50 @@
 <body onresize="responsiveFont()">
     {{> sidenav login=true page='patient_main' patient=patient}}
-<main class="content mainpage_grid_format">
-    {{#if darkMode}}
-        <body class="dark"></body>
-    {{/if}}
-    <div id="clinician_message">
-        <h2 style="text-align:left">Hello, {{user.nameScreen}}</h2>
-        <p style="text-align:left" class="bigger_p lineUp">{{patient.supportMessage}}</p>
-    </div>
-
-    <!-- charts -->
-    <div class="chart_container container sec1">
-        <!--line charts-->
-        {{> charts 
-        valueBloodGlucoseLevel= bloodGlucoseLevel
-        dateBloodGlucoseLevel= dateBloodGlucose
-        valueWeight= weightValue
-        dateWeight= weightDate
-        valueDosesOfInsulinTaken= doseValue
-        dateDosesOfInsulinTaken= doseDate
-        valueExercise= excValue
-        dateExercise= excDate
-        }}
-    </div>
-
-    <!-- data entry -->
-    <div class="subheading">
-        <h2 style="text-align:left">Today</h2>
-        <p style="text-align:left">Click any of the boxes below to enter data</p>
-    </div>
-
-    <!--flexbox-->
-    <div class="data_display">
-        {{#if patient.requirementWeight}}
-            {{> patient_main_container field="weight" title="Weight" value=healthData.valueWeight}}
+    <main class="content mainpage_grid_format">
+        {{#if darkMode}}
+            <body class="dark"></body>
         {{/if}}
-        {{#if patient.requirementBloodGlucoseLevel}}
-            {{> patient_main_container field="bloodGlucose" title="Blood Glucose Level" value=healthData.valueBloodGlucoseLevel}}
-        {{/if}}
-        {{#if patient.requirementExercise}}
-            {{> patient_main_container field="exercise" title="Exercise" value=healthData.valueExercise}}
-        {{/if}}
-        {{#if patient.requirementDosesOfInsulinTaken}}
-            {{> patient_main_container field="insulin" title="Doses of Insulin Taken" value=healthData.valueDosesOfInsulinTaken}}   
-        {{/if}}  
-    </div>
+        <div id="clinician_message">
+            <h2 style="text-align:left">Hello, {{user.nameScreen}}</h2>
+            <p style="text-align:left" class="bigger_p lineUp">{{patient.supportMessage}}</p>
+        </div>
 
-    
-</main>
+        <!-- charts -->
+        <div class="chart_container container sec1">
+            <!--line charts-->
+            {{> charts 
+            valueBloodGlucoseLevel= bloodGlucoseLevel
+            dateBloodGlucoseLevel= dateBloodGlucose
+            valueWeight= weightValue
+            dateWeight= weightDate
+            valueDosesOfInsulinTaken= doseValue
+            dateDosesOfInsulinTaken= doseDate
+            valueExercise= excValue
+            dateExercise= excDate
+            }}
+        </div>
 
-{{> bottomnav page='patient_main'}}
+        <!-- data entry -->
+        <div class="subheading">
+            <h2 style="text-align:left">Today</h2>
+            <p style="text-align:left">Click any of the boxes below to enter data</p>
+        </div>
 
+        <!--flexbox-->
+        <div class="data_display">
+            {{#if patient.requirementWeight}}
+                {{> patient_main_container field="weight" title="Weight" value=healthData.valueWeight}}
+            {{/if}}
+            {{#if patient.requirementBloodGlucoseLevel}}
+                {{> patient_main_container field="bloodGlucose" title="Blood Glucose Level" value=healthData.valueBloodGlucoseLevel}}
+            {{/if}}
+            {{#if patient.requirementExercise}}
+                {{> patient_main_container field="exercise" title="Exercise" value=healthData.valueExercise}}
+            {{/if}}
+            {{#if patient.requirementDosesOfInsulinTaken}}
+                {{> patient_main_container field="insulin" title="Doses of Insulin Taken" value=healthData.valueDosesOfInsulinTaken}}   
+            {{/if}}  
+        </div>
+    </main>
+    {{> bottomnav page='patient_main'}}
 </body>

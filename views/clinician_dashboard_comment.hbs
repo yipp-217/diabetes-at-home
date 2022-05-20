@@ -1,15 +1,15 @@
 {{#if darkMode}}
-        <body class="dark"></body>
+    <body class="dark"></body>
 {{/if}}
 {{> clinician_sidenav page="clinician_patient_comments" title="Patient Comments"}}
 
-    <a href="/clinician/dashboard" style="margin-top: 12vh; margin-left:5%; margin-bottom: 2vh;"><button class="lightmedium_button"><h7>Dashboard</h7></button></a>
+<a href="/clinician/dashboard" style="margin-top: 12vh; margin-left:5%; margin-bottom: 2vh;"><button class="lightmedium_button"><h7>Dashboard</h7></button></a>
 
-    <article class="flex_right">
-        {{#each patients}}
-            {{> clinician_patient_comments_data patient=this value=this.patientHealthEntries.valueBloodGlucoseLevel comment=this.patientHealthEntries.commentBloodGlucoseLevel time=this.patientHealthEntries.timeBloodGlucoseLevel title="Blood Glucose Level" unit="nmol/L"}}
-            {{> clinician_patient_comments_data patient=this value=this.patientHealthEntries.valueWeight comment=this.patientHealthEntries.commentWeight time=this.patientHealthEntries.timeWeight title="Weight" unit="kg"}}
-            {{> clinician_patient_comments_data patient=this value=this.patientHealthEntries.valueExercise comment=this.patientHealthEntries.commentExercise time=this.patientHealthEntries.timeExercise title="Exercise Level" unit="steps"}}
-            {{> clinician_patient_comments_data patient=this value=this.patientHealthEntries.valueDosesOfInsulinTaken comment=this.patientHealthEntries.commentDosesOfInsulinTaken time=this.patientHealthEntries.timeDosesOfInsulinTaken title="Doses of Insulin" unit="doses"}}
-        {{/each}}
-    </article>
+<article class="flex_right">
+    {{#each patients}}
+        {{> clinician_patient_comments_data patient=this value=this.patientHealthEntries.valueBloodGlucoseLevel comment=this.patientHealthEntries.commentBloodGlucoseLevel time=this.patientHealthEntries.timeBloodGlucoseLevel title="Blood Glucose Level" unit="nmol/L"}}
+        {{> clinician_patient_comments_data patient=this value=this.patientHealthEntries.valueWeight comment=this.patientHealthEntries.commentWeight time=this.patientHealthEntries.timeWeight title="Weight" unit="kg"}}
+        {{> clinician_patient_comments_data patient=this value=this.patientHealthEntries.valueExercise comment=this.patientHealthEntries.commentExercise time=this.patientHealthEntries.timeExercise title="Exercise Level" unit="steps"}}
+        {{> clinician_patient_comments_data patient=this value=this.patientHealthEntries.valueDosesOfInsulinTaken comment=this.patientHealthEntries.commentDosesOfInsulinTaken time=this.patientHealthEntries.timeDosesOfInsulinTaken title="Doses of Insulin" unit="doses"}}
+    {{/each}}
+</article>

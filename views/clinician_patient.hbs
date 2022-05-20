@@ -4,46 +4,42 @@
 
 {{> clinician_sidenav page="patient" title="'s Requirements" user=patient.user}}
 
-    <a href="/clinician/patient/{{patient._id}}/data-history"><p class="history_link"> Data History</p></a>
+<a href="/clinician/patient/{{patient._id}}/data-history"><p class="history_link"> Data History</p></a>
 
-    <main class="note_main">
-        <form class="overall" action="/clinician/patient/{{patient._id}}/update-reqs" method="post">
-            {{> clinician_patient_requirements field="weight" unit="kg" title="Weight" value=patient.patientHealthEntries.valueWeight requirement=patient.requirementWeight lowerThreshold=patient.weightLowerThreshold upperThreshold=patient.weightUpperThreshold max="650" step=0.01}}
+<main class="note_main">
+    <form class="overall" action="/clinician/patient/{{patient._id}}/update-reqs" method="post">
+        {{> clinician_patient_requirements field="weight" unit="kg" title="Weight" value=patient.patientHealthEntries.valueWeight requirement=patient.requirementWeight lowerThreshold=patient.weightLowerThreshold upperThreshold=patient.weightUpperThreshold max="650" step=0.01}}
 
-            {{> clinician_patient_requirements field="bloodGlucose" unit="nmol/L" title="Blood Glucose" value=patient.patientHealthEntries.valueBloodGlucoseLevel requirement=patient.requirementBloodGlucoseLevel lowerThreshold=patient.bloodGlucoseLowerThreshold upperThreshold=patient.bloodGlucoseUpperThreshold max="150" step=0.01}}
+        {{> clinician_patient_requirements field="bloodGlucose" unit="nmol/L" title="Blood Glucose" value=patient.patientHealthEntries.valueBloodGlucoseLevel requirement=patient.requirementBloodGlucoseLevel lowerThreshold=patient.bloodGlucoseLowerThreshold upperThreshold=patient.bloodGlucoseUpperThreshold max="150" step=0.01}}
 
-            {{> clinician_patient_requirements field="exercise" unit="steps" title="Exercise" value=patient.patientHealthEntries.valueExercise requirement=patient.requirementExercise lowerThreshold=patient.exerciseLowerThreshold upperThreshold=patient.exerciseUpperThreshold  max="1000000" step=1}}
+        {{> clinician_patient_requirements field="exercise" unit="steps" title="Exercise" value=patient.patientHealthEntries.valueExercise requirement=patient.requirementExercise lowerThreshold=patient.exerciseLowerThreshold upperThreshold=patient.exerciseUpperThreshold  max="1000000" step=1}}
 
-            {{> clinician_patient_requirements field="insulin" unit="doses" title="Doses of Insulin Taken" value=patient.patientHealthEntries.valueDosesOfInsulinTaken requirement=patient.requirementDosesOfInsulinTaken lowerThreshold=patient.dosesOfInsulinLowerThreshold upperThreshold=patient.dosesOfInsulinUpperThreshold max="900" step=1}}
+        {{> clinician_patient_requirements field="insulin" unit="doses" title="Doses of Insulin Taken" value=patient.patientHealthEntries.valueDosesOfInsulinTaken requirement=patient.requirementDosesOfInsulinTaken lowerThreshold=patient.dosesOfInsulinLowerThreshold upperThreshold=patient.dosesOfInsulinUpperThreshold max="900" step=1}}
 
-            <section class="save-btn">   
-                <button class="lightmedium_button" type="submit">Save</button>
-            </section>
+        <section class="save-btn">   
+            <button class="lightmedium_button" type="submit">Save</button>
+        </section>
+    </form>
 
-        </form>
+    <article class="patient_right">
+        <section class="info_container">
+            <h3>Support Messages</h3>
+            <p>Current Message:</p>
+            <p class="message">{{patient.supportMessage}}</p>
+            <form id="supportMsgForm" action="/clinician/patient/{{patient}}/update-support" method="post">
+                <label>New Message:</label>
+                <input class="input" type="text" name="supportMsg" required>
+                <section class="center_btn"><button type="submit"><h5>Update</h5></button></section>
+            </form>
+        </section>
 
-
-        
-        <article class="patient_right">
-            <section class="info_container">
-                <h3>Support Messages</h3>
-                <p>Current Message:</p>
-                <p class="message">{{patient.supportMessage}}</p>
-                <form id="supportMsgForm" action="/clinician/patient/{{patient}}/update-support" method="post">
-                    <label>New Message:</label>
-                    <input class="input" type="text" name="supportMsg" required>
-                    <section class="center_btn"><button type="submit"><h5>Update</h5></button></section>
-                </form>
-            </section>
-
-            <section class="info_container">
-                <h3>Notes</h3>
-                <div id="past_notes_link"><a href="/clinician/patient/{{patient._id}}/clinician-notes">See Past Notes</a></div>
-                <form id="clinicianNoteForm" action="/clinician/patient/{{patient}}/add-note" method="post">
-                    <textarea class="input" name="clinicianNote" placeholder="Add Note Here" required></textarea>
-                    <section class="center_btn"><button type="submit"><h5>SAVE</h5></button><br></section>
-                </form>
-            </section>
-        </article>
-
-    </main>
+        <section class="info_container">
+            <h3>Notes</h3>
+            <div id="past_notes_link"><a href="/clinician/patient/{{patient._id}}/clinician-notes">See Past Notes</a></div>
+            <form id="clinicianNoteForm" action="/clinician/patient/{{patient}}/add-note" method="post">
+                <textarea class="input" name="clinicianNote" placeholder="Add Note Here" required></textarea>
+                <section class="center_btn"><button type="submit"><h5>SAVE</h5></button><br></section>
+            </form>
+        </section>
+    </article>
+</main>

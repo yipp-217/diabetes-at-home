@@ -1,7 +1,6 @@
 {{> sidenav login=true page='settings' patient=patient}}
-
 <main class="content setting_content">
-     <h3>{{user.nameScreen}}</h3>
+    <h3>{{user.nameScreen}}</h3>
     <form class="big_background setting_hid" action="/update-user" method="post">
         <section class="setting_contanier">
             <article class="personal_info setting_phone">
@@ -44,7 +43,6 @@
     <form action="/patient/dark-mode">
         <button class="theme-toggle-button"><h5>Light/Dark Theme</h5></button> 
     </form>
-    
 </main>
 {{> bottomnav page='settings'}}
 

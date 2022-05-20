@@ -6,26 +6,26 @@
     
 <a href="/clinician/patient/{{patient._id}}" style="margin-top: 14vh; margin-left:5%;"><button class="lightmedium_button"><h7>Back to Patient</h7></button></a>
 <main class="data_history_table">
-        <article class="dash_left" style="height:80vh">
-            <table class="dashboard_table">
-                <tr class="title_box">
-                    <th>Date</th>
-                    <th>Blood glucose (nmol/L)</th>
-                    <th>Weight (kg)</th>
-                    <th>Exercise (steps)</th>
-                    <th>Doses of insulin taken</th>
+    <article class="dash_left" style="height:80vh">
+        <table class="dashboard_table">
+            <tr class="title_box">
+                <th>Date</th>
+                <th>Blood glucose (nmol/L)</th>
+                <th>Weight (kg)</th>
+                <th>Exercise (steps)</th>
+                <th>Doses of insulin taken</th>
+            </tr>
+            
+            {{#each date}}       
+                <tr class="dash_container" style="cursor: pointer;">
+                    <td>{{this}}</td>
+                    <td>{{lookup ../bloodGlucose @index}}</td>
+                    <td>{{lookup ../weight @index}}</td>
+                    <td>{{lookup ../excercise @index}}</td>
+                    <td>{{lookup ../doses @index}}</td>
                 </tr>
-                
-                {{#each date}}       
-                    <tr class="dash_container" style="cursor: pointer;">
-                        <td>{{this}}</td>
-                        <td>{{lookup ../bloodGlucose @index}}</td>
-                        <td>{{lookup ../weight @index}}</td>
-                        <td>{{lookup ../excercise @index}}</td>
-                        <td>{{lookup ../doses @index}}</td>
-                    </tr>
-                {{/each}}
-                
-            </table> 
-        </article>
-    </main>
+            {{/each}}
+            
+        </table> 
+    </article>
+</main>
