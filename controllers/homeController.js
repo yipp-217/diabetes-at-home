@@ -1,12 +1,3 @@
-const {User} = require('../models/user')
-const Clinician = require('../models/clinician')
-const {Patient} = require('../models/patient')
-const bcrypt = require('bcryptjs')
-
-const { validationResult } = require('express-validator');
-
-const SALT_FACTOR = 10
-
 // Authentication middleware
 const isAuthenticated = (req, res, next) => {
     // If user is not authenticated via passport, redirect to login page
@@ -50,8 +41,9 @@ const getLogin = (req, res) => {
         } else if (req.user.onModel == 'Clinician') {
             res.redirect('/clinician/dashboard')
         }
+    } else {
+        res.render('login.hbs', {flash: req.flash('error'), title: 'Login'})
     }
-    res.render('login.hbs', {flash: req.flash('error'), title: 'Login'})
 }
 
 const logout = (req, res) => {
