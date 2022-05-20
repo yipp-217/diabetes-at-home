@@ -1,118 +1,119 @@
-  <!--drop down button-->
-    <button class="white_button item_center" id="chart_button"> 
-        <select id="healthDataChart">
-          <option value="">-- select --</option>
-            <option value="1" data-value={{valueBloodGlucoseLevel}} data-date={{dateBloodGlucoseLevel}}>Blood Glucose Level</option>
-            <option value="2" data-value={{valueWeight}} data-date={{dateWeight}}>Weight</option>
-            <option value="3" data-value={{valueDosesOfInsulinTaken}} data-date={{dateDosesOfInsulinTaken}}>Does taken</option>
-            <option value="4" data-value={{valueExercise}} data-date={{dateExercise}}>Exercise</option>
-        </select>
-    </button>
+<!--drop down button-->
+<button class="white_button item_center" id="chart_button">
+    <select id="healthDataChart">
+        <option value="">-- select --</option>
+        <option value="1" data-value={{valueBloodGlucoseLevel}} data-date={{dateBloodGlucoseLevel}}>Blood Glucose Level
+        </option>
+        <option value="2" data-value={{valueWeight}} data-date={{dateWeight}}>Weight</option>
+        <option value="3" data-value={{valueDosesOfInsulinTaken}} data-date={{dateDosesOfInsulinTaken}}>Does taken
+        </option>
+        <option value="4" data-value={{valueExercise}} data-date={{dateExercise}}>Exercise</option>
+    </select>
+</button>
 
-    <div class="single_chart_container">
-        <canvas id="myChart"></canvas>
-        <p class="smaller_p" id="notes"></p>
-    </div>
+<div class="single_chart_container">
+    <canvas id="myChart"></canvas>
+    <p class="smaller_p" id="notes"></p>
+</div>
 
-    
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-    <script>
-     if (window.outerWidth < 700){
-       Chart.defaults.font.size = 10;
-     }    
-      function responsiveFont(){
-      if (window.outerWidth <700){
-          Chart.defaults.font.size = 10;
-        }else if (window.outerWidth > 1024){
-          Chart.defaults.font.size = 10;
-        }else {
-          Chart.defaults.font.size = 13;
-        };
-      };
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-      var dataValue;
-      var dataDate;
-      $(document).ready(
-
-        function myfunction() {
-        $("#healthDataChart").change(function () {
-        var cntrol = $(this);
-        dataValue = cntrol.find(":selected").data("value");
-        dataDate = cntrol.find(":selected").data("date");
-        $('#notes').text("Hover over the dots to see your health data in detail :)");
-        });
-
-    const myChart = new Chart(
-      document.getElementById('myChart'),
-      {
-        type: 'line',
-        data: {
-        labels: null,
-        datasets: [{
-        backgroundColor: '#f28379',
-        borderColor: '#f28379',
-         data: null,
-        }]
-        },
-        options: 
-          {
-            scales: {
-            yAxes: {
-                title: {
-                    display: true,
-                    text: '',
-                },
-                ticks: {precision: 0}
-            },
-            xAxes: {
-                title: {
-                    display: true,
-                    text: "Date",
-                }}},
-            plugins: {legend: {display: false},
-                          
-            }
-        }});
-              
-        const healthDataChart = document.getElementById('healthDataChart');
-        healthDataChart.addEventListener('change', switchChart);
-        function switchChart(){
-          //blood glucose level
-          if ("1".localeCompare(healthDataChart.value)==0){
-            myChart.data.datasets[0].data = dataValue.toString().split(',');
-            myChart.data.labels = dataDate.split(',');
-            myChart.config.options.scales.yAxes.title.text = 'Blood Glucose Level(nmol/L)';
-            myChart.config.type = 'line';
-            myChart.update();
-          //weight
-          }else if ("2".localeCompare(healthDataChart.value)==0){
-            myChart.data.datasets[0].data = dataValue.toString().split(',');
-            myChart.data.labels = dataDate.split(',');
-            myChart.config.type = 'line';
-            myChart.config.options.scales.yAxes.title.text = 'Weight(kg)';
-            myChart.update();
-          //does taken
-          }else if ("3".localeCompare(healthDataChart.value)==0){
-            myChart.data.datasets[0].data = dataValue.toString().split(',');
-            myChart.data.labels = dataDate.split(',');
-            myChart.config.type = 'line';
-            myChart.config.options.scales.yAxes.title.text = 'No. of does taken';
-            myChart.update();
-          //exercise
-          }else if ("4".localeCompare(healthDataChart.value)==0){
-            myChart.data.datasets[0].data = dataValue.toString().split(',');
-            myChart.data.labels = dataDate.split(',');
-            myChart.config.type = 'line';
-            myChart.config.options.scales.yAxes.title.text = 'Exercise(steps)';
-            myChart.update();
-          }
-            // myChart.data.datasets[0].data = healthDataChart.value.split(',');
-            //myChart.update();
+<script>     
+    if (window.outerWidth < 700) {         
+        Chart.defaults.font.size = 10;     
+    }     
+    function responsiveFont() {         
+        if (window.outerWidth < 700) {
+            Chart.defaults.font.size = 10;         
+        } else if (window.outerWidth > 1024) {             
+            Chart.defaults.font.size = 10;         
+        } else {             
+            Chart.defaults.font.size = 13;         
+        };     
+    };
+    var dataValue;     
+    var dataDate;     
+    $(document).ready(
+        function myfunction() {             
+            $("#healthDataChart").change(function () {                 
+                var cntrol = $(this);                 
+                dataValue = cntrol.find(":selected").data("value");                 
+                dataDate = cntrol.find(":selected").data("date");                 
+                $('#notes').text("Hover over the dots to see your health data in detail :)");             
+            });
+            const myChart = new Chart(                 
+                document.getElementById('myChart'),                 
+                {                     
+                    type: 'line',                     
+                    data: {                         
+                        labels: null,                         
+                        datasets: [{                             
+                            backgroundColor: '#f28379',                             
+                            borderColor: '#f28379',                             
+                            data: null,                         
+                        }]                     
+                    },                     
+                    options:                     
+                    {                         
+                        scales: {                             
+                            yAxes: {                                 
+                                title: {                                     
+                                    display: true,                                     
+                                    text: '',                                 
+                                },                                 
+                                ticks: { precision: 0 }                             
+                            },                             
+                            xAxes: {                                 
+                                title: {                                     
+                                    display: true,                                     
+                                    text: "Date",                                 
+                                }                             
+                            }                         
+                        },                         
+                        plugins: {                             
+                            legend: { display: false },
+                        }                     
+                    }                 
+                }
+            );
+            const healthDataChart = document.getElementById('healthDataChart');             
+            healthDataChart.addEventListener('change', switchChart);             
+            function switchChart() {                 
+                //blood glucose level                 
+                if ("1".localeCompare(healthDataChart.value) == 0) {                     
+                    myChart.data.datasets[0].data = dataValue.toString().split(',');                     
+                    myChart.data.labels = dataDate.split(',');                     
+                    myChart.config.options.scales.yAxes.title.text = 'Blood Glucose Level(nmol/L)';                     
+                    myChart.config.type = 'line';                     
+                    myChart.update();                     
+                //weight                 
+                } else if ("2".localeCompare(healthDataChart.value) == 0) {                    
+                    myChart.data.datasets[0].data = dataValue.toString().split(',');                     
+                    myChart.data.labels = dataDate.split(',');                     
+                    myChart.config.type = 'line';                     
+                    myChart.config.options.scales.yAxes.title.text = 'Weight(kg)';                     
+                    myChart.update();                     
+                //does taken                 
+                } else if ("3".localeCompare(healthDataChart.value) == 0) {                     
+                    myChart.data.datasets[0].data = dataValue.toString().split(',');                     
+                    myChart.data.labels = dataDate.split(',');                     
+                    myChart.config.type = 'line';                     
+                    myChart.config.options.scales.yAxes.title.text = 'No. of does taken';                     
+                    myChart.update();                     
+                //exercise                 
+                } else if ("4".localeCompare(healthDataChart.value) == 0) {                     
+                    myChart.data.datasets[0].data = dataValue.toString().split(',');                     
+                    myChart.data.labels = dataDate.split(',');                     
+                    myChart.config.type = 'line';                     
+                    myChart.config.options.scales.yAxes.title.text = 'Exercise(steps)';                     
+                    myChart.update();                 
+                }                 
+                // myChart.data.datasets[0].data = healthDataChart.value.split(',');                 
+                //myChart.update();             
+            }         
         }
-        });
-    </script>
-        
-   
+    );
+</script>
