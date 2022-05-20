@@ -45,12 +45,12 @@
 
             <article class="personal_info">
                 <label for="Confirm_Password"></label><h5>Confirm Password:</h5></label>
-                <input type="password" placeholder="" name="password2" required>
+                <input type="password" placeholder="" name="password2" required pattern="^(?=.*\d).{8,}$" title="Must be at least 8 characters">
             </article>
 
             <article class="personal_info hidden">
                 <label for="Confirm_Password"></label><h5>Confirm Password:</h5></label>
-                <input type="password" placeholder="" name="password2">
+                <input type="password" placeholder="" name="password2" pattern="^(?=.*\d).{8,}$" title="Must be at least 8 characters">
             </article>
             <section class="personal_info register_page_btn"><button class="light_button" id="register_btn"><a href=""><h5>Register</h5></a></button></section>
         </section>

@@ -25,8 +25,8 @@ clinicianRouter.post('/register-patient',
                     body('nameFamily').not().isEmpty().escape(),
                     body('nameScreen').not().isEmpty().escape(),
                     body('yearBorn').isInt().not().isEmpty().escape(),
-                    body('password').not().isEmpty().escape(),
-                    body('password2').not().isEmpty().escape(),
+                    body('password').isLength({ min: 8 }).not().isEmpty().escape(),
+                    body('password2').isLength({ min: 8 }).not().isEmpty().escape(),
                     userController.createPatientUser)
 
 clinicianRouter.get('/dark-mode', homeController.isAuthenticated, homeController.hasRole('Clinician'),clinicianController.turnOnDarkMode)
