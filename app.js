@@ -95,6 +95,7 @@ app.use('/patient', patientRouter)
 /* Clinician */
 app.use('/clinician', clinicianRouter)
 
+/* Page Not Found */
 app.get('*', function(req, res){
     res.render('error_page.hbs')
 });

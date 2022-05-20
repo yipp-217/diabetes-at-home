@@ -79,9 +79,50 @@ const getDateTime = () => {
     return new Date().toLocaleString("en-AU", {timeZone: "Australia/Melbourne"});
 }
 
+const updateUserDetails = async (req, res, next) => {
+    try {
+        const errors = validationResult(req);
+        if (errors.isEmpty()) {
+            await User.findOneAndUpdate(
+                {_id: req.user._id},
+                {$set: {
+                    bio: req.body.bio
+                }}
+            ).lean()
+        }
+        if (req.body.Password != "") {
+            if (req.body.Password.localeCompare(req.body.Confirm_Password) == 0) {
+                bcrypt.hash(req.body.Password, SALT_FACTOR, async (err, hash) => {
+                    if (err) {
+                        return next(err)
+                    }
+                    // Replace password with hash
+                    await User.findOneAndUpdate(
+                        {_id: req.user._id},
+                        {$set: {
+                            password: hash
+                        }}
+                    ).lean()
+                })
+            }
+        }
+        var role
+        if (req.user.onModel == 'Patient') {
+            role = 'patient'
+        } else if (req.user.onModel == 'Clinician') {
+            role = 'clinician'
+        }
+        path = '/' + role + '/settings'
+        return res.redirect(path)
+    }
+    catch (e) {
+        return next(e)
+    }
+}
 
 module.exports = {
     getUsers,
     createClinicianUser,
-    createPatientUser
+    createPatientUser,
+    updateUserDetails,
 }

@@ -2,6 +2,7 @@ const express = require('express')
 const homeRouter = express.Router()
 const passport = require('passport')
 const homeController = require('../controllers/homeController')
+const userController = require('../controllers/userController')
 
 const { body } = require('express-validator');
 
@@ -24,6 +25,6 @@ homeRouter.get('/about-website', homeController.getAboutWebsite)
 homeRouter.post('/update-user', 
                 homeController.isAuthenticated, 
                 body('bio').escape(),
-                homeController.updateUserDetails)
+                userController.updateUserDetails)
 
 module.exports = homeRouter
