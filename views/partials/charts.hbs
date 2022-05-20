@@ -82,21 +82,21 @@
         function switchChart(){
           //blood glucose level
           if ("1".localeCompare(healthDataChart.value)==0){
-            myChart.data.datasets[0].data = dataValue.split(',');
+            myChart.data.datasets[0].data = dataValue.toString().split(',');
             myChart.data.labels = dataDate.split(',');
             myChart.config.options.scales.yAxes.title.text = 'Blood Glucose Level(nmol/L)';
             myChart.config.type = 'line';
             myChart.update();
           //weight
           }else if ("2".localeCompare(healthDataChart.value)==0){
-            myChart.data.datasets[0].data = dataValue.split(',');
+            myChart.data.datasets[0].data = dataValue.toString().split(',');
             myChart.data.labels = dataDate.split(',');
             myChart.config.type = 'line';
             myChart.config.options.scales.yAxes.title.text = 'Weight(kg)';
             myChart.update();
           //does taken
           }else if ("3".localeCompare(healthDataChart.value)==0){
-            myChart.data.datasets[0].data = dataValue.split(',');
+            myChart.data.datasets[0].data = dataValue.toString().split(',');
             myChart.data.labels = dataDate.split(',');
             myChart.config.type = 'line';
             myChart.config.options.scales.yAxes.title.text = 'No. of does taken';
@@ -104,7 +104,6 @@
           //exercise
           }else if ("4".localeCompare(healthDataChart.value)==0){
             myChart.data.datasets[0].data = dataValue.toString().split(',');
-            console.log(myChart.data.datasets[0].data)
             myChart.data.labels = dataDate.split(',');
             myChart.config.type = 'line';
             myChart.config.options.scales.yAxes.title.text = 'Exercise(steps)';
