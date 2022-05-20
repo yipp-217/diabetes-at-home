@@ -28,7 +28,7 @@
             <p class="message">{{patient.supportMessage}}</p>
             <form id="supportMsgForm" action="/clinician/patient/{{patient._id}}/update-support" method="post">
                 <label>New Message:</label>
-                <input class="input" type="text" name="supportMsg" required>
+                <input class="input" type="text" name="supportMsg" pattern="^[^*|:<>[\]{}`()';@&$]+$" title="Please do not enter any special characters" required>
                 <section class="center_btn"><button type="submit"><h5>Update</h5></button></section>
             </form>
         </section>
@@ -37,7 +37,7 @@
             <h3>Notes</h3>
             <div id="past_notes_link"><a href="/clinician/patient/{{patient._id}}/clinician-notes">See Past Notes</a></div>
             <form id="clinicianNoteForm" action="/clinician/patient/{{patient._id}}/add-note" method="post">
-                <textarea class="input" name="clinicianNote" placeholder="Add Note Here" required></textarea>
+                <textarea class="input" name="clinicianNote" placeholder="Add Note Here" pattern="^[^*|:<>[\]{}`()';@&$]+$" title="Please do not enter any special characters" required></textarea>
                 <section class="center_btn"><button type="submit"><h5>SAVE</h5></button><br></section>
             </form>
         </section>

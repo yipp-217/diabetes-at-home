@@ -15,17 +15,17 @@
 
             <article class="personal_info">
                 <h5>First name:</h5>
-                <input type="text" placeholder="First name" name="nameGiven" required>
+                <input type="text" placeholder="First name" name="nameGiven" pattern="^[^*|:<>[\]{}`()';@&$]+$" title="Please do not enter any special characters" required>
             </article>
 
             <article class="personal_info">
                 <h5>Last name:</h5>
-                <input type="text" placeholder="Last name" name="nameFamily" required>
+                <input type="text" placeholder="Last name" name="nameFamily" pattern="^[^*|:<>[\]{}`()';@&$]+$" title="Please do not enter any special characters" required>
             </article>
 
             <article class="personal_info">
                 <h5>Screen name:</h5>
-                <input type="text" placeholder="Screen name" name="nameScreen" required>
+                <input type="text" placeholder="Screen name" name="nameScreen" pattern="^[^*|:<>[\]{}`()';@&$]+$" title="Please do not enter any special characters" required>
             </article>
         </section>
         <section class="setting_contanier">
