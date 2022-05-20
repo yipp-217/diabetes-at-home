@@ -409,6 +409,16 @@ form[id$="Form"]{
     border-radius: 20px;
     display: flex;
     align-items: flex-start;
+}
+
+.big_background_notes{
+    background-color: var(--color-background-lightmedium);
+    margin:5%;
+    width: 90%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    align-items: flex-start;
     flex-direction: column;
 }
 
