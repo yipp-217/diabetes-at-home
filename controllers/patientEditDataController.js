@@ -11,10 +11,10 @@ const getPatientUserEdit = async (req, res, next) => {
             res.redirect('/clinician/dashboard')
         } 
         else {
-            let patient = await patientController.getPatient(req.user.toJSON().model)
-            let engagementRate = await patientController.calculateEngagement(patient)
+            const patient = await patientController.getPatient(req.user.toJSON().model)
+            const engagementRate = await patientController.calculateEngagement(patient)
             await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
-            healthData = await patientController.getHealthData(patient)
+            const healthData = await patientController.getHealthData(patient)
             return res.render('patient_edit_data.hbs', {
                 user: req.user.toJSON(), patient: patient, healthData: healthData, darkMode: req.user.darkMode
             })
@@ -35,15 +35,17 @@ const updateBloodGlucose = async (req, res, next) => {
             if (!errors.isEmpty()) {
                 return res.redirect('/patient/edit-data')
             }
-            today = patientController.getDateTime()
+            const today = patientController.getDateTime()
+            const patient = await patientController.getPatient(req.user.toJSON().model)
+            const healthData = await patientController.getHealthData(patient)
             if (healthData === null) {
-                newHealthData = await HealthDataEntry.insertMany({
+                const newHealthData = await HealthDataEntry.insertMany({
                     date: today.slice(0, 10),
                     valueBloodGlucoseLevel: req.body.bloodGlucoseValue,
                     commentBloodGlucoseLevel: req.body.bloodGlucoseComment,
                     timeBloodGlucoseLevel: displayDate(today)
                 })
-                newId = newHealthData[0]._id
+                const newId = newHealthData[0]._id
                 await Patient.findOneAndUpdate(
                     {_id: patient._id},
                     {$push: {
@@ -79,15 +81,17 @@ const updateWeight = async (req, res, next) => {
             if (!errors.isEmpty()) {
                 return res.redirect('/patient/edit-data')
             }
-            today = patientController.getDateTime()
+            const today = patientController.getDateTime()
+            const patient = await patientController.getPatient(req.user.toJSON().model)
+            const healthData = await patientController.getHealthData(patient)
             if (healthData === null) {
-                newHealthData = await HealthDataEntry.insertMany({
+                const newHealthData = await HealthDataEntry.insertMany({
                     date: today.slice(0, 10),
                     valueWeight: req.body.weightValue,
                     commentWeight: req.body.weightComment,
                     timeWeight: displayDate(today)
                 })
-                newId = newHealthData[0]._id
+                const newId = newHealthData[0]._id
                 await Patient.findOneAndUpdate(
                     {_id: patient._id},
                     {$push: {
@@ -123,15 +127,17 @@ const updateExercise = async (req, res, next) => {
             if (!errors.isEmpty()) {
                 return res.redirect('/patient/edit-data')
             }
-            today = patientController.getDateTime()
+            const today = patientController.getDateTime()
+            const patient = await patientController.getPatient(req.user.toJSON().model)
+            const healthData = await patientController.getHealthData(patient)
             if (healthData === null) {
-                newHealthData = await HealthDataEntry.insertMany({
+                const newHealthData = await HealthDataEntry.insertMany({
                     date: today.slice(0, 10),
                     valueExercise: req.body.exerciseValue,
                     commentExercise: req.body.exerciseComment,
                     timeExercise: displayDate(today)
                 })
-                newId = newHealthData[0]._id
+                const newId = newHealthData[0]._id
                 await Patient.findOneAndUpdate(
                     {_id: patient._id},
                     {$push: {
@@ -167,15 +173,17 @@ const updateInsulin = async (req, res, next) => {
             if (!errors.isEmpty()) {
                 return res.redirect('/patient/edit-data')
             }
-            today = patientController.getDateTime()
+            const today = patientController.getDateTime()
+            const patient = await patientController.getPatient(req.user.toJSON().model)
+            const healthData = await patientController.getHealthData(patient)
             if (healthData === null) {
-                newHealthData = await HealthDataEntry.insertMany({
+                const newHealthData = await HealthDataEntry.insertMany({
                     date: today.slice(0, 10),
                     valueDosesOfInsulinTaken: req.body.dosesOfInsulinValue,
                     commentDosesOfInsulinTaken: req.body.dosesOfInsulinComment,
                     timeDosesOfInsulinTaken: displayDate(today)
                 })
-                newId = newHealthData[0]._id
+                const newId = newHealthData[0]._id
                 await Patient.findOneAndUpdate(
                     {_id: patient._id},
                     {$push: {

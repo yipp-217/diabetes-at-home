@@ -6,16 +6,14 @@ const {User} = require('../models/user')
 
 const patientController = require('../controllers/patientController')
 
-const { validationResult } = require('express-validator');
-
 const getClinicianDashboard = async (req, res, next) => {
     try {
         if (req.user.onModel == 'Patient') {
             res.redirect('/patient')
         } 
         else {
-            clinician = await Clinician.findById(req.user.model)
-            patients = await getPatients(clinician.patients)
+            const clinician = await Clinician.findById(req.user.model)
+            let patients = await getPatients(clinician.patients)
             patients = await getPatientsHealthData(patients)
             
             return res.render('clinician_dashboard.hbs', {
@@ -33,13 +31,14 @@ const getPatientComments = async (req, res, next) => {
         if (req.user.onModel == 'Patient') {
             res.redirect('/patient')
         } 
-        else
-            clinician = await Clinician.findById(req.user.toJSON().model).lean()
-            patients = await getPatients(clinician.patients)
+        else {
+            const clinician = await Clinician.findById(req.user.toJSON().model).lean()
+            let patients = await getPatients(clinician.patients)
             patients = await getPatientsHealthData(patients)
             return res.render('clinician_dashboard_comment.hbs', {
                 user: req.user.toJSON(), patients: patients, darkMode: req.user.darkMode
             })
+        }
     }
     catch (e) {
         return next(e)
@@ -80,9 +79,9 @@ const getPatientsHealthData = async (patients) => {
 }
 
 const getPatients = async (patients) => {
-    newPatients = []
+    let newPatients = []
     for (let i = 0; i < patients.length; i++) {
-        newPat = await Patient.findById(patients[i]).lean()
+        let newPat = await Patient.findById(patients[i]).lean()
         newPat = await Patient.findById(patients[i]).populate("user").lean()
         newPatients[i] = newPat
     }

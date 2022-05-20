@@ -3,7 +3,6 @@ const {ClinicianNote} = require('../models/patient')
 const {HealthDataEntry} = require('../models/patient')
 
 const patientController = require('../controllers/patientController')
-const clinicianController = require('../controllers/clinicianController')
 
 const { validationResult } = require('express-validator');
 
@@ -47,7 +46,7 @@ const getPatientNotes = async (req, res, next) => {
 const getClinicianNotes = async (patient) => {
     let notes = []
     for (let i = 0; i < patient.clinicianNotes.length; i++) {
-        data = await ClinicianNote.findById(patient.clinicianNotes[i]).lean()
+        const data = await ClinicianNote.findById(patient.clinicianNotes[i]).lean()
         notes[i] = data
     }
     return notes
@@ -62,32 +61,32 @@ const getPatientDataHistory = async (req, res, next) => {
             let patient = await Patient.findById(req.params.id).populate("user").lean()
             
             const oneDay = 24 * 60 * 60 * 1000
-            dayCreated = patient.user.dateCreated
-            today = patientController.getDateTime().substring(0,10)
+            const dayCreated = patient.user.dateCreated
+            const today = patientController.getDateTime().substring(0,10)
             
-            dateOne = new Date(dayCreated.substring(6,10), dayCreated.substring(3,5), dayCreated.substring(0,2))
-            dateTwo = new Date(today.substring(6,10), today.substring(3,5), today.substring(0,2))
-            diffDays = Math.round(Math.abs((dateOne - dateTwo) / oneDay)) + 1
+            let dateOne = new Date(dayCreated.substring(6,10), dayCreated.substring(3,5), dayCreated.substring(0,2))
+            let dateTwo = new Date(today.substring(6,10), today.substring(3,5), today.substring(0,2))
+            let diffDays = Math.round(Math.abs((dateOne - dateTwo) / oneDay)) + 1
 
-            currDate = new Date(dayCreated.substring(6,10), dayCreated.substring(3,5), dayCreated.substring(0,2))
-            nextDay = new Date(currDate)
+            let currDate = new Date(dayCreated.substring(6,10), dayCreated.substring(3,5), dayCreated.substring(0,2))
+            let nextDay = new Date(currDate)
             
 
-            dates = []
+            let dates = []
 
-            bloodGlucoseData = []
-            weightData = []
-            doseData = []
-            exData = []
+            let bloodGlucoseData = []
+            let weightData = []
+            let doseData = []
+            let exData = []
 
             nextDay.setMonth(nextDay.getMonth() - 1)
             for (let i = 0; i < diffDays; i++){
                 
                 dates.push(nextDay.toLocaleString().substring(0,10))
-                BGfound = 0
-                Wfound = 0
-                Efound = 0
-                Dfound = 0
+                let BGfound = 0
+                let Wfound = 0
+                let Efound = 0
+                let Dfound = 0
                 
                 for (let j = 0; j < patient.patientHealthEntries.length; j++){
                     const doc = await HealthDataEntry.findById(patient.patientHealthEntries[j])
@@ -130,7 +129,6 @@ const getPatientDataHistory = async (req, res, next) => {
                 
             }
 
-            
             return res.render('clinician_data_history.hbs', {user: req.user.toJSON(), patient: patient, date: dates, 
                 bloodGlucose: bloodGlucoseData, weight: weightData, excercise: exData, doses: doseData, darkMode: req.user.darkMode})
         }
@@ -150,6 +148,7 @@ const updateSupportMsg = async (req, res, next) => {
             if (!errors.isEmpty()) {
                 return res.redirect('/clinician/patient/' + patient._id)
             }
+            let patient = await Patient.findById(req.params.id).populate("user").lean()
             await Patient.findOneAndUpdate(
                 {_id: patient._id},
                 {$set: {
@@ -174,11 +173,12 @@ const addNote = async (req, res, next) => {
             if (!errors.isEmpty()) {
                 return res.redirect('/clinician/patient/' + patient._id)
             }
-            newNote = await ClinicianNote.insertMany({
+            let patient = await Patient.findById(req.params.id).populate("user").lean()
+            const newNote = await ClinicianNote.insertMany({
                 time: patientController.getDateTime(),
                 note: req.body.clinicianNote
             })
-            newId = newNote[0]._id
+            const newId = newNote[0]._id
             await Patient.findOneAndUpdate(
                 {_id: patient._id},
                 {$push: {
@@ -195,7 +195,7 @@ const addNote = async (req, res, next) => {
 
 const updatePatientRequirements = async (req, res, next) => {
     try {
-        patient = await Patient.findById(req.params.id).populate("user").lean()
+        const patient = await Patient.findById(req.params.id).populate("user").lean()
         await Patient.findOneAndUpdate(
             {_id: patient._id},
             {$set: {

@@ -13,18 +13,16 @@ const getPatientUser = async (req, res, next) => {
         if (req.user.onModel == 'Clinician') {
             res.redirect('/clinician/dashboard')
         } 
-        else
-            patient = await getPatient(req.user.toJSON().model)
-            healthData = await getHealthData(patient)
-            engagementRate = await calculateEngagement(patient)
+        else {
+            const patient = await getPatient(req.user.toJSON().model)
+            const healthData = await getHealthData(patient)
+            const engagementRate = await calculateEngagement(patient)
             await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
 
-            dateBG= [], valBG = [], dateW = [], valW = [], dateDose = [], valDose = [], dateExc = [], valExc = []
+            let dateBG= [], valBG = [], dateW = [], valW = [], dateDose = [], valDose = [], dateExc = [], valExc = []
 
-            for (let i = 0; i < patient.patientHealthEntries.length; i++){
-
-                
-                currHealthEntry = await HealthDataEntry.findById(patient.patientHealthEntries[i])
+            for (let i = 0; i < patient.patientHealthEntries.length; i++){ 
+                let currHealthEntry = await HealthDataEntry.findById(patient.patientHealthEntries[i])
                 
                 if (currHealthEntry.valueBloodGlucoseLevel){
                     dateBG.push(currHealthEntry.date)
@@ -42,8 +40,6 @@ const getPatientUser = async (req, res, next) => {
                     dateExc.push(currHealthEntry.date)
                     valExc.push(currHealthEntry.valueExercise)
                 }
-                
-                
             }
             
             valBG = valBG.toString(), dateBG = dateBG.toString()
@@ -93,6 +89,7 @@ const getPatientUser = async (req, res, next) => {
                 doseValue: valDose, doseDate: dateDose,
                 excValue: valExc, excDate: dateExc
             })
+        }
     }
     catch (e) {
         return next(e)
@@ -109,8 +106,8 @@ const getHealthData = async (patient) => {
         return null
     }
     for (let i = 0; i < patient.patientHealthEntries.length; i++) {
-        data = await HealthDataEntry.findById(patient.patientHealthEntries[i]).lean()
-        today = getDateTime().slice(0, 10)
+        const data = await HealthDataEntry.findById(patient.patientHealthEntries[i]).lean()
+        const today = getDateTime().slice(0, 10)
         if (today === data.date) {
             return data
         }
@@ -122,21 +119,22 @@ const calculateEngagement = async (patient) => {
     
     const data = await User.findById(patient.user).lean()
     
-    today = getDateTime().substring(0,10)
+    let today = getDateTime().substring(0,10)
     
+    let dayCreated
     if (data == null) {
         dayCreated = today
     } else {
         dayCreated = data.dateCreated.substring(0, 10)
     }
 
-    dateOne = new Date(dayCreated.substring(6,10), dayCreated.substring(3,5), dayCreated.substring(0,2))
-    dateTwo = new Date(today.substring(6,10), today.substring(3,5), today.substring(0,2))
+    const dateOne = new Date(dayCreated.substring(6,10), dayCreated.substring(3,5), dayCreated.substring(0,2))
+    const dateTwo = new Date(today.substring(6,10), today.substring(3,5), today.substring(0,2))
     
-    diffDays = Math.round(Math.abs((dateOne - dateTwo) / oneDay)) + 1
+    const diffDays = Math.round(Math.abs((dateOne - dateTwo) / oneDay)) + 1
     
-    numEntries = patient.patientHealthEntries.length
-    engagementRate = (numEntries/diffDays) * 100
+    const numEntries = patient.patientHealthEntries.length
+    const engagementRate = (numEntries/diffDays) * 100
 
     await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
     //console.log("Updated " + data.email + "'s engagement, new value: " + engagementRate)
@@ -152,7 +150,7 @@ const getLeaderboard = async (req, res, next) => {
         else {
             // update every patients engagement rate
             for await (const doc of Patient.find()) {
-                patient = await Patient.findById(doc._id)
+                let patient = await Patient.findById(doc._id)
                 await calculateEngagement(patient)
                 
             }
@@ -160,23 +158,22 @@ const getLeaderboard = async (req, res, next) => {
             // create dictionary of scores sorted by screen names
             var dict = {}
             for await (const doc of User.find({onModel: "Patient"}).sort('nameScreen')){
-                screenName = doc.nameScreen
+                const screenName = doc.nameScreen
 
-                currPatient = await Patient.findById(doc.model)
+                const currPatient = await Patient.findById(doc.model)
                 dict[screenName] = currPatient.engagement
-
             }
             
             console.log(dict)
-            var items = Object.keys(dict).map((key) => { return [key, dict[key]] });
+            let items = Object.keys(dict).map((key) => { return [key, dict[key]] });
             items.sort((first, second) => { return first[1] - second[1] });
-            var keys = items.map((e) => { return e[0] });
+            let keys = items.map((e) => { return e[0] });
 
             keys = keys.slice(-5)
             keys = keys.reverse()
 
             
-            patient = await getPatient(req.user.toJSON().model)
+            const patient = await getPatient(req.user.toJSON().model)
             return res.render('patient_leaderboard.hbs', {user: req.user.toJSON(), patient: patient, darkMode: req.user.darkMode, topfive: keys})
         }
     }
@@ -190,11 +187,12 @@ const getPatientSettings = async (req, res, next) => {
         if (req.user.onModel == 'Clinician') {
             res.redirect('/clinician/dashboard')
         } 
-        else
-            patient = await getPatient(req.user.toJSON().model)
-            engagementRate = await calculateEngagement(patient)
+        else {
+            const patient = await getPatient(req.user.toJSON().model)
+            const engagementRate = await calculateEngagement(patient)
             await Patient.findOneAndUpdate({_id: patient._id}, {$set: {engagement: engagementRate}}).lean()
             return res.render('settings.hbs', {user: req.user.toJSON(), patient: patient, darkMode: req.user.darkMode})
+        }
     }
     catch (e) {
         return next(e)

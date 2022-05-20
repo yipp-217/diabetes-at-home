@@ -1,6 +1,9 @@
 const {User} = require('../models/user')
 const {Clinician} = require('../models/clinician')
 const {Patient} = require('../models/patient')
+const bcrypt = require('bcryptjs')
+
+SALT_FACTOR = 10
 
 const { validationResult } = require('express-validator');
 
@@ -106,13 +109,13 @@ const updateUserDetails = async (req, res, next) => {
                 })
             }
         }
-        var role
+        let role
         if (req.user.onModel == 'Patient') {
             role = 'patient'
         } else if (req.user.onModel == 'Clinician') {
             role = 'clinician'
         }
-        path = '/' + role + '/settings'
+        let path = '/' + role + '/settings'
         return res.redirect(path)
     }
     catch (e) {
