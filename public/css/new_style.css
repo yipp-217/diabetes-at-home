@@ -409,6 +409,7 @@ form[id$="Form"]{
     border-radius: 20px;
     display: flex;
     align-items: flex-start;
+    flex-direction: column;
 }
 
 .setting_contanier{
