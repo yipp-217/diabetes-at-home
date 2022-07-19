@@ -1,24 +1,27 @@
-# diabetes-at-home
+# Diabetes@Home
 
-Web Information Technologies (INFO30005_2022_SM1)
-- The group project specification is provided in the repository.
+Web Information Technologies Project (INFO30005_2022_SM1)
 
-Deployment
-- https://info30005-friday1300-team2.herokuapp.com/
-- https://git.heroku.com/info30005-friday1300-team2.git
+The group project specification is provided in the repository.
 
-Dependencies:
-- npm install bcrypt.js
-- npm install connect-mongo
-- npm install express
-- npm install express-flash
-- npm install express-handlebars
-- npm install express-session
-- npm install mongoose
-- npm install passport
-- npm install passport-local
+Install the followings before running `node app.js`
+```
+npm install bcrypt.js
+npm install connect-mongo
 
-Development Dependencies:
-- npm install -D dotenv
+npm install express
+npm install express-flash
+npm install express-handlebars
+npm install express-session
 
+npm install --save express-validator
 
+npm install mongoose
+
+npm install passport
+npm install passport-local
+
+npm install -D dotenv
+```
+
+The remote app and database have been taken down, but you are welcome to download the code and setup a local `.evn` file to run the application.
